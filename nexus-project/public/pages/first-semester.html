@@ -3,480 +3,1001 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Semester - Malware Analysis | Nexus Project</title>
-    <meta name="description" content="First semester work focusing on comprehensive malware analysis research and techniques">
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Font Awesome -->
+    <title>NEXUS - First Semester | Cybersecurity Fundamentals</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="../assets/css/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .mono { font-family: 'JetBrains Mono', monospace; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Enhanced Matrix Background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.05;
+        }
+
+        .matrix-char {
+            position: absolute;
+            color: #0ea5e9;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            animation: matrix-rain 20s linear infinite;
+        }
+
+        @keyframes matrix-rain {
+            0% { transform: translateY(-100vh); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(100vh); opacity: 0; }
+        }
+
+        /* Section Cards - Enhanced visibility */
+        .section-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+            border: 3px solid rgba(14, 165, 233, 0.4);
+            backdrop-filter: blur(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 300px;
+            box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1);
+        }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.2), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .section-card:hover::before {
+            left: 100%;
+        }
+
+        .section-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            border-color: #0ea5e9;
+            box-shadow: 
+                0 25px 50px rgba(14, 165, 233, 0.4),
+                0 15px 30px rgba(168, 85, 247, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .section-card.active {
+            border-color: #06b6d4;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(14, 165, 233, 0.2));
+        }
+
+        /* Section Content Areas */
+        .section-content {
+            display: none;
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .section-content.active {
+            display: block;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Encryption Specific Styles */
+        .encryption-demo {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(168, 85, 247, 0.1));
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+        }
+
+        .encryption-demo:hover {
+            border-color: #06b6d4;
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.2);
+        }
+
+        .encrypt-btn {
+            background: linear-gradient(45deg, #0ea5e9, #06b6d4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .encrypt-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .encrypt-btn:hover::before {
+            left: 100%;
+        }
+
+        .encrypt-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Algorithm Cards */
+        .algo-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
+            border: 1px solid rgba(14, 165, 233, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .algo-card:hover {
+            border-color: #0ea5e9;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.2);
+        }
+
+        /* Video Styling */
+        .video-container {
+            position: relative;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.1), rgba(168, 85, 247, 0.1));
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            border-radius: 1rem;
+            overflow: hidden;
+        }
+
+        .video-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(168, 85, 247, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+
+        /* Floating Particles */
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .floating-particles::before,
+        .floating-particles::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: linear-gradient(45deg, #0ea5e9, #06b6d4);
+            border-radius: 50%;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        .floating-particles::before {
+            left: 20%;
+            animation-delay: -7s;
+        }
+
+        .floating-particles::after {
+            left: 80%;
+            animation-delay: -3s;
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10%, 90% { 
+                transform: translateY(0vh) scale(1);
+                opacity: 1;
+            }
+            50% { 
+                transform: translateY(-20px) scale(1.2);
+                opacity: 0.8;
+            }
+        }
+
+        /* Progress Bars */
+        .progress-bar {
+            background: linear-gradient(90deg, #0ea5e9, #06b6d4);
+            height: 6px;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+
+        /* Input Styling */
+        .nexus-input {
+            background: rgba(15, 23, 42, 0.8);
+            border: 2px solid rgba(14, 165, 233, 0.3);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .nexus-input:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+            outline: none;
+        }
+
+        /* Back Button */
+        .back-btn {
+            background: linear-gradient(45deg, #374151, #4b5563);
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: linear-gradient(45deg, #4b5563, #6b7280);
+            transform: translateX(-5px);
+        }
+
+        /* Make sure overview section is visible */
+        #overview {
+            display: block !important;
+        }
+
+        /* Debug borders - remove after testing */
+        .debug-border {
+            border: 2px solid red !important;
+        }
     </style>
 </head>
-<body class="bg-gray-900 text-white">
+
+<body class="bg-gray-900 text-white relative">
+    <!-- Enhanced Matrix Background -->
+    <div class="matrix-bg" id="matrix-background"></div>
+    
+    <!-- Floating Particles -->
+    <div class="floating-particles"></div>
+
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <div class="flex items-center">
-                    <a href="../index.html" class="flex-shrink-0">
-                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                            NEXUS
-                        </h1>
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-white text-lg"></i>
+                    </div>
+                    <h1 class="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                        NEXUS
+                    </h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="../index.html" class="text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="first-semester.html" class="text-blue-400 font-semibold">First Semester</a>
+                    <a href="second-semester-phase1.html" class="text-gray-300 hover:text-white transition-colors">Second Semester</a>
+                    <a href="myc-game.html" class="text-gray-300 hover:text-white transition-colors">
+                        <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">NEXUS x MYC</span>
                     </a>
                 </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="../index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Home</a>
-                        <a href="#" class="nav-link active px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-700">First Semester</a>
-                        <a href="second-semester-phase1.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Second Semester</a>
-                        <a href="myc-game.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent hover:from-cyan-300 hover:to-pink-300 transition-all duration-300">NEXUS x MYC</a>
-                    </div>
-                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                    First Semester
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-                    Comprehensive Malware Analysis Research and Methodologies
-                </p>
-                <div class="mt-8 flex items-center justify-center space-x-2 text-gray-400">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Academic Period: September 2024 - January 2025</span>
-                </div>
-            </div>
+    <!-- Mobile Menu -->
+    <div class="md:hidden fixed top-16 left-0 w-full bg-gray-900/95 backdrop-blur-lg border-b border-gray-800 z-40 hidden" id="mobile-menu">
+        <div class="px-4 py-4 space-y-2">
+            <a href="../index.html" class="block text-gray-300 hover:text-white py-2">Home</a>
+            <a href="first-semester.html" class="block text-blue-400 font-semibold py-2">First Semester</a>
+            <a href="second-semester-phase1.html" class="block text-gray-300 hover:text-white py-2">Second Semester</a>
+            <a href="myc-game.html" class="block text-gray-300 hover:text-white py-2">
+                <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent">NEXUS x MYC</span>
+            </a>
         </div>
-    </section>
+    </div>
 
-    <!-- Table of Contents -->
-    <section class="py-12 bg-gray-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Research Overview</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700">
-                    <h3 class="text-xl font-semibold text-white mb-4">Quick Navigation</h3>
-                    <ul class="space-y-3">
-                        <li><a href="#analysis-techniques" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-microscope mr-2"></i>Analysis Techniques</a></li>
-                        <li><a href="#tools" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-tools mr-2"></i>Tools & Software</a></li>
-                        <li><a href="#findings" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-chart-line mr-2"></i>Research Findings</a></li>
-                        <li><a href="#case-studies" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-file-alt mr-2"></i>Case Studies</a></li>
-                        <li><a href="#documentation" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-book mr-2"></i>Documentation</a></li>
-                    </ul>
-                </div>
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700">
-                    <h3 class="text-xl font-semibold text-white mb-4">Key Achievements</h3>
-                    <ul class="space-y-3 text-gray-300">
-                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Analyzed 50+ malware samples</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Mastered static analysis techniques</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Developed analysis methodologies</li>
-                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Created comprehensive reports</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Analysis Techniques Section -->
-    <section id="analysis-techniques" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-6">Analysis Techniques</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Comprehensive methodologies employed in malware analysis research
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Static Analysis -->
-                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300">
-                    <div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-file-code text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-white mb-4 text-center">Static Analysis</h3>
-                    <p class="text-gray-300 mb-6 text-center">
-                        Examining malware without executing it to understand structure and behavior.
+    <!-- Main Content -->
+    <main class="pt-16">
+        <!-- Overview Section - ALWAYS VISIBLE BY DEFAULT -->
+        <section id="overview" class="py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 relative overflow-hidden" style="display: block !important;">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Hero Section -->
+                <div class="text-center mb-16">
+                    <h1 class="text-5xl md:text-7xl font-black mb-6">
+                        <span class="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
+                            CYBERSECURITY
+                        </span>
+                    </h1>
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                        FUNDAMENTALS
+                    </h2>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
+                        Master the essential foundations of cybersecurity through four comprehensive learning modules. 
+                        Build your expertise from encryption basics to advanced security operations.
                     </p>
-                    <ul class="text-gray-400 space-y-2">
-                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>File format analysis</li>
-                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>Disassembly techniques</li>
-                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>String extraction</li>
-                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>PE header analysis</li>
-                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>Import/Export tables</li>
-                    </ul>
-                </div>
-                
-                <!-- Dynamic Analysis -->
-                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-green-500 transition-all duration-300">
-                    <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-play-circle text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-semibold text-white mb-4 text-center">Dynamic Analysis</h3>
-                    <p class="text-gray-300 mb-6 text-center">
-                        Running malware in controlled environments to observe behavior.
+                    <p class="text-lg text-cyan-400 font-semibold mb-8">
+                        Choose a specialization to begin your cybersecurity journey:
                     </p>
-                    <ul class="text-gray-400 space-y-2">
-                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Sandbox execution</li>
-                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Network monitoring</li>
-                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>File system changes</li>
-                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Registry modifications</li>
-                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Process monitoring</li>
-                    </ul>
                 </div>
-                
-                <!-- Behavioral Analysis -->
-                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition-all duration-300">
-                    <div class="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
-                        <i class="fas fa-brain text-white text-2xl"></i>
+
+                <!-- 4 SECTION SELECTION CARDS - THESE ARE THE BUTTONS YOU'RE LOOKING FOR -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <!-- 1. ENCRYPTION SECTION CARD -->
+                    <div class="section-card rounded-2xl p-8 text-center" data-section="encryption">
+                        <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-lock text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">ENCRYPTION</h3>
+                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">Master cryptographic algorithms, secure communications, and data protection techniques with hands-on labs.</p>
+                        <div class="flex items-center justify-center space-x-2 text-cyan-400 font-semibold">
+                            <i class="fas fa-play-circle"></i>
+                            <span>Interactive Demos</span>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-500">
+                            ✓ Text, Image & Video Encryption<br>
+                            ✓ AES, RSA, SHA Algorithms<br>
+                            ✓ Real-time Results
+                        </div>
                     </div>
-                    <h3 class="text-2xl font-semibold text-white mb-4 text-center">Behavioral Analysis</h3>
-                    <p class="text-gray-300 mb-6 text-center">
-                        Understanding malware patterns and attack methodologies.
+
+                    <!-- 2. NETWORK SECURITY CARD -->
+                    <div class="section-card rounded-2xl p-8 text-center" data-section="network">
+                        <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-network-wired text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">NETWORK SECURITY</h3>
+                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">Learn network protocols, firewall configuration, and advanced traffic analysis techniques.</p>
+                        <div class="flex items-center justify-center space-x-2 text-purple-400 font-semibold">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Coming Soon</span>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-500">
+                            • Firewall Management<br>
+                            • Traffic Analysis<br>
+                            • Intrusion Detection
+                        </div>
+                    </div>
+
+                    <!-- 3. MALWARE ANALYSIS CARD -->
+                    <div class="section-card rounded-2xl p-8 text-center" data-section="malware">
+                        <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-bug text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">MALWARE ANALYSIS</h3>
+                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">Understand threat detection, reverse engineering, and behavioral pattern analysis.</p>
+                        <div class="flex items-center justify-center space-x-2 text-red-400 font-semibold">
+                            <i class="fas fa-microscope"></i>
+                            <span>Coming Soon</span>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-500">
+                            • Static Analysis<br>
+                            • Dynamic Sandbox<br>
+                            • Behavior Patterns
+                        </div>
+                    </div>
+
+                    <!-- 4. ETHICAL HACKING CARD -->
+                    <div class="section-card rounded-2xl p-8 text-center" data-section="ethical">
+                        <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-user-secret text-3xl text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">ETHICAL HACKING</h3>
+                        <p class="text-gray-300 mb-6 text-sm leading-relaxed">Explore penetration testing, vulnerability assessment, and responsible disclosure practices.</p>
+                        <div class="flex items-center justify-center space-x-2 text-green-400 font-semibold">
+                            <i class="fas fa-search"></i>
+                            <span>Coming Soon</span>
+                        </div>
+                        <div class="mt-4 text-xs text-gray-500">
+                            • Penetration Testing<br>
+                            • Vulnerability Scan<br>
+                            • OSINT Gathering
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Stats -->
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 bg-gray-800/30 rounded-2xl p-8 backdrop-blur-sm border border-gray-700">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-cyan-400 mb-2">4</div>
+                        <div class="text-gray-300 text-sm">Core Specializations</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-purple-400 mb-2">12+</div>
+                        <div class="text-gray-300 text-sm">Interactive Tools</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-pink-400 mb-2">∞</div>
+                        <div class="text-gray-300 text-sm">Learning Paths</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-green-400 mb-2">24/7</div>
+                        <div class="text-gray-300 text-sm">Access</div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center mt-16">
+                    <p class="text-lg text-gray-300 mb-6">Ready to start your cybersecurity journey?</p>
+                    <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                        <button onclick="document.querySelector('[data-section=encryption]').click()" class="encrypt-btn px-8 py-4 rounded-lg text-white font-bold text-lg flex items-center space-x-2">
+                            <i class="fas fa-rocket"></i>
+                            <span>Start with Encryption</span>
+                        </button>
+                        <p class="text-gray-400 text-sm">Most popular starting point</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Encryption Section Content -->
+        <section id="encryption-content" class="section-content py-20 bg-gray-900 relative overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <!-- Back Button -->
+                <button onclick="showOverview()" class="back-btn mb-8 px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:shadow-lg">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Overview</span>
+                </button>
+
+                <!-- Section Header -->
+                <div class="text-center mb-16">
+                    <div class="w-24 h-24 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lock text-4xl text-white"></i>
+                    </div>
+                    <h1 class="text-5xl font-black mb-6">
+                        <span class="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                            ENCRYPTION MASTERY
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                        Dive deep into the world of cryptography. Learn how encryption protects data, secure communications, 
+                        and understand the mathematical foundations that keep our digital world safe.
                     </p>
-                    <ul class="text-gray-400 space-y-2">
-                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Attack vectors</li>
-                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Persistence mechanisms</li>
-                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Communication protocols</li>
-                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Evasion techniques</li>
-                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Payload delivery</li>
-                    </ul>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Tools Section -->
-    <section id="tools" class="py-20 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-6">Tools & Software</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Professional-grade tools used throughout the malware analysis process
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- IDA Pro -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-search text-white text-xl"></i>
+                <!-- Demo Video Section -->
+                <div class="mb-16">
+                    <div class="bg-gradient-to-r from-blue-900/50 to-cyan-900/50 rounded-2xl p-8 border border-blue-500/30 backdrop-blur-sm">
+                        <h3 class="text-3xl font-bold text-white mb-8 text-center">
+                            <i class="fas fa-play-circle text-blue-400 mr-3"></i>
+                            Encryption in Action - NEXUS Demo
+                        </h3>
+                        <div class="video-container aspect-video">
+                            <video 
+                                id="nexusDemo" 
+                                class="w-full h-full object-cover rounded-xl" 
+                                controls 
+                                poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='450' viewBox='0 0 800 450'%3E%3Crect width='800' height='450' fill='%23111827'/%3E%3Ctext x='400' y='200' font-family='Arial, sans-serif' font-size='28' fill='%233b82f6' text-anchor='middle'%3ENEXUS%3C/text%3E%3Ctext x='400' y='250' font-family='Arial, sans-serif' font-size='18' fill='%2306b6d4' text-anchor='middle'%3EEncryption Demo%3C/text%3E%3C/svg%3E"
+                            >
+                                <source src="../videos/Nexus Demo (online-video-cutter.com).mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <div class="video-overlay">
+                                <div class="text-center">
+                                    <div class="w-24 h-24 bg-blue-600/80 rounded-full flex items-center justify-center mb-4 mx-auto shadow-2xl backdrop-blur-sm">
+                                        <i class="fas fa-play text-white text-3xl ml-1"></i>
+                                    </div>
+                                    <p class="text-white font-semibold">Watch NEXUS Encryption Demo</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">IDA Pro</h3>
-                    <p class="text-gray-400 text-sm">Disassembler and debugger</p>
                 </div>
-                
-                <!-- Ghidra -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-code text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Ghidra</h3>
-                    <p class="text-gray-400 text-sm">NSA reverse engineering tool</p>
-                </div>
-                
-                <!-- OllyDbg -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-bug text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">OllyDbg</h3>
-                    <p class="text-gray-400 text-sm">32-bit assembler debugger</p>
-                </div>
-                
-                <!-- VMware -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-desktop text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">VMware</h3>
-                    <p class="text-gray-400 text-sm">Virtual machine environment</p>
-                </div>
-                
-                <!-- Wireshark -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-network-wired text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Wireshark</h3>
-                    <p class="text-gray-400 text-sm">Network protocol analyzer</p>
-                </div>
-                
-                <!-- Process Monitor -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-tasks text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">ProcMon</h3>
-                    <p class="text-gray-400 text-sm">Process and file monitoring</p>
-                </div>
-                
-                <!-- RegShot -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-clipboard-list text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">RegShot</h3>
-                    <p class="text-gray-400 text-sm">Registry comparison tool</p>
-                </div>
-                
-                <!-- Hex Editors -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
-                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-edit text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">Hex Editors</h3>
-                    <p class="text-gray-400 text-sm">Binary file examination</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Research Findings -->
-    <section id="findings" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-6">Research Findings</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Key insights and discoveries from our first semester malware analysis research
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <div>
-                    <h3 class="text-2xl font-semibold text-white mb-6">Statistical Overview</h3>
-                    <div class="space-y-6">
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-gray-300">Malware Samples Analyzed</span>
-                                <span class="text-2xl font-bold text-blue-400">50+</span>
+                <!-- Interactive Encryption Tools -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                    <!-- Text Encryption Demo -->
+                    <div class="encryption-demo rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-keyboard text-cyan-400 mr-3"></i>
+                            Text Encryption Lab
+                        </h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-gray-300 mb-2 font-semibold">Your Message:</label>
+                                <textarea 
+                                    id="inputText" 
+                                    class="nexus-input w-full h-32 rounded-lg p-4 resize-none" 
+                                    placeholder="Enter your secret message here..."
+                                ></textarea>
                             </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-400 h-2 rounded-full" style="width: 100%"></div>
+                            <div>
+                                <label class="block text-gray-300 mb-2 font-semibold">Encryption Algorithm:</label>
+                                <select id="algorithm" class="nexus-input w-full rounded-lg p-3">
+                                    <option value="caesar">Caesar Cipher (Shift: 3)</option>
+                                    <option value="base64">Base64 Encoding</option>
+                                    <option value="rot13">ROT13 Cipher</option>
+                                </select>
                             </div>
-                        </div>
-                        
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-gray-300">Analysis Techniques Mastered</span>
-                                <span class="text-2xl font-bold text-green-400">8</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-400 h-2 rounded-full" style="width: 80%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-gray-300">Tools & Software Used</span>
-                                <span class="text-2xl font-bold text-purple-400">12</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="bg-purple-400 h-2 rounded-full" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
-                            <div class="flex justify-between items-center mb-2">
-                                <span class="text-gray-300">Research Hours</span>
-                                <span class="text-2xl font-bold text-yellow-400">200+</span>
-                            </div>
-                            <div class="w-full bg-gray-700 rounded-full h-2">
-                                <div class="bg-yellow-400 h-2 rounded-full" style="width: 90%"></div>
+                            <button onclick="encryptText()" class="encrypt-btn w-full py-4 rounded-lg text-white font-bold text-lg">
+                                <i class="fas fa-lock mr-2"></i>
+                                ENCRYPT MESSAGE
+                            </button>
+                            <div id="textOutput" class="bg-gray-800/50 rounded-lg p-4 min-h-[80px] border border-cyan-500/30">
+                                <p class="text-gray-400 italic">Encrypted text will appear here...</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-semibold text-white mb-6">Key Discoveries</h3>
-                    <div class="space-y-4">
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-blue-500">
-                            <h4 class="font-semibold text-white mb-2">Evasion Techniques</h4>
-                            <p class="text-gray-300 text-sm">Identified common obfuscation methods used by modern malware to avoid detection.</p>
-                        </div>
-                        
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-green-500">
-                            <h4 class="font-semibold text-white mb-2">Persistence Mechanisms</h4>
-                            <p class="text-gray-300 text-sm">Documented various methods malware uses to maintain persistence on infected systems.</p>
-                        </div>
-                        
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-purple-500">
-                            <h4 class="font-semibold text-white mb-2">Communication Patterns</h4>
-                            <p class="text-gray-300 text-sm">Analyzed C&C communication protocols and identified behavioral patterns.</p>
-                        </div>
-                        
-                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-yellow-500">
-                            <h4 class="font-semibold text-white mb-2">Attack Vectors</h4>
-                            <p class="text-gray-300 text-sm">Mapped common infection vectors and propagation methods across different malware families.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Case Studies Section -->
-    <section id="case-studies" class="py-20 bg-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-6">Case Studies</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Detailed analysis of significant malware samples and their characteristics
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Case Study 1 -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-red-500 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-virus text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-white">Trojan Analysis</h3>
-                    </div>
-                    <p class="text-gray-300 text-sm mb-4">
-                        Comprehensive analysis of a banking trojan focusing on credential theft mechanisms and evasion techniques.
-                    </p>
-                    <div class="space-y-2 text-xs text-gray-400">
-                        <div class="flex justify-between">
-                            <span>Complexity:</span>
-                            <span class="text-red-400">High</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Analysis Time:</span>
-                            <span>15 hours</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Techniques Used:</span>
-                            <span>Static, Dynamic</span>
+                    <!-- Image Encryption Demo -->
+                    <div class="encryption-demo rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
+                            <i class="fas fa-image text-purple-400 mr-3"></i>
+                            Image Encryption Lab
+                        </h3>
+                        <div class="space-y-6">
+                            <div class="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-purple-400 transition-colors">
+                                <i class="fas fa-cloud-upload-alt text-4xl text-gray-400 mb-4"></i>
+                                <p class="text-gray-300 mb-4">Drag & drop your image or click to select</p>
+                                <input type="file" id="imageInput" accept="image/*" class="hidden" onchange="handleImageUpload(event)">
+                                <button onclick="document.getElementById('imageInput').click()" class="bg-purple-600 hover:bg-purple-700 px-6 py-2 rounded-lg text-white font-semibold transition-colors">
+                                    Select Image
+                                </button>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-2 font-semibold">Encryption Method:</label>
+                                <select id="imageAlgorithm" class="nexus-input w-full rounded-lg p-3">
+                                    <option value="aes">AES-256 Encryption</option>
+                                    <option value="pixel">Pixel Shuffling</option>
+                                    <option value="xor">XOR Cipher</option>
+                                </select>
+                            </div>
+                            <button onclick="encryptImage()" class="encrypt-btn w-full py-4 rounded-lg text-white font-bold text-lg">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                ENCRYPT IMAGE
+                            </button>
+                            <div id="imageOutput" class="bg-gray-800/50 rounded-lg p-4 min-h-[120px] border border-purple-500/30 text-center">
+                                <p class="text-gray-400 italic">Upload an image to see encryption preview...</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Case Study 2 -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-orange-500 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-lock text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-white">Ransomware Study</h3>
-                    </div>
-                    <p class="text-gray-300 text-sm mb-4">
-                        Investigation of ransomware encryption methods and ransom note delivery mechanisms.
-                    </p>
-                    <div class="space-y-2 text-xs text-gray-400">
-                        <div class="flex justify-between">
-                            <span>Complexity:</span>
-                            <span class="text-orange-400">Medium</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Analysis Time:</span>
-                            <span>12 hours</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Techniques Used:</span>
-                            <span>All Methods</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Case Study 3 -->
-                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-yellow-500 transition-all duration-300">
-                    <div class="flex items-center mb-4">
-                        <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
-                            <i class="fas fa-spider text-white"></i>
-                        </div>
-                        <h3 class="text-lg font-semibold text-white">Botnet Analysis</h3>
-                    </div>
-                    <p class="text-gray-300 text-sm mb-4">
-                        Examination of botnet communication protocols and command structure analysis.
-                    </p>
-                    <div class="space-y-2 text-xs text-gray-400">
-                        <div class="flex justify-between">
-                            <span>Complexity:</span>
-                            <span class="text-yellow-400">Medium</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Analysis Time:</span>
-                            <span>18 hours</span>
-                        </div>
-                        <div class="flex justify-between">
-                            <span>Techniques Used:</span>
-                            <span>Network, Dynamic</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Documentation Section -->
-    <section id="documentation" class="py-20 bg-gray-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-white mb-6">Documentation & Resources</h2>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                    Comprehensive documentation and resources from first semester research
-                </p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 text-center">
-                    <i class="fas fa-file-pdf text-blue-400 text-3xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-white mb-2">Research Report</h3>
-                    <p class="text-gray-400 text-sm">Complete analysis report with findings and methodologies</p>
-                </a>
-                
-                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all duration-300 text-center">
-                    <i class="fas fa-chart-bar text-green-400 text-3xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-white mb-2">Statistical Data</h3>
-                    <p class="text-gray-400 text-sm">Detailed statistics and analysis results</p>
-                </a>
-                
-                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 text-center">
-                    <i class="fas fa-code text-purple-400 text-3xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-white mb-2">Analysis Scripts</h3>
-                    <p class="text-gray-400 text-sm">Custom scripts and tools developed for analysis</p>
-                </a>
-                
-                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-yellow-500 transition-all duration-300 text-center">
-                    <i class="fas fa-book text-yellow-400 text-3xl mb-4"></i>
-                    <h3 class="text-lg font-semibold text-white mb-2">Learning Resources</h3>
-                    <p class="text-gray-400 text-sm">References and educational materials used</p>
-                </a>
-            </div>
-        </div>
-    </section>
+                <!-- Video Encryption Demo -->
+                <div class="encryption-demo rounded-2xl p-8 mb-16">
+                    <h3 class="text-3xl font-bold text-white mb-8 text-center flex items-center justify-center">
+                        <i class="fas fa-video text-pink-400 mr-3"></i>
+                        Advanced Video Encryption
+                    </h3>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="border-2 border-dashed border-gray-600 rounded-lg p-8 text-center hover:border-pink-400 transition-colors">
+                                <i class="fas fa-file-video text-4xl text-gray-400 mb-4"></i>
+                                <p class="text-gray-300 mb-4">Upload video file for encryption</p>
+                                <input type="file" id="videoInput" accept="video/*" class="hidden" onchange="handleVideoUpload(event)">
+                                <button onclick="document.getElementById('videoInput').click()" class="bg-pink-600 hover:bg-pink-700 px-6 py-2 rounded-lg text-white font-semibold transition-colors">
+                                    Select Video
+                                </button>
+                            </div>
+                            <div>
+                                <label class="block text-gray-300 mb-4 font-semibold">Security Level:</label>
+                                <div class="space-y-3">
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="security" value="basic" class="text-blue-500" checked>
+                                        <span class="text-gray-300">Basic (Fast encryption)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="security" value="standard" class="text-blue-500">
+                                        <span class="text-gray-300">Standard (Balanced security)</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="security" value="maximum" class="text-blue-500">
+                                        <span class="text-gray-300">Maximum (Military-grade)</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <button onclick="encryptVideo()" class="encrypt-btn w-full py-4 rounded-lg text-white font-bold text-lg">
+                                <i class="fas fa-lock mr-2"></i>
+                                START VIDEO ENCRYPTION
+                            </button>
+                            <div id="videoProgress" class="hidden">
+                                <div class="flex justify-between text-sm text-gray-300 mb-2">
+                                    <span>Encrypting...</span>
+                                    <span id="progressPercent">0%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2">
+                                    <div id="progressBar" class="progress-bar h-2 rounded-full" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            <div id="videoOutput" class="bg-gray-800/50 rounded-lg p-4 min-h-[120px] border border-pink-500/30">
+                                <p class="text-gray-400 italic text-center">Video encryption results will appear here...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-gray-400">
-                <a href="../index.html" class="text-blue-400 hover:text-blue-300">← Back to Nexus Project Home</a>
-            </p>
-            <p class="text-gray-500 mt-4">
-                © 2025 Nexus Project. First Semester - Malware Analysis Research.
-            </p>
-        </div>
-    </footer>
+                <!-- Encryption Algorithms Overview -->
+                <div class="mb-16">
+                    <h3 class="text-3xl font-bold text-white mb-8 text-center">
+                        <i class="fas fa-code text-cyan-400 mr-3"></i>
+                        Cryptographic Algorithms
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div class="algo-card rounded-xl p-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-key text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3 text-center">AES</h4>
+                            <p class="text-gray-400 text-sm text-center mb-4">Advanced Encryption Standard with 256-bit key length for maximum security.</p>
+                        </div>
+                        <div class="algo-card rounded-xl p-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-exchange-alt text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3 text-center">RSA</h4>
+                            <p class="text-gray-400 text-sm text-center mb-4">Public-key cryptosystem for secure data transmission and digital signatures.</p>
+                        </div>
+                        <div class="algo-card rounded-xl p-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-hashtag text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3 text-center">SHA</h4>
+                            <p class="text-gray-400 text-sm text-center mb-4">Secure Hash Algorithm for data integrity verification and digital forensics.</p>
+                        </div>
+                        <div class="algo-card rounded-xl p-6">
+                            <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-ellipsis-h text-2xl text-white"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-white mb-3 text-center">ECC</h4>
+                            <p class="text-gray-400 text-sm text-center mb-4">Elliptic Curve Cryptography for efficient and secure mobile applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Learning Objectives -->
+                <div class="bg-gradient-to-r from-gray-800/50 to-gray-700/50 rounded-2xl p-8 border border-cyan-500/30">
+                    <h3 class="text-2xl font-bold text-white mb-6 text-center">
+                        <i class="fas fa-graduation-cap text-cyan-400 mr-3"></i>
+                        What You'll Master
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Symmetric and asymmetric encryption</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Digital signatures and certificates</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Hash functions and integrity checking</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Key management best practices</span>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Cryptographic protocols (TLS/SSL)</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Quantum-resistant cryptography</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Real-world implementation scenarios</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-400"></i>
+                                <span class="text-gray-300">Performance and security trade-offs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Sections (Placeholder Content) -->
+        <section id="network-content" class="section-content py-20 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <button onclick="showOverview()" class="back-btn mb-8 px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Overview</span>
+                </button>
+                <h1 class="text-4xl font-bold text-white mb-6">Network Security</h1>
+                <p class="text-xl text-gray-300">Coming Soon - Network protocols, firewall configuration, and traffic analysis.</p>
+            </div>
+        </section>
+
+        <section id="malware-content" class="section-content py-20 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <button onclick="showOverview()" class="back-btn mb-8 px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Overview</span>
+                </button>
+                <h1 class="text-4xl font-bold text-white mb-6">Malware Analysis</h1>
+                <p class="text-xl text-gray-300">Coming Soon - Threat detection, reverse engineering, and behavioral analysis.</p>
+            </div>
+        </section>
+
+        <section id="ethical-content" class="section-content py-20 bg-gray-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <button onclick="showOverview()" class="back-btn mb-8 px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Back to Overview</span>
+                </button>
+                <h1 class="text-4xl font-bold text-white mb-6">Ethical Hacking</h1>
+                <p class="text-xl text-gray-300">Coming Soon - Penetration testing, vulnerability assessment, and responsible disclosure.</p>
+            </div>
+        </section>
+    </main>
 
     <!-- JavaScript -->
-    <script src="../assets/js/main.js"></script>
+    <script>
+        // Matrix Background Animation
+        function createMatrixBackground() {
+            const matrixContainer = document.getElementById('matrix-background');
+            const characters = '01ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()';
+            
+            for (let i = 0; i < 50; i++) {
+                const char = document.createElement('div');
+                char.className = 'matrix-char';
+                char.textContent = characters[Math.floor(Math.random() * characters.length)];
+                char.style.left = Math.random() * 100 + '%';
+                char.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                char.style.animationDelay = Math.random() * 10 + 's';
+                char.style.fontSize = (Math.random() * 8 + 12) + 'px';
+                char.style.opacity = Math.random() * 0.7 + 0.1;
+                matrixContainer.appendChild(char);
+            }
+        }
+
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Section Navigation
+        function showSection(sectionName) {
+            // Hide overview
+            document.getElementById('overview').style.display = 'none';
+            
+            // Hide all section contents
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show selected section
+            const targetSection = document.getElementById(sectionName + '-content');
+            if (targetSection) {
+                targetSection.classList.add('active');
+            }
+        }
+
+        function showOverview() {
+            // Hide all section contents
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show overview
+            document.getElementById('overview').style.display = 'block';
+            
+            // Remove active state from cards
+            const cards = document.querySelectorAll('.section-card');
+            cards.forEach(card => {
+                card.classList.remove('active');
+            });
+        }
+
+        // Section Card Click Handlers
+        document.addEventListener('DOMContentLoaded', function() {
+            createMatrixBackground();
+            
+            // Make sure overview is visible
+            document.getElementById('overview').style.display = 'block';
+            
+            const sectionCards = document.querySelectorAll('.section-card');
+            sectionCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const sectionName = this.getAttribute('data-section');
+                    
+                    // Add active state to clicked card
+                    sectionCards.forEach(c => c.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show the corresponding section
+                    showSection(sectionName);
+                });
+            });
+        });
+
+        // Encryption Functions
+        function encryptText() {
+            const inputText = document.getElementById('inputText').value;
+            const algorithm = document.getElementById('algorithm').value;
+            const outputDiv = document.getElementById('textOutput');
+            
+            if (!inputText.trim()) {
+                outputDiv.innerHTML = '<p class="text-red-400">Please enter some text to encrypt!</p>';
+                return;
+            }
+            
+            let result = '';
+            
+            switch(algorithm) {
+                case 'caesar':
+                    result = caesarCipher(inputText, 3);
+                    break;
+                case 'base64':
+                    result = btoa(inputText);
+                    break;
+                case 'rot13':
+                    result = rot13(inputText);
+                    break;
+            }
+            
+            outputDiv.innerHTML = `
+                <div class="text-cyan-400 font-mono text-sm break-all">
+                    <strong>Encrypted:</strong><br>
+                    ${result}
+                </div>
+                <div class="mt-4 text-xs text-gray-500">
+                    Algorithm: ${algorithm.toUpperCase()} | Length: ${result.length} characters
+                </div>
+            `;
+        }
+
+        function caesarCipher(text, shift) {
+            return text.replace(/[a-zA-Z]/g, function(char) {
+                const start = char <= 'Z' ? 65 : 97;
+                return String.fromCharCode(((char.charCodeAt(0) - start + shift) % 26) + start);
+            });
+        }
+
+        function rot13(text) {
+            return text.replace(/[a-zA-Z]/g, function(char) {
+                const start = char <= 'Z' ? 65 : 97;
+                return String.fromCharCode(((char.charCodeAt(0) - start + 13) % 26) + start);
+            });
+        }
+
+        function handleImageUpload(event) {
+            const file = event.target.files[0];
+            const outputDiv = document.getElementById('imageOutput');
+            
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    outputDiv.innerHTML = `
+                        <div class="text-center">
+                            <img src="${e.target.result}" alt="Uploaded image" class="max-w-full h-auto rounded-lg mx-auto mb-4" style="max-height: 150px;">
+                            <p class="text-gray-300">Image ready for encryption</p>
+                            <p class="text-sm text-gray-500">File: ${file.name} (${(file.size / 1024).toFixed(1)} KB)</p>
+                        </div>
+                    `;
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function encryptImage() {
+            const fileInput = document.getElementById('imageInput');
+            const algorithm = document.getElementById('imageAlgorithm').value;
+            const outputDiv = document.getElementById('imageOutput');
+            
+            if (!fileInput.files[0]) {
+                outputDiv.innerHTML = '<p class="text-red-400">Please select an image first!</p>';
+                return;
+            }
+            
+            // Simulate encryption process
+            outputDiv.innerHTML = `
+                <div class="text-center">
+                    <div class="animate-spin w-8 h-8 border-4 border-purple-400 border-t-transparent rounded-full mx-auto mb-4"></div>
+                    <p class="text-purple-400">Encrypting with ${algorithm.toUpperCase()}...</p>
+                </div>
+            `;
+            
+            setTimeout(() => {
+                outputDiv.innerHTML = `
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-gradient-to-r from-purple-900 to-gray-900 rounded-lg mx-auto mb-4 flex items-center justify-center border-2 border-purple-400">
+                            <i class="fas fa-lock text-4xl text-purple-400"></i>
+                        </div>
+                        <p class="text-green-400 font-semibold">✓ Image encrypted successfully!</p>
+                        <p class="text-sm text-gray-400 mt-2">Algorithm: ${algorithm.toUpperCase()}</p>
+                        <p class="text-xs text-gray-500">Encrypted file would be saved securely</p>
+                    </div>
+                `;
+            }, 2000);
+        }
+
+        function handleVideoUpload(event) {
+            const file = event.target.files[0];
+            const outputDiv = document.getElementById('videoOutput');
+            
+            if (file) {
+                outputDiv.innerHTML = `
+                    <div class="text-center">
+                        <i class="fas fa-file-video text-4xl text-pink-400 mb-4"></i>
+                        <p class="text-gray-300">Video ready for encryption</p>
+                        <p class="text-sm text-gray-500">File: ${file.name}</p>
+                        <p class="text-sm text-gray-500">Size: ${(file.size / (1024 * 1024)).toFixed(1)} MB</p>
+                    </div>
+                `;
+            }
+        }
+
+        function encryptVideo() {
+            const fileInput = document.getElementById('videoInput');
+            const securityLevel = document.querySelector('input[name="security"]:checked').value;
+            const progressDiv = document.getElementById('videoProgress');
+            const outputDiv = document.getElementById('videoOutput');
+            const progressBar = document.getElementById('progressBar');
+            const progressPercent = document.getElementById('progressPercent');
+            
+            if (!fileInput.files[0]) {
+                outputDiv.innerHTML = '<p class="text-red-400 text-center">Please select a video first!</p>';
+                return;
+            }
+            
+            // Show progress bar
+            progressDiv.classList.remove('hidden');
+            let progress = 0;
+            
+            const interval = setInterval(() => {
+                progress += Math.random() * 15;
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = progress + '%';
+                progressPercent.textContent = Math.round(progress) + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        progressDiv.classList.add('hidden');
+                        outputDiv.innerHTML = `
+                            <div class="text-center">
+                                <div class="w-24 h-24 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                                    <i class="fas fa-shield-alt text-3xl text-white"></i>
+                                </div>
+                                <p class="text-green-400 font-bold text-lg">✓ Video Encrypted Successfully!</p>
+                                <p class="text-gray-300 mt-2">Security Level: ${securityLevel.toUpperCase()}</p>
+                                <p class="text-sm text-gray-400">Encryption completed in ${Math.round(Math.random() * 10 + 5)} seconds</p>
+                                <div class="mt-4 p-4 bg-gray-800 rounded-lg">
+                                    <p class="text-xs text-gray-500">Encrypted file details:</p>
+                                    <p class="text-xs text-cyan-400">• Algorithm: AES-256-GCM</p>
+                                    <p class="text-xs text-cyan-400">• Key Length: 256 bits</p>
+                                    <p class="text-xs text-cyan-400">• Status: Secure</p>
+                                </div>
+                            </div>
+                        `;
+                    }, 500);
+                }
+            }, 200);
+        }
+    </script>
 </body>
 </html>
