@@ -73,14 +73,17 @@
 
     <!-- Header -->
     <header class="relative z-10 bg-black/20 backdrop-blur-md border-b border-white/10">
-        <div class="container mx-auto px-6 py-4">            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
+        <div class="container mx-auto px-6 py-4">            <div class="flex items-center justify-between">                <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                         <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-8 h-8 rounded">
                     </div>
                     <div>
-                        <h1 class="text-xl font-bold text-white">Nexus Project</h1>
-                        <p class="text-blue-200 text-sm">Cybersecurity Portfolio</p>
+                        <h1 class="text-xl font-bold text-white">
+                            <span class="text-blue-400">NEXUS</span> 
+                            <span class="text-white/60">×</span> 
+                            <span class="text-purple-400">MYC</span>
+                        </h1>
+                        <p class="text-blue-200 text-sm">Cybersecurity Education Partnership</p>
                     </div>
                 </div>
                 

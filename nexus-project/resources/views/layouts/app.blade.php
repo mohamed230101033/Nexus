@@ -355,7 +355,11 @@
                 <div class="navbar-logo">
                     <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-10 h-10">
                 </div>
-                <h1 class="navbar-title font-game">MYC: Mind Your Click</h1>
+                <h1 class="navbar-title font-game">
+                    <span class="text-cyan-300">NEXUS</span> 
+                    <span class="text-white/40">×</span> 
+                    <span class="text-purple-300">MYC</span>
+                </h1>
             </div>
             <nav class="hidden md:block">
                 <ul class="flex space-x-4 nav-menu">
@@ -546,7 +550,8 @@
                     }
                 }
                 
-                setInterval(draw, 33);
+                // Animation loop - Optimized for performance (60fps target)
+                setInterval(draw, 60);
                 
                 // Handle window resize
                 window.addEventListener('resize', function() {
