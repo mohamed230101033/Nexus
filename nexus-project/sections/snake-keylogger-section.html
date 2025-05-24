@@ -1,0 +1,113 @@
+<!-- SNAKE KEYLOGGER ANALYSIS SECTION - COMPREHENSIVE KEYLOGGER MALWARE ANALYSIS -->
+<section id="snake-keylogger" class="section-content">
+    <div class="mb-8">
+        <button onclick="showOverview()" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600">
+            <i class="fas fa-arrow-left"></i>
+            <span>Back to Overview</span>
+        </button>
+    </div>
+    <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-6xl font-black mb-6">
+            <span class="bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                SNAKE KEYLOGGER
+            </span>
+        </h1>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
+            In-depth analysis of Snake Keylogger malware - Understanding its techniques, evasion methods, and countermeasures.
+        </p>
+    </div>
+
+    <!-- Keylogger Analysis Tools -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <!-- Keylogging Techniques -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-keyboard text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Keylogging Methods</h3>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <h4 class="text-red-400 font-semibold mb-2">Hardware Keylogging</h4>
+                    <p class="text-gray-300 text-sm">Physical devices that capture keystrokes at the hardware level, including USB keyloggers and keyboard overlays.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <h4 class="text-red-400 font-semibold mb-2">Software Keylogging</h4>
+                    <p class="text-gray-300 text-sm">Applications that monitor and record keyboard input through hooking mechanisms and system monitoring.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <h4 class="text-red-400 font-semibold mb-2">Browser-Based Logging</h4>
+                    <p class="text-gray-300 text-sm">JavaScript-based keyloggers that capture input within web browsers and online forms.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evasion & Detection -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-orange-500/20">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-shield-alt text-white"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">Advanced Techniques</h3>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <h4 class="text-orange-400 font-semibold mb-2">Anti-Detection Techniques</h4>
+                    <p class="text-gray-300 text-sm">Code obfuscation, process injection, and rootkit functionality to avoid security software detection.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <h4 class="text-orange-400 font-semibold mb-2">Persistence Mechanisms</h4>
+                    <p class="text-gray-300 text-sm">Registry modifications, scheduled tasks, and service installation for maintaining system presence.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <h4 class="text-orange-400 font-semibold mb-2">Defense Strategies</h4>
+                    <p class="text-gray-300 text-sm">Virtual keyboards, endpoint protection, behavioral analysis, and user awareness training.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Snake Keylogger Indicators -->
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20 mb-16">
+        <h3 class="text-2xl font-bold text-white mb-6 text-center">Snake Keylogger Indicators of Compromise (IOCs)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-file text-red-400 text-xl mr-3"></i>
+                    <h4 class="text-red-400 font-semibold">File Indicators</h4>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• Suspicious executable files in temp directories</li>
+                    <li>• Hidden configuration files</li>
+                    <li>• Log files containing captured keystrokes</li>
+                    <li>• Encrypted data files</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-network-wired text-orange-400 text-xl mr-3"></i>
+                    <h4 class="text-orange-400 font-semibold">Network Indicators</h4>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• Unusual outbound connections</li>
+                    <li>• Data exfiltration patterns</li>
+                    <li>• C&C server communications</li>
+                    <li>• Encrypted traffic to unknown hosts</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-cogs text-yellow-400 text-xl mr-3"></i>
+                    <h4 class="text-yellow-400 font-semibold">Behavioral Indicators</h4>
+                </div>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• Unusual process behavior</li>
+                    <li>• Registry modifications</li>
+                    <li>• Memory injection techniques</li>
+                    <li>• Privilege escalation attempts</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

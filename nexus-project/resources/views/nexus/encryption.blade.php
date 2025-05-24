@@ -396,9 +396,6 @@
                         <i class="fas fa-play mr-2"></i>
                         Simulate Video Encryption
                     </button>
-                    <button onclick="resetVideoDemo()" class="px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white rounded-lg transition-all">
-                        <i class="fas fa-redo mr-2"></i>Reset Demo
-                    </button>
                 </div>
                 
                 <div id="videoEncryptionStatus" class="bg-gray-800 p-4 rounded-lg border border-gray-600">
@@ -744,11 +741,65 @@
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-    }
-      function simulateVideoEncryption() {
+    }    function simulateVideoEncryption() {
         const status = document.getElementById('videoEncryptionStatus');
         const video = document.getElementById('demoVideo');
         const container = video.closest('.video-container');
+        
+        // ==== SECURITY MEASURES: DISABLE VIDEO PLAYBACK ====
+        
+        // 1. Pause video immediately if playing
+        if (!video.paused) {
+            video.pause();
+        }
+        
+        // 2. Disable video controls completely
+        video.controls = false;
+        video.style.pointerEvents = 'none';
+        
+        // 3. Store original source and remove it to prevent playback
+        const originalSource = video.src || video.querySelector('source')?.src;
+        if (originalSource) {
+            video.removeAttribute('src');
+            const sources = video.querySelectorAll('source');
+            sources.forEach(source => source.removeAttribute('src'));
+            video.load(); // Force reload to clear buffer
+        }
+        
+        // 4. Add blocking overlay to prevent any interaction
+        let blockingOverlay = document.querySelector('.video-blocking-overlay');
+        if (!blockingOverlay) {
+            blockingOverlay = document.createElement('div');
+            blockingOverlay.className = 'video-blocking-overlay';
+            blockingOverlay.style.cssText = `
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                z-index: 20;
+                cursor: not-allowed;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #ff4444;
+                font-family: 'JetBrains Mono', monospace;
+                font-weight: bold;
+                text-align: center;
+                border: 2px solid #ff4444;
+                border-radius: 8px;
+            `;
+            blockingOverlay.innerHTML = `
+                <div>
+                    <i class="fas fa-lock text-4xl mb-2"></i>
+                    <div class="text-lg">VIDEO ENCRYPTED</div>
+                    <div class="text-sm mt-1">PLAYBACK DISABLED</div>
+                    <div class="text-xs mt-2 opacity-70">Unauthorized access prevented</div>
+                </div>
+            `;
+            container.appendChild(blockingOverlay);
+        }
         
         // Phase 1: Start encryption process
         status.innerHTML = `
@@ -757,6 +808,9 @@
                 <span class="text-white">Initializing AES-256 encryption...</span>
             </div>
             <div class="mt-2 text-gray-400 text-sm">Generating secure encryption keys</div>
+            <div class="mt-2 text-red-400 text-sm font-bold">
+                ⚠️ VIDEO PLAYBACK DISABLED - ENCRYPTION IN PROGRESS
+            </div>
         `;
         
         // Add encryption overlay effect
@@ -792,8 +846,7 @@
                     setTimeout(() => {
                         video.style.filter = 'brightness(0.1) contrast(10) blur(5px)';
                         overlay.className = 'absolute inset-0 bg-red-900/50 animate-pulse';
-                        
-                        status.innerHTML = `
+                          status.innerHTML = `
                             <div class="flex items-center">
                                 <i class="fas fa-lock text-green-400 mr-2"></i>
                                 <span class="text-white">Video successfully encrypted</span>
@@ -802,28 +855,29 @@
                                 <div class="text-green-400">✓ AES-256 encryption applied</div>
                                 <div class="text-green-400">✓ Video stream secured</div>
                                 <div class="text-green-400">✓ 2048-bit key generated</div>
-                                <div class="text-green-400">✓ Access unauthorized</div>
+                                <div class="text-green-400">✓ Playback disabled</div>
                             </div>
                             <div class="mt-3 p-3 bg-red-900/30 rounded-lg border border-red-500/50">
                                 <div class="text-red-400 font-semibold flex items-center">
                                     <i class="fas fa-exclamation-triangle mr-2"></i>
-                                    Encrypted Content
+                                    Encrypted Content - Access Denied
                                 </div>
                                 <div class="text-gray-300 text-xs mt-1">
-                                    This video is now protected and cannot be viewed without the proper decryption key
+                                    Video controls disabled. Source protected. Unauthorized playback prevented.
                                 </div>
                             </div>
                         `;
-                        
-                        // Add scrambled text overlay
+                          // Enhanced scrambled text overlay with security warnings
                         const scrambledText = document.createElement('div');
-                        scrambledText.className = 'absolute inset-0 flex items-center justify-center text-red-400 font-mono text-lg font-bold';
+                        scrambledText.className = 'absolute inset-0 flex items-center justify-center text-red-400 font-mono text-lg font-bold z-30';
                         scrambledText.innerHTML = `
-                            <div class="text-center">
-                                <div class="animate-pulse">ENCRYPTED</div>
-                                <div class="text-sm mt-2">█████████████</div>
-                                <div class="text-sm">█ CLASSIFIED █</div>
-                                <div class="text-sm">█████████████</div>
+                            <div class="text-center bg-black/80 p-6 border-2 border-red-500 rounded-lg">
+                                <div class="animate-pulse text-xl mb-3">🔒 ENCRYPTED 🔒</div>
+                                <div class="text-sm mb-2">PLAYBACK DISABLED</div>
+                                <div class="text-xs mb-2">█████████████</div>
+                                <div class="text-xs mb-2">█ CLASSIFIED █</div>
+                                <div class="text-xs mb-2">█████████████</div>
+                                <div class="text-xs text-yellow-400">SECURITY PROTOCOL ACTIVE</div>
                             </div>
                         `;
                         container.appendChild(scrambledText);
@@ -839,37 +893,56 @@
             
         }, 1500);
     }
-    
-    function resetVideoDemo() {
+      function resetVideoDemo() {
         const status = document.getElementById('videoEncryptionStatus');
         const video = document.getElementById('demoVideo');
         const container = video.closest('.video-container');
         
-        // Remove all overlay elements
+        // ==== SECURITY RESTORATION: RE-ENABLE VIDEO PLAYBACK ====
+        
+        // 1. Remove all overlay elements (encryption and blocking)
         const overlays = container.querySelectorAll('.absolute');
         overlays.forEach(overlay => {
-            if (overlay !== video) {
+            if (overlay !== video && !overlay.classList.contains('video-container')) {
                 overlay.remove();
             }
         });
         
-        // Reset video styling
+        // 2. Restore video source
+        const videoSource = video.querySelector('source');
+        if (!videoSource || !videoSource.src) {
+            // Restore the original video source
+            video.src = "/videos/Nexus Demo (online-video-cutter.com).mp4";
+            if (videoSource) {
+                videoSource.src = "/videos/Nexus Demo (online-video-cutter.com).mp4";
+            }
+            video.load(); // Reload video with restored source
+        }
+        
+        // 3. Re-enable video controls and interaction
+        video.controls = true;
+        video.style.pointerEvents = 'auto';
+        
+        // 4. Reset video styling
         video.style.filter = 'none';
         video.style.transition = 'filter 1s ease';
         
-        // Reset status
+        // 5. Reset status with security cleared message
         status.innerHTML = `
             <div class="flex items-center">
-                <i class="fas fa-info-circle text-blue-400 mr-2"></i>
-                <span class="text-white">Ready to demonstrate video encryption concepts</span>
+                <i class="fas fa-shield-check text-green-400 mr-2"></i>
+                <span class="text-white">Security protocol cleared - Video decrypted successfully</span>
             </div>
-            <div class="mt-2 text-gray-400 text-sm">
-                This simulation shows how video content can be protected through encryption
+            <div class="mt-2 text-green-400 text-sm">
+                ✅ Playback controls restored • ✅ Video source reloaded • ✅ Access granted
+            </div>
+            <div class="mt-2 text-blue-400 text-sm">
+                Ready to demonstrate video encryption concepts again
             </div>
         `;
         
-        // Add success notification
-        showNotification('Video encryption demo reset', 'success');
+        // 6. Add success notification
+        showNotification('🔓 Video decrypted! Playback controls restored and access granted.', 'success');
     }
     
     // Notification system for better UX
