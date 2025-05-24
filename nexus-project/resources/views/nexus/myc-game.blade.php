@@ -142,33 +142,7 @@
                     <i class="fas fa-rocket mr-2"></i>
                     Travel
                 </a>
-            </div>
-        </div>
-
-        <!-- Village Hub -->
-        <div class="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 p-8 rounded-2xl border border-indigo-500/20">
-            <div class="flex items-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-xl flex items-center justify-center mr-4">
-                    <i class="fas fa-home text-white text-xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white">Village Hub</h3>
-            </div>
-            <p class="text-gray-300 mb-6">
-                Central hub where players can access all game modes, track progress, view achievements, and connect with 
-                other players in the cybersecurity learning community.
-            </p>
-            <div class="flex items-center justify-between">
-                <div class="flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-indigo-500/20 text-indigo-300 rounded-full text-xs">Community</span>
-                    <span class="px-3 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs">Progress</span>
-                    <span class="px-3 py-1 bg-blue-500/20 text-blue-300 rounded-full text-xs">Hub</span>
-                </div>
-                <a href="{{ route('game.village') }}" class="inline-flex items-center px-4 py-2 bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 hover:text-white rounded-lg transition-all duration-300">
-                    <i class="fas fa-door-open mr-2"></i>
-                    Enter
-                </a>
-            </div>
-        </div>
+            </div>        </div>
     </div>
 
     <!-- Technical Implementation -->

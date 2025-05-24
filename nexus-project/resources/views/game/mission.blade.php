@@ -3616,14 +3616,15 @@
                 if (isActionCorrect && correctCluesCount === totalCorrectClues) {
                     const continueBtn = document.createElement('button');
                     continueBtn.className = 'cyber-button px-6 py-2 mt-4 bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold rounded-md transition-all duration-300 relative overflow-hidden shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transform hover:translate-y-[-3px]';
-                    continueBtn.innerHTML = '<span class="relative z-10">Continue to Next Challenge</span>';
+                    continueBtn.innerHTML = '<span class="relative z-10">Complete Mission</span>';
                     
                     continueBtn.addEventListener('click', function() {
-                        // Navigate to the next phishing stage
-                        const phishingStageBtns = document.querySelectorAll('.phishing-stage-btn');
-                        if (phishingStageBtns[1]) {
-                            phishingStageBtns[1].click();
-                        }
+                        // Submit mission completion with results
+                        completeMission({
+                            'clues': selectedClues,
+                            'action': selectedAction,
+                            'mission_complete': true
+                        });
                     });
                     
                     feedbackEl.appendChild(continueBtn);
@@ -3812,5 +3813,53 @@
             });
         }
     });
+
+    // Mission completion form submission
+    window.completeMission = function(formData = {}) {
+        // Show completion animation
+        const completionOverlay = document.createElement('div');
+        completionOverlay.className = 'fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center';
+        completionOverlay.innerHTML = `
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 p-8 rounded-2xl border border-emerald-500/30 text-center max-w-md mx-4 animate__animated animate__zoomIn">
+                <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <i class="fas fa-check text-white text-2xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-white mb-4">Mission Complete!</h2>
+                <p class="text-gray-300 mb-6">Analyzing your performance...</p>
+                <div class="w-full bg-gray-700 rounded-full h-2 mb-4">
+                    <div class="bg-gradient-to-r from-emerald-500 to-cyan-500 h-2 rounded-full animate-pulse" style="width: 100%"></div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(completionOverlay);
+
+        // Create and submit form
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = '{{ route("game.submit-mission", $mission["id"]) }}';
+        
+        // Add CSRF token
+        const csrfInput = document.createElement('input');
+        csrfInput.type = 'hidden';
+        csrfInput.name = '_token';
+        csrfInput.value = '{{ csrf_token() }}';
+        form.appendChild(csrfInput);
+        
+        // Add form data
+        Object.keys(formData).forEach(key => {
+            const input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = formData[key];
+            form.appendChild(input);
+        });
+        
+        document.body.appendChild(form);
+        
+        // Submit after delay for animation
+        setTimeout(() => {
+            form.submit();
+        }, 2000);
+    };
 </script>
 @endsection

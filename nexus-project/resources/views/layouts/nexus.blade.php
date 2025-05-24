@@ -73,11 +73,10 @@
 
     <!-- Header -->
     <header class="relative z-10 bg-black/20 backdrop-blur-md border-b border-white/10">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
+        <div class="container mx-auto px-6 py-4">            <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
                     <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                        <i class="fas fa-shield-alt text-white text-lg"></i>
+                        <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-8 h-8 rounded">
                     </div>
                     <div>
                         <h1 class="text-xl font-bold text-white">Nexus Project</h1>
