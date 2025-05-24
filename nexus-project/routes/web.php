@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\GameController;
+use App\Http\Controllers\NexusController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,12 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Welcome and game start
-Route::get('/', [GameController::class, 'welcome'])->name('welcome');
-Route::post('/start-game', [GameController::class, 'startGame'])->name('start-game');
+// Nexus Project Routes - Main Website
+Route::get('/', [NexusController::class, 'index'])->name('nexus.index');
+Route::get('/first-semester', [NexusController::class, 'firstSemester'])->name('nexus.first-semester');
+Route::get('/second-semester', [NexusController::class, 'secondSemester'])->name('nexus.second-semester');
+Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 
-// Game routes
+// MYC Game Routes (the actual game functionality)
 Route::prefix('game')->name('game.')->group(function () {
+    Route::get('/', [GameController::class, 'welcome'])->name('welcome');
+    Route::post('/start-game', [GameController::class, 'startGame'])->name('start-game');
     Route::get('/intro', [GameController::class, 'intro'])->name('intro');
     Route::get('/story', [GameController::class, 'storyMode'])->name('story');
     Route::get('/mission/{id}', [GameController::class, 'mission'])->name('mission');
@@ -40,6 +45,3 @@ Route::prefix('game')->name('game.')->group(function () {
     Route::get('/time-travel/random', [GameController::class, 'randomTimeTravel'])->name('time-travel.random');
     Route::get('/time-travel/{attack}', [GameController::class, 'timeTravelAttack'])->name('time-travel.attack');
 });
-
-// Simple routes for the remaining pages in the app
-Route::get('/home', [GameController::class, 'welcome'])->name('home');

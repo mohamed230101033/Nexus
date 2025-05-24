@@ -405,7 +405,7 @@
                     </div>
                     
                     <!-- Name input form with code theme -->
-                    <form action="{{ route('start-game') }}" method="POST" class="space-y-6 max-w-md mx-auto">
+                    <form action="{{ route('game.start-game') }}" method="POST" class="space-y-6 max-w-md mx-auto">
                         @csrf
                         <div class="space-y-3">
                             <label class="block text-center text-xl font-semibold text-secondary-400">

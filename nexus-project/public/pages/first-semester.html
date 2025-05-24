@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Semester - Malware Analysis | Nexus Project</title>
+    <meta name="description" content="First semester work focusing on comprehensive malware analysis research and techniques">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            NEXUS
+                        </h1>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Home</a>
+                        <a href="#" class="nav-link active px-3 py-2 rounded-md text-sm font-medium text-white bg-gray-700">First Semester</a>
+                        <a href="second-semester-phase1.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Second Semester</a>
+                        <a href="myc-game.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">MYC Game</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    First Semester
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
+                    Comprehensive Malware Analysis Research and Methodologies
+                </p>
+                <div class="mt-8 flex items-center justify-center space-x-2 text-gray-400">
+                    <i class="fas fa-calendar-alt"></i>
+                    <span>Academic Period: September 2024 - January 2025</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="py-12 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Research Overview</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-4">Quick Navigation</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#analysis-techniques" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-microscope mr-2"></i>Analysis Techniques</a></li>
+                        <li><a href="#tools" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-tools mr-2"></i>Tools & Software</a></li>
+                        <li><a href="#findings" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-chart-line mr-2"></i>Research Findings</a></li>
+                        <li><a href="#case-studies" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-file-alt mr-2"></i>Case Studies</a></li>
+                        <li><a href="#documentation" class="text-blue-400 hover:text-blue-300 flex items-center"><i class="fas fa-book mr-2"></i>Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700">
+                    <h3 class="text-xl font-semibold text-white mb-4">Key Achievements</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Analyzed 50+ malware samples</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Mastered static analysis techniques</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Developed analysis methodologies</li>
+                        <li class="flex items-start"><i class="fas fa-check-circle text-green-400 mr-2 mt-1"></i>Created comprehensive reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analysis Techniques Section -->
+    <section id="analysis-techniques" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Analysis Techniques</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive methodologies employed in malware analysis research
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Static Analysis -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300">
+                    <div class="w-16 h-16 bg-blue-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-file-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4 text-center">Static Analysis</h3>
+                    <p class="text-gray-300 mb-6 text-center">
+                        Examining malware without executing it to understand structure and behavior.
+                    </p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>File format analysis</li>
+                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>Disassembly techniques</li>
+                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>String extraction</li>
+                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>PE header analysis</li>
+                        <li><i class="fas fa-dot-circle text-blue-400 mr-2"></i>Import/Export tables</li>
+                    </ul>
+                </div>
+                
+                <!-- Dynamic Analysis -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-green-500 transition-all duration-300">
+                    <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-play-circle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4 text-center">Dynamic Analysis</h3>
+                    <p class="text-gray-300 mb-6 text-center">
+                        Running malware in controlled environments to observe behavior.
+                    </p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Sandbox execution</li>
+                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Network monitoring</li>
+                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>File system changes</li>
+                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Registry modifications</li>
+                        <li><i class="fas fa-dot-circle text-green-400 mr-2"></i>Process monitoring</li>
+                    </ul>
+                </div>
+                
+                <!-- Behavioral Analysis -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition-all duration-300">
+                    <div class="w-16 h-16 bg-purple-600 rounded-lg flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-brain text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-white mb-4 text-center">Behavioral Analysis</h3>
+                    <p class="text-gray-300 mb-6 text-center">
+                        Understanding malware patterns and attack methodologies.
+                    </p>
+                    <ul class="text-gray-400 space-y-2">
+                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Attack vectors</li>
+                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Persistence mechanisms</li>
+                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Communication protocols</li>
+                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Evasion techniques</li>
+                        <li><i class="fas fa-dot-circle text-purple-400 mr-2"></i>Payload delivery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Tools & Software</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Professional-grade tools used throughout the malware analysis process
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- IDA Pro -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-search text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">IDA Pro</h3>
+                    <p class="text-gray-400 text-sm">Disassembler and debugger</p>
+                </div>
+                
+                <!-- Ghidra -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Ghidra</h3>
+                    <p class="text-gray-400 text-sm">NSA reverse engineering tool</p>
+                </div>
+                
+                <!-- OllyDbg -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bug text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">OllyDbg</h3>
+                    <p class="text-gray-400 text-sm">32-bit assembler debugger</p>
+                </div>
+                
+                <!-- VMware -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-desktop text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">VMware</h3>
+                    <p class="text-gray-400 text-sm">Virtual machine environment</p>
+                </div>
+                
+                <!-- Wireshark -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-network-wired text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Wireshark</h3>
+                    <p class="text-gray-400 text-sm">Network protocol analyzer</p>
+                </div>
+                
+                <!-- Process Monitor -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tasks text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">ProcMon</h3>
+                    <p class="text-gray-400 text-sm">Process and file monitoring</p>
+                </div>
+                
+                <!-- RegShot -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clipboard-list text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">RegShot</h3>
+                    <p class="text-gray-400 text-sm">Registry comparison tool</p>
+                </div>
+                
+                <!-- Hex Editors -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-cyan-500 transition-all duration-300">
+                    <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-edit text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold text-white mb-2">Hex Editors</h3>
+                    <p class="text-gray-400 text-sm">Binary file examination</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Findings -->
+    <section id="findings" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Research Findings</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Key insights and discoveries from our first semester malware analysis research
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-6">Statistical Overview</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300">Malware Samples Analyzed</span>
+                                <span class="text-2xl font-bold text-blue-400">50+</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-400 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300">Analysis Techniques Mastered</span>
+                                <span class="text-2xl font-bold text-green-400">8</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-400 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300">Tools & Software Used</span>
+                                <span class="text-2xl font-bold text-purple-400">12</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-purple-400 h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-300">Research Hours</span>
+                                <span class="text-2xl font-bold text-yellow-400">200+</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-yellow-400 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-6">Key Discoveries</h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-blue-500">
+                            <h4 class="font-semibold text-white mb-2">Evasion Techniques</h4>
+                            <p class="text-gray-300 text-sm">Identified common obfuscation methods used by modern malware to avoid detection.</p>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-green-500">
+                            <h4 class="font-semibold text-white mb-2">Persistence Mechanisms</h4>
+                            <p class="text-gray-300 text-sm">Documented various methods malware uses to maintain persistence on infected systems.</p>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-purple-500">
+                            <h4 class="font-semibold text-white mb-2">Communication Patterns</h4>
+                            <p class="text-gray-300 text-sm">Analyzed C&C communication protocols and identified behavioral patterns.</p>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 border border-gray-700 border-l-4 border-l-yellow-500">
+                            <h4 class="font-semibold text-white mb-2">Attack Vectors</h4>
+                            <p class="text-gray-300 text-sm">Mapped common infection vectors and propagation methods across different malware families.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Case Studies Section -->
+    <section id="case-studies" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Case Studies</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Detailed analysis of significant malware samples and their characteristics
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-red-500 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-virus text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">Trojan Analysis</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Comprehensive analysis of a banking trojan focusing on credential theft mechanisms and evasion techniques.
+                    </p>
+                    <div class="space-y-2 text-xs text-gray-400">
+                        <div class="flex justify-between">
+                            <span>Complexity:</span>
+                            <span class="text-red-400">High</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Analysis Time:</span>
+                            <span>15 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Techniques Used:</span>
+                            <span>Static, Dynamic</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 2 -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-orange-500 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-lock text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">Ransomware Study</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Investigation of ransomware encryption methods and ransom note delivery mechanisms.
+                    </p>
+                    <div class="space-y-2 text-xs text-gray-400">
+                        <div class="flex justify-between">
+                            <span>Complexity:</span>
+                            <span class="text-orange-400">Medium</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Analysis Time:</span>
+                            <span>12 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Techniques Used:</span>
+                            <span>All Methods</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Case Study 3 -->
+                <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 hover:border-yellow-500 transition-all duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-10 h-10 bg-yellow-600 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-spider text-white"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold text-white">Botnet Analysis</h3>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-4">
+                        Examination of botnet communication protocols and command structure analysis.
+                    </p>
+                    <div class="space-y-2 text-xs text-gray-400">
+                        <div class="flex justify-between">
+                            <span>Complexity:</span>
+                            <span class="text-yellow-400">Medium</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Analysis Time:</span>
+                            <span>18 hours</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Techniques Used:</span>
+                            <span>Network, Dynamic</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documentation Section -->
+    <section id="documentation" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Documentation & Resources</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Comprehensive documentation and resources from first semester research
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-blue-500 transition-all duration-300 text-center">
+                    <i class="fas fa-file-pdf text-blue-400 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold text-white mb-2">Research Report</h3>
+                    <p class="text-gray-400 text-sm">Complete analysis report with findings and methodologies</p>
+                </a>
+                
+                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-green-500 transition-all duration-300 text-center">
+                    <i class="fas fa-chart-bar text-green-400 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold text-white mb-2">Statistical Data</h3>
+                    <p class="text-gray-400 text-sm">Detailed statistics and analysis results</p>
+                </a>
+                
+                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 text-center">
+                    <i class="fas fa-code text-purple-400 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold text-white mb-2">Analysis Scripts</h3>
+                    <p class="text-gray-400 text-sm">Custom scripts and tools developed for analysis</p>
+                </a>
+                
+                <a href="#" class="block bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-yellow-500 transition-all duration-300 text-center">
+                    <i class="fas fa-book text-yellow-400 text-3xl mb-4"></i>
+                    <h3 class="text-lg font-semibold text-white mb-2">Learning Resources</h3>
+                    <p class="text-gray-400 text-sm">References and educational materials used</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">
+                <a href="../index.html" class="text-blue-400 hover:text-blue-300">← Back to Nexus Project Home</a>
+            </p>
+            <p class="text-gray-500 mt-4">
+                © 2025 Nexus Project. First Semester - Malware Analysis Research.
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

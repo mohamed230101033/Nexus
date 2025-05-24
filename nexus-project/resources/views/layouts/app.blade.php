@@ -353,14 +353,14 @@
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-2">
                 <div class="navbar-logo">
-                    <img src="{{ asset('images/shield-logo.svg') }}" alt="MYC Logo" class="w-10 h-10">
+                    <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-10 h-10">
                 </div>
                 <h1 class="navbar-title font-game">MYC: Mind Your Click</h1>
             </div>
             <nav class="hidden md:block">
                 <ul class="flex space-x-4 nav-menu">
                     <li class="nav-item">
-                        <a href="{{ route('home') }}" class="nav-link bounce-animation">
+                        <a href="{{ route('nexus.index') }}" class="nav-link bounce-animation">
                             <span class="nav-icon">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"><use href="#icon-home"></use></svg>
                             </span>
@@ -409,7 +409,7 @@
             <nav>
                 <ul class="flex flex-col space-y-2">
                     <li>
-                        <a href="{{ route('home') }}" class="nav-link">
+                        <a href="{{ route('nexus.index') }}" class="nav-link">
                             <span class="nav-icon">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"><use href="#icon-home"></use></svg>
                             </span>

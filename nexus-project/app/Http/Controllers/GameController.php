@@ -62,7 +62,7 @@ class GameController extends Controller
         $playerName = Session::get('player_name');
         
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         return view('game.intro', ['player_name' => $playerName]);
@@ -78,7 +78,7 @@ class GameController extends Controller
         $completedMissions = Session::get('completed_missions', []);
         
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         return view('game.story', [
@@ -96,7 +96,7 @@ class GameController extends Controller
         $playerName = Session::get('player_name');
         
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         $missions = $this->getMissions();
@@ -120,7 +120,7 @@ class GameController extends Controller
         $playerName = Session::get('player_name');
         
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         $missions = $this->getMissions();
@@ -372,7 +372,7 @@ class GameController extends Controller
         $playerName = Session::get('player_name');
         
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         $locations = [
@@ -420,7 +420,7 @@ class GameController extends Controller
     {
         $playerName = Session::get('player_name');
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
 
         $cases = $this->getTruthDetectiveCases();
@@ -452,7 +452,7 @@ class GameController extends Controller
     {
         $playerName = Session::get('player_name');
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         $case = collect($this->getTruthDetectiveCases())->firstWhere('id', (int)$caseId);
@@ -461,9 +461,6 @@ class GameController extends Controller
             return redirect()->route('game.truth-detective')->with('error', 'Case not found!');
         }
 
-        $challenges = $this->getChallenges();
-        $challenge = $challenges[array_rand($challenges)];
-        
         $completedCases = Session::get('completed_truth_cases', []);
         if(in_array($caseId, $completedCases)){
              // Optionally, allow replaying or show a "completed" status
@@ -483,7 +480,7 @@ class GameController extends Controller
     {
         $playerName = Session::get('player_name');
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
 
         $request->validate([
@@ -557,7 +554,7 @@ class GameController extends Controller
         $playerName = Session::get('player_name');
         
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         return view('game.time-travel', [
@@ -574,7 +571,7 @@ class GameController extends Controller
         $playerName = Session::get('player_name');
         
         if (!$playerName) {
-            return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+            return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
         }
         
         $cyberAttacks = $this->getCyberAttacks();
@@ -859,7 +856,7 @@ public function secretCode()
     $playerName = Session::get('player_name');
     
     if (!$playerName) {
-        return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+        return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
     }
 
     $levels = [
@@ -897,14 +894,14 @@ public function secretCodeLevel($level)
     $playerName = Session::get('player_name');
     
     if (!$playerName) {
-        return redirect()->route('welcome')->with('error', 'Please enter your name first!');
+        return redirect()->route('game.welcome')->with('error', 'Please enter your name first!');
     }
 
     // Check if level is unlocked
     if ($level > 1) {
         $completedLevels = Session::get('completed_levels', []);
         if (!in_array($level - 1, $completedLevels)) {
-            return redirect()->route('secret-code')->with('error', 'Complete the previous level first!');
+            return redirect()->route('game.secret-code')->with('error', 'Complete the previous level first!');
         }
     }
 

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MYC Game - Nexus Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="bg-gray-800/90 backdrop-blur-sm fixed w-full z-50 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="text-xl font-bold text-blue-400 hover:text-blue-300 transition-colors">
+                        <i class="fas fa-shield-alt mr-2"></i>Nexus Project
+                    </a>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="nav-link">Home</a>
+                        <a href="first-semester.html" class="nav-link">First Semester</a>
+                        <div class="relative group">
+                            <button class="nav-link flex items-center">
+                                Second Semester <i class="fas fa-chevron-down ml-1"></i>
+                            </button>
+                            <div class="absolute top-full left-0 mt-1 w-48 bg-gray-800 border border-gray-700 rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                                <a href="second-semester-phase1.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Phase 1</a>
+                                <a href="second-semester-phase2.html" class="block px-4 py-2 text-sm hover:bg-gray-700">Phase 2</a>
+                            </div>
+                        </div>
+                        <a href="myc-game.html" class="nav-link text-purple-400">MYC Game</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-800 border-t border-gray-700">
+                <a href="../index.html" class="mobile-nav-link">Home</a>
+                <a href="first-semester.html" class="mobile-nav-link">First Semester</a>
+                <a href="second-semester-phase1.html" class="mobile-nav-link">Second Semester - Phase 1</a>
+                <a href="second-semester-phase2.html" class="mobile-nav-link">Second Semester - Phase 2</a>
+                <a href="myc-game.html" class="mobile-nav-link text-purple-400">MYC Game</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-gray-900"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="inline-flex items-center bg-purple-900/30 border border-purple-500/30 rounded-full px-6 py-2 mb-6">
+                    <i class="fas fa-gamepad text-purple-400 mr-2"></i>
+                    <span class="text-purple-300 text-sm font-medium">Bonus Project</span>
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    MYC Game
+                </h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+                    An interactive cybersecurity-themed game combining education with entertainment, 
+                    featuring challenges, puzzles, and practical scenarios to enhance security awareness.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#game-overview" class="btn-primary">
+                        <i class="fas fa-play mr-2"></i>Explore Game
+                    </a>
+                    <a href="#download" class="btn-secondary">
+                        <i class="fas fa-download mr-2"></i>Download Game
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Overview -->
+    <section id="game-overview" class="py-20 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Game Overview</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    MYC Game is an educational cybersecurity simulation that challenges players 
+                    with real-world scenarios and security puzzles.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-brain text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Educational Focus</h3>
+                        </div>
+                        <p class="text-gray-300">
+                            Learn cybersecurity concepts through interactive gameplay, 
+                            making complex security topics accessible and engaging.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-puzzle-piece text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Challenge-Based</h3>
+                        </div>
+                        <p class="text-gray-300">
+                            Solve puzzles, overcome obstacles, and complete missions 
+                            that mirror real cybersecurity challenges.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-white"></i>
+                            </div>
+                            <h3 class="text-xl font-semibold">Multiplayer Support</h3>
+                        </div>
+                        <p class="text-gray-300">
+                            Collaborate with team members or compete against others 
+                            in cybersecurity challenges and scenarios.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="bg-gradient-to-br from-purple-600/20 to-blue-600/20 rounded-lg p-8 border border-purple-500/30">
+                        <div class="text-center">
+                            <i class="fas fa-gamepad text-6xl text-purple-400 mb-6"></i>
+                            <h3 class="text-2xl font-bold mb-4">Game Features</h3>
+                            <div class="space-y-3 text-left">
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-green-400 mr-3"></i>
+                                    <span>Interactive security scenarios</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-green-400 mr-3"></i>
+                                    <span>Progressive difficulty levels</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-green-400 mr-3"></i>
+                                    <span>Real-time feedback and scoring</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-green-400 mr-3"></i>
+                                    <span>Achievement system</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-check text-green-400 mr-3"></i>
+                                    <span>Leaderboards and statistics</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Modules -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Game Modules</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Explore different aspects of cybersecurity through specialized game modules.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card hover-lift">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-orange-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-virus text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Malware Analysis</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Practice identifying, analyzing, and understanding malware behavior 
+                        in a safe, simulated environment.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-orange-400 mr-2"></i>
+                            <span>Dynamic analysis challenges</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-orange-400 mr-2"></i>
+                            <span>Static analysis tools</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-orange-400 mr-2"></i>
+                            <span>Behavior pattern recognition</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Defense Strategies</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Learn and implement various cybersecurity defense mechanisms 
+                        and incident response procedures.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-cyan-400 mr-2"></i>
+                            <span>Firewall configuration</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-cyan-400 mr-2"></i>
+                            <span>Intrusion detection</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-cyan-400 mr-2"></i>
+                            <span>Incident response</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card hover-lift">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-search text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold">Forensic Investigation</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Conduct digital forensic investigations and learn evidence 
+                        collection and analysis techniques.
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-pink-400 mr-2"></i>
+                            <span>Evidence collection</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-pink-400 mr-2"></i>
+                            <span>Timeline reconstruction</span>
+                        </div>
+                        <div class="flex items-center text-sm">
+                            <i class="fas fa-dot-circle text-pink-400 mr-2"></i>
+                            <span>Report generation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Features -->
+    <section class="py-20 bg-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Gameplay Features</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Engaging mechanics designed to enhance learning and retention.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Achievement System</h3>
+                    <p class="text-gray-300 text-sm">
+                        Unlock achievements and badges as you progress through challenges.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Progress Tracking</h3>
+                    <p class="text-gray-300 text-sm">
+                        Monitor your learning progress with detailed analytics and insights.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Time Challenges</h3>
+                    <p class="text-gray-300 text-sm">
+                        Test your skills under pressure with timed security scenarios.
+                    </p>
+                </div>
+
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Skill Certification</h3>
+                    <p class="text-gray-300 text-sm">
+                        Earn certificates for mastering different cybersecurity domains.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development & Technical Details -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Development & Technical Details</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Built with modern technologies for optimal performance and user experience.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-code text-blue-400 mr-3"></i>
+                        Technology Stack
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Game Engine</span>
+                            <span class="text-blue-400 font-medium">Unity 3D</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Programming Language</span>
+                            <span class="text-blue-400 font-medium">C#</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Backend</span>
+                            <span class="text-blue-400 font-medium">Node.js</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Database</span>
+                            <span class="text-blue-400 font-medium">MongoDB</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-300">Authentication</span>
+                            <span class="text-blue-400 font-medium">JWT</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-cogs text-purple-400 mr-3"></i>
+                        System Requirements
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <h4 class="font-medium text-gray-200 mb-2">Minimum Requirements</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• Windows 10 / macOS 10.14 / Ubuntu 18.04</li>
+                                <li>• 4GB RAM</li>
+                                <li>• DirectX 11 compatible graphics</li>
+                                <li>• 2GB available storage</li>
+                                <li>• Internet connection for multiplayer</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-gray-200 mb-2">Recommended</h4>
+                            <ul class="text-sm text-gray-300 space-y-1">
+                                <li>• 8GB RAM or higher</li>
+                                <li>• Dedicated graphics card</li>
+                                <li>• 5GB available storage</li>
+                                <li>• Stable broadband connection</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="py-20 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Download MYC Game</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Get started with your cybersecurity education journey today.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card hover-lift text-center">
+                        <div class="mb-6">
+                            <i class="fab fa-windows text-4xl text-blue-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold">Windows</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Compatible with Windows 10 and later versions.</p>
+                        <a href="#" class="btn-primary w-full">
+                            <i class="fas fa-download mr-2"></i>Download for Windows
+                        </a>
+                        <p class="text-sm text-gray-400 mt-2">Version 1.0.0 • 1.8GB</p>
+                    </div>
+
+                    <div class="card hover-lift text-center">
+                        <div class="mb-6">
+                            <i class="fab fa-apple text-4xl text-gray-300 mb-4"></i>
+                            <h3 class="text-xl font-semibold">macOS</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Optimized for macOS 10.14 and newer systems.</p>
+                        <a href="#" class="btn-primary w-full">
+                            <i class="fas fa-download mr-2"></i>Download for macOS
+                        </a>
+                        <p class="text-sm text-gray-400 mt-2">Version 1.0.0 • 1.9GB</p>
+                    </div>
+
+                    <div class="card hover-lift text-center">
+                        <div class="mb-6">
+                            <i class="fab fa-linux text-4xl text-orange-400 mb-4"></i>
+                            <h3 class="text-xl font-semibold">Linux</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6">Supports major Linux distributions including Ubuntu.</p>
+                        <a href="#" class="btn-primary w-full">
+                            <i class="fas fa-download mr-2"></i>Download for Linux
+                        </a>
+                        <p class="text-sm text-gray-400 mt-2">Version 1.0.0 • 1.7GB</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <div class="inline-flex items-center bg-gray-800/50 border border-gray-700 rounded-lg px-6 py-4">
+                        <i class="fas fa-info-circle text-blue-400 mr-3"></i>
+                        <span class="text-gray-300">
+                            Free to download and play. No account required for single-player mode.
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 border-t border-gray-700 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-blue-400 mr-2"></i>
+                        <span class="text-xl font-bold">Nexus Project</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        Advancing cybersecurity education through innovative research, 
+                        practical applications, and interactive learning experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-blue-400 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html" class="text-gray-300 hover:text-blue-400 transition-colors">Home</a></li>
+                        <li><a href="first-semester.html" class="text-gray-300 hover:text-blue-400 transition-colors">First Semester</a></li>
+                        <li><a href="second-semester-phase1.html" class="text-gray-300 hover:text-blue-400 transition-colors">Phase 1</a></li>
+                        <li><a href="second-semester-phase2.html" class="text-gray-300 hover:text-blue-400 transition-colors">Phase 2</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Game Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">Installation Guide</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">Troubleshooting</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">Community Forum</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-blue-400 transition-colors">Bug Reports</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2024 Nexus Project. All rights reserved. 
+                    <span class="mx-2">|</span>
+                    <a href="#" class="hover:text-blue-400 transition-colors">Privacy Policy</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="hover:text-blue-400 transition-colors">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus Project - Cybersecurity Research & Education</title>
+    <meta name="description" content="A comprehensive cybersecurity project covering malware analysis, detection, defense, and educational gaming">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            NEXUS
+                        </h1>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#home" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Home</a>
+                        <a href="#first-semester" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">First Semester</a>
+                        <a href="#second-semester" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Second Semester</a>
+                        <a href="#myc-game" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">MYC Game</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button type="button" class="mobile-menu-btn bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Home</a>
+                <a href="#first-semester" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">First Semester</a>
+                <a href="#second-semester" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Second Semester</a>
+                <a href="#myc-game" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">MYC Game</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%239C92AC" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        
+        <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="hero-content">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    NEXUS PROJECT
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+                    A comprehensive cybersecurity research and education platform covering malware analysis, detection, defense, and interactive learning experiences.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#first-semester" class="btn-primary px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-flask mr-2"></i>
+                        Explore Research
+                    </a>
+                    <a href="#myc-game" class="btn-secondary px-8 py-3 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
+                        <i class="fas fa-gamepad mr-2"></i>
+                        Play MYC Game
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-gray-400 text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- First Semester Section -->
+    <section id="first-semester" class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                    First Semester
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Deep dive into malware analysis techniques, tools, and methodologies
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Malware Analysis Card -->
+                <div class="bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-blue-500 transition-all duration-300 transform hover:scale-105">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-bug text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white">Malware Analysis</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Comprehensive analysis of various malware types, behavior patterns, and reverse engineering techniques.
+                    </p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Static Analysis</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Dynamic Analysis</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Behavioral Analysis</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Reverse Engineering</li>
+                    </ul>
+                    <a href="pages/first-semester.html" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold">
+                        View Details <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Tools & Techniques Card -->
+                <div class="bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-cyan-500 transition-all duration-300 transform hover:scale-105">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-cyan-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-tools text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white">Tools & Techniques</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Professional-grade tools and methodologies used in malware research and analysis.
+                    </p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>IDA Pro</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Ghidra</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>OllyDbg</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Virtual Machines</li>
+                    </ul>
+                    <a href="pages/first-semester.html#tools" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-semibold">
+                        Explore Tools <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <!-- Research Findings Card -->
+                <div class="bg-gray-900 rounded-xl p-8 border border-gray-700 hover:border-purple-500 transition-all duration-300 transform hover:scale-105">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-semibold text-white">Research Findings</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Key discoveries and insights from our first semester malware analysis research.
+                    </p>
+                    <ul class="text-gray-400 space-y-2 mb-6">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Case Studies</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Statistical Analysis</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Threat Intelligence</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i>Documentation</li>
+                    </ul>
+                    <a href="pages/first-semester.html#findings" class="inline-flex items-center text-purple-400 hover:text-purple-300 font-semibold">
+                        View Findings <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second Semester Section -->
+    <section id="second-semester" class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Second Semester
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Advanced cybersecurity research divided into two comprehensive phases
+                </p>
+            </div>
+            
+            <!-- Phase 1 -->
+            <div class="mb-20">
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-white mb-4">Phase 1: Foundation Research</h3>
+                    <p class="text-lg text-gray-300">Five key areas of cybersecurity research and development</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <!-- Phase 1 cards will be populated with your specific 5 points -->
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 text-center">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">1</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Research Point 1</h4>
+                        <p class="text-gray-400 text-sm">Detailed description pending</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 text-center">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">2</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Research Point 2</h4>
+                        <p class="text-gray-400 text-sm">Detailed description pending</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 text-center">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">3</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Research Point 3</h4>
+                        <p class="text-gray-400 text-sm">Detailed description pending</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 text-center">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">4</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Research Point 4</h4>
+                        <p class="text-gray-400 text-sm">Detailed description pending</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all duration-300 text-center">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl font-bold text-white">5</span>
+                        </div>
+                        <h4 class="text-lg font-semibold text-white mb-2">Research Point 5</h4>
+                        <p class="text-gray-400 text-sm">Detailed description pending</p>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <a href="pages/second-semester-phase1.html" class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300">
+                        Explore Phase 1 <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Phase 2 -->
+            <div>
+                <div class="text-center mb-12">
+                    <h3 class="text-3xl font-bold text-white mb-4">Phase 2: Advanced Implementation</h3>
+                    <p class="text-lg text-gray-300">Three specialized areas of cybersecurity practice</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Creating Malware and Simulations -->
+                    <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-red-500 transition-all duration-300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-2xl font-semibold text-white">Malware Creation & Simulations</h4>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            Ethical malware development for educational purposes and controlled simulation environments.
+                        </p>
+                        <ul class="text-gray-400 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Simulation Frameworks</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Educational Malware</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Controlled Environments</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Ethical Guidelines</li>
+                        </ul>
+                        <a href="pages/second-semester-phase2.html#creation" class="inline-flex items-center text-red-400 hover:text-red-300 font-semibold">
+                            Learn More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Detection and Defense -->
+                    <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-green-500 transition-all duration-300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-shield-alt text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-2xl font-semibold text-white">Detection & Defense</h4>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            Advanced detection mechanisms and defensive strategies against modern cyber threats.
+                        </p>
+                        <ul class="text-gray-400 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Intrusion Detection</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Behavioral Analysis</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Machine Learning</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Response Strategies</li>
+                        </ul>
+                        <a href="pages/second-semester-phase2.html#defense" class="inline-flex items-center text-green-400 hover:text-green-300 font-semibold">
+                            Explore Defense <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Analysis and Statistics -->
+                    <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-yellow-500 transition-all duration-300">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-yellow-600 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-chart-bar text-white text-xl"></i>
+                            </div>
+                            <h4 class="text-2xl font-semibold text-white">Analysis & Statistics</h4>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                            Comprehensive analysis of malware trends and statistical insights from research data.
+                        </p>
+                        <ul class="text-gray-400 space-y-2 mb-6">
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Trend Analysis</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Statistical Models</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Data Visualization</li>
+                            <li><i class="fas fa-check text-green-400 mr-2"></i>Predictive Analytics</li>
+                        </ul>
+                        <a href="pages/second-semester-phase2.html#analysis" class="inline-flex items-center text-yellow-400 hover:text-yellow-300 font-semibold">
+                            View Statistics <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MYC Game Section -->
+    <section id="myc-game" class="py-20 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+                    MYC: Mind Your Click
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    An interactive cybersecurity education game designed to teach safe online practices through engaging gameplay
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-gray-800/50 backdrop-blur-sm rounded-xl p-8 border border-gray-700">
+                        <h3 class="text-3xl font-bold text-white mb-6">Educational Gaming Platform</h3>
+                        <p class="text-gray-300 mb-6">
+                            MYC (Mind Your Click) is an innovative educational game that teaches cybersecurity awareness through interactive scenarios, challenges, and real-world simulations.
+                        </p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <i class="fas fa-gamepad text-purple-400 mr-3"></i>
+                                <span class="text-gray-300">Interactive Learning Modules</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-alt text-blue-400 mr-3"></i>
+                                <span class="text-gray-300">Phishing Detection Training</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-brain text-pink-400 mr-3"></i>
+                                <span class="text-gray-300">Critical Thinking Development</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-users text-green-400 mr-3"></i>
+                                <span class="text-gray-300">Child-Friendly Interface</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="games/public/" class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
+                                <i class="fas fa-play mr-2"></i>
+                                Play Game
+                            </a>
+                            <a href="pages/myc-game.html" class="inline-flex items-center px-6 py-3 border-2 border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white font-semibold rounded-lg transition-all duration-300">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                Learn More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <!-- Game Preview/Screenshot would go here -->
+                    <div class="bg-gray-800 rounded-xl border border-gray-700 p-8 text-center">
+                        <i class="fas fa-desktop text-6xl text-purple-400 mb-6"></i>
+                        <h4 class="text-2xl font-semibold text-white mb-4">Game Preview</h4>
+                        <p class="text-gray-300 mb-6">Experience immersive cybersecurity education through interactive gameplay</p>
+                        <div class="bg-gray-900 rounded-lg p-4 text-left mono text-sm text-green-400">
+                            <div class="flex items-center mb-2">
+                                <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                <span class="text-gray-400 ml-2">MYC Terminal</span>
+                            </div>
+                            <div class="space-y-1">
+                                <p>$ initializing cybersecurity training...</p>
+                                <p>$ loading educational modules...</p>
+                                <p>$ game ready! Mind your click!</p>
+                                <p class="text-purple-400">$ press ENTER to start ▊</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent mb-4">NEXUS PROJECT</h3>
+                    <p class="text-gray-400 mb-4">
+                        Advancing cybersecurity education and research through innovative tools and interactive learning experiences.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#first-semester" class="text-gray-400 hover:text-white transition-colors duration-300">First Semester</a></li>
+                        <li><a href="#second-semester" class="text-gray-400 hover:text-white transition-colors duration-300">Second Semester</a></li>
+                        <li><a href="#myc-game" class="text-gray-400 hover:text-white transition-colors duration-300">MYC Game</a></li>
+                        <li><a href="pages/documentation.html" class="text-gray-400 hover:text-white transition-colors duration-300">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>contact@nexusproject.edu</li>
+                        <li><i class="fas fa-university mr-2"></i>Cybersecurity Department</li>
+                        <li><i class="fas fa-calendar mr-2"></i>Academic Year 2025</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    © 2025 Nexus Project. All rights reserved. | Built for educational purposes.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
