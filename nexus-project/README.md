@@ -21,7 +21,7 @@
 **NEXUS** is a comprehensive cybersecurity research and education platform that includes the innovative **MYC (Mind Your Click)** educational game as one of its key components. This platform combines academic research excellence with engaging educational tools to create a comprehensive cybersecurity learning ecosystem.
 
 ### Mission Statement
-To advance cybersecurity education through interactive, gamified learning experiences that make complex security concepts accessible to learners of all ages, with a special focus on children aged 7-13.
+To democratize cybersecurity education through interactive, gamified learning experiences that make complex security concepts accessible to learners of all ages, with a special focus on children aged 7-13.
 
 ## 🎮 Platform Features
 
@@ -253,8 +253,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🏆 Acknowledgments
 
-### **NEXUS Research Platform**
-Special recognition to the NEXUS Project for their innovative approach to cybersecurity research and educational technology development.
+### **NEXUS Partnership**
+Special recognition to the NEXUS Project for their innovative approach to educational technology and commitment to collaborative learning experiences.
 
 ### **Educational Advisory Board**
 - Dr. Sarah Mitchell - Cybersecurity Education Specialist
@@ -269,7 +269,7 @@ Built with gratitude for the open source ecosystem, including Laravel, Tailwind 
 
 <div align="center">
 
-**NEXUS: Building a Safer Digital Future Through Education**
+**NEXUS × MYC: Building a Safer Digital Future Through Education**
 
 *Developed with ❤️ for the next generation of digital citizens*
 
