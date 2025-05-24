@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" width="500" height="600">
+  <!-- Robot Head -->
+  <g transform="translate(0,0)">
+    <!-- Head Base -->
+    <rect x="150" y="50" width="200" height="180" rx="30" ry="30" fill="#3B82F6" stroke="#1E40AF" stroke-width="5"/>
+    
+    <!-- Antenna -->
+    <line x1="250" y1="50" x2="250" y2="20" stroke="#1E40AF" stroke-width="8"/>
+    <circle cx="250" cy="15" r="10" fill="#60A5FA"/>
+    
+    <!-- Eyes -->
+    <g>
+      <!-- Left Eye -->
+      <circle cx="200" cy="120" r="30" fill="white" stroke="#1E40AF" stroke-width="3"/>
+      <circle cx="200" cy="120" r="15" fill="#111827"/>
+      <circle cx="195" cy="115" r="5" fill="white"/>
+    </g>
+    <g>
+      <!-- Right Eye -->
+      <circle cx="300" cy="120" r="30" fill="white" stroke="#1E40AF" stroke-width="3"/>
+      <circle cx="300" cy="120" r="15" fill="#111827"/>
+      <circle cx="295" cy="115" r="5" fill="white"/>
+    </g>
+    
+    <!-- Mouth -->
+    <rect x="200" y="170" width="100" height="20" rx="10" ry="10" fill="#60A5FA"/>
+    <rect x="210" y="170" width="10" height="20" fill="#93C5FD"/>
+    <rect x="230" y="170" width="10" height="20" fill="#93C5FD"/>
+    <rect x="250" y="170" width="10" height="20" fill="#93C5FD"/>
+    <rect x="270" y="170" width="10" height="20" fill="#93C5FD"/>
+    
+    <!-- Ears -->
+    <rect x="130" y="100" width="20" height="60" rx="5" ry="5" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    <rect x="350" y="100" width="20" height="60" rx="5" ry="5" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+  </g>
+  
+  <!-- Robot Body -->
+  <g transform="translate(0,0)">
+    <!-- Neck -->
+    <rect x="225" y="230" width="50" height="30" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    
+    <!-- Body Base -->
+    <rect x="150" y="260" width="200" height="160" rx="20" ry="20" fill="#3B82F6" stroke="#1E40AF" stroke-width="5"/>
+    
+    <!-- Control Panel -->
+    <rect x="180" y="280" width="140" height="80" rx="10" ry="10" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2"/>
+    
+    <!-- Buttons and Lights -->
+    <circle cx="200" cy="300" r="10" fill="#10B981"/>
+    <circle cx="230" cy="300" r="10" fill="#F59E0B"/>
+    <circle cx="260" cy="300" r="10" fill="#EF4444"/>
+    <circle cx="290" cy="300" r="10" fill="#8B5CF6"/>
+    
+    <!-- Display Screen -->
+    <rect x="190" y="320" width="120" height="30" rx="5" ry="5" fill="#111827"/>
+    <rect x="195" y="325" width="110" height="20" rx="3" ry="3" fill="#60A5FA"/>
+    
+    <!-- Badge/Logo -->
+    <circle cx="250" cy="375" r="25" fill="#DBEAFE" stroke="#1E40AF" stroke-width="2"/>
+    <text x="250" y="380" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#1E40AF">C</text>
+  </g>
+  
+  <!-- Arms -->
+  <g transform="translate(0,0)">
+    <!-- Left Arm -->
+    <rect x="130" y="280" width="20" height="100" rx="10" ry="10" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    <circle cx="140" cy="390" r="20" fill="#3B82F6" stroke="#1E40AF" stroke-width="3"/>
+    <rect x="130" y="390" width="20" height="50" rx="10" ry="10" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    <circle cx="140" cy="450" r="15" fill="#3B82F6" stroke="#1E40AF" stroke-width="3"/>
+    
+    <!-- Right Arm -->
+    <rect x="350" y="280" width="20" height="100" rx="10" ry="10" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    <circle cx="360" cy="390" r="20" fill="#3B82F6" stroke="#1E40AF" stroke-width="3"/>
+    <rect x="350" y="390" width="20" height="50" rx="10" ry="10" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    <circle cx="360" cy="450" r="15" fill="#3B82F6" stroke="#1E40AF" stroke-width="3"/>
+  </g>
+  
+  <!-- Legs -->
+  <g transform="translate(0,0)">
+    <!-- Left Leg -->
+    <rect x="180" y="420" width="40" height="100" rx="15" ry="15" fill="#3B82F6" stroke="#1E40AF" stroke-width="4"/>
+    <rect x="175" y="520" width="50" height="20" rx="10" ry="10" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+    
+    <!-- Right Leg -->
+    <rect x="280" y="420" width="40" height="100" rx="15" ry="15" fill="#3B82F6" stroke="#1E40AF" stroke-width="4"/>
+    <rect x="275" y="520" width="50" height="20" rx="10" ry="10" fill="#60A5FA" stroke="#1E40AF" stroke-width="3"/>
+  </g>
+  
+  <!-- Glow Effect -->
+  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="10" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  
+  <!-- Apply glow to the robot -->
+  <circle cx="250" cy="300" r="220" fill="#60A5FA" opacity="0.2" filter="url(#glow)"/>
+</svg> 

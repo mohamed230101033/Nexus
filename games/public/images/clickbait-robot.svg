@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" width="500" height="600">
+  <!-- Robot Head -->
+  <g transform="translate(0,0)">
+    <!-- Head Base -->
+    <rect x="150" y="50" width="200" height="180" rx="10" ry="10" fill="#DC2626" stroke="#7F1D1D" stroke-width="5"/>
+    
+    <!-- Antenna -->
+    <line x1="230" y1="50" x2="220" y2="10" stroke="#7F1D1D" stroke-width="8"/>
+    <polygon points="210,5 220,20 230,5" fill="#FCA5A5" stroke="#7F1D1D" stroke-width="2"/>
+    
+    <!-- Second Antenna -->
+    <line x1="270" y1="50" x2="280" y2="10" stroke="#7F1D1D" stroke-width="8"/>
+    <polygon points="270,5 280,20 290,5" fill="#FCA5A5" stroke="#7F1D1D" stroke-width="2"/>
+    
+    <!-- Eyes -->
+    <g>
+      <!-- Left Eye -->
+      <path d="M180,100 L220,120 L180,140 Z" fill="white" stroke="#7F1D1D" stroke-width="3"/>
+      <circle cx="195" cy="120" r="8" fill="#111827"/>
+    </g>
+    <g>
+      <!-- Right Eye -->
+      <path d="M320,100 L280,120 L320,140 Z" fill="white" stroke="#7F1D1D" stroke-width="3"/>
+      <circle cx="305" cy="120" r="8" fill="#111827"/>
+    </g>
+    
+    <!-- Mouth -->
+    <path d="M190,180 Q250,210 310,180" fill="none" stroke="#7F1D1D" stroke-width="5"/>
+    <path d="M200,180 L220,190 L240,180 L260,190 L280,180 L300,190" fill="none" stroke="#FCA5A5" stroke-width="3"/>
+    
+    <!-- Eyebrows -->
+    <path d="M170,90 L230,100" fill="none" stroke="#7F1D1D" stroke-width="8" stroke-linecap="round"/>
+    <path d="M270,100 L330,90" fill="none" stroke="#7F1D1D" stroke-width="8" stroke-linecap="round"/>
+    
+    <!-- Ears/Horns -->
+    <polygon points="150,80 130,50 140,110" fill="#DC2626" stroke="#7F1D1D" stroke-width="3"/>
+    <polygon points="350,80 370,50 360,110" fill="#DC2626" stroke="#7F1D1D" stroke-width="3"/>
+  </g>
+  
+  <!-- Robot Body -->
+  <g transform="translate(0,0)">
+    <!-- Neck -->
+    <rect x="225" y="230" width="50" height="30" fill="#EF4444" stroke="#7F1D1D" stroke-width="3"/>
+    
+    <!-- Body Base -->
+    <rect x="150" y="260" width="200" height="160" rx="5" ry="5" fill="#DC2626" stroke="#7F1D1D" stroke-width="5"/>
+    
+    <!-- Control Panel -->
+    <rect x="180" y="280" width="140" height="80" rx="5" ry="5" fill="#FEF2F2" stroke="#7F1D1D" stroke-width="2"/>
+    
+    <!-- Buttons and Lights -->
+    <circle cx="200" cy="300" r="10" fill="#DC2626"/>
+    <circle cx="230" cy="300" r="10" fill="#DC2626"/>
+    <circle cx="260" cy="300" r="10" fill="#DC2626"/>
+    <circle cx="290" cy="300" r="10" fill="#DC2626"/>
+    
+    <!-- Warning Symbols -->
+    <polygon points="200,295 195,305 205,305" fill="#111827"/>
+    <polygon points="230,295 225,305 235,305" fill="#111827"/>
+    <polygon points="260,295 255,305 265,305" fill="#111827"/>
+    <polygon points="290,295 285,305 295,305" fill="#111827"/>
+    
+    <!-- Display Screen -->
+    <rect x="190" y="320" width="120" height="30" rx="5" ry="5" fill="#111827"/>
+    <rect x="195" y="325" width="110" height="20" rx="3" ry="3" fill="#F87171"/>
+    
+    <!-- Badge/Logo -->
+    <polygon points="225,375 250,350 275,375 250,400" fill="#FEF2F2" stroke="#7F1D1D" stroke-width="2"/>
+    <text x="250" y="380" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#7F1D1D">CB</text>
+  </g>
+  
+  <!-- Arms -->
+  <g transform="translate(0,0)">
+    <!-- Left Arm -->
+    <rect x="130" y="280" width="20" height="100" rx="5" ry="5" fill="#EF4444" stroke="#7F1D1D" stroke-width="3"/>
+    <circle cx="140" cy="390" r="20" fill="#DC2626" stroke="#7F1D1D" stroke-width="3"/>
+    <rect x="130" y="390" width="20" height="50" rx="5" ry="5" fill="#EF4444" stroke="#7F1D1D" stroke-width="3"/>
+    
+    <!-- Left Hand/Claw -->
+    <path d="M130,440 L110,460 L130,450 L140,470 L150,450 L170,460 L150,440" fill="#DC2626" stroke="#7F1D1D" stroke-width="3"/>
+    
+    <!-- Right Arm -->
+    <rect x="350" y="280" width="20" height="100" rx="5" ry="5" fill="#EF4444" stroke="#7F1D1D" stroke-width="3"/>
+    <circle cx="360" cy="390" r="20" fill="#DC2626" stroke="#7F1D1D" stroke-width="3"/>
+    <rect x="350" y="390" width="20" height="50" rx="5" ry="5" fill="#EF4444" stroke="#7F1D1D" stroke-width="3"/>
+    
+    <!-- Right Hand/Claw -->
+    <path d="M350,440 L330,460 L350,450 L360,470 L370,450 L390,460 L370,440" fill="#DC2626" stroke="#7F1D1D" stroke-width="3"/>
+  </g>
+  
+  <!-- Legs -->
+  <g transform="translate(0,0)">
+    <!-- Left Leg -->
+    <rect x="180" y="420" width="40" height="100" rx="5" ry="5" fill="#DC2626" stroke="#7F1D1D" stroke-width="4"/>
+    <path d="M175,520 L225,520 L240,540 L160,540 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="3"/>
+    
+    <!-- Right Leg -->
+    <rect x="280" y="420" width="40" height="100" rx="5" ry="5" fill="#DC2626" stroke="#7F1D1D" stroke-width="4"/>
+    <path d="M275,520 L325,520 L340,540 L260,540 Z" fill="#EF4444" stroke="#7F1D1D" stroke-width="3"/>
+  </g>
+  
+  <!-- Spikes on shoulders -->
+  <polygon points="150,260 140,240 160,240" fill="#DC2626" stroke="#7F1D1D" stroke-width="2"/>
+  <polygon points="180,260 170,240 190,240" fill="#DC2626" stroke="#7F1D1D" stroke-width="2"/>
+  <polygon points="320,260 310,240 330,240" fill="#DC2626" stroke="#7F1D1D" stroke-width="2"/>
+  <polygon points="350,260 340,240 360,240" fill="#DC2626" stroke="#7F1D1D" stroke-width="2"/>
+  
+  <!-- Evil Glow Effect -->
+  <filter id="evil-glow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="10" result="blur"/>
+    <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+  </filter>
+  
+  <!-- Apply evil glow to the robot -->
+  <circle cx="250" cy="300" r="220" fill="#DC2626" opacity="0.2" filter="url(#evil-glow)"/>
+</svg> 

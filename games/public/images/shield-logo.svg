@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Shield Base -->
+  <path d="M256 16C149.961 16 64 101.961 64 208V448L256 496L448 448V208C448 101.961 362.039 16 256 16Z" fill="url(#shield-gradient)" />
+  
+  <!-- Shield Border -->
+  <path d="M256 32C158.961 32 80 110.961 80 208V432L256 476L432 432V208C432 110.961 353.039 32 256 32Z" stroke="#0369a1" stroke-width="8" fill="none" />
+  
+  <!-- Lock Icon -->
+  <path d="M320 224H304V192C304 156.654 275.346 128 240 128C204.654 128 176 156.654 176 192V224H160C142.327 224 128 238.327 128 256V352C128 369.673 142.327 384 160 384H320C337.673 384 352 369.673 352 352V256C352 238.327 337.673 224 320 224ZM208 192C208 174.327 222.327 160 240 160C257.673 160 272 174.327 272 192V224H208V192ZM320 352H160V256H320V352Z" fill="white" />
+  
+  <!-- Checkmark -->
+  <path d="M224 320L192 288L208 272L224 288L272 240L288 256L224 320Z" fill="#10b981" />
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="shield-gradient" x1="64" y1="16" x2="448" y2="496" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0ea5e9" />
+      <stop offset="1" stop-color="#0c4a6e" />
+    </linearGradient>
+  </defs>
+</svg> 

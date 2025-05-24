@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Game-specific custom styles */
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center px-4 py-2 font-bold rounded-md transition duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 font-bold rounded-md bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 font-bold rounded-md bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-danger {
+    @apply inline-flex items-center justify-center px-4 py-2 font-bold rounded-md bg-danger-600 text-white hover:bg-danger-700 focus:ring-danger-500 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-success {
+    @apply inline-flex items-center justify-center px-4 py-2 font-bold rounded-md bg-success-600 text-white hover:bg-success-700 focus:ring-success-500 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .game-card {
+    @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl border-2 border-transparent hover:border-primary-300;
+  }
+  
+  .cyber-shield {
+    @apply flex items-center justify-center w-20 h-20 bg-primary-100 rounded-full text-primary-600 shadow-inner;
+  }
+  
+  .badge {
+    @apply inline-flex items-center justify-center w-12 h-12 rounded-full text-white shadow-md transition-transform hover:scale-110;
+  }
+  
+  .village-location {
+    @apply relative overflow-hidden rounded-xl shadow-lg cursor-pointer transition-all duration-300 transform hover:scale-105;
+  }
+}
+
+/* Google Fonts Import for the game font */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&family=Nunito:wght@400;600;700&display=swap');

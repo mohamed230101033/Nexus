@@ -1,0 +1,208 @@
+/* Global styles for time travel feature */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: sans-serif;
+}
+
+/* Space Background Animation Styles */
+.space-background {
+    position: relative;
+    background-color: #000; /* Fallback color */
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Travel Button Styles */
+.travel-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(to right, #ff6b6b, #ff8e53);
+    color: white;
+    font-weight: bold;
+    border-radius: 9999px;
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.7);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    z-index: 10;
+    font-size: 1.1rem;
+}
+
+.travel-button:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.9);
+}
+
+.travel-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, #ff8e53, #ff6b6b);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.travel-button:hover::before {
+    opacity: 1;
+}
+
+/* Cyber Attack Card Styles */
+.cyber-attack-card {
+    background: rgba(17, 24, 39, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.cyber-attack-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.8);
+}
+
+.cyber-attack-card:hover img {
+    transform: scale(1.05);
+}
+
+.cyber-attack-date {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
+    color: #60a5fa;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+/* Time Travel Animation */
+@keyframes time-travel {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    20% {
+        transform: scale(1.05);
+        filter: brightness(1.2) blur(2px);
+    }
+    70% {
+        transform: scale(0.95);
+        filter: brightness(0.8) blur(5px);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1) blur(0);
+    }
+}
+
+.time-travel-active .container {
+    animation: time-travel 3s forwards;
+    position: relative;
+    z-index: 10;
+}
+
+.time-travel-active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, transparent 30%, rgba(255, 107, 107, 0.3) 100%);
+    z-index: 2;
+    pointer-events: none;
+    opacity: 0;
+    animation: pulse 3s ease-in-out infinite;
+}
+
+#warp-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+}
+
+/* Navigation button styles */
+.prev-button {
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+}
+
+.prev-button:hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+}
+
+.next-button {
+    background: linear-gradient(to right, #4f46e5, #818cf8);
+}
+
+.next-button:hover {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.7);
+}
+
+.sequential-button {
+    background: linear-gradient(to right, #4f46e5, #818cf8);
+}
+
+.sequential-button:hover {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.7);
+}
+
+.sequential-button::before {
+    background: linear-gradient(to right, #818cf8, #4f46e5);
+}
+
+/* Additional styles for better UI */
+.shadow-glow {
+    box-shadow: 0 0 15px 5px rgba(59, 130, 246, 0.7);
+}
+
+.font-game {
+    font-family: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', sans-serif;
+}
+
+.backdrop-blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}

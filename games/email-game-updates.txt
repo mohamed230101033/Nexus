@@ -1,0 +1,4 @@
+New files created for Secret Code-inspired email game:
+- /public/css/email-game.css
+- /public/js/email-game.js
+- /README-Secret-Code-Email-Game.md
