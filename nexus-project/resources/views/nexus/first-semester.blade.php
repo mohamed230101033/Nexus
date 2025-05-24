@@ -697,9 +697,6 @@
                     </div>
                 </div>
             </div>
-                        • Penetration Testing<br>
-                        • Vulnerability Scan<br>
-                        • OSINT Gathering
                     </div>
                 </div>
             </div>
