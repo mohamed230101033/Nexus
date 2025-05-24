@@ -31,7 +31,7 @@ class NexusController extends Controller
     }
 
     /**
-     * Display MYC Game section
+     * Display NEXUS x MYC section
      */
     public function mycGame()
     {

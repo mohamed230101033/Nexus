@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Mind Your Click - Cybersecurity Game for Kids</title>
+        <title>NEXUS - Cybersecurity Research & Education Platform</title>
         
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -82,8 +82,12 @@
                 --code-secondary: #1e293b;
                 --code-accent: #10b981;
                 --code-accent-alt: #38bdf8;
+                --code-accent-cyan: #22d3ee;
+                --code-accent-pink: #ec4899; 
                 --code-accent-purple: #a21caf;
                 --code-accent-glow: rgba(16, 185, 129, 0.3);
+                --code-cyan-glow: rgba(34, 211, 238, 0.3);
+                --code-pink-glow: rgba(236, 72, 153, 0.3);
                 --code-text: #e2e8f0;
                 --code-highlight: #f59e0b;
             }
@@ -118,9 +122,9 @@
                 left: 0;
                 right: 0;
                 height: 4px;
-                background: linear-gradient(90deg, var(--code-accent-alt), var(--code-accent-purple), var(--code-accent));
+                background: linear-gradient(90deg, var(--code-accent-cyan), var(--code-accent-alt), var(--code-accent-pink));
                 background-size: 500% 500%;
-                animation: navBorder 10s ease infinite;
+                animation: navBorder 8s ease infinite;
                 z-index: 5;
             }
             
@@ -376,7 +380,7 @@
                     <!-- Title with cyber code styling -->
                     <div class="text-center mb-8">
                         <h1 class="text-4xl md:text-5xl font-bold mb-2 font-game text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-secondary-400 to-success-400">
-                            🛡️ Mind Your Click 🖥️
+                            🛡️ NEXUS: Mind Your Click 🖥️
                         </h1>
                         <p class="text-xl text-cyan-100">Your First Mission Awaits!</p>
                     </div>

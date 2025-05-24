@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'MYC: Mind Your Click') }}</title>
+    <title>{{ config('app.name', 'NEXUS - Cybersecurity Education') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,9 +91,9 @@
     <header class="fixed top-0 left-0 right-0 bg-gray-900/80 backdrop-blur-lg text-white p-4 z-50">
         <div class="container mx-auto flex justify-between items-center">
             <div class="flex items-center space-x-4">
-                <img src="{{ asset('images/shield-logo.svg') }}" alt="MYC Logo" class="w-8 h-8">
+                <img src="{{ asset('images/shield-logo.svg') }}" alt="NEXUS Logo" class="w-8 h-8">
                 <div>
-                    <h1 class="font-game text-xl">MYC: Mind Your Click</h1>
+                    <h1 class="font-game text-xl bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent">NEXUS x MYC</h1>
                     @if(Session::has('player_name'))
                         <p class="text-sm text-white/70">Player: {{ Session::get('player_name') }}</p>
                     @endif

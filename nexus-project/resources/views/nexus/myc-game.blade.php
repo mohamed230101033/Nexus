@@ -1,6 +1,6 @@
 @extends('layouts.nexus')
 
-@section('title', 'MYC Game - Mind Your Click')
+@section('title', 'NEXUS x MYC - Cybersecurity Education Game')
 
 @section('content')
 <div class="max-w-6xl mx-auto">
@@ -12,7 +12,7 @@
         </div>
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4 leading-tight">
             <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                MYC Game
+                NEXUS x MYC
             </span>
         </h1>
         <h2 class="text-2xl text-gray-300 mb-4">Mind Your Click</h2>

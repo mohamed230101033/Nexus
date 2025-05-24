@@ -21,7 +21,7 @@ Route::get('/first-semester', [NexusController::class, 'firstSemester'])->name('
 Route::get('/second-semester', [NexusController::class, 'secondSemester'])->name('nexus.second-semester');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 
-// MYC Game Routes (the actual game functionality)
+// NEXUS x MYC Routes (the actual game functionality)
 Route::prefix('game')->name('game.')->group(function () {
     Route::get('/', [GameController::class, 'welcome'])->name('welcome');
     Route::post('/start-game', [GameController::class, 'startGame'])->name('start-game');

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'MYC: Mind Your Click') }}</title>
+    <title>{{ config('app.name', 'NEXUS - Cybersecurity Education') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -351,15 +351,18 @@
     
     <header class="child-navbar">
         <div class="container mx-auto flex justify-between items-center">
-            <div class="flex items-center space-x-2">
-                <div class="navbar-logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-10 h-10">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+                    <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-8 h-8 rounded">
                 </div>
-                <h1 class="navbar-title font-game">
-                    <span class="text-cyan-300">NEXUS</span> 
-                    <span class="text-white/40">×</span> 
-                    <span class="text-purple-300">MYC</span>
-                </h1>
+                <div>
+                    <h1 class="text-xl font-bold">
+                        <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent animate-gradient-x">
+                            NEXUS x MYC
+                        </span>
+                    </h1>
+                    <p class="text-blue-200 text-sm">Cybersecurity Education Platform</p>
+                </div>
             </div>
             <nav class="hidden md:block">
                 <ul class="flex space-x-4 nav-menu">
@@ -457,8 +460,8 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-4 md:mb-0">
-                    <h3 class="footer-title">MYC - Mind Your Click</h3>
-                    <p class="footer-subtitle">Teaching safe online navigation for children</p>
+                    <h3 class="footer-title">NEXUS - MYC</h3>
+                    <p class="footer-subtitle">Cybersecurity education through interactive learning</p>
                 </div>
                 <div class="social-links">
                     <a href="#" class="social-icon twitter">
@@ -569,4 +572,4 @@
     
     @stack('scripts')
 </body>
-</html> 
+</html>

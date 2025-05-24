@@ -76,7 +76,7 @@
             </div>
         </a>
 
-        <!-- MYC Game Card -->
+        <!-- NEXUS x MYC Card -->
         <a href="{{ route('nexus.myc-game') }}" class="portfolio-card group">
             <div class="bg-gradient-to-br from-purple-500/20 to-pink-500/20 p-6 rounded-2xl border border-purple-500/20 hover:border-purple-400/40 transition-all duration-300 h-full">
                 <div class="flex items-center justify-between mb-4">
@@ -85,7 +85,7 @@
                     </div>
                     <i class="fas fa-arrow-right text-gray-400 group-hover:text-white group-hover:translate-x-1 transition-all duration-300"></i>
                 </div>
-                <h3 class="text-xl font-bold text-white mb-3">MYC Game</h3>
+                <h3 class="text-xl font-bold text-white mb-3">NEXUS x MYC</h3>
                 <p class="text-gray-300 text-sm mb-4">Interactive Security Education</p>
                 <p class="text-gray-400 text-sm leading-relaxed">
                     "Mind Your Click" - An engaging cybersecurity education game 
