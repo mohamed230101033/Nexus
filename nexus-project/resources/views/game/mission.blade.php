@@ -642,10 +642,458 @@
                                 </div>
                             </div>
                             
-                            <!-- [Keep the rest of the stages but we'll focus on the basic structure/styling for now] -->
-                            <!-- ... existing code ... -->
+                            <!-- Stage 2: Outlook Phishing -->
+                            <div id="phishing-stage2" class="phishing-stage hidden transform transition-opacity duration-500">
+                                <h3 class="font-game text-lg mb-4 text-center text-teal-300">Outlook Email Security Challenge</h3>
+                                <p class="text-center text-cyan-100 mb-6">Practice identifying phishing attempts in a realistic Outlook environment!</p>
+                                
+                                <div class="bg-gradient-to-br from-blue-900/30 to-gray-900/50 rounded-lg p-5 border border-blue-500/20 shadow-lg mb-6">
+                                    <!-- Outlook Interface Header -->
+                                    <div class="bg-blue-600 text-white p-3 rounded-t-lg flex items-center justify-between mb-4">
+                                        <div class="flex items-center space-x-2">
+                                            <div class="w-6 h-6 bg-white rounded flex items-center justify-center">
+                                                <span class="text-blue-600 font-bold text-sm">O</span>
                                             </div>
+                                            <span class="font-semibold">Outlook</span>
+                                        </div>
+                                        <div class="text-sm">your.email@company.com</div>
+                                    </div>
+                                    
+                                    <!-- Email List -->
+                                    <div class="bg-white rounded-lg p-4 text-gray-800">
+                                        <div class="border-b pb-2 mb-3">
+                                            <h4 class="font-semibold text-lg">Inbox</h4>
+                                        </div>
+                                        
+                                        <!-- Suspicious Email -->
+                                        <div class="border border-red-200 rounded-lg p-4 bg-red-50 cursor-pointer hover:bg-red-100 transition-colors duration-300" id="outlook-email">
+                                            <div class="flex justify-between items-start mb-2">
+                                                <div>
+                                                    <p class="font-semibold text-red-600">IT-Security@company-helpdesk.net</p>
+                                                    <p class="text-sm text-gray-600">To: your.email@company.com</p>
+                                                </div>
+                                                <span class="text-xs text-gray-500">2 minutes ago</span>
                                             </div>
+                                            <p class="font-bold mb-2 text-red-700">URGENT: Security Verification Required</p>
+                                            <p class="text-sm text-gray-700 mb-3">Your account will be suspended in 1 hour unless you verify your credentials immediately. Click here to verify: <span class="text-blue-600 underline">secure-company-login.net/verify</span></p>
+                                            <div class="flex items-center text-xs text-gray-500">
+                                                <span class="mr-4">📎 Attachment: security_form.exe</span>
+                                                <span class="bg-red-100 text-red-600 px-2 py-1 rounded">Flagged by security</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-900/50 backdrop-blur-md rounded-lg p-5 text-gray-200 mb-6 border border-teal-500/20 shadow-lg">
+                                    <h3 class="font-game text-lg mb-4 text-teal-300">What makes this email suspicious? (Select all that apply)</h3>
+                                    
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="outlook-clue1" name="outlook-clues[]" value="domain" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="outlook-clue1" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Sender domain doesn't match company domain</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="outlook-clue2" name="outlook-clues[]" value="urgency" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="outlook-clue2" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Creates false urgency about account suspension</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="outlook-clue3" name="outlook-clues[]" value="link" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="outlook-clue3" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Suspicious external link for credential verification</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="outlook-clue4" name="outlook-clues[]" value="attachment" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="outlook-clue4" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Dangerous executable attachment (.exe file)</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border-t border-teal-500/30 pt-4 mt-4">
+                                        <h3 class="font-game text-lg mb-2 text-teal-300">Best action to take:</h3>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="outlook-action1" name="outlook-action" value="click" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="outlook-action1" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Click the link to verify account</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="outlook-action2" name="outlook-action" value="download" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="outlook-action2" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Download and open the attachment</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="outlook-action3" name="outlook-action" value="forward" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="outlook-action3" class="text-cyan-100 hover:text-cyan-300 transition-colors duration-300">Forward to IT department</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="outlook-action4" name="outlook-action" value="report" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="outlook-action4" class="text-cyan-100 hover:text-cyan-300 transition-colors duration-300">Report as phishing and delete immediately</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 text-center">
+                                        <button id="check-outlook" class="cyber-button px-8 py-3 bg-gradient-to-r from-primary-600 to-cyan-600 hover:from-primary-700 hover:to-cyan-700 text-white font-bold rounded-md transition-all duration-300 relative overflow-hidden shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 transform hover:translate-y-[-3px]">
+                                            <span class="relative z-10">Check My Answers</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Stage 3: Gmail Phishing -->
+                            <div id="phishing-stage3" class="phishing-stage hidden transform transition-opacity duration-500">
+                                <h3 class="font-game text-lg mb-4 text-center text-teal-300">Gmail Security Assessment</h3>
+                                <p class="text-center text-cyan-100 mb-6">Test your skills in spotting Gmail phishing attempts!</p>
+                                
+                                <div class="bg-gradient-to-br from-red-900/30 to-gray-900/50 rounded-lg p-5 border border-red-500/20 shadow-lg mb-6">
+                                    <!-- Gmail Interface -->
+                                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                        <!-- Gmail Header -->
+                                        <div class="bg-red-500 text-white p-3 flex items-center justify-between">
+                                            <div class="flex items-center space-x-2">
+                                                <span class="font-bold text-lg">Gmail</span>
+                                            </div>
+                                            <div class="text-sm">student@university.edu</div>
+                                        </div>
+                                        
+                                        <!-- Email Content -->
+                                        <div class="p-4 text-gray-800">
+                                            <div class="border-l-4 border-yellow-400 bg-yellow-50 p-4 mb-4">
+                                                <div class="flex items-center">
+                                                    <div class="text-yellow-600 mr-2">⚠️</div>
+                                                    <span class="text-sm font-medium">Be careful with this message. It may be a phishing attempt.</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="gmail-email">
+                                                <div class="border-b pb-3 mb-4">
+                                                    <div class="flex justify-between items-start">
+                                                        <div>
+                                                            <p class="font-semibold text-gray-900">Google Security Team &lt;no-reply@google-security.info&gt;</p>
+                                                            <p class="text-sm text-gray-600">to me</p>
+                                                        </div>
+                                                        <span class="text-xs text-gray-500">3:24 PM</span>
+                                                    </div>
+                                                    <p class="font-bold text-lg mt-2 text-red-600">Critical Security Alert: Suspicious Activity Detected</p>
+                                                </div>
+                                                
+                                                <div class="space-y-3 text-gray-700">
+                                                    <p>Dear Google User,</p>
+                                                    <p>We detected suspicious login attempts from an unknown device in <span class="font-semibold text-red-600">Russia</span>. Your account security may be compromised.</p>
+                                                    <p><span class="font-bold text-red-600">IMMEDIATE ACTION REQUIRED:</span> To secure your account, you must verify your identity within the next 24 hours.</p>
+                                                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 my-4">
+                                                        <p class="font-semibold mb-2">Recent suspicious activities:</p>
+                                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                                            <li>Login attempt from Moscow, Russia (IP: 194.87.xx.xxx)</li>
+                                                            <li>Password change attempt detected</li>
+                                                            <li>Unusual email forwarding rules created</li>
+                                                        </ul>
+                                                    </div>
+                                                    <p class="text-center">
+                                                        <a href="#" class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors suspicious-gmail-link">VERIFY ACCOUNT NOW</a>
+                                                    </p>
+                                                    <p class="text-xs text-gray-500">If you do not verify within 24 hours, your account will be temporarily suspended for security reasons.</p>
+                                                    <p class="text-xs text-gray-500">Google Security Team</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-900/50 backdrop-blur-md rounded-lg p-5 text-gray-200 mb-6 border border-teal-500/20 shadow-lg">
+                                    <h3 class="font-game text-lg mb-4 text-teal-300">Analyze this Gmail phishing attempt (Select all red flags):</h3>
+                                    
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="gmail-clue1" name="gmail-clues[]" value="domain" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="gmail-clue1" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Sender uses fake Google domain (google-security.info)</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="gmail-clue2" name="gmail-clues[]" value="urgency" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="gmail-clue2" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Creates panic with "Critical Security Alert"</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="gmail-clue3" name="gmail-clues[]" value="timeline" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="gmail-clue3" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Demands immediate action within 24 hours</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="gmail-clue4" name="gmail-clues[]" value="button" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="gmail-clue4" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Suspicious "VERIFY ACCOUNT NOW" button</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="gmail-clue5" name="gmail-clues[]" value="warning" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="gmail-clue5" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Gmail shows phishing warning at the top</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border-t border-teal-500/30 pt-4 mt-4">
+                                        <h3 class="font-game text-lg mb-2 text-teal-300">What should you do with this email?</h3>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="gmail-action1" name="gmail-action" value="verify" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="gmail-action1" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Click "VERIFY ACCOUNT NOW" to secure account</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="gmail-action2" name="gmail-action" value="ignore" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="gmail-action2" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Ignore the warning and delete the email</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="gmail-action3" name="gmail-action" value="check" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="gmail-action3" class="text-cyan-100 hover:text-cyan-300 transition-colors duration-300">Check Google account security through official website</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="gmail-action4" name="gmail-action" value="report" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="gmail-action4" class="text-cyan-100 hover:text-cyan-300 transition-colors duration-300">Report as phishing and delete</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 text-center">
+                                        <button id="check-gmail" class="cyber-button px-8 py-3 bg-gradient-to-r from-primary-600 to-cyan-600 hover:from-primary-700 hover:to-cyan-700 text-white font-bold rounded-md transition-all duration-300 relative overflow-hidden shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 transform hover:translate-y-[-3px]">
+                                            <span class="relative z-10">Check My Answers</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Stage 4: SMS Scams -->
+                            <div id="phishing-stage4" class="phishing-stage hidden transform transition-opacity duration-500">
+                                <h3 class="font-game text-lg mb-4 text-center text-teal-300">SMS Scam Detection</h3>
+                                <p class="text-center text-cyan-100 mb-6">Learn to identify dangerous text message scams!</p>
+                                
+                                <div class="bg-gradient-to-br from-purple-900/30 to-gray-900/50 rounded-lg p-5 border border-purple-500/20 shadow-lg mb-6">
+                                    <!-- Phone Interface -->
+                                    <div class="max-w-sm mx-auto bg-gray-900 rounded-3xl p-4 shadow-2xl">
+                                        <!-- Phone Header -->
+                                        <div class="bg-black rounded-2xl p-4 text-white">
+                                            <div class="flex justify-center mb-2">
+                                                <div class="w-16 h-1 bg-gray-600 rounded-full"></div>
+                                            </div>
+                                            <div class="text-center text-sm mb-4">Messages</div>
+                                            
+                                            <!-- SMS Thread -->
+                                            <div class="space-y-3">
+                                                <!-- Scam Message 1 -->
+                                                <div class="bg-gray-700 rounded-2xl rounded-bl-none p-3 max-w-[80%]">
+                                                    <p class="text-sm text-white">🚨 ALERT: Your bank account has been FROZEN due to suspicious activity. Verify your identity NOW to prevent permanent closure.</p>
+                                                    <p class="text-xs text-gray-400 mt-1">+1 (555) 123-BANK</p>
+                                                </div>
+                                                
+                                                <!-- Scam Message 2 -->
+                                                <div class="bg-gray-700 rounded-2xl rounded-bl-none p-3 max-w-[80%]">
+                                                    <p class="text-sm text-white">Click here IMMEDIATELY: bit.ly/bank-verify-urgent</p>
+                                                    <p class="text-xs text-gray-400 mt-1">+1 (555) 123-BANK</p>
+                                                </div>
+                                                
+                                                <!-- Scam Message 3 -->
+                                                <div class="bg-gray-700 rounded-2xl rounded-bl-none p-3 max-w-[80%]">
+                                                    <p class="text-sm text-white">Time remaining: 47 minutes. Account will be PERMANENTLY DELETED if not verified!</p>
+                                                    <p class="text-xs text-gray-400 mt-1">+1 (555) 123-BANK</p>
+                                                </div>
+                                                
+                                                <!-- Prize Scam -->
+                                                <div class="bg-gray-700 rounded-2xl rounded-bl-none p-3 max-w-[80%] mt-6">
+                                                    <p class="text-sm text-white">🎉 CONGRATULATIONS! You've won a $1000 Amazon gift card! Claim your prize here: amazn-winner.com/claim</p>
+                                                    <p class="text-xs text-gray-400 mt-1">+1 (888) AMAZON</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-900/50 backdrop-blur-md rounded-lg p-5 text-gray-200 mb-6 border border-teal-500/20 shadow-lg">
+                                    <h3 class="font-game text-lg mb-4 text-teal-300">Identify the SMS scam tactics (Select all that apply):</h3>
+                                    
+                                    <div class="space-y-3 mb-6">
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="sms-clue1" name="sms-clues[]" value="impersonation" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="sms-clue1" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Impersonates legitimate bank/company</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="sms-clue2" name="sms-clues[]" value="urgency" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="sms-clue2" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Creates extreme urgency and fear</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="sms-clue3" name="sms-clues[]" value="suspicious-links" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="sms-clue3" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Uses suspicious shortened URLs</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="sms-clue4" name="sms-clues[]" value="countdown" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="sms-clue4" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Uses countdown timer to pressure victims</label>
+                                        </div>
+                                        <div class="flex items-center checkbox-wrapper">
+                                            <input type="checkbox" id="sms-clue5" name="sms-clues[]" value="prize" class="mr-2 h-5 w-5 cyber-checkbox">
+                                            <label for="sms-clue5" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Offers unrealistic prizes to lure victims</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="border-t border-teal-500/30 pt-4 mt-4">
+                                        <h3 class="font-game text-lg mb-2 text-teal-300">Best response to these SMS scams:</h3>
+                                        <div class="space-y-2">
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="sms-action1" name="sms-action" value="click" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="sms-action1" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Click the links to verify account status</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="sms-action2" name="sms-action" value="reply" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="sms-action2" class="text-cyan-100 hover:text-teal-300 transition-colors duration-300">Reply with personal information</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="sms-action3" name="sms-action" value="forward" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="sms-action3" class="text-cyan-100 hover:text-cyan-300 transition-colors duration-300">Forward to friends as a warning</label>
+                                            </div>
+                                            <div class="flex items-center radio-wrapper">
+                                                <input type="radio" id="sms-action4" name="sms-action" value="delete" class="mr-2 h-5 w-5 cyber-radio">
+                                                <label for="sms-action4" class="text-cyan-100 hover:text-cyan-300 transition-colors duration-300">Delete messages and contact bank directly</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 text-center">
+                                        <button id="check-sms" class="cyber-button px-8 py-3 bg-gradient-to-r from-primary-600 to-cyan-600 hover:from-primary-700 hover:to-cyan-700 text-white font-bold rounded-md transition-all duration-300 relative overflow-hidden shadow-lg shadow-primary-500/20 hover:shadow-primary-500/40 transform hover:translate-y-[-3px]">
+                                            <span class="relative z-10">Check My Answers</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Stage 5: Final Test -->
+                            <div id="phishing-stage5" class="phishing-stage hidden transform transition-opacity duration-500">
+                                <h3 class="font-game text-lg mb-4 text-center text-teal-300">Final Phishing Challenge</h3>
+                                <p class="text-center text-cyan-100 mb-6">Test all your phishing detection skills in this comprehensive challenge!</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <!-- Challenge 1: Multi-platform Attack -->
+                                    <div class="bg-gradient-to-br from-red-900/30 to-gray-900/50 rounded-lg p-5 border border-red-500/20 shadow-lg">
+                                        <h4 class="font-bold text-lg mb-3 text-red-400">Challenge 1: Multi-Platform Attack</h4>
+                                        <p class="text-sm text-cyan-100 mb-4">You receive these messages across different platforms on the same day:</p>
+                                        
+                                        <div class="space-y-3 text-xs">
+                                            <div class="bg-blue-900/30 p-3 rounded border-l-4 border-blue-400">
+                                                <p class="font-semibold text-blue-300">Email: "Your Netflix subscription expires today - Update payment"</p>
+                                                <p class="text-gray-300">From: billing@netflix-update.com</p>
+                                            </div>
+                                            <div class="bg-green-900/30 p-3 rounded border-l-4 border-green-400">
+                                                <p class="font-semibold text-green-300">SMS: "Your bank account locked - verify: bit.ly/bank-unlock"</p>
+                                                <p class="text-gray-300">From: +1-555-BANK</p>
+                                            </div>
+                                            <div class="bg-purple-900/30 p-3 rounded border-l-4 border-purple-400">
+                                                <p class="font-semibold text-purple-300">Social Media DM: "You won $500! Click here to claim your prize!"</p>
+                                                <p class="text-gray-300">From: Official_Prizes_2024</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="mt-4">
+                                            <label class="block text-sm font-medium text-cyan-300 mb-2">What's the common attack pattern?</label>
+                                            <select id="final-pattern" class="w-full bg-gray-800 text-white rounded px-3 py-2 border border-gray-600">
+                                                <option value="">Select an answer...</option>
+                                                <option value="coordinated">Coordinated multi-platform phishing campaign</option>
+                                                <option value="coincidence">Random coincidental messages</option>
+                                                <option value="legitimate">All legitimate service notifications</option>
+                                                <option value="spam">Simple spam messages</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Challenge 2: Advanced Email Analysis -->
+                                    <div class="bg-gradient-to-br from-yellow-900/30 to-gray-900/50 rounded-lg p-5 border border-yellow-500/20 shadow-lg">
+                                        <h4 class="font-bold text-lg mb-3 text-yellow-400">Challenge 2: Advanced Email Analysis</h4>
+                                        <p class="text-sm text-cyan-100 mb-4">Analyze this sophisticated phishing email:</p>
+                                        
+                                        <div class="bg-white/10 rounded p-3 text-xs mb-4">
+                                            <div class="text-yellow-200 mb-2">
+                                                <p><strong>From:</strong> security@microsoft.onmicrosoft.com</p>
+                                                <p><strong>Subject:</strong> Microsoft Security Alert: New Device Sign-in</p>
+                                                <p><strong>Digital Signature:</strong> ✓ Verified</p>
+                                            </div>
+                                            <div class="text-gray-200">
+                                                <p>We noticed a new sign-in to your Microsoft account from:</p>
+                                                <p><strong>Device:</strong> Windows 10 PC</p>
+                                                <p><strong>Location:</strong> Your approximate location</p>
+                                                <p><strong>Time:</strong> Just now</p>
+                                                <p class="mt-2">If this wasn't you, secure your account immediately.</p>
+                                                <p class="mt-2 text-center">
+                                                    <span class="bg-blue-600 text-white px-4 py-2 rounded">Review Account Activity</span>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <label class="block text-sm font-medium text-cyan-300 mb-2">What makes this email particularly dangerous?</label>
+                                            <select id="final-danger" class="w-full bg-gray-800 text-white rounded px-3 py-2 border border-gray-600">
+                                                <option value="">Select an answer...</option>
+                                                <option value="sophisticated">Uses legitimate-looking domain and appears verified</option>
+                                                <option value="obvious">Contains obvious spelling errors</option>
+                                                <option value="harmless">It's actually a legitimate Microsoft email</option>
+                                                <option value="simple">Simple phishing attempt with clear red flags</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Final Knowledge Check -->
+                                <div class="bg-gray-900/50 backdrop-blur-md rounded-lg p-5 text-gray-200 mb-6 border border-teal-500/20 shadow-lg">
+                                    <h3 class="font-game text-lg mb-4 text-teal-300">Final Knowledge Assessment:</h3>
+                                    
+                                    <div class="space-y-4">
+                                        <div>
+                                            <p class="font-medium mb-2">1. What should you ALWAYS do before clicking links in emails?</p>
+                                            <div class="space-y-2">
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q1" value="hover" class="mr-2">
+                                                    <span class="text-sm">Hover over the link to see the real destination</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q1" value="click" class="mr-2">
+                                                    <span class="text-sm">Click immediately if it looks legitimate</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q1" value="forward" class="mr-2">
+                                                    <span class="text-sm">Forward to friends for verification</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <p class="font-medium mb-2">2. The most effective way to verify a suspicious security email is to:</p>
+                                            <div class="space-y-2">
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q2" value="reply" class="mr-2">
+                                                    <span class="text-sm">Reply to the email asking for confirmation</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q2" value="direct" class="mr-2">
+                                                    <span class="text-sm">Log in directly through the official website/app</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q2" value="ignore" class="mr-2">
+                                                    <span class="text-sm">Ignore all security emails as fake</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div>
+                                            <p class="font-medium mb-2">3. When should you be MOST suspicious of an email?</p>
+                                            <div class="space-y-2">
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q3" value="combination" class="mr-2">
+                                                    <span class="text-sm">When it combines urgency + fear + requests for personal info</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q3" value="unknown" class="mr-2">
+                                                    <span class="text-sm">Only when it's from unknown senders</span>
+                                                </label>
+                                                <label class="flex items-center">
+                                                    <input type="radio" name="final-q3" value="spelling" class="mr-2">
+                                                    <span class="text-sm">Only when it has spelling errors</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mt-6 text-center">
+                                        <button id="check-final" class="cyber-button px-8 py-3 bg-gradient-to-r from-green-600 to-cyan-600 hover:from-green-700 hover:to-cyan-700 text-white font-bold rounded-md transition-all duration-300 relative overflow-hidden shadow-lg shadow-green-500/20 hover:shadow-green-500/40 transform hover:translate-y-[-3px]">
+                                            <span class="relative z-10">Complete Final Challenge</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                             @break
                         @case(2)
                             <h2 class="text-xl font-game mb-4 text-center">Password Strength Challenge</h2>
@@ -2402,6 +2850,78 @@
         let currentPhishingStage = 1;
         let phishingStagesCompleted = [false, false, false, false, false];
         
+        // Add click event handlers for stage navigation
+        phishingStageBtns.forEach((btn, index) => {
+            btn.addEventListener('click', function() {
+                const stageNumber = index + 1;
+                
+                // Only allow navigation to completed stages or the next unlocked stage
+                let canNavigate = false;
+                
+                if (stageNumber === 1) {
+                    // Always allow navigation to stage 1
+                    canNavigate = true;
+                } else if (stageNumber === 2) {
+                    // Can navigate to stage 2 if stage 1 is completed
+                    canNavigate = phishingStagesCompleted[0];
+                } else if (stageNumber === 3) {
+                    // Can navigate to stage 3 if stage 2 is completed
+                    canNavigate = phishingStagesCompleted[1];
+                } else if (stageNumber === 4) {
+                    // Can navigate to stage 4 if stage 3 is completed
+                    canNavigate = phishingStagesCompleted[2];
+                } else if (stageNumber === 5) {
+                    // Can navigate to stage 5 if stage 4 is completed
+                    canNavigate = phishingStagesCompleted[3];
+                }
+                
+                if (canNavigate) {
+                    navigateToPhishingStage(stageNumber);
+                }
+            });
+        });
+        
+        // Function to navigate between phishing stages
+        function navigateToPhishingStage(stageNumber) {
+            currentPhishingStage = stageNumber;
+            
+            // Update button styles
+            phishingStageBtns.forEach((btn, index) => {
+                if (index + 1 === stageNumber) {
+                    btn.classList.add('active');
+                    btn.classList.remove('bg-gray-800/70', 'bg-gray-800/40', 'text-gray-400', 'text-gray-200');
+                    btn.classList.add('bg-gradient-to-r', 'from-primary-600', 'to-cyan-600', 'text-white');
+                } else {
+                    btn.classList.remove('active');
+                    
+                    // Keep completed stages highlighted
+                    if (phishingStagesCompleted[index]) {
+                        btn.classList.remove('bg-gray-800/70', 'text-gray-400');
+                        btn.classList.add('bg-gradient-to-r', 'from-green-600', 'to-cyan-600', 'text-white');
+                    } else if (index > 0 && phishingStagesCompleted[index - 1]) {
+                        // Next unlocked stage
+                        btn.classList.remove('bg-gray-800/70', 'text-gray-400');
+                        btn.classList.add('bg-gray-800/40', 'text-gray-200');
+                    } else {
+                        // Locked stages
+                        btn.classList.remove('bg-gradient-to-r', 'from-primary-600', 'to-cyan-600', 'from-green-600', 'text-white', 'text-gray-200');
+                        btn.classList.add('bg-gray-800/70', 'text-gray-400');
+                    }
+                }
+            });
+            
+            // Show the correct stage
+            phishingStages.forEach((stage, index) => {
+                if (index + 1 === stageNumber) {
+                    stage.classList.remove('hidden');
+                    stage.classList.add('active', 'animate__animated', 'animate__fadeIn');
+                } else {
+                    stage.classList.add('hidden');
+                    stage.classList.remove('active', 'animate__animated', 'animate__fadeIn');
+                }
+            });
+        }
+        
         // ... existing code ...
 
         // Code rain animation for email challenge (similar to Secret Code page)
@@ -2465,8 +2985,8 @@
                 }
             }
             
-            // Animation loop
-            setInterval(draw, 50);
+            // Animation loop - Optimized for PhishGuard email animation
+            setInterval(draw, 120);
         }
         
         // Create cybersecurity grid effect
@@ -3476,8 +3996,8 @@
                 }
             }
             
-            // Animation loop
-            setInterval(draw, 50);
+            // Animation loop - Optimized for typing animation canvas
+            setInterval(draw, 120);
         }
         
         // Create cybersecurity grid effect
@@ -3683,8 +4203,8 @@
                     }
                 }
                 
-                // Animation loop
-                setInterval(drawCodeRain, 35);
+                // Animation loop - Optimized for code rain performance
+                setInterval(drawCodeRain, 80);
                 
                 // Resize handling
                 window.addEventListener('resize', function() {
@@ -3861,5 +4381,215 @@
             form.submit();
         }, 2000);
     };
+    
+    // Add handlers for new phishing stages
+    document.addEventListener('DOMContentLoaded', function() {
+        // Stage 2: Outlook Phishing Handler
+        const checkOutlookBtn = document.getElementById('check-outlook');
+        if (checkOutlookBtn) {
+            checkOutlookBtn.addEventListener('click', function() {
+                const selectedClues = Array.from(document.querySelectorAll('input[name="outlook-clues[]"]:checked'))
+                    .map(checkbox => checkbox.value);
+                const selectedAction = document.querySelector('input[name="outlook-action"]:checked')?.value;
+                
+                const correctClues = ['domain', 'urgency', 'link', 'attachment'];
+                const correctAction = 'report';
+                
+                const correctCluesCount = selectedClues.filter(clue => correctClues.includes(clue)).length;
+                const isActionCorrect = selectedAction === correctAction;
+                
+                let feedbackTitle, feedbackMessage, feedbackClass;
+                
+                if (isActionCorrect && correctCluesCount === correctClues.length) {
+                    feedbackTitle = 'Outstanding!';
+                    feedbackMessage = 'You successfully identified all Outlook phishing indicators and chose the correct response. Great work!';
+                    feedbackClass = 'bg-green-700/50 text-green-300 border-green-500/30';
+                    
+                    if (typeof phishingStagesCompleted !== 'undefined') {
+                        phishingStagesCompleted[1] = true;
+                        const phishingStageBtns = document.querySelectorAll('.phishing-stage-btn');
+                        if (phishingStageBtns[1]) {
+                            phishingStageBtns[1].classList.remove('bg-gray-800/70', 'text-gray-400');
+                            phishingStageBtns[1].classList.add('bg-gradient-to-r', 'from-green-600', 'to-cyan-600', 'text-white');
+                        }
+                        if (phishingStageBtns[2]) {
+                            phishingStageBtns[2].classList.remove('bg-gray-800/70', 'text-gray-400');
+                            phishingStageBtns[2].classList.add('bg-gray-800/40', 'text-gray-200');
+                        }
+                    }
+                } else {
+                    feedbackTitle = 'Keep practicing!';
+                    feedbackMessage = `You found ${correctCluesCount} out of ${correctClues.length} clues. ${isActionCorrect ? 'Good action choice!' : 'Remember to report and delete phishing emails.'} Try again!`;
+                    feedbackClass = 'bg-yellow-700/50 text-yellow-300 border-yellow-500/30';
+                }
+                
+                showFeedback(feedbackTitle, feedbackMessage, feedbackClass);
+            });
+        }
+        
+        // Stage 3: Gmail Phishing Handler
+        const checkGmailBtn = document.getElementById('check-gmail');
+        if (checkGmailBtn) {
+            checkGmailBtn.addEventListener('click', function() {
+                const selectedClues = Array.from(document.querySelectorAll('input[name="gmail-clues[]"]:checked'))
+                    .map(checkbox => checkbox.value);
+                const selectedAction = document.querySelector('input[name="gmail-action"]:checked')?.value;
+                
+                const correctClues = ['domain', 'urgency', 'timeline', 'button', 'warning'];
+                const correctActions = ['check', 'report']; // Both are acceptable
+                
+                const correctCluesCount = selectedClues.filter(clue => correctClues.includes(clue)).length;
+                const isActionCorrect = correctActions.includes(selectedAction);
+                
+                let feedbackTitle, feedbackMessage, feedbackClass;
+                
+                if (isActionCorrect && correctCluesCount === correctClues.length) {
+                    feedbackTitle = 'Excellent detection!';
+                    feedbackMessage = 'You caught all the Gmail phishing signs and chose a safe response. Well done!';
+                    feedbackClass = 'bg-green-700/50 text-green-300 border-green-500/30';
+                    
+                    if (typeof phishingStagesCompleted !== 'undefined') {
+                        phishingStagesCompleted[2] = true;
+                        const phishingStageBtns = document.querySelectorAll('.phishing-stage-btn');
+                        if (phishingStageBtns[2]) {
+                            phishingStageBtns[2].classList.remove('bg-gray-800/70', 'text-gray-400');
+                            phishingStageBtns[2].classList.add('bg-gradient-to-r', 'from-green-600', 'to-cyan-600', 'text-white');
+                        }
+                        if (phishingStageBtns[3]) {
+                            phishingStageBtns[3].classList.remove('bg-gray-800/70', 'text-gray-400');
+                            phishingStageBtns[3].classList.add('bg-gray-800/40', 'text-gray-200');
+                        }
+                    }
+                } else {
+                    feedbackTitle = 'Good effort!';
+                    feedbackMessage = `You identified ${correctCluesCount} out of ${correctClues.length} warning signs. ${isActionCorrect ? 'Smart action choice!' : 'Best to check directly or report suspicious emails.'} Keep learning!`;
+                    feedbackClass = 'bg-yellow-700/50 text-yellow-300 border-yellow-500/30';
+                }
+                
+                showFeedback(feedbackTitle, feedbackMessage, feedbackClass);
+            });
+        }
+        
+        // Stage 4: SMS Scams Handler
+        const checkSmsBtn = document.getElementById('check-sms');
+        if (checkSmsBtn) {
+            checkSmsBtn.addEventListener('click', function() {
+                const selectedClues = Array.from(document.querySelectorAll('input[name="sms-clues[]"]:checked'))
+                    .map(checkbox => checkbox.value);
+                const selectedAction = document.querySelector('input[name="sms-action"]:checked')?.value;
+                
+                const correctClues = ['impersonation', 'urgency', 'suspicious-links', 'countdown', 'prize'];
+                const correctAction = 'delete';
+                
+                const correctCluesCount = selectedClues.filter(clue => correctClues.includes(clue)).length;
+                const isActionCorrect = selectedAction === correctAction;
+                
+                let feedbackTitle, feedbackMessage, feedbackClass;
+                
+                if (isActionCorrect && correctCluesCount === correctClues.length) {
+                    feedbackTitle = 'SMS scam expert!';
+                    feedbackMessage = 'You identified all SMS scam tactics and chose the safest response. Excellent work!';
+                    feedbackClass = 'bg-green-700/50 text-green-300 border-green-500/30';
+                    
+                    if (typeof phishingStagesCompleted !== 'undefined') {
+                        phishingStagesCompleted[3] = true;
+                        const phishingStageBtns = document.querySelectorAll('.phishing-stage-btn');
+                        if (phishingStageBtns[3]) {
+                            phishingStageBtns[3].classList.remove('bg-gray-800/70', 'text-gray-400');
+                            phishingStageBtns[3].classList.add('bg-gradient-to-r', 'from-green-600', 'to-cyan-600', 'text-white');
+                        }
+                        if (phishingStageBtns[4]) {
+                            phishingStageBtns[4].classList.remove('bg-gray-800/70', 'text-gray-400');
+                            phishingStageBtns[4].classList.add('bg-gray-800/40', 'text-gray-200');
+                        }
+                    }
+                } else {
+                    feedbackTitle = 'Learning progress!';
+                    feedbackMessage = `You spotted ${correctCluesCount} out of ${correctClues.length} scam tactics. ${isActionCorrect ? 'Great response!' : 'Remember to delete suspicious messages and contact companies directly.'} Try again!`;
+                    feedbackClass = 'bg-yellow-700/50 text-yellow-300 border-yellow-500/30';
+                }
+                
+                showFeedback(feedbackTitle, feedbackMessage, feedbackClass);
+            });
+        }
+        
+        // Stage 5: Final Test Handler
+        const checkFinalBtn = document.getElementById('check-final');
+        if (checkFinalBtn) {
+            checkFinalBtn.addEventListener('click', function() {
+                const pattern = document.getElementById('final-pattern')?.value;
+                const danger = document.getElementById('final-danger')?.value;
+                const q1 = document.querySelector('input[name="final-q1"]:checked')?.value;
+                const q2 = document.querySelector('input[name="final-q2"]:checked')?.value;
+                const q3 = document.querySelector('input[name="final-q3"]:checked')?.value;
+                
+                const correctAnswers = {
+                    pattern: 'coordinated',
+                    danger: 'sophisticated',
+                    q1: 'hover',
+                    q2: 'direct',
+                    q3: 'combination'
+                };
+                
+                let score = 0;
+                if (pattern === correctAnswers.pattern) score++;
+                if (danger === correctAnswers.danger) score++;
+                if (q1 === correctAnswers.q1) score++;
+                if (q2 === correctAnswers.q2) score++;
+                if (q3 === correctAnswers.q3) score++;
+                
+                let feedbackTitle, feedbackMessage, feedbackClass;
+                
+                if (score === 5) {
+                    feedbackTitle = 'Phishing Expert!';
+                    feedbackMessage = 'Perfect score! You have mastered phishing detection across all platforms. You are now a certified phishing defense expert!';
+                    feedbackClass = 'bg-green-700/50 text-green-300 border-green-500/30';
+                    
+                    if (typeof phishingStagesCompleted !== 'undefined') {
+                        phishingStagesCompleted[4] = true;
+                        const phishingStageBtns = document.querySelectorAll('.phishing-stage-btn');
+                        if (phishingStageBtns[4]) {
+                            phishingStageBtns[4].classList.remove('bg-gray-800/70', 'text-gray-400');
+                            phishingStageBtns[4].classList.add('bg-gradient-to-r', 'from-green-600', 'to-cyan-600', 'text-white');
+                        }
+                    }
+                } else if (score >= 3) {
+                    feedbackTitle = 'Well done!';
+                    feedbackMessage = `You got ${score} out of 5 correct. You have a solid understanding of phishing defense. Review the areas you missed and try again for a perfect score!`;
+                    feedbackClass = 'bg-blue-700/50 text-blue-300 border-blue-500/30';
+                } else {
+                    feedbackTitle = 'Keep learning!';
+                    feedbackMessage = `You got ${score} out of 5 correct. Review the phishing detection principles and try the challenge again. Practice makes perfect!`;
+                    feedbackClass = 'bg-yellow-700/50 text-yellow-300 border-yellow-500/30';
+                }
+                
+                showFeedback(feedbackTitle, feedbackMessage, feedbackClass);
+            });
+        }
+        
+        // Helper function to show feedback
+        function showFeedback(title, message, className) {
+            // Create or update feedback element
+            let feedback = document.getElementById('phishing-feedback');
+            if (!feedback) {
+                feedback = document.createElement('div');
+                feedback.id = 'phishing-feedback';
+                feedback.className = 'mt-6 p-4 rounded-lg border animate__animated animate__fadeIn';
+                
+                // Find the button that was clicked and insert feedback after it
+                const activeStage = document.querySelector('.phishing-stage:not(.hidden)');
+                if (activeStage) {
+                    const buttonContainer = activeStage.querySelector('.text-center');
+                    if (buttonContainer) {
+                        buttonContainer.appendChild(feedback);
+                    }
+                }
+            }
+            
+            // Update feedback content and styling
+            feedback.className = `mt-6 p-4 rounded-lg border animate__animated animate__fadeIn ${className}`;
+            feedback.innerHTML = `<strong>${title}</strong><br>${message}`;
+        }
+    });
 </script>
 @endsection

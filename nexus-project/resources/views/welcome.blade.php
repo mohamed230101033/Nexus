@@ -612,7 +612,8 @@
                 }
                 
                 // Animation loop
-                setInterval(draw, 50);
+                // Animation loop - Optimized for performance
+                setInterval(draw, 120);
             });
         </script>
     </body>
