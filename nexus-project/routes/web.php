@@ -22,10 +22,6 @@ Route::get('/second-semester', [NexusController::class, 'secondSemester'])->name
 Route::get('/encryption', [NexusController::class, 'encryption'])->name('nexus.encryption');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 
-// Direct Routes for Malware Analysis Sections
-Route::get('/snake-keylogger', [NexusController::class, 'snakeKeylogger'])->name('nexus.snake-keylogger');
-Route::get('/rat-analysis', [NexusController::class, 'ratAnalysis'])->name('nexus.rat-analysis');
-
 // NEXUS x MYC Routes (the actual game functionality)
 Route::prefix('game')->name('game.')->group(function () {
     Route::get('/', [GameController::class, 'welcome'])->name('welcome');

