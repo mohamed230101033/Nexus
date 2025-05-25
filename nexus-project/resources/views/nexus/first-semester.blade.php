@@ -1021,7 +1021,7 @@
                 </div>
             </div>
         </div>
-    </section>    <!-- RAT ANALYSIS SECTION -->
+    </section>    <!-- RAT ANALYSIS SECTION - COMPREHENSIVE REAL-WORLD ANALYSIS -->
     <section id="rat-analysis" class="section-content">
         <div class="mb-8">
             <button onclick="showOverview()" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600">
@@ -1029,95 +1029,368 @@
                 <span>Back to Overview</span>
             </button>
         </div>
+        
         <div class="text-center mb-16">
             <h1 class="text-4xl md:text-6xl font-black mb-6">
                 <span class="bg-gradient-to-r from-purple-400 via-pink-400 to-red-400 bg-clip-text text-transparent">
                     RAT ANALYSIS
                 </span>
             </h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                Comprehensive analysis of Remote Access Trojans - Understanding behavior, detection, and mitigation strategies.
+            <p class="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+                Real-world analysis of <strong>Remcos RAT</strong> - A comprehensive study of Remote Access Trojan behavior, 
+                network communications, and detection methodologies using controlled virtual environment testing.
             </p>
         </div>
 
-        <!-- Interactive Analysis Tools -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-            <!-- Behavioral Analysis -->
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-search-plus text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Behavioral Analysis</h3>
+        <!-- Malware Overview Section -->
+        <div class="bg-gradient-to-r from-purple-900/20 to-pink-900/20 rounded-2xl p-8 border border-purple-500/30 mb-16">
+            <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-bug text-white text-2xl"></i>
                 </div>
-                <div class="space-y-4">
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-purple-400 font-semibold mb-2">Network Communication Patterns</h4>
-                        <p class="text-gray-300 text-sm">Monitor and analyze RAT communication protocols, command & control patterns, and data exfiltration methods.</p>
-                    </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-purple-400 font-semibold mb-2">Process Behavior</h4>
-                        <p class="text-gray-300 text-sm">Track process creation, file system modifications, registry changes, and persistence mechanisms.</p>
-                    </div>
-                </div>
+                <h2 class="text-3xl font-bold text-white">Remcos RAT Overview</h2>
             </div>
-
-            <!-- Detection Methods -->
-            <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-pink-500/20">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mr-4">
-                        <i class="fas fa-shield-alt text-white"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Detection Strategies</h3>
-                </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div class="space-y-4">
+                    <p class="text-gray-300 leading-relaxed">
+                        <strong class="text-purple-400">Remote Access Trojans (RATs)</strong> were initially developed for legitimate purposes 
+                        such as surveillance and penetration testing. However, they have been extensively abused by cybercriminals 
+                        to secretly control victims' devices and steal sensitive information.
+                    </p>
+                    
                     <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-pink-400 font-semibold mb-2">Signature-Based Detection</h4>
-                        <p class="text-gray-300 text-sm">Identify known RAT variants through static analysis and signature matching techniques.</p>
+                        <h4 class="text-pink-400 font-semibold mb-3">Core Capabilities</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li>• <strong>Information Theft:</strong> System metadata, credentials, keystrokes</li>
+                            <li>• <strong>Remote Command Execution:</strong> Full system control</li>
+                            <li>• <strong>Backdoor Creation:</strong> Persistent access maintenance</li>
+                            <li>• <strong>Evasion Techniques:</strong> Anti-detection mechanisms</li>
+                        </ul>
                     </div>
-                    <div class="bg-gray-800/50 rounded-lg p-4">
-                        <h4 class="text-pink-400 font-semibold mb-2">Heuristic Analysis</h4>
-                        <p class="text-gray-300 text-sm">Advanced behavioral detection using machine learning and anomaly detection algorithms.</p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-red-400 font-semibold mb-4">Detailed Attack Vector Capabilities</h4>
+                    <div class="grid grid-cols-1 gap-3 text-sm">
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-download text-red-400 mt-1"></i>
+                            <span class="text-gray-300">File harvesting and exfiltration</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-cogs text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Process enumeration and termination</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-server text-red-400 mt-1"></i>
+                            <span class="text-gray-300">System service management</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-edit text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Windows Registry manipulation</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-clipboard text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Clipboard content capture</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-camera text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Camera and microphone activation</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-desktop text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Desktop wallpaper alteration</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-video text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Screen recording capabilities</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-keyboard text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Input device disabling</span>
+                        </div>
+                        <div class="flex items-start space-x-2">
+                            <i class="fas fa-door-open text-red-400 mt-1"></i>
+                            <span class="text-gray-300">Backdoor installation</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- RAT Analysis Flowchart -->
+        <!-- Lab Environment Setup -->
         <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
-            <h3 class="text-2xl font-bold text-white mb-6 text-center">RAT Analysis Workflow</h3>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white font-bold">1</span>
-                    </div>
-                    <h4 class="text-purple-400 font-semibold mb-2">Collection</h4>
-                    <p class="text-gray-300 text-sm">Gather suspected RAT samples from various sources</p>
+            <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-flask text-white text-2xl"></i>
                 </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white font-bold">2</span>
+                <h2 class="text-3xl font-bold text-white">Laboratory Environment Setup</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-4">
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-blue-400 font-semibold mb-3">Virtual Machine Configuration</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li>• <strong>Platform:</strong> VMware Workstation Pro</li>
+                            <li>• <strong>OS:</strong> Windows 10 Pro (Clean Installation)</li>
+                            <li>• <strong>Network:</strong> Host-Only Adapter (Isolated)</li>
+                            <li>• <strong>Security:</strong> Windows Defender Disabled</li>
+                            <li>• <strong>Integration:</strong> VMware Tools Removed</li>
+                        </ul>
                     </div>
-                    <h4 class="text-pink-400 font-semibold mb-2">Static Analysis</h4>
-                    <p class="text-gray-300 text-sm">Examine file structure, strings, and metadata</p>
+                    
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-purple-400 font-semibold mb-3">Monitoring Tools</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li>• <strong>Network Analysis:</strong> Wireshark Packet Capture</li>
+                            <li>• <strong>Process Monitoring:</strong> Process Manager</li>
+                            <li>• <strong>Sample Source:</strong> Malware Bazaar</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white font-bold">3</span>
+                
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-green-400 font-semibold mb-4">Security Isolation Measures</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-shield-alt text-green-400"></i>
+                            <span class="text-gray-300 text-sm">Host-only networking prevents home network exposure</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-times-circle text-green-400"></i>
+                            <span class="text-gray-300 text-sm">File sharing integration completely disabled</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-lock text-green-400"></i>
+                            <span class="text-gray-300 text-sm">VM tools removed for enhanced security</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-ban text-green-400"></i>
+                            <span class="text-gray-300 text-sm">Antivirus disabled to allow malware execution</span>
+                        </div>
                     </div>
-                    <h4 class="text-red-400 font-semibold mb-2">Dynamic Analysis</h4>
-                    <p class="text-gray-300 text-sm">Execute in sandbox and monitor behavior</p>
-                </div>
-                <div class="text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <span class="text-white font-bold">4</span>
-                    </div>
-                    <h4 class="text-orange-400 font-semibold mb-2">Report</h4>
-                    <p class="text-gray-300 text-sm">Document findings and create IOCs</p>
                 </div>
             </div>
         </div>
-    </section>    <!-- SNAKE KEYLOGGER ANALYSIS SECTION -->
+
+        <!-- Analysis Results and Evidence -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-red-500/20 mb-16">
+            <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-search text-white text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-white">Analysis Results & Evidence</h2>
+            </div>
+
+            <!-- Network Traffic Analysis -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-red-400 mb-4">Network Traffic Analysis</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-orange-400 font-semibold mb-3">DNS Query Analysis</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Upon execution, the RAT immediately generated suspicious DNS queries to DUCKDNS domains, 
+                            revealing command and control infrastructure despite the offline environment.
+                        </p>
+                        <img src="/images/RAT/s1.png" alt="DNS Traffic Analysis" class="w-full rounded-lg border border-gray-600 mb-3">
+                        <p class="text-xs text-gray-400 italic">Figure 1: Wireshark capture showing malicious DNS queries to compromised DUCKDNS infrastructure</p>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-orange-400 font-semibold mb-3">Threat Intelligence Discovery</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Investigation revealed a Russian cybercriminal group (AS198953) actively abusing DUCKDNS 
+                            for cryptocurrency scams, phishing operations, and data theft campaigns.
+                        </p>
+                        <img src="/images/RAT/s2.png" alt="Threat Intelligence" class="w-full rounded-lg border border-gray-600 mb-3">
+                        <p class="text-xs text-gray-400 italic">Figure 2: URLScan.io analysis revealing malicious infrastructure patterns</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Process Behavior Analysis -->
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-red-400 mb-4">Process Behavior & Data Access Attempts</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-orange-400 font-semibold mb-3">Data Exfiltration Attempts</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Process Manager captured multiple attempts by the RAT to access system data, 
+                            demonstrating its data harvesting capabilities in real-time.
+                        </p>
+                        <img src="/images/RAT/s4.png" alt="Process Analysis" class="w-full rounded-lg border border-gray-600 mb-3">
+                        <p class="text-xs text-gray-400 italic">Figure 3: Process Manager showing RAT data access attempts</p>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-orange-400 font-semibold mb-3">Criminal Infrastructure Evidence</h4>
+                        <p class="text-gray-300 text-sm mb-4">
+                            Further analysis exposed the extent of the criminal operation, including Bitcoin scams 
+                            and various fraudulent activities hosted on the compromised infrastructure.
+                        </p>
+                        <img src="/images/RAT/s3.png" alt="Criminal Evidence" class="w-full rounded-lg border border-gray-600 mb-3">
+                        <p class="text-xs text-gray-400 italic">Figure 4: Evidence of cryptocurrency scams and fraudulent operations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Evasion Techniques -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-yellow-500/20 mb-16">
+            <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-mask text-white text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-white">Advanced Evasion Techniques</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-code text-yellow-400 text-xl mr-3"></i>
+                        <h4 class="text-yellow-400 font-semibold">Code Obfuscation</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Multi-layered obfuscation using JavaScript, VBScript, and PowerShell 
+                        to evade static analysis detection methods.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bug text-yellow-400 text-xl mr-3"></i>
+                        <h4 class="text-yellow-400 font-semibold">Anti-Debugging</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Active detection of debugging environments with automatic termination 
+                        when analysis tools are detected.
+                    </p>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-ghost text-yellow-400 text-xl mr-3"></i>
+                        <h4 class="text-yellow-400 font-semibold">Process Hollowing</h4>
+                    </div>
+                    <p class="text-gray-300 text-sm">
+                        Fileless execution by injecting malicious code into legitimate 
+                        process memory space for stealth operations.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mitigation Strategies -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-green-500/20 mb-16">
+            <div class="flex items-center mb-6">
+                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-shield-alt text-white text-2xl"></i>
+                </div>
+                <h2 class="text-3xl font-bold text-white">Mitigation & Response Strategies</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-green-400 font-semibold mb-3">Prevention Measures</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li>• Avoid clicking suspicious links and attachments</li>
+                            <li>• Implement comprehensive user security training</li>
+                            <li>• Deploy advanced email filtering solutions</li>
+                            <li>• Maintain updated antivirus and anti-malware</li>
+                            <li>• Regular system and software updates</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-800/50 rounded-lg p-6">
+                        <h4 class="text-green-400 font-semibold mb-3">Detection Methods</h4>
+                        <ul class="text-gray-300 text-sm space-y-2">
+                            <li>• Network traffic anomaly monitoring</li>
+                            <li>• Behavioral analysis of system processes</li>
+                            <li>• DNS query pattern analysis</li>
+                            <li>• Endpoint detection and response (EDR)</li>
+                            <li>• Threat intelligence integration</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-green-400 font-semibold mb-4">Incident Response Protocol</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                            <div>
+                                <h5 class="text-white font-semibold">Immediate Isolation</h5>
+                                <p class="text-gray-300 text-sm">Disconnect infected systems from network</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                            <div>
+                                <h5 class="text-white font-semibold">Safe Mode Boot</h5>
+                                <p class="text-gray-300 text-sm">Boot Windows in safe mode to prevent malware execution</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                            <div>
+                                <h5 class="text-white font-semibold">Offline Scanning</h5>
+                                <p class="text-gray-300 text-sm">Run Windows Defender offline scan or boot rescue tools</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-sm">4</div>
+                            <div>
+                                <h5 class="text-white font-semibold">Professional Recovery</h5>
+                                <p class="text-gray-300 text-sm">Use Hirens Boot CD or similar recovery tools for advanced cleaning</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Research References -->
+        <div class="bg-gray-800/30 rounded-2xl p-8 border border-gray-600">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-gradient-to-r from-gray-500 to-gray-700 rounded-full flex items-center justify-center mr-4">
+                    <i class="fas fa-book text-white"></i>
+                </div>
+                <h2 class="text-2xl font-bold text-white">Research References & Sources</h2>
+            </div>
+            
+            <div class="space-y-4 text-gray-300 text-sm">
+                <div class="border-l-4 border-purple-500 pl-4">
+                    <h4 class="text-purple-400 font-semibold mb-2">Threat Intelligence Sources</h4>
+                    <ul class="space-y-1">
+                        <li>• <strong>Malware Bazaar:</strong> Sample acquisition and threat intelligence</li>
+                        <li>• <strong>URLScan.io:</strong> Infrastructure analysis and threat attribution</li>
+                        <li>• <strong>AS198953 Analysis:</strong> Russian cybercriminal infrastructure investigation</li>
+                    </ul>
+                </div>
+                
+                <div class="border-l-4 border-blue-500 pl-4">
+                    <h4 class="text-blue-400 font-semibold mb-2">Referenced Security Incidents</h4>
+                    <ul class="space-y-1">
+                        <li>• DUCKDNS infrastructure abuse: <a href="https://community.home-assistant.io/t/mydomain-duckdns-org-marked-as-dangerous-after-pasting-passwords/357812" class="text-blue-400 hover:underline" target="_blank">Home Assistant Community Report</a></li>
+                        <li>• Cryptocurrency scam operations: <a href="https://urlscan.io/result/609a6264-c078-4af2-85d8-b5fc3ad6dad7/" class="text-blue-400 hover:underline" target="_blank">URLScan Analysis #1</a></li>
+                        <li>• Criminal group evidence: <a href="https://urlscan.io/result/448651c1-7bea-4e29-a1c5-91605e199bb3" class="text-blue-400 hover:underline" target="_blank">URLScan Analysis #2</a></li>
+                        <li>• AS198953 infrastructure mapping: <a href="https://urlscan.io/search/#page.asn:%22AS198953%22" class="text-blue-400 hover:underline" target="_blank">URLScan Search Results</a></li>
+                    </ul>
+                </div>
+                
+                <div class="border-l-4 border-green-500 pl-4">
+                    <h4 class="text-green-400 font-semibold mb-2">Recovery Tools & Resources</h4>
+                    <ul class="space-y-1">
+                        <li>• <strong>Hiren's Boot CD:</strong> <a href="https://www.hirensbootcd.org/hbcd-v152/" class="text-green-400 hover:underline" target="_blank">Professional malware removal toolkit</a></li>
+                        <li>• <strong>Windows Defender Offline:</strong> Microsoft's offline scanning solution</li>
+                        <li>• <strong>VMware Workstation Pro:</strong> Secure analysis environment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section><!-- SNAKE KEYLOGGER ANALYSIS SECTION -->
     <section id="snake-keylogger" class="section-content">
         <div class="mb-8">
             <button onclick="showOverview()" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600">

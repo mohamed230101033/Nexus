@@ -1,4 +1,4 @@
-<!-- RAT ANALYSIS SECTION - COMPREHENSIVE REMOTE ACCESS TROJAN ANALYSIS -->
+<!-- RAT ANALYSIS SECTION - COMPREHENSIVE REAL-WORLD MALWARE ANALYSIS -->
 <section id="rat-analysis" class="section-content">
     <div class="mb-8">
         <button onclick="showOverview()" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600">
@@ -13,96 +13,309 @@
             </span>
         </h1>
         <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            Comprehensive analysis of Remote Access Trojans - Understanding behavior, detection, and mitigation strategies.
+            Real-world analysis of Remcos RAT: From initial infection to complete forensic investigation
         </p>
     </div>
 
-    <!-- Interactive Analysis Tools -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-        <!-- Static Analysis -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
-            <div class="flex items-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
-                    <i class="fas fa-file-code text-white"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white">Static Analysis</h3>
+    <!-- Module 1: Remcos RAT Overview -->
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
+        <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-virus text-white"></i>
             </div>
-            <div class="space-y-4">
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <h4 class="text-purple-400 font-semibold mb-2">File Structure Analysis</h4>
-                    <p class="text-gray-300 text-sm">Examine PE headers, sections, imports, and embedded resources without executing the malware.</p>
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <h4 class="text-purple-400 font-semibold mb-2">String Analysis</h4>
-                    <p class="text-gray-300 text-sm">Extract and analyze embedded strings, URLs, IP addresses, and configuration data.</p>
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <h4 class="text-purple-400 font-semibold mb-2">Cryptographic Analysis</h4>
-                    <p class="text-gray-300 text-sm">Identify encryption algorithms, key generation methods, and communication protocols.</p>
-                </div>
-            </div>
+            <h3 class="text-2xl font-bold text-white">Remcos RAT Overview</h3>
         </div>
-
-        <!-- Behavioral Analysis -->
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20">
-            <div class="flex items-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mr-4">
-                    <i class="fas fa-search-plus text-white"></i>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-4">
+                <div class="bg-gray-800/50 rounded-lg p-4">
+                    <h4 class="text-purple-400 font-semibold mb-3">Core Capabilities</h4>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• <strong class="text-red-400">Remote Desktop Control:</strong> Full screen capture and control</li>
+                        <li>• <strong class="text-red-400">Keylogging:</strong> Complete keystroke monitoring and recording</li>
+                        <li>• <strong class="text-red-400">File Management:</strong> Upload, download, and execute files remotely</li>
+                        <li>• <strong class="text-red-400">Webcam/Microphone:</strong> Audio and video surveillance</li>
+                        <li>• <strong class="text-red-400">Password Theft:</strong> Browser and application credential harvesting</li>
+                    </ul>
                 </div>
-                <h3 class="text-2xl font-bold text-white">Behavioral Analysis</h3>
             </div>
             <div class="space-y-4">
                 <div class="bg-gray-800/50 rounded-lg p-4">
-                    <h4 class="text-purple-400 font-semibold mb-2">Network Communication Patterns</h4>
-                    <p class="text-gray-300 text-sm">Monitor and analyze RAT communication protocols, command & control patterns, and data exfiltration methods.</p>
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <h4 class="text-purple-400 font-semibold mb-2">System Modification Detection</h4>
-                    <p class="text-gray-300 text-sm">Track registry changes, file system modifications, and process injection techniques used by RATs.</p>
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <h4 class="text-pink-400 font-semibold mb-2">Signature-Based Detection</h4>
-                    <p class="text-gray-300 text-sm">Identify known RAT variants through static analysis and signature matching techniques.</p>
-                </div>
-                <div class="bg-gray-800/50 rounded-lg p-4">
-                    <h4 class="text-pink-400 font-semibold mb-2">Heuristic Analysis</h4>
-                    <p class="text-gray-300 text-sm">Advanced behavioral detection using machine learning and anomaly detection algorithms.</p>
+                    <h4 class="text-pink-400 font-semibold mb-3">Advanced Features</h4>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• <strong class="text-orange-400">Process Injection:</strong> Hide within legitimate processes</li>
+                        <li>• <strong class="text-orange-400">Registry Manipulation:</strong> Persistence and configuration storage</li>
+                        <li>• <strong class="text-orange-400">Anti-VM Detection:</strong> Sandbox evasion techniques</li>
+                        <li>• <strong class="text-orange-400">Encrypted C&C:</strong> SSL/TLS encrypted command channels</li>
+                        <li>• <strong class="text-orange-400">Multi-Platform:</strong> Windows, Android, and macOS variants</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- RAT Analysis Flowchart -->
+    <!-- Module 2: Laboratory Environment Setup -->
     <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
-        <h3 class="text-2xl font-bold text-white mb-6 text-center">RAT Analysis Workflow</h3>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span class="text-white font-bold">1</span>
-                </div>
-                <h4 class="text-purple-400 font-semibold mb-2">Collection</h4>
-                <p class="text-gray-300 text-sm">Gather suspected RAT samples from various sources</p>
+        <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-flask text-white"></i>
             </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span class="text-white font-bold">2</span>
-                </div>
-                <h4 class="text-pink-400 font-semibold mb-2">Static Analysis</h4>
-                <p class="text-gray-300 text-sm">Examine file structure, strings, and metadata</p>
+            <h3 class="text-2xl font-bold text-white">Laboratory Environment Setup</h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-blue-400 font-semibold mb-3">Virtualization Platform</h4>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• <strong>VMware Workstation Pro</strong></li>
+                    <li>• Isolated network segment</li>
+                    <li>• Snapshot capability for rollback</li>
+                    <li>• Resource allocation: 4GB RAM, 2 CPU cores</li>
+                </ul>
             </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span class="text-white font-bold">3</span>
-                </div>
-                <h4 class="text-red-400 font-semibold mb-2">Dynamic Analysis</h4>
-                <p class="text-gray-300 text-sm">Execute in sandbox and monitor behavior</p>
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-purple-400 font-semibold mb-3">Operating System</h4>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• <strong>Windows 10 Pro (Build 19045)</strong></li>
+                    <li>• Windows Defender disabled</li>
+                    <li>• UAC configured to lowest level</li>
+                    <li>• Administrative privileges enabled</li>
+                </ul>
             </div>
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span class="text-white font-bold">4</span>
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-pink-400 font-semibold mb-3">Security Isolation</h4>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• <strong>Network isolation</strong> from production</li>
+                    <li>• IDS/IPS monitoring enabled</li>
+                    <li>• Traffic capture via Wireshark</li>
+                    <li>• Complete audit logging</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module 3: Analysis Results & Evidence -->
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
+        <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-search-plus text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Analysis Results & Evidence</h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-green-400 font-semibold mb-4">DNS Traffic Analysis (Evidence S1)</h4>
+                    <img src="/images/RAT/s1.png" alt="DNS Traffic Analysis" class="w-full rounded-lg border border-gray-600 mb-4">
+                    <p class="text-gray-300 text-sm">Wireshark capture showing DNS queries to suspicious DUCKDNS domains used for C&C communication. Multiple A record requests observed with varying response patterns.</p>
                 </div>
-                <h4 class="text-orange-400 font-semibold mb-2">Report</h4>
-                <p class="text-gray-300 text-sm">Document findings and create IOCs</p>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-blue-400 font-semibold mb-4">Threat Intelligence Correlation (Evidence S2)</h4>
+                    <img src="/images/RAT/s2.png" alt="Threat Intelligence" class="w-full rounded-lg border border-gray-600 mb-4">
+                    <p class="text-gray-300 text-sm">Cross-reference with threat intelligence databases revealing known IOCs and attribution to Advanced Persistent Threat groups targeting financial institutions.</p>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-purple-400 font-semibold mb-4">Criminal Infrastructure Evidence (Evidence S3)</h4>
+                    <img src="/images/RAT/s3.png" alt="Criminal Evidence" class="w-full rounded-lg border border-gray-600 mb-4">
+                    <p class="text-gray-300 text-sm">Network forensics revealing connections to Russian cybercriminal infrastructure hosted on AS198953, with evidence of coordinated attack campaigns.</p>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-pink-400 font-semibold mb-4">Process Analysis & Injection (Evidence S4)</h4>
+                    <img src="/images/RAT/s4.png" alt="Process Analysis" class="w-full rounded-lg border border-gray-600 mb-4">
+                    <p class="text-gray-300 text-sm">Process Hacker revealing RAT injection into legitimate Windows processes, demonstrating advanced evasion techniques and persistence mechanisms.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module 4: Network Traffic Analysis -->
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
+        <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-network-wired text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Network Traffic Analysis</h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-red-400 font-semibold mb-4">DUCKDNS Abuse Investigation</h4>
+                <div class="space-y-3">
+                    <div class="bg-red-900/20 border-l-4 border-red-400 p-4">
+                        <p class="text-red-300 font-semibold">Critical Finding</p>
+                        <p class="text-gray-300 text-sm mt-2">Russian cybercriminals exploiting legitimate DUCKDNS service for C&C infrastructure, making detection and takedown significantly more challenging.</p>
+                    </div>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• <strong>Protocol:</strong> HTTPS over port 443 (encrypted)</li>
+                        <li>• <strong>Frequency:</strong> Beacon every 30-60 seconds</li>
+                        <li>• <strong>Data Volume:</strong> 2-5KB per transmission</li>
+                        <li>• <strong>Persistence:</strong> Automatic reconnection on failure</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-orange-400 font-semibold mb-4">Traffic Pattern Analysis</h4>
+                <div class="space-y-4">
+                    <div class="bg-orange-900/20 border border-orange-500/30 rounded p-4">
+                        <h5 class="text-orange-300 font-semibold mb-2">Command Channel Behavior</h5>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• Initial registration: 1.2KB payload</li>
+                            <li>• Heartbeat packets: 156 bytes average</li>
+                            <li>• Command responses: Variable 500B-50KB</li>
+                        </ul>
+                    </div>
+                    <div class="bg-yellow-900/20 border border-yellow-500/30 rounded p-4">
+                        <h5 class="text-yellow-300 font-semibold mb-2">Data Exfiltration Patterns</h5>
+                        <ul class="text-gray-300 text-sm space-y-1">
+                            <li>• Keylog uploads: 2-10KB per session</li>
+                            <li>• Screenshot capture: 50-200KB JPEG</li>
+                            <li>• File theft: Chunked uploads, 1MB max</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module 5: Advanced Evasion Techniques -->
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
+        <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-red-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-user-ninja text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Advanced Evasion Techniques</h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-yellow-400 font-semibold mb-4">Code Obfuscation</h4>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• <strong>String Encryption:</strong> XOR + Base64 encoding</li>
+                    <li>• <strong>Control Flow:</strong> Spaghetti code patterns</li>
+                    <li>• <strong>API Hashing:</strong> Dynamic import resolution</li>
+                    <li>• <strong>Packing:</strong> Multiple compression layers</li>
+                    <li>• <strong>Resource Hiding:</strong> Encrypted PE sections</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-orange-400 font-semibold mb-4">Anti-Debugging</h4>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• <strong>IsDebuggerPresent:</strong> API call detection</li>
+                    <li>• <strong>Timing Attacks:</strong> Execution delay detection</li>
+                    <li>• <strong>Exception Handling:</strong> Debugger trap mechanisms</li>
+                    <li>• <strong>Hardware Breakpoints:</strong> Dr0-Dr7 register checks</li>
+                    <li>• <strong>Process Monitoring:</strong> Task manager detection</li>
+                </ul>
+            </div>
+            <div class="bg-gray-800/50 rounded-lg p-6">
+                <h4 class="text-red-400 font-semibold mb-4">Process Hollowing</h4>
+                <ul class="text-gray-300 text-sm space-y-2">
+                    <li>• <strong>Target Selection:</strong> Legitimate Windows processes</li>
+                    <li>• <strong>Memory Unmapping:</strong> NtUnmapViewOfSection</li>
+                    <li>• <strong>Payload Injection:</strong> VirtualAllocEx + WriteProcessMemory</li>
+                    <li>• <strong>Execution Redirect:</strong> SetThreadContext modification</li>
+                    <li>• <strong>Thread Resumption:</strong> ResumeThread to execute payload</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module 6: Mitigation & Response Strategies -->
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
+        <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-shield-alt text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Mitigation & Response Strategies</h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-6">
+                <div class="bg-green-900/20 border-l-4 border-green-400 p-6">
+                    <h4 class="text-green-400 font-semibold mb-4">Immediate Response Protocol</h4>
+                    <ol class="text-gray-300 text-sm space-y-2">
+                        <li><strong>1. Network Isolation:</strong> Disconnect affected systems from network immediately</li>
+                        <li><strong>2. Process Termination:</strong> Kill suspicious processes and their children</li>
+                        <li><strong>3. Memory Acquisition:</strong> Capture RAM dump before system shutdown</li>
+                        <li><strong>4. Forensic Imaging:</strong> Create bit-for-bit disk images for analysis</li>
+                    </ol>
+                </div>
+                <div class="bg-blue-900/20 border-l-4 border-blue-400 p-6">
+                    <h4 class="text-blue-400 font-semibold mb-4">Prevention Strategies</h4>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• <strong>Email Security:</strong> Advanced attachment sandboxing</li>
+                        <li>• <strong>Endpoint Protection:</strong> Behavioral analysis and ML detection</li>
+                        <li>• <strong>Network Segmentation:</strong> Limit lateral movement capabilities</li>
+                        <li>• <strong>User Training:</strong> Phishing awareness and safe computing practices</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="space-y-6">
+                <div class="bg-purple-900/20 border-l-4 border-purple-400 p-6">
+                    <h4 class="text-purple-400 font-semibold mb-4">Detection Enhancement</h4>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• <strong>IOC Monitoring:</strong> Continuous surveillance of known indicators</li>
+                        <li>• <strong>DNS Monitoring:</strong> Detect DUCKDNS and similar abuse patterns</li>
+                        <li>• <strong>Process Monitoring:</strong> Detect hollowing and injection techniques</li>
+                        <li>• <strong>Network Analysis:</strong> Monitor for C&C communication patterns</li>
+                    </ul>
+                </div>
+                <div class="bg-red-900/20 border-l-4 border-red-400 p-6">
+                    <h4 class="text-red-400 font-semibold mb-4">Long-term Security</h4>
+                    <ul class="text-gray-300 text-sm space-y-2">
+                        <li>• <strong>Threat Hunting:</strong> Proactive search for advanced threats</li>
+                        <li>• <strong>Intelligence Sharing:</strong> Collaborate with security community</li>
+                        <li>• <strong>Security Hardening:</strong> Implement defense-in-depth strategies</li>
+                        <li>• <strong>Incident Planning:</strong> Develop comprehensive response procedures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Module 7: Research References -->
+    <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-purple-500/20 mb-16">
+        <div class="flex items-center mb-6">
+            <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full flex items-center justify-center mr-4">
+                <i class="fas fa-book text-white"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white">Research References & Further Reading</h3>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="space-y-4">
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-indigo-400 font-semibold mb-4">Threat Intelligence Sources</h4>
+                    <ul class="text-gray-300 text-sm space-y-3">
+                        <li>• <a href="https://malpedia.caad.fkie.fraunhofer.de/details/win.remcos" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Malpedia - Remcos RAT Analysis</a></li>
+                        <li>• <a href="https://attack.mitre.org/software/S0332/" class="text-blue-400 hover:text-blue-300 underline" target="_blank">MITRE ATT&CK - Remcos Framework</a></li>
+                        <li>• <a href="https://www.virustotal.com/gui/collection/remcos-rat" class="text-blue-400 hover:text-blue-300 underline" target="_blank">VirusTotal - Remcos Collection</a></li>
+                        <li>• <a href="https://www.hybrid-analysis.com/search?query=Remcos" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Hybrid Analysis - Remcos Samples</a></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-purple-400 font-semibold mb-4">Technical Analysis Papers</h4>
+                    <ul class="text-gray-300 text-sm space-y-3">
+                        <li>• <a href="https://www.fortinet.com/blog/threat-research/remcos-rat-analysis" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Fortinet - Remcos RAT Deep Dive</a></li>
+                        <li>• <a href="https://www.proofpoint.com/us/threat-insight/post/remcos-rat-targeting" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Proofpoint - Remcos Targeting Analysis</a></li>
+                        <li>• <a href="https://www.trendmicro.com/en_us/research/21/h/remcos-rat-analysis.html" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Trend Micro - Remcos Campaign Research</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-pink-400 font-semibold mb-4">Forensic Tools & Resources</h4>
+                    <ul class="text-gray-300 text-sm space-y-3">
+                        <li>• <a href="https://www.wireshark.org/" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Wireshark - Network Protocol Analyzer</a></li>
+                        <li>• <a href="https://processhacker.sourceforge.io/" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Process Hacker - Advanced Process Management</a></li>
+                        <li>• <a href="https://www.volatilityfoundation.org/" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Volatility Framework - Memory Forensics</a></li>
+                        <li>• <a href="https://github.com/mandiant/flare-vm" class="text-blue-400 hover:text-blue-300 underline" target="_blank">FLARE-VM - Malware Analysis Distribution</a></li>
+                    </ul>
+                </div>
+                <div class="bg-gray-800/50 rounded-lg p-6">
+                    <h4 class="text-orange-400 font-semibold mb-4">Attribution & Infrastructure</h4>
+                    <ul class="text-gray-300 text-sm space-y-3">
+                        <li>• <a href="https://bgp.he.net/AS198953" class="text-blue-400 hover:text-blue-300 underline" target="_blank">AS198953 - Russian Criminal Infrastructure</a></li>
+                        <li>• <a href="https://duckdns.org/" class="text-blue-400 hover:text-blue-300 underline" target="_blank">DuckDNS - Dynamic DNS Service (Abused)</a></li>
+                        <li>• <a href="https://threatintel.blog/2021/07/remcos-attribution" class="text-blue-400 hover:text-blue-300 underline" target="_blank">Threat Intelligence - Attribution Analysis</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
