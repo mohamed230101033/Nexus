@@ -3,41 +3,82 @@
 @section('title', 'NEXUS - Encryption & Cryptography')
 
 @push('styles')
-<style>
-    /* Encryption-specific styles */
+<style>    /* Encryption-specific styles */
     .encryption-hero {
         background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(14, 165, 233, 0.15));
         border: 2px solid rgba(6, 182, 212, 0.4);
         backdrop-filter: blur(20px);
     }
 
-    .encryption-demo {
-        background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(168, 85, 247, 0.15));
-        border: 2px solid rgba(6, 182, 212, 0.4);
+    /* Enhanced Card System */
+    .encryption-card {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
+        border: 2px solid rgba(6, 182, 212, 0.3);
         backdrop-filter: blur(20px);
-        transition: all 0.5s ease;
-        min-height: 500px;
+        transition: all 0.4s ease;
         position: relative;
         overflow: hidden;
+        border-radius: 20px;
     }
 
-    .encryption-demo::before {
+    .encryption-card::before {
         content: '';
         position: absolute;
         inset: 0;
         background: linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.1), transparent);
         opacity: 0;
-        transition: all 0.5s ease;
+        transition: all 0.4s ease;
     }
 
-    .encryption-demo:hover::before {
+    .encryption-card:hover::before {
         opacity: 1;
     }
 
-    .encryption-demo:hover {
+    .encryption-card:hover {
         border-color: #06b6d4;
-        box-shadow: 0 20px 50px rgba(6, 182, 212, 0.3);
-        transform: translateY(-5px);
+        box-shadow: 0 25px 60px rgba(6, 182, 212, 0.4);
+        transform: translateY(-8px);
+    }
+
+    /* Specialized Card Types */
+    .text-encryption-card {
+        border-color: rgba(59, 130, 246, 0.4);
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.05));
+    }
+
+    .text-encryption-card:hover {
+        border-color: #3b82f6;
+        box-shadow: 0 25px 60px rgba(59, 130, 246, 0.3);
+    }
+
+    .file-encryption-card {
+        border-color: rgba(168, 85, 247, 0.4);
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(217, 70, 239, 0.05));
+    }
+
+    .file-encryption-card:hover {
+        border-color: #a855f7;
+        box-shadow: 0 25px 60px rgba(168, 85, 247, 0.3);
+    }
+
+    .video-encryption-card {
+        border-color: rgba(239, 68, 68, 0.4);
+        background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(245, 101, 101, 0.05));
+    }
+
+    .video-encryption-card:hover {
+        border-color: #ef4444;
+        box-shadow: 0 25px 60px rgba(239, 68, 68, 0.3);
+    }
+
+    .algorithms-card {
+        border-color: rgba(34, 197, 94, 0.4);
+        background: linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(74, 222, 128, 0.05));
+    }
+
+    .algorithms-card:hover {
+        border-color: #22c55e;
+        box-shadow: 0 25px 60px rgba(34, 197, 94, 0.3);
     }
 
     /* File encryption styles */
@@ -83,6 +124,30 @@
         border-radius: 16px;
         padding: 24px;
         margin-top: 24px;
+    }    /* Enhanced Card Headers */
+    .card-header {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .card-section {
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(15, 23, 42, 0.3);
     }
 
     /* Enhanced spacing and layout */
@@ -90,9 +155,10 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 2rem;
+        margin-bottom: 3rem;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
         .encryption-grid {
             grid-template-columns: repeat(2, 1fr);
         }
@@ -102,6 +168,14 @@
         .encryption-grid {
             grid-template-columns: repeat(3, 1fr);
         }
+        
+        .video-encryption-card {
+            grid-column: span 2;
+        }
+    }
+
+    .algorithms-section {
+        grid-column: 1 / -1;
     }
 
     .encrypt-btn {
@@ -211,26 +285,37 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!-- Interactive Encryption Demos -->
-    <div class="encryption-grid mb-16">
-        <!-- Text Encryption Demo -->
-        <div class="encryption-demo rounded-2xl p-8">
-            <div class="flex items-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mr-4">
-                    <i class="fas fa-font text-white text-xl"></i>
+    </div>    <!-- Interactive Encryption Demos -->
+    <div class="encryption-grid">
+        <!-- Text Encryption Card -->
+        <div class="encryption-card text-encryption-card p-6">
+            <div class="card-header">
+                <div class="flex items-center">
+                    <div class="card-icon bg-gradient-to-r from-blue-500 to-cyan-500">
+                        <i class="fas fa-font text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Text Encryption</h3>
+                        <p class="text-gray-300 text-sm">Encrypt and decrypt text using various algorithms</p>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-white">Text Encryption</h3>
             </div>
             
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-white font-semibold mb-3">Enter your message:</label>
-                    <textarea id="textInput" class="nexus-input w-full p-4 rounded-lg resize-none" rows="4" placeholder="Type your secret message here..."></textarea>
-                </div>
-                
-                <div class="grid grid-cols-2 gap-4">
+            <!-- Text Input Section -->
+            <div class="card-section">
+                <h4 class="text-blue-400 font-semibold mb-3 flex items-center">
+                    <i class="fas fa-edit mr-2"></i>Input Message
+                </h4>
+                <textarea id="textInput" class="nexus-input w-full p-4 rounded-lg resize-none" 
+                          rows="4" placeholder="Type your secret message here..."></textarea>
+            </div>
+            
+            <!-- Encryption Algorithms -->
+            <div class="card-section">
+                <h4 class="text-blue-400 font-semibold mb-3 flex items-center">
+                    <i class="fas fa-cogs mr-2"></i>Encryption Methods
+                </h4>
+                <div class="grid grid-cols-2 gap-3">
                     <button onclick="encryptText('caesar')" class="encrypt-btn px-4 py-3 rounded-lg text-white font-semibold hover:transform hover:scale-105 transition-all">
                         <i class="fas fa-shield-alt mr-2"></i>Caesar Cipher
                     </button>
@@ -244,63 +329,76 @@
                         <i class="fas fa-exchange-alt mr-2"></i>Reverse
                     </button>
                 </div>
-                
-                <div>
-                    <label class="block text-white font-semibold mb-3">Encrypted Result:</label>
-                    <div id="textOutput" class="bg-gray-800 p-4 rounded-lg min-h-[80px] text-cyan-400 font-mono break-all border border-gray-600"></div>
-                    <button onclick="copyToClipboard('textOutput')" class="mt-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm transition-all">
-                        <i class="fas fa-copy mr-2"></i>Copy Result
+            </div>
+            
+            <!-- Encryption Output -->
+            <div class="card-section">
+                <h4 class="text-cyan-400 font-semibold mb-3 flex items-center">
+                    <i class="fas fa-lock mr-2"></i>Encrypted Result
+                </h4>
+                <div id="textOutput" class="bg-gray-800 p-4 rounded-lg min-h-[80px] text-cyan-400 font-mono break-all border border-gray-600"></div>
+                <button onclick="copyToClipboard('textOutput')" class="mt-3 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm transition-all">
+                    <i class="fas fa-copy mr-2"></i>Copy Result
+                </button>
+            </div>
+
+            <!-- Decryption Section -->
+            <div class="card-section border-purple-500/30 bg-gradient-to-r from-purple-900/20 to-pink-900/10">
+                <h4 class="text-purple-400 font-semibold mb-3 flex items-center">
+                    <i class="fas fa-unlock mr-2"></i>Decrypt Text
+                </h4>
+                <textarea id="textDecryptInput" class="nexus-input w-full p-4 rounded-lg resize-none mb-4" 
+                          rows="3" placeholder="Paste encrypted text to decrypt..."></textarea>
+                <div class="grid grid-cols-2 gap-3 mb-4">
+                    <button onclick="decryptText('caesar')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
+                        <i class="fas fa-unlock mr-2"></i>Caesar
+                    </button>
+                    <button onclick="decryptText('base64')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
+                        <i class="fas fa-unlock mr-2"></i>Base64
+                    </button>
+                    <button onclick="decryptText('rot13')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
+                        <i class="fas fa-unlock mr-2"></i>ROT13
+                    </button>
+                    <button onclick="decryptText('reverse')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
+                        <i class="fas fa-unlock mr-2"></i>Reverse
                     </button>
                 </div>
-
-                <!-- Decryption Section for Text -->
-                <div class="decryption-section">
-                    <h4 class="text-white font-semibold mb-3 flex items-center">
-                        <i class="fas fa-unlock mr-2"></i>Decrypt Text
-                    </h4>
-                    <textarea id="textDecryptInput" class="nexus-input w-full p-4 rounded-lg resize-none mb-4" rows="3" placeholder="Paste encrypted text to decrypt..."></textarea>
-                    <div class="grid grid-cols-2 gap-4">
-                        <button onclick="decryptText('caesar')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                            <i class="fas fa-unlock mr-2"></i>Caesar
-                        </button>
-                        <button onclick="decryptText('base64')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                            <i class="fas fa-unlock mr-2"></i>Base64
-                        </button>
-                        <button onclick="decryptText('rot13')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                            <i class="fas fa-unlock mr-2"></i>ROT13
-                        </button>
-                        <button onclick="decryptText('reverse')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                            <i class="fas fa-unlock mr-2"></i>Reverse
-                        </button>
-                    </div>
-                    <div id="textDecryptOutput" class="bg-gray-800 p-4 rounded-lg min-h-[60px] text-green-400 font-mono break-all border border-gray-600 mt-4"></div>
-                </div>
+                <div id="textDecryptOutput" class="bg-gray-800 p-4 rounded-lg min-h-[60px] text-green-400 font-mono break-all border border-gray-600"></div>
             </div>
         </div>
 
-        <!-- File Encryption Demo -->
-        <div class="encryption-demo rounded-2xl p-8">
-            <div class="flex items-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
-                    <i class="fas fa-file-lock text-white text-xl"></i>
+        <!-- File Encryption Card -->
+        <div class="encryption-card file-encryption-card p-6">
+            <div class="card-header">
+                <div class="flex items-center">
+                    <div class="card-icon bg-gradient-to-r from-purple-500 to-pink-500">
+                        <i class="fas fa-file-lock text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">File Encryption</h3>
+                        <p class="text-gray-300 text-sm">Secure files with password-based encryption</p>
+                    </div>
                 </div>
-                <h3 class="text-2xl font-bold text-white">File Encryption</h3>
             </div>
             
-            <div class="space-y-6">
-                <div class="file-upload-area border-2 border-dashed border-gray-600 rounded-lg p-8 text-center" 
+            <!-- File Upload Section -->
+            <div class="card-section">
+                <h4 class="text-purple-400 font-semibold mb-3 flex items-center">
+                    <i class="fas fa-upload mr-2"></i>Select File
+                </h4>
+                <div class="file-upload-area border-2 border-dashed border-purple-600/50 rounded-lg p-8 text-center" 
                      ondrop="handleFileDrop(event)" 
                      ondragover="handleDragOver(event)" 
                      ondragleave="handleDragLeave(event)">
                     <input type="file" id="fileInput" class="hidden" onchange="handleFileUpload(event)">
                     <label for="fileInput" class="cursor-pointer block">
-                        <i class="fas fa-cloud-upload-alt text-5xl text-gray-400 mb-4"></i>
+                        <i class="fas fa-cloud-upload-alt text-5xl text-purple-400 mb-4"></i>
                         <p class="text-gray-300 text-lg mb-2">Drop files here or click to upload</p>
                         <p class="text-gray-500 text-sm">Support for all file types</p>
                     </label>
                 </div>
                 
-                <div id="fileInfo" class="hidden bg-gray-800 p-4 rounded-lg border border-gray-600">
+                <div id="fileInfo" class="hidden bg-gray-800 p-4 rounded-lg border border-gray-600 mt-4">
                     <div class="flex items-center justify-between">
                         <div>
                             <div id="fileName" class="text-white font-semibold"></div>
@@ -311,17 +409,21 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="grid grid-cols-1 gap-4">
-                    <div class="flex space-x-4">
-                        <input type="password" id="filePassword" class="nexus-input flex-1 p-3 rounded-lg" placeholder="Enter encryption password...">
-                        <button onclick="encryptFile()" class="encrypt-btn px-6 py-3 rounded-lg text-white font-semibold">
-                            <i class="fas fa-lock mr-2"></i>Encrypt File
-                        </button>
-                    </div>
+            </div>
+            
+            <!-- Encryption Control -->
+            <div class="card-section">
+                <h4 class="text-purple-400 font-semibold mb-3 flex items-center">
+                    <i class="fas fa-key mr-2"></i>Encryption Control
+                </h4>
+                <div class="flex space-x-4">
+                    <input type="password" id="filePassword" class="nexus-input flex-1 p-3 rounded-lg" placeholder="Enter encryption password...">
+                    <button onclick="encryptFile()" class="encrypt-btn px-6 py-3 rounded-lg text-white font-semibold">
+                        <i class="fas fa-lock mr-2"></i>Encrypt File
+                    </button>
                 </div>
                 
-                <div id="encryptedFileResult" class="hidden">
+                <div id="encryptedFileResult" class="hidden mt-4">
                     <div class="bg-gray-800 p-4 rounded-lg border border-gray-600">
                         <div class="flex items-center justify-between mb-4">
                             <span class="text-white font-semibold">
@@ -334,39 +436,101 @@
                         <p class="text-gray-400 text-sm">File has been successfully encrypted. Download it to save.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- File Decryption Section -->
-                <div class="decryption-section">
-                    <h4 class="text-white font-semibold mb-4 flex items-center">
-                        <i class="fas fa-unlock mr-2"></i>Decrypt File
-                    </h4>
-                    <div class="file-upload-area border-2 border-dashed border-purple-600 rounded-lg p-6 text-center" 
-                         ondrop="handleEncryptedFileDrop(event)" 
-                         ondragover="handleDragOver(event)" 
-                         ondragleave="handleDragLeave(event)">
-                        <input type="file" id="encryptedFileInput" class="hidden" onchange="handleEncryptedFileUpload(event)">
-                        <label for="encryptedFileInput" class="cursor-pointer block">
-                            <i class="fas fa-file-upload text-3xl text-purple-400 mb-3"></i>
-                            <p class="text-gray-300">Upload encrypted file</p>
-                        </label>
+            <!-- File Decryption Section -->
+            <div class="card-section border-pink-500/30 bg-gradient-to-r from-pink-900/20 to-purple-900/10">
+                <h4 class="text-pink-400 font-semibold mb-4 flex items-center">
+                    <i class="fas fa-unlock mr-2"></i>Decrypt File
+                </h4>
+                <div class="file-upload-area border-2 border-dashed border-pink-600/50 rounded-lg p-6 text-center mb-4" 
+                     ondrop="handleEncryptedFileDrop(event)" 
+                     ondragover="handleDragOver(event)" 
+                     ondragleave="handleDragLeave(event)">
+                    <input type="file" id="encryptedFileInput" class="hidden" onchange="handleEncryptedFileUpload(event)">
+                    <label for="encryptedFileInput" class="cursor-pointer block">
+                        <i class="fas fa-file-upload text-3xl text-pink-400 mb-3"></i>
+                        <p class="text-gray-300">Upload encrypted file</p>
+                    </label>
+                </div>
+                
+                <div class="flex space-x-4">
+                    <input type="password" id="decryptPassword" class="nexus-input flex-1 p-3 rounded-lg" placeholder="Enter decryption password...">
+                    <button onclick="decryptFile()" class="px-6 py-3 bg-pink-600 hover:bg-pink-700 text-white rounded-lg transition-all">
+                        <i class="fas fa-unlock mr-2"></i>Decrypt
+                    </button>
+                </div>
+                
+                <div id="decryptedFileResult" class="hidden mt-4">
+                    <div class="bg-gray-800 p-4 rounded-lg border border-gray-600">
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold">
+                                <i class="fas fa-file-check text-green-400 mr-2"></i>File Decrypted Successfully
+                            </span>
+                            <button onclick="downloadDecryptedFile()" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all">
+                                <i class="fas fa-download mr-2"></i>Download
+                            </button>
+                        </div>
                     </div>
-                    
-                    <div class="flex space-x-4 mt-4">
-                        <input type="password" id="decryptPassword" class="nexus-input flex-1 p-3 rounded-lg" placeholder="Enter decryption password...">
-                        <button onclick="decryptFile()" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                            <i class="fas fa-unlock mr-2"></i>Decrypt
+                </div>
+            </div>
+        </div>
+
+        <!-- Video Encryption Simulation Card -->
+        <div class="encryption-card video-encryption-card p-6">
+            <div class="card-header">
+                <div class="flex items-center">
+                    <div class="card-icon bg-gradient-to-r from-red-500 to-orange-500">
+                        <i class="fas fa-video text-white text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">Video Security Simulation</h3>
+                        <p class="text-gray-300 text-sm">Experience real-time video encryption and access control</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Video Player Section -->
+                <div class="card-section">
+                    <h4 class="text-red-400 font-semibold mb-3 flex items-center">
+                        <i class="fas fa-play mr-2"></i>Video Content
+                    </h4>
+                    <div class="video-container">
+                        <video id="demoVideo" class="w-full rounded-lg" controls preload="metadata">
+                            <source src="/videos/Nexus Demo (online-video-cutter.com).mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+                
+                <!-- Control Panel -->
+                <div class="space-y-4">
+                    <div class="card-section">
+                        <h4 class="text-orange-400 font-semibold mb-3 flex items-center">
+                            <i class="fas fa-shield-alt mr-2"></i>Security Controls
+                        </h4>
+                        <button onclick="simulateVideoEncryption()" class="encrypt-btn w-full px-6 py-4 rounded-lg text-white font-semibold text-lg">
+                            <i class="fas fa-lock mr-2"></i>
+                            Encrypt Video & Block Access
+                        </button>
+                        <button onclick="resetVideoDemo()" class="mt-3 w-full px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-lg font-semibold">
+                            <i class="fas fa-unlock mr-2"></i>
+                            Decrypt & Restore Access
                         </button>
                     </div>
                     
-                    <div id="decryptedFileResult" class="hidden mt-4">
-                        <div class="bg-gray-800 p-4 rounded-lg border border-gray-600">
-                            <div class="flex items-center justify-between">
-                                <span class="text-white font-semibold">
-                                    <i class="fas fa-file-check text-green-400 mr-2"></i>File Decrypted Successfully
-                                </span>
-                                <button onclick="downloadDecryptedFile()" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all">
-                                    <i class="fas fa-download mr-2"></i>Download
-                                </button>
+                    <div class="card-section">
+                        <h4 class="text-yellow-400 font-semibold mb-3 flex items-center">
+                            <i class="fas fa-info-circle mr-2"></i>Security Status
+                        </h4>
+                        <div id="videoEncryptionStatus" class="bg-gray-800 p-4 rounded-lg border border-gray-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-shield-check text-green-400 mr-2"></i>
+                                <span class="text-white">Video security ready</span>
+                            </div>
+                            <div class="mt-2 text-gray-400 text-sm">
+                                Click "Encrypt Video" to see real-time security protection
                             </div>
                         </div>
                     </div>
@@ -374,96 +538,73 @@
             </div>
         </div>
 
-        <!-- Video Encryption Simulation -->
-        <div class="encryption-demo rounded-2xl p-8">
-            <div class="flex items-center mb-6">
-                <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-4">
-                    <i class="fas fa-video text-white text-xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-white">Video Security</h3>
-            </div>
-            
-            <div class="space-y-6">
-                <div class="video-container">
-                    <video id="demoVideo" class="w-full rounded-lg" controls preload="metadata">
-                        <source src="/videos/Nexus Demo (online-video-cutter.com).mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
-                
-                <div class="grid grid-cols-1 gap-4">
-                    <button onclick="simulateVideoEncryption()" class="encrypt-btn px-6 py-4 rounded-lg text-white font-semibold text-lg">
-                        <i class="fas fa-play mr-2"></i>
-                        Simulate Video Encryption
-                    </button>
-                </div>
-                
-                <div id="videoEncryptionStatus" class="bg-gray-800 p-4 rounded-lg border border-gray-600">
+        <!-- Encryption Algorithms Information Card -->
+        <div class="algorithms-section">
+            <div class="encryption-card algorithms-card p-6">
+                <div class="card-header">
                     <div class="flex items-center">
-                        <i class="fas fa-info-circle text-blue-400 mr-2"></i>
-                        <span class="text-white">Ready to demonstrate video encryption concepts</span>
+                        <div class="card-icon bg-gradient-to-r from-green-500 to-teal-500">
+                            <i class="fas fa-key text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Encryption Algorithms</h3>
+                            <p class="text-gray-300 text-sm">Learn about different cryptographic methods and their applications</p>
+                        </div>
                     </div>
-                    <div class="mt-2 text-gray-400 text-sm">
-                        This simulation shows how video content can be protected through encryption
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="card-section text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-key text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-2">AES</h4>
+                        <p class="text-gray-400 text-sm mb-4">Advanced Encryption Standard - Industry standard symmetric encryption</p>
+                        <div class="text-xs text-cyan-400 bg-cyan-900/20 p-2 rounded">
+                            • 128/192/256-bit keys<br>
+                            • Block cipher<br>
+                            • NIST approved
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Encryption Algorithms Info -->
-    <div class="mb-16">
-        <h2 class="text-3xl font-bold text-white mb-8 text-center">Encryption Algorithms</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="algo-card rounded-xl p-6 text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-key text-white text-2xl"></i>
-                </div>
-                <h4 class="text-white font-bold mb-2">AES</h4>
-                <p class="text-gray-400 text-sm mb-4">Advanced Encryption Standard - Industry standard symmetric encryption</p>
-                <div class="text-xs text-cyan-400">
-                    • 128/192/256-bit keys<br>
-                    • Block cipher<br>
-                    • NIST approved
-                </div>
-            </div>
-            
-            <div class="algo-card rounded-xl p-6 text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-lock text-white text-2xl"></i>
-                </div>
-                <h4 class="text-white font-bold mb-2">RSA</h4>
-                <p class="text-gray-400 text-sm mb-4">Rivest-Shamir-Adleman - Public key cryptographic algorithm</p>
-                <div class="text-xs text-purple-400">
-                    • Public-key cryptography<br>
-                    • Digital signatures<br>
-                    • 1024-4096 bit keys
-                </div>
-            </div>
-            
-            <div class="algo-card rounded-xl p-6 text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-fingerprint text-white text-2xl"></i>
-                </div>
-                <h4 class="text-white font-bold mb-2">SHA</h4>
-                <p class="text-gray-400 text-sm mb-4">Secure Hash Algorithm - Cryptographic hash function family</p>
-                <div class="text-xs text-green-400">
-                    • SHA-1, SHA-256, SHA-512<br>
-                    • Data integrity<br>
-                    • One-way function
-                </div>
-            </div>
-            
-            <div class="algo-card rounded-xl p-6 text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-shield-alt text-white text-2xl"></i>
-                </div>
-                <h4 class="text-white font-bold mb-2">DES</h4>
-                <p class="text-gray-400 text-sm mb-4">Data Encryption Standard - Legacy symmetric encryption standard</p>
-                <div class="text-xs text-red-400">
-                    • 56-bit key length<br>
-                    • Historical importance<br>
-                    • Now deprecated
+                    
+                    <div class="card-section text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lock text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-2">RSA</h4>
+                        <p class="text-gray-400 text-sm mb-4">Rivest-Shamir-Adleman - Public key cryptographic algorithm</p>
+                        <div class="text-xs text-purple-400 bg-purple-900/20 p-2 rounded">
+                            • Public-key cryptography<br>
+                            • Digital signatures<br>
+                            • 1024-4096 bit keys
+                        </div>
+                    </div>
+                    
+                    <div class="card-section text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-fingerprint text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-2">SHA</h4>
+                        <p class="text-gray-400 text-sm mb-4">Secure Hash Algorithm - Cryptographic hash function family</p>
+                        <div class="text-xs text-green-400 bg-green-900/20 p-2 rounded">
+                            • SHA-1, SHA-256, SHA-512<br>
+                            • Data integrity<br>
+                            • One-way function
+                        </div>
+                    </div>
+                    
+                    <div class="card-section text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-white font-bold mb-2">DES</h4>
+                        <p class="text-gray-400 text-sm mb-4">Data Encryption Standard - Legacy symmetric encryption standard</p>
+                        <div class="text-xs text-red-400 bg-red-900/20 p-2 rounded">
+                            • 56-bit key length<br>
+                            • Historical importance<br>
+                            • Now deprecated
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

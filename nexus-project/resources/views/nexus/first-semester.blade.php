@@ -92,9 +92,7 @@
 
     .section-content.active {
         display: block;
-    }
-
-    @keyframes slideInUp {
+    }    @keyframes slideInUp {
         from {
             opacity: 0;
             transform: translateY(30px);
@@ -103,7 +101,9 @@
             opacity: 1;
             transform: translateY(0);
         }
-    }    /* Encryption Section Enhancements */
+    }
+
+    /* Encryption Section Enhancements */
     .encryption-demo {
         background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(168, 85, 247, 0.15));
         border: 2px solid rgba(6, 182, 212, 0.4);
@@ -623,9 +623,8 @@
                 Choose a specialization to begin your cybersecurity journey:
             </p>
         </div>        <!-- 4 SECTION SELECTION CARDS - ENHANCED WITH IMPRESSIVE ANIMATIONS -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
-            <!-- 1. ENCRYPTION SECTION CARD -->
-            <div class="section-card rounded-2xl p-8 text-center" data-section="encryption">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">            <!-- 1. ENCRYPTION SECTION CARD -->
+            <a href="{{ route('nexus.encryption') }}" class="section-card rounded-2xl p-8 text-center no-underline block" data-section="encryption">
                 <div class="card-content">
                     <div class="card-icon w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <i class="fas fa-lock text-3xl text-white"></i>
@@ -642,8 +641,8 @@
                         ✓ Real-time Results
                     </div>
                 </div>
-            </div>            <!-- 2. RAT ANALYSIS CARD -->
-            <div class="section-card rounded-2xl p-8 text-center" data-section="rat-analysis">
+            </a>            <!-- 2. RAT ANALYSIS CARD -->
+            <a href="{{ route('nexus.rat-analysis') }}" class="section-card rounded-2xl p-8 text-center no-underline block" data-section="rat-analysis">
                 <div class="card-content">
                     <div class="card-icon w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <i class="fas fa-search-plus text-3xl text-white"></i>
@@ -660,8 +659,8 @@
                         • Detection Methods
                     </div>
                 </div>
-            </div>            <!-- 3. SNAKE KEYLOGGER ANALYSIS CARD -->
-            <div class="section-card rounded-2xl p-8 text-center" data-section="snake-keylogger">
+            </a>            <!-- 3. SNAKE KEYLOGGER ANALYSIS CARD -->
+            <a href="{{ route('nexus.snake-keylogger') }}" class="section-card rounded-2xl p-8 text-center no-underline block" data-section="snake-keylogger">
                 <div class="card-content">
                     <div class="card-icon w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <i class="fas fa-keyboard text-3xl text-white"></i>
@@ -678,7 +677,7 @@
                         • Detection & Mitigation
                     </div>
                 </div>
-            </div>            <!-- 4. NEXUS FLOWCHART CARD -->
+            </a><!-- 4. NEXUS FLOWCHART CARD -->
             <div class="section-card rounded-2xl p-8 text-center" data-section="nexus-flowchart">
                 <div class="card-content">
                     <div class="card-icon w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -723,305 +722,13 @@
         </div>        <!-- Call to Action -->
         <div class="text-center mt-16">
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <button onclick="document.querySelector('[data-section=encryption]').click()" class="encrypt-btn px-8 py-4 rounded-lg text-white font-bold text-lg flex items-center space-x-2">
+                <a href="{{ route('nexus.encryption') }}" class="encrypt-btn px-8 py-4 rounded-lg text-white font-bold text-lg flex items-center space-x-2 no-underline">
                     <i class="fas fa-rocket"></i>
-                    <span>Start with Encryption</span>
-                </button>
+                    <span>Start with Encryption</span>                </a>
             </div>
-        </div></section>    <!-- ENCRYPTION SECTION - ENHANCED INTERACTIVE CONTENT -->
-    <section id="encryption" class="section-content">
-        <div class="mb-8">
-            <button onclick="showOverview()" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600">
-                <i class="fas fa-arrow-left"></i>
-                <span>Back to Overview</span>
-            </button>
-        </div>
+        </div>    </section>
 
-        <div class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-black mb-6">
-                <span class="bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 bg-clip-text text-transparent">
-                    ENCRYPTION
-                </span>
-            </h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8">
-                Master the fundamentals of cryptography through hands-on interactive demonstrations. 
-                Learn how encryption protects our digital world with real file encryption and decryption.
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gradient-to-r from-blue-500/20 to-cyan-500/20 p-4 rounded-xl border border-blue-500/30">
-                    <i class="fas fa-file-lock text-2xl text-blue-400 mb-2"></i>
-                    <div class="text-white font-semibold">Real Encryption</div>
-                    <div class="text-gray-300 text-sm">Actual file protection</div>
-                </div>
-                <div class="bg-gradient-to-r from-purple-500/20 to-pink-500/20 p-4 rounded-xl border border-purple-500/30">
-                    <i class="fas fa-key text-2xl text-purple-400 mb-2"></i>
-                    <div class="text-white font-semibold">Multiple Algorithms</div>
-                    <div class="text-gray-300 text-sm">AES, RSA, Caesar & more</div>
-                </div>
-                <div class="bg-gradient-to-r from-green-500/20 to-teal-500/20 p-4 rounded-xl border border-green-500/30">
-                    <i class="fas fa-unlock text-2xl text-green-400 mb-2"></i>
-                    <div class="text-white font-semibold">Full Decryption</div>
-                    <div class="text-gray-300 text-sm">Secure file recovery</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Interactive Encryption Demos - Enhanced Layout -->
-        <div class="encryption-grid mb-16">
-            <!-- Text Encryption Demo -->
-            <div class="encryption-demo rounded-2xl p-8">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-font text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Text Encryption</h3>
-                </div>
-                
-                <div class="space-y-6">
-                    <div>
-                        <label class="block text-white font-semibold mb-3">Enter your message:</label>
-                        <textarea id="textInput" class="nexus-input w-full p-4 rounded-lg resize-none" rows="4" placeholder="Type your secret message here..."></textarea>
-                    </div>
-                    
-                    <div class="grid grid-cols-2 gap-4">
-                        <button onclick="encryptText('caesar')" class="encrypt-btn px-4 py-3 rounded-lg text-white font-semibold hover:transform hover:scale-105 transition-all">
-                            <i class="fas fa-shield-alt mr-2"></i>Caesar Cipher
-                        </button>
-                        <button onclick="encryptText('base64')" class="encrypt-btn px-4 py-3 rounded-lg text-white font-semibold hover:transform hover:scale-105 transition-all">
-                            <i class="fas fa-code mr-2"></i>Base64
-                        </button>
-                        <button onclick="encryptText('rot13')" class="encrypt-btn px-4 py-3 rounded-lg text-white font-semibold hover:transform hover:scale-105 transition-all">
-                            <i class="fas fa-sync-alt mr-2"></i>ROT13
-                        </button>
-                        <button onclick="encryptText('reverse')" class="encrypt-btn px-4 py-3 rounded-lg text-white font-semibold hover:transform hover:scale-105 transition-all">
-                            <i class="fas fa-exchange-alt mr-2"></i>Reverse
-                        </button>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-white font-semibold mb-3">Encrypted Result:</label>
-                        <div id="textOutput" class="bg-gray-800 p-4 rounded-lg min-h-[80px] text-cyan-400 font-mono break-all border border-gray-600"></div>
-                        <button onclick="copyToClipboard('textOutput')" class="mt-2 px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg text-sm transition-all">
-                            <i class="fas fa-copy mr-2"></i>Copy Result
-                        </button>
-                    </div>
-
-                    <!-- Decryption Section for Text -->
-                    <div class="decryption-section">
-                        <h4 class="text-white font-semibold mb-3 flex items-center">
-                            <i class="fas fa-unlock mr-2"></i>Decrypt Text
-                        </h4>
-                        <textarea id="textDecryptInput" class="nexus-input w-full p-4 rounded-lg resize-none mb-4" rows="3" placeholder="Paste encrypted text to decrypt..."></textarea>
-                        <div class="grid grid-cols-2 gap-4">
-                            <button onclick="decryptText('caesar')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                                <i class="fas fa-unlock mr-2"></i>Caesar
-                            </button>
-                            <button onclick="decryptText('base64')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                                <i class="fas fa-unlock mr-2"></i>Base64
-                            </button>
-                            <button onclick="decryptText('rot13')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                                <i class="fas fa-unlock mr-2"></i>ROT13
-                            </button>
-                            <button onclick="decryptText('reverse')" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                                <i class="fas fa-unlock mr-2"></i>Reverse
-                            </button>
-                        </div>
-                        <div id="textDecryptOutput" class="bg-gray-800 p-4 rounded-lg min-h-[60px] text-green-400 font-mono break-all border border-gray-600 mt-4"></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- File Encryption Demo -->
-            <div class="encryption-demo rounded-2xl p-8">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-file-lock text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">File Encryption</h3>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="file-upload-area border-2 border-dashed border-gray-600 rounded-lg p-8 text-center" 
-                         ondrop="handleFileDrop(event)" 
-                         ondragover="handleDragOver(event)" 
-                         ondragleave="handleDragLeave(event)">
-                        <input type="file" id="fileInput" class="hidden" onchange="handleFileUpload(event)">
-                        <label for="fileInput" class="cursor-pointer block">
-                            <i class="fas fa-cloud-upload-alt text-5xl text-gray-400 mb-4"></i>
-                            <p class="text-gray-300 text-lg mb-2">Drop files here or click to upload</p>
-                            <p class="text-gray-500 text-sm">Support for all file types</p>
-                        </label>
-                    </div>
-                    
-                    <div id="fileInfo" class="hidden bg-gray-800 p-4 rounded-lg border border-gray-600">
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <div id="fileName" class="text-white font-semibold"></div>
-                                <div id="fileSize" class="text-gray-400 text-sm"></div>
-                            </div>
-                            <div id="fileStatus" class="text-green-400">
-                                <i class="fas fa-check-circle"></i> Ready
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="flex space-x-4">
-                            <input type="password" id="filePassword" class="nexus-input flex-1 p-3 rounded-lg" placeholder="Enter encryption password...">
-                            <button onclick="encryptFile()" class="encrypt-btn px-6 py-3 rounded-lg text-white font-semibold">
-                                <i class="fas fa-lock mr-2"></i>Encrypt File
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div id="encryptedFileResult" class="hidden">
-                        <div class="bg-gray-800 p-4 rounded-lg border border-gray-600">
-                            <div class="flex items-center justify-between mb-4">
-                                <span class="text-white font-semibold">
-                                    <i class="fas fa-file-lock text-green-400 mr-2"></i>Encrypted File Ready
-                                </span>
-                                <button onclick="downloadEncryptedFile()" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all">
-                                    <i class="fas fa-download mr-2"></i>Download
-                                </button>
-                            </div>
-                            <p class="text-gray-400 text-sm">File has been successfully encrypted. Download it to save.</p>
-                        </div>
-                    </div>
-
-                    <!-- File Decryption Section -->
-                    <div class="decryption-section">
-                        <h4 class="text-white font-semibold mb-4 flex items-center">
-                            <i class="fas fa-unlock mr-2"></i>Decrypt File
-                        </h4>
-                        <div class="file-upload-area border-2 border-dashed border-purple-600 rounded-lg p-6 text-center" 
-                             ondrop="handleEncryptedFileDrop(event)" 
-                             ondragover="handleDragOver(event)" 
-                             ondragleave="handleDragLeave(event)">
-                            <input type="file" id="encryptedFileInput" class="hidden" onchange="handleEncryptedFileUpload(event)">
-                            <label for="encryptedFileInput" class="cursor-pointer block">
-                                <i class="fas fa-file-upload text-3xl text-purple-400 mb-3"></i>
-                                <p class="text-gray-300">Upload encrypted file</p>
-                            </label>
-                        </div>
-                        
-                        <div class="flex space-x-4 mt-4">
-                            <input type="password" id="decryptPassword" class="nexus-input flex-1 p-3 rounded-lg" placeholder="Enter decryption password...">
-                            <button onclick="decryptFile()" class="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-all">
-                                <i class="fas fa-unlock mr-2"></i>Decrypt
-                            </button>
-                        </div>
-                        
-                        <div id="decryptedFileResult" class="hidden mt-4">
-                            <div class="bg-gray-800 p-4 rounded-lg border border-gray-600">
-                                <div class="flex items-center justify-between">
-                                    <span class="text-white font-semibold">
-                                        <i class="fas fa-file-check text-green-400 mr-2"></i>File Decrypted Successfully
-                                    </span>
-                                    <button onclick="downloadDecryptedFile()" class="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-all">
-                                        <i class="fas fa-download mr-2"></i>Download
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Video Encryption Simulation - Enhanced -->
-            <div class="encryption-demo rounded-2xl p-8">
-                <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-orange-500 rounded-xl flex items-center justify-center mr-4">
-                        <i class="fas fa-video text-white text-xl"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold text-white">Video Security</h3>
-                </div>
-                
-                <div class="space-y-6">
-                    <div class="video-container">
-                        <video id="demoVideo" class="w-full rounded-lg" controls preload="metadata">
-                            <source src="/videos/Nexus Demo (online-video-cutter.com).mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    </div>
-                    
-                    <div class="grid grid-cols-1 gap-4">
-                        <button onclick="simulateVideoEncryption()" class="encrypt-btn px-6 py-4 rounded-lg text-white font-semibold text-lg">
-                            <i class="fas fa-play mr-2"></i>
-                            Simulate Video Encryption
-                        </button>
-                    </div>
-                    
-                    <div id="videoEncryptionStatus" class="bg-gray-800 p-4 rounded-lg border border-gray-600">
-                        <div class="flex items-center">
-                            <i class="fas fa-info-circle text-blue-400 mr-2"></i>
-                            <span class="text-white">Ready to demonstrate video encryption concepts</span>
-                        </div>
-                        <div class="mt-2 text-gray-400 text-sm">
-                            This simulation shows how video content can be protected through encryption
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Encryption Algorithms Info - Enhanced -->
-        <div class="mb-16">
-            <h2 class="text-3xl font-bold text-white mb-8 text-center">Encryption Algorithms</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="algo-card rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-key text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-white font-bold mb-2">AES</h4>
-                    <p class="text-gray-400 text-sm mb-4">Advanced Encryption Standard - Industry standard symmetric encryption</p>
-                    <div class="text-xs text-cyan-400">
-                        • 128/192/256-bit keys<br>
-                        • Block cipher<br>
-                        • NIST approved
-                    </div>
-                </div>
-                
-                <div class="algo-card rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-lock text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-white font-bold mb-2">RSA</h4>
-                    <p class="text-gray-400 text-sm mb-4">Rivest-Shamir-Adleman - Public key cryptographic algorithm</p>
-                    <div class="text-xs text-purple-400">
-                        • Public-key cryptography<br>
-                        • Digital signatures<br>
-                        • 1024-4096 bit keys
-                    </div>
-                </div>
-                
-                <div class="algo-card rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-fingerprint text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-white font-bold mb-2">SHA</h4>
-                    <p class="text-gray-400 text-sm mb-4">Secure Hash Algorithm - Cryptographic hash function family</p>
-                    <div class="text-xs text-green-400">
-                        • SHA-1, SHA-256, SHA-512<br>
-                        • Data integrity<br>
-                        • One-way function
-                    </div>
-                </div>
-                
-                <div class="algo-card rounded-xl p-6 text-center">
-                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
-                    </div>
-                    <h4 class="text-white font-bold mb-2">DES</h4>
-                    <p class="text-gray-400 text-sm mb-4">Data Encryption Standard - Legacy symmetric encryption standard</p>
-                    <div class="text-xs text-red-400">
-                        • 56-bit key length<br>
-                        • Historical importance<br>
-                        • Now deprecated
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>    <!-- RAT ANALYSIS SECTION - COMPREHENSIVE REAL-WORLD ANALYSIS -->
+    <!-- RAT ANALYSIS SECTION - COMPREHENSIVE REAL-WORLD ANALYSIS --><!-- RAT ANALYSIS SECTION - COMPREHENSIVE REAL-WORLD ANALYSIS -->
     <section id="rat-analysis" class="section-content">
         <div class="mb-8">
             <button onclick="showOverview()" class="back-btn px-6 py-3 rounded-lg text-white font-semibold flex items-center space-x-2 hover:bg-gray-600">
@@ -1780,22 +1487,21 @@
             });
         }, { threshold: 0.1 });
 
-        animateElements.forEach(element => observer.observe(element));
-          // Add keyboard shortcuts
+        animateElements.forEach(element => observer.observe(element));        // Add keyboard shortcuts
         document.addEventListener('keydown', function(event) {
             if (event.ctrlKey || event.metaKey) {
                 switch(event.key) {
                     case '1':
                         event.preventDefault();
-                        showSection('encryption');
+                        window.location.href = "{{ route('nexus.encryption') }}";
                         break;
                     case '2':
                         event.preventDefault();
-                        showSection('rat-analysis');
+                        window.location.href = "{{ route('nexus.rat-analysis') }}";
                         break;
                     case '3':
                         event.preventDefault();
-                        showSection('snake-keylogger');
+                        window.location.href = "{{ route('nexus.snake-keylogger') }}";
                         break;
                     case '4':
                         event.preventDefault();
@@ -1887,12 +1593,7 @@
         }, 500);
     }
     
-    // Enhanced Error Handling
-    function handleEncryptionError(error, element) {
-        console.error('Encryption error:', error);
-        addErrorAnimation(element);
-        showNotification('Encryption failed. Please try again.', 'error');
-    }
+    // Enhanced Error Handling removed - functionality available on dedicated encryption page
     
     function handleDecryptionError(error, element) {
         console.error('Decryption error:', error);
@@ -1927,8 +1628,7 @@
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-    
-    function showOverview() {
+      function showOverview() {
         // Hide all section content
         document.querySelectorAll('.section-content').forEach(section => {
             section.classList.remove('active');
@@ -1942,54 +1642,11 @@
         document.querySelectorAll('.section-card').forEach(card => {
             card.classList.remove('active');
         });
-        
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-      // Encryption functions
-    function encryptText(algorithm) {
-        const input = document.getElementById('textInput').value;
-        const output = document.getElementById('textOutput');
-        const button = event.target;
-        
-        if (!input.trim()) {
-            output.innerHTML = '<span class="text-red-400">Please enter some text to encrypt</span>';
-            addErrorAnimation(output);
-            return;
-        }
-        
-        try {
-            addLoadingState(button);
-            
-            let result = '';
-            
-            switch(algorithm) {
-                case 'caesar':
-                    result = caesarCipher(input, 3);
-                    break;
-                case 'base64':
-                    result = btoa(input);
-                    break;
-                case 'rot13':
-                    result = rot13(input);
-                    break;
-                case 'reverse':
-                    result = input.split('').reverse().join('');
-                    break;
-            }
-            
-            setTimeout(() => {
-                output.innerHTML = `<span class="text-cyan-400">${result}</span>`;
-                addSuccessAnimation(output);
-                removeLoadingState(button);
-                showNotification(`Text encrypted using ${algorithm.toUpperCase()}`, 'success');
-            }, 500);
-            
-        } catch (error) {
-            removeLoadingState(button);
-            handleEncryptionError(error, output);
-        }
-    }
+
+    // Text encryption functionality removed - available on dedicated encryption page
     
     function caesarCipher(text, shift) {
         return text.replace(/[a-zA-Z]/g, function(char) {
@@ -2026,37 +1683,7 @@
         };
         reader.readAsDataURL(file);
     }
-    
-    function encryptImage(algorithm) {
-        const canvas = document.getElementById('imageCanvas');
-        const ctx = canvas.getContext('2d');
-        
-        if (!canvas.width) {
-            alert('Please upload an image first');
-            return;
-        }
-        
-        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const data = imageData.data;
-        
-        if (algorithm === 'pixelShift') {
-            // Simple pixel shifting
-            for (let i = 0; i < data.length; i += 4) {
-                const temp = data[i];
-                data[i] = data[i + 2];
-                data[i + 2] = temp;
-            }
-        } else if (algorithm === 'colorInvert') {
-            // Color inversion
-            for (let i = 0; i < data.length; i += 4) {
-                data[i] = 255 - data[i];     // Red
-                data[i + 1] = 255 - data[i + 1]; // Green
-                data[i + 2] = 255 - data[i + 2]; // Blue
-            }
-        }
-        
-        ctx.putImageData(imageData, 0, 0);
-    }
+      // Image encryption functionality removed - available on dedicated encryption page
       // Text Decryption Functions
     function decryptText(algorithm) {
         const input = document.getElementById('textDecryptInput').value;
@@ -2141,22 +1768,7 @@
             showFileInfo(file, 'fileInfo', 'fileName', 'fileSize', 'fileStatus');
         }
     }
-    
-    function handleEncryptedFileUpload(event) {
-        const file = event.target.files[0];
-        if (file) {
-            selectedEncryptedFile = file;
-            // Show feedback that file is ready for decryption
-            const fileInput = document.getElementById('encryptedFileInput');
-            fileInput.parentElement.innerHTML = `
-                <div class="text-center">
-                    <i class="fas fa-file-check text-3xl text-green-400 mb-3"></i>
-                    <p class="text-green-400 font-semibold">${file.name}</p>
-                    <p class="text-gray-400 text-sm">Ready for decryption</p>
-                </div>
-            `;
-        }
-    }
+      // File upload handlers removed - functionality available on dedicated encryption page
     
     function handleDragOver(event) {
         event.preventDefault();
@@ -2177,27 +1789,10 @@
             selectedFile = file;
             showFileInfo(file, 'fileInfo', 'fileName', 'fileSize', 'fileStatus');
             // Trigger the file input
-            document.getElementById('fileInput').files = event.dataTransfer.files;
-        }
+            document.getElementById('fileInput').files = event.dataTransfer.files;        }
     }
-    
-    function handleEncryptedFileDrop(event) {
-        event.preventDefault();
-        event.currentTarget.classList.remove('dragover');
-        
-        const file = event.dataTransfer.files[0];
-        if (file) {
-            selectedEncryptedFile = file;
-            // Show feedback that file is ready for decryption
-            event.currentTarget.innerHTML = `
-                <div class="text-center">
-                    <i class="fas fa-file-check text-3xl text-green-400 mb-3"></i>
-                    <p class="text-green-400 font-semibold">${file.name}</p>
-                    <p class="text-gray-400 text-sm">Ready for decryption</p>
-                </div>
-            `;
-        }
-    }
+
+    // Encrypted file drop handler removed - functionality available on dedicated encryption page
     
     function showFileInfo(file, infoId, nameId, sizeId, statusId) {
         document.getElementById(infoId).classList.remove('hidden');
@@ -2205,464 +1800,14 @@
         document.getElementById(sizeId).textContent = formatFileSize(file.size);
         document.getElementById(statusId).innerHTML = '<i class="fas fa-check-circle"></i> Ready';
     }
-    
-    function formatFileSize(bytes) {
+      function formatFileSize(bytes) {
         if (bytes === 0) return '0 Bytes';
         const k = 1024;
         const sizes = ['Bytes', 'KB', 'MB', 'GB'];
         const i = Math.floor(Math.log(bytes) / Math.log(k));
         return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
     }
-      // File Encryption Function
-    async function encryptFile() {
-        if (!selectedFile) {
-            showNotification('Please select a file to encrypt', 'warning');
-            return;
-        }
-        
-        const password = document.getElementById('filePassword').value;
-        if (!password) {
-            showNotification('Please enter a password for encryption', 'warning');
-            addErrorAnimation(document.getElementById('filePassword'));
-            return;
-        }
-        
-        if (password.length < 4) {
-            showNotification('Password must be at least 4 characters long', 'warning');
-            addErrorAnimation(document.getElementById('filePassword'));
-            return;
-        }
-        
-        try {
-            // Show loading state
-            const fileStatus = document.getElementById('fileStatus');
-            const encryptButton = event.target;
-            
-            fileStatus.innerHTML = '<i class="fas fa-spinner fa-spin text-yellow-400"></i> Encrypting...';
-            addLoadingState(encryptButton);
-            
-            // Read file as array buffer
-            const fileBuffer = await selectedFile.arrayBuffer();
-            const fileData = new Uint8Array(fileBuffer);
-            
-            // Simple XOR encryption with password (for demonstration)
-            const encryptedData = simpleXOREncrypt(fileData, password);
-            
-            // Create encrypted file blob
-            const encryptedBlob = new Blob([encryptedData], { type: 'application/octet-stream' });
-            encryptedFile = new File([encryptedBlob], selectedFile.name + '.encrypted', {
-                type: 'application/octet-stream'
-            });
-            
-            // Update UI
-            setTimeout(() => {
-                fileStatus.innerHTML = '<i class="fas fa-lock text-green-400"></i> Encrypted';
-                document.getElementById('encryptedFileResult').classList.remove('hidden');
-                removeLoadingState(encryptButton);
-                addSuccessAnimation(document.getElementById('encryptedFileResult'));
-                showNotification(`File "${selectedFile.name}" encrypted successfully`, 'success');
-            }, 1000);
-            
-        } catch (error) {
-            const encryptButton = event.target;
-            removeLoadingState(encryptButton);
-            handleEncryptionError(error, document.getElementById('fileStatus'));
-        }
-    }
-      // File Decryption Function
-    async function decryptFile() {
-        if (!selectedEncryptedFile) {
-            showNotification('Please select an encrypted file to decrypt', 'warning');
-            return;
-        }
-        
-        const password = document.getElementById('decryptPassword').value;
-        if (!password) {
-            showNotification('Please enter the decryption password', 'warning');
-            addErrorAnimation(document.getElementById('decryptPassword'));
-            return;
-        }
-        
-        try {
-            const decryptButton = event.target;
-            addLoadingState(decryptButton);
-            
-            // Read encrypted file
-            const fileBuffer = await selectedEncryptedFile.arrayBuffer();
-            const encryptedData = new Uint8Array(fileBuffer);
-            
-            // Decrypt using XOR with password
-            const decryptedData = simpleXORDecrypt(encryptedData, password);
-            
-            // Create decrypted file blob
-            const originalName = selectedEncryptedFile.name.replace('.encrypted', '');
-            const decryptedBlob = new Blob([decryptedData]);
-            decryptedFile = new File([decryptedBlob], originalName);
-            
-            // Show success with delay for better UX
-            setTimeout(() => {
-                document.getElementById('decryptedFileResult').classList.remove('hidden');
-                removeLoadingState(decryptButton);
-                addSuccessAnimation(document.getElementById('decryptedFileResult'));
-                showNotification(`File "${originalName}" decrypted successfully`, 'success');
-            }, 800);
-            
-        } catch (error) {
-            const decryptButton = event.target;
-            removeLoadingState(decryptButton);
-            handleDecryptionError(error, document.getElementById('decryptedFileResult'));
-        }
-    }
-    
-    // Simple XOR encryption/decryption functions
-    function simpleXOREncrypt(data, password) {
-        const result = new Uint8Array(data.length);
-        const passwordBytes = new TextEncoder().encode(password);
-        
-        for (let i = 0; i < data.length; i++) {
-            result[i] = data[i] ^ passwordBytes[i % passwordBytes.length];
-        }
-        
-        return result;
-    }
-    
-    function simpleXORDecrypt(data, password) {
-        return simpleXOREncrypt(data, password); // XOR is its own inverse
-    }
-      // Download Functions
-    function downloadEncryptedFile() {
-        if (!encryptedFile) {
-            showNotification('No encrypted file available for download', 'warning');
-            return;
-        }
-        
-        try {
-            const url = URL.createObjectURL(encryptedFile);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = encryptedFile.name;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            showNotification(`Encrypted file "${encryptedFile.name}" downloaded successfully`, 'success');
-        } catch (error) {
-            console.error('Download error:', error);
-            showNotification('Failed to download encrypted file', 'error');
-        }
-    }
-    
-    function downloadDecryptedFile() {
-        if (!decryptedFile) {
-            showNotification('No decrypted file available for download', 'warning');
-            return;
-        }
-        
-        try {
-            const url = URL.createObjectURL(decryptedFile);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = decryptedFile.name;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            
-            showNotification(`Decrypted file "${decryptedFile.name}" downloaded successfully`, 'success');
-        } catch (error) {
-            console.error('Download error:', error);
-            showNotification('Failed to download decrypted file', 'error');
-        }
-    }      // Enhanced Video Demo Functions with Multi-Phase Encryption and Playback Prevention
-    function simulateVideoEncryption() {
-        const status = document.getElementById('videoEncryptionStatus');
-        const video = document.getElementById('demoVideo');
-        
-        let scrambleLevel = 0;
-        
-        // ==== SECURITY MEASURES: DISABLE VIDEO PLAYBACK ====
-        
-        // 1. Pause video immediately if playing
-        if (!video.paused) {
-            video.pause();
-        }
-        
-        // 2. Disable video controls completely
-        video.controls = false;
-        video.style.pointerEvents = 'none';
-        
-        // 3. Store original source and remove it to prevent playback
-        const originalSource = video.src || video.querySelector('source')?.src;
-        if (originalSource) {
-            video.removeAttribute('src');
-            const sources = video.querySelectorAll('source');
-            sources.forEach(source => source.removeAttribute('src'));
-            video.load(); // Force reload to clear buffer
-        }
-        
-        // 4. Add blocking overlay to prevent any interaction
-        let blockingOverlay = document.querySelector('.video-blocking-overlay');
-        if (!blockingOverlay) {
-            blockingOverlay = document.createElement('div');
-            blockingOverlay.className = 'video-blocking-overlay';
-            blockingOverlay.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.8);
-                z-index: 20;
-                cursor: not-allowed;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                color: #ff4444;
-                font-family: 'JetBrains Mono', monospace;
-                font-weight: bold;
-                text-align: center;
-                border: 2px solid #ff4444;
-                border-radius: 8px;
-            `;
-            blockingOverlay.innerHTML = `
-                <div>
-                    <i class="fas fa-lock text-4xl mb-2"></i>
-                    <div class="text-lg">VIDEO ENCRYPTED</div>
-                    <div class="text-sm mt-1">PLAYBACK DISABLED</div>
-                    <div class="text-xs mt-2 opacity-70">Unauthorized access prevented</div>
-                </div>
-            `;
-            video.parentNode.appendChild(blockingOverlay);
-        }
-        
-        // Phase 1: Initialization
-        status.innerHTML = `
-            <div class="flex items-center justify-center">
-                <i class="fas fa-cog fa-spin text-cyan-400 mr-2"></i>
-                <span class="text-white">Initializing AES-256 encryption engine...</span>
-            </div>
-            <div class="mt-2 text-gray-400 text-sm">
-                🔐 Generating cryptographic keys • Security Level: Maximum
-            </div>
-            <div class="mt-2 text-red-400 text-sm font-bold">
-                ⚠️ VIDEO PLAYBACK DISABLED - ENCRYPTION IN PROGRESS
-            </div>
-        `;
-        
-        // Create overlay element for advanced effects
-        let overlay = document.querySelector('.video-encryption-overlay');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'video-encryption-overlay';
-            overlay.style.cssText = `
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-                z-index: 10;
-                background: linear-gradient(45deg, transparent 30%, rgba(0,255,255,0.1) 50%, transparent 70%);
-                opacity: 0;
-                transition: all 0.3s ease;
-            `;
-            video.parentNode.appendChild(overlay);
-        }
-        
-        setTimeout(() => {
-            // Phase 2: Progressive Scrambling
-            status.innerHTML = `
-                <div class="flex items-center justify-center">
-                    <i class="fas fa-shield-alt text-yellow-400 mr-2"></i>
-                    <span class="text-white">Scrambling video data blocks...</span>
-                </div>
-                <div class="mt-2 text-gray-400 text-sm">
-                    🔄 Processing frame encryption • Progress: 0%
-                </div>
-            `;
-            
-            // Progressive scrambling effect
-            const scrambleInterval = setInterval(() => {
-                scrambleLevel += 20;
-                const progress = Math.min(scrambleLevel, 100);
-                
-                // Update progress
-                status.innerHTML = `
-                    <div class="flex items-center justify-center">
-                        <i class="fas fa-lock text-yellow-400 mr-2"></i>
-                        <span class="text-white">Encrypting video frames...</span>
-                    </div>
-                    <div class="mt-2 text-gray-400 text-sm">
-                        🔄 Processing frame encryption • Progress: ${progress}%
-                    </div>
-                    <div class="mt-3 w-full bg-gray-700 rounded-full h-2">
-                        <div class="bg-gradient-to-r from-yellow-400 to-orange-500 h-2 rounded-full transition-all duration-300" style="width: ${progress}%"></div>
-                    </div>
-                `;
-                
-                // Apply increasing scramble effects
-                video.style.filter = `
-                    hue-rotate(${scrambleLevel * 3.6}deg) 
-                    contrast(${1 + scrambleLevel * 0.01}) 
-                    saturate(${1 + scrambleLevel * 0.02})
-                    blur(${scrambleLevel * 0.05}px)
-                `;
-                
-                // Animate overlay
-                overlay.style.opacity = progress * 0.01;
-                overlay.style.background = `linear-gradient(${45 + scrambleLevel}deg, 
-                    transparent 30%, 
-                    rgba(${255 - progress}, ${progress * 2.55}, 255, 0.${Math.floor(progress/20)}) 50%, 
-                    transparent 70%)`;
-                
-                if (progress >= 100) {
-                    clearInterval(scrambleInterval);
-                    
-                    setTimeout(() => {
-                        // Phase 3: Full Encryption
-                        status.innerHTML = `
-                            <div class="flex items-center justify-center">
-                                <i class="fas fa-check-circle text-green-400 mr-2"></i>
-                                <span class="text-white">AES-256 encryption completed successfully!</span>
-                            </div>                            <div class="mt-2 text-green-400 text-sm">
-                                ✅ 2048-bit key applied • ✅ CBC mode enabled • ✅ IV randomized
-                            </div>
-                            <div class="mt-3 text-yellow-400 text-sm font-bold">
-                                ⚠️ ENCRYPTED CONTENT - AUTHORIZED ACCESS ONLY - PLAYBACK BLOCKED
-                            </div>
-                            <div class="mt-2 text-red-400 text-xs">
-                                🔒 Video controls disabled • Source protected • Buffer cleared
-                            </div>
-                        `;
-                        
-                        // Final encrypted state
-                        video.style.filter = 'hue-rotate(180deg) contrast(1.8) saturate(2) blur(1px)';
-                        overlay.style.background = `
-                            repeating-linear-gradient(
-                                90deg,
-                                rgba(255,0,0,0.1) 0px,
-                                rgba(0,255,0,0.1) 2px,
-                                rgba(0,0,255,0.1) 4px,
-                                transparent 6px,
-                                transparent 8px
-                            )
-                        `;
-                        overlay.style.opacity = '0.8';
-                          // Enhanced encrypted text overlay with security warnings
-                        let textOverlay = document.querySelector('.encrypted-text-overlay');
-                        if (!textOverlay) {
-                            textOverlay = document.createElement('div');
-                            textOverlay.className = 'encrypted-text-overlay';
-                            textOverlay.style.cssText = `
-                                position: absolute;
-                                top: 50%;
-                                left: 50%;
-                                transform: translate(-50%, -50%);
-                                z-index: 25;
-                                color: #ff0000;
-                                font-family: 'JetBrains Mono', monospace;
-                                font-size: 14px;
-                                font-weight: bold;
-                                text-shadow: 0 0 10px rgba(255,0,0,0.8);
-                                animation: glitch 0.5s infinite;
-                                pointer-events: none;
-                                text-align: center;
-                                background: rgba(0,0,0,0.9);
-                                padding: 20px;
-                                border: 2px solid #ff0000;
-                                border-radius: 8px;
-                                box-shadow: 0 0 20px rgba(255,0,0,0.5);
-                            `;
-                            textOverlay.innerHTML = `
-                                <div style="text-align: center;">
-                                    <div style="font-size: 18px; margin-bottom: 10px;">🔒 ENCRYPTED 🔒</div>
-                                    <div style="font-size: 12px; margin-bottom: 8px;">AES-256-CBC</div>
-                                    <div style="font-size: 10px; margin-bottom: 8px;">PLAYBACK DISABLED</div>
-                                    <div style="font-size: 8px; color: #ffaa00;">SECURITY PROTOCOL ACTIVE</div>
-                                    <div style="font-size: 8px; margin-top: 5px;">01001000 01100101 01111000</div>
-                                </div>
-                            `;
-                            video.parentNode.appendChild(textOverlay);
-                        }
-                        
-                        // Add CSS for glitch animation
-                        if (!document.querySelector('#glitch-animation')) {
-                            const style = document.createElement('style');
-                            style.id = 'glitch-animation';
-                            style.textContent = `
-                                @keyframes glitch {
-                                    0% { transform: translate(-50%, -50%) skew(0deg); }
-                                    20% { transform: translate(-50%, -50%) skew(2deg); }
-                                    40% { transform: translate(-50%, -50%) skew(-1deg); }
-                                    60% { transform: translate(-50%, -50%) skew(1deg); }
-                                    80% { transform: translate(-50%, -50%) skew(-2deg); }
-                                    100% { transform: translate(-50%, -50%) skew(0deg); }
-                                }
-                            `;
-                            document.head.appendChild(style);
-                        }
-                          // Show enhanced security notification
-                        showNotification('🔐 Video encryption completed! Playback permanently disabled until decryption.', 'success');
-                        
-                        // Auto-reset after 5 seconds
-                        setTimeout(() => {
-                            resetVideoDemo();
-                        }, 5000);
-                    }, 1000);
-                }
-            }, 200);
-        }, 1500);
-    }
-      function resetVideoDemo() {
-        const status = document.getElementById('videoEncryptionStatus');
-        const video = document.getElementById('demoVideo');
-        
-        // ==== SECURITY RESTORATION: RE-ENABLE VIDEO PLAYBACK ====
-        
-        // 1. Remove all overlays (encryption and blocking)
-        const overlay = document.querySelector('.video-encryption-overlay');
-        const textOverlay = document.querySelector('.encrypted-text-overlay');
-        const blockingOverlay = document.querySelector('.video-blocking-overlay');
-        if (overlay) overlay.remove();
-        if (textOverlay) textOverlay.remove();
-        if (blockingOverlay) blockingOverlay.remove();
-        
-        // 2. Restore video source
-        const videoSource = video.querySelector('source');
-        if (!videoSource || !videoSource.src) {
-            // Restore the original video source
-            video.src = "/videos/Nexus Demo (online-video-cutter.com).mp4";
-            if (videoSource) {
-                videoSource.src = "/videos/Nexus Demo (online-video-cutter.com).mp4";
-            }
-            video.load(); // Reload video with restored source
-        }
-        
-        // 3. Re-enable video controls and interaction
-        video.controls = true;
-        video.style.pointerEvents = 'auto';
-        
-        // 4. Reset video filter with smooth transition
-        video.style.transition = 'filter 1s ease';
-        video.style.filter = 'none';
-        
-        // 5. Reset status with security cleared message
-        status.innerHTML = `
-            <div class="flex items-center">
-                <i class="fas fa-shield-check text-green-400 mr-2"></i>
-                <span class="text-white">Security protocol cleared - Video decrypted successfully</span>
-            </div>
-            <div class="mt-2 text-green-400 text-sm">
-                ✅ Playback controls restored • ✅ Video source reloaded • ✅ Access granted
-            </div>
-            <div class="mt-2 text-blue-400 text-sm">
-                Ready to demonstrate advanced video encryption again
-            </div>
-        `;
-        
-        // 6. Show restoration notification
-        showNotification('🔓 Video decrypted! Playback controls restored and access granted.', 'success');
-    }
+
+    // All encryption functionality removed - available on dedicated encryption page
 </script>
 @endsection

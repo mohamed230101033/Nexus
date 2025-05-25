@@ -19,7 +19,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [NexusController::class, 'index'])->name('nexus.index');
 Route::get('/first-semester', [NexusController::class, 'firstSemester'])->name('nexus.first-semester');
 Route::get('/second-semester', [NexusController::class, 'secondSemester'])->name('nexus.second-semester');
+Route::get('/encryption', [NexusController::class, 'encryption'])->name('nexus.encryption');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
+
+// Direct Routes for Malware Analysis Sections
+Route::get('/snake-keylogger', [NexusController::class, 'snakeKeylogger'])->name('nexus.snake-keylogger');
+Route::get('/rat-analysis', [NexusController::class, 'ratAnalysis'])->name('nexus.rat-analysis');
 
 // NEXUS x MYC Routes (the actual game functionality)
 Route::prefix('game')->name('game.')->group(function () {
