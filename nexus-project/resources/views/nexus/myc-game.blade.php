@@ -222,10 +222,6 @@
                 <i class="fas fa-play mr-3"></i>
                 Start Playing Now
             </a>
-            <a href="{{ route('game.village') }}" class="inline-flex items-center px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl border border-white/20 transition-all duration-300">
-                <i class="fas fa-home mr-3"></i>
-                Visit Village Hub
-            </a>
         </div>
     </div>
 </div>
