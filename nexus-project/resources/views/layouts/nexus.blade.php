@@ -284,11 +284,12 @@
             background: linear-gradient(var(--nexus-primary), var(--nexus-secondary));
             border-radius: 4px;
         }
-        
-        ::-webkit-scrollbar-thumb:hover {
+          ::-webkit-scrollbar-thumb:hover {
             background: linear-gradient(var(--nexus-secondary), var(--nexus-primary));
         }
     </style>
+    
+    @stack('styles')
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 min-h-screen font-['Inter'] relative overflow-x-hidden">
     <!-- Enhanced Matrix Background -->
@@ -555,9 +556,9 @@
             document.querySelectorAll('.nexus-card').forEach(card => {
                 observer.observe(card);
             });
-        });
-    </script>
+        });    </script>
 
     @yield('scripts')
+    @stack('scripts')
 </body>
 </html>
