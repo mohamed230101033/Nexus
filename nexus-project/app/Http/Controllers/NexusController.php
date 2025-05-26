@@ -36,13 +36,51 @@ class NexusController extends Controller
     public function mycGame()
     {
         return view('nexus.myc-game');
-    }
-
-    /**
+    }    /**
      * Display Encryption & Cryptography page
      */
     public function encryption()
     {
         return view('nexus.encryption');
+    }
+
+    /**
+     * Display Core Ransomware Research page
+     */
+    public function coreRansomware()
+    {
+        return view('nexus.core-ransomware');
+    }
+
+    /**
+     * Display RAT Prototype Development page
+     */
+    public function ratPrototype()
+    {
+        return view('nexus.rat-prototype');
+    }
+
+    /**
+     * Display Evasion & Stealth Techniques page
+     */
+    public function evasionStealth()
+    {
+        return view('nexus.evasion-stealth');
+    }
+
+    /**
+     * Display Delivery Methods Analysis page
+     */
+    public function deliveryMethods()
+    {
+        return view('nexus.delivery-methods');
+    }
+
+    /**
+     * Display Detection & Response Systems page
+     */
+    public function detectionResponse()
+    {
+        return view('nexus.detection-response');
     }
 }

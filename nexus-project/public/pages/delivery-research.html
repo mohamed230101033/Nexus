@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery Methods Research | Nexus Project</title>
+    <meta name="description" content="Educational research on attack delivery methods and vector analysis">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .blur-sensitive {
+            filter: blur(8px);
+            transition: filter 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .blur-sensitive:hover {
+            filter: blur(4px);
+        }
+        
+        .blur-sensitive.revealed {
+            filter: none;
+        }
+        
+        .warning-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(251, 191, 36, 0.1);
+            border: 2px dashed #f59e0b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #f59e0b;
+            backdrop-filter: blur(2px);
+        }
+        
+        .code-container {
+            position: relative;
+        }
+        
+        .educational-note {
+            background: linear-gradient(135deg, #d97706 0%, #ea580c 100%);
+            border-left: 4px solid #f59e0b;
+        }
+        
+        .delivery-note {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            border-left: 4px solid #fb923c;
+        }
+        
+        .paper-plane-animation {
+            animation: fly-plane 6s ease-in-out infinite;
+        }
+        
+        @keyframes fly-plane {
+            0% { transform: translateX(-20px) rotate(-5deg); }
+            25% { transform: translateX(10px) rotate(2deg); }
+            50% { transform: translateX(0px) rotate(0deg); }
+            75% { transform: translateX(-10px) rotate(-2deg); }
+            100% { transform: translateX(-20px) rotate(-5deg); }
+        }
+        
+        .attack-vector-card {
+            transition: all 0.3s ease;
+        }
+        
+        .attack-vector-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            NEXUS
+                        </h1>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Home</a>
+                        <a href="first-semester.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">First Semester</a>
+                        <a href="second-semester-phase1.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">← Back to Phase 1</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-br from-yellow-900 via-orange-900 to-amber-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 bg-yellow-500/20 rounded-full text-yellow-300 text-sm font-medium mb-6">
+                    <i class="fas fa-route mr-2"></i>
+                    Vector Analysis Only
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+                    Delivery Methods Research
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-white">
+                    Attack Vectors & Initial Access
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
+                    Educational analysis of delivery mechanisms, social engineering tactics, and initial access methods used in cybersecurity attacks
+                </p>
+                
+                <div class="flex justify-center mt-8">
+                    <div class="paper-plane-animation w-24 h-24 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center shadow-2xl">
+                        <i class="fas fa-paper-plane text-white text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Banner -->
+    <section class="py-8 bg-yellow-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="delivery-note rounded-xl p-6 text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-exclamation-triangle text-3xl text-yellow-300 mr-3"></i>
+                    <h3 class="text-2xl font-bold text-white">Vector Analysis Notice</h3>
+                </div>
+                <p class="text-yellow-100 text-lg mb-4">
+                    This research analyzes attack delivery methods to improve defensive strategies and awareness. All analysis is conducted for educational and prevention purposes.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <span class="px-3 py-1 bg-yellow-500/30 rounded-full">📧 Email Vector Analysis</span>
+                    <span class="px-3 py-1 bg-orange-500/30 rounded-full">🌐 Web-Based Attacks</span>
+                    <span class="px-3 py-1 bg-amber-500/30 rounded-full">👥 Social Engineering</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Overview -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">Research Overview</h2>
+                    <p class="text-gray-300 text-lg mb-6">
+                        Understanding attack delivery methods is crucial for developing effective prevention strategies. This research examines the most common initial access vectors used by threat actors and how organizations can defend against them.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-yellow-400 mr-3"></i>
+                            <span class="text-gray-300">Email-Based Attack Vectors</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-globe text-orange-400 mr-3"></i>
+                            <span class="text-gray-300">Web-Based Exploitation</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-amber-400 mr-3"></i>
+                            <span class="text-gray-300">Social Engineering Techniques</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-shield-alt text-red-400 mr-3"></i>
+                            <span class="text-gray-300">Prevention & Mitigation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-yellow-900/50 to-orange-900/50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">Attack Vector Statistics</h3>
+                    <div class="space-y-6">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-yellow-300">Email Phishing</span>
+                                <span class="text-gray-400">36%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-2 rounded-full" style="width: 36%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-orange-300">Web Exploitation</span>
+                                <span class="text-gray-400">28%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-orange-500 to-red-500 h-2 rounded-full" style="width: 28%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-300">Social Engineering</span>
+                                <span class="text-gray-400">22%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-amber-500 to-yellow-500 h-2 rounded-full" style="width: 22%"></div>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="text-red-300">Physical Access</span>
+                                <span class="text-gray-400">14%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" style="width: 14%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Vector Analysis -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">Email Attack Vectors</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-yellow-300 mb-6">Phishing Email Analysis</h3>
+                    <div class="educational-note rounded-xl p-6 mb-6">
+                        <h4 class="font-semibold text-white mb-3">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Educational Analysis
+                        </h4>
+                        <p class="text-yellow-100">
+                            Understanding phishing techniques helps security professionals train users and develop better email security systems.
+                        </p>
+                    </div>
+                    
+                    <div class="code-container">
+                        <div class="bg-gray-900 rounded-lg p-6 border border-gray-700">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold text-white">Email Header Analysis</h4>
+                                <button onclick="revealCode('email-analysis')" class="px-3 py-1 bg-yellow-600 hover:bg-yellow-500 text-white text-xs rounded transition-colors">
+                                    Reveal for Study
+                                </button>
+                            </div>
+                            <pre class="blur-sensitive" id="email-analysis"><code class="language-python"># Email Header Analysis Tool (Educational)
+import email
+import re
+from datetime import datetime
+
+class PhishingAnalyzer:
+    def __init__(self):
+        self.suspicious_domains = [
+            'tempmail.org', '10minutemail.com', 'guerrillamail.com',
+            'mailinator.com', 'throwaway.email'
+        ]
+        self.phishing_indicators = [
+            'urgent', 'immediate action', 'verify account',
+            'suspended', 'click here now', 'limited time'
+        ]
+    
+    def analyze_headers(self, email_content):
+        """Analyze email headers for suspicious indicators"""
+        msg = email.message_from_string(email_content)
+        analysis = {
+            'sender_reputation': self.check_sender_reputation(msg),
+            'spf_check': self.check_spf(msg),
+            'dkim_verification': self.check_dkim(msg),
+            'suspicious_headers': self.detect_suspicious_headers(msg)
+        }
+        return analysis
+    
+    def check_sender_reputation(self, msg):
+        """Check if sender domain is suspicious"""
+        sender = msg.get('From', '')
+        domain_match = re.search(r'@([a-zA-Z0-9.-]+)', sender)
+        
+        if domain_match:
+            domain = domain_match.group(1).lower()
+            if domain in self.suspicious_domains:
+                return {'status': 'suspicious', 'reason': 'Known disposable email'}
+            
+            # Check for domain spoofing attempts
+            if self.check_domain_spoofing(domain):
+                return {'status': 'suspicious', 'reason': 'Potential domain spoofing'}
+        
+        return {'status': 'clean', 'reason': 'No immediate red flags'}
+    
+    def check_domain_spoofing(self, domain):
+        """Detect potential domain spoofing"""
+        legitimate_domains = ['google.com', 'microsoft.com', 'amazon.com']
+        
+        for legit_domain in legitimate_domains:
+            # Check for character substitution
+            if self.similar_domain(domain, legit_domain):
+                return True
+        return False
+    
+    def similar_domain(self, domain1, domain2):
+        """Check if domains are suspiciously similar"""
+        # Simple similarity check (educational purposes)
+        if len(domain1) == len(domain2):
+            diff_count = sum(c1 != c2 for c1, c2 in zip(domain1, domain2))
+            return diff_count == 1  # Only one character different
+        return False
+    
+    def check_spf(self, msg):
+        """Check SPF authentication results"""
+        auth_results = msg.get('Authentication-Results', '')
+        if 'spf=pass' in auth_results:
+            return 'pass'
+        elif 'spf=fail' in auth_results:
+            return 'fail'
+        return 'unknown'
+    
+    def check_dkim(self, msg):
+        """Check DKIM signature verification"""
+        auth_results = msg.get('Authentication-Results', '')
+        if 'dkim=pass' in auth_results:
+            return 'pass'
+        elif 'dkim=fail' in auth_results:
+            return 'fail'
+        return 'unknown'
+    
+    def detect_suspicious_headers(self, msg):
+        """Detect suspicious header patterns"""
+        suspicious = []
+        
+        # Check for missing standard headers
+        if not msg.get('Message-ID'):
+            suspicious.append('Missing Message-ID header')
+        
+        # Check for suspicious user agents
+        user_agent = msg.get('User-Agent', '')
+        if 'python' in user_agent.lower() or 'curl' in user_agent.lower():
+            suspicious.append('Suspicious User-Agent')
+        
+        return suspicious
+    
+    def analyze_content(self, email_body):
+        """Analyze email content for phishing indicators"""
+        body_lower = email_body.lower()
+        found_indicators = []
+        
+        for indicator in self.phishing_indicators:
+            if indicator in body_lower:
+                found_indicators.append(indicator)
+        
+        # Count suspicious URLs
+        url_pattern = r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
+        urls = re.findall(url_pattern, email_body)
+        
+        return {
+            'phishing_keywords': found_indicators,
+            'url_count': len(urls),
+            'urls': urls[:5]  # First 5 URLs for analysis
+        }
+
+# Example usage for educational analysis
+analyzer = PhishingAnalyzer()
+print("Phishing email analysis tool initialized for educational research")</code></pre>
+                            <div class="warning-overlay" id="email-analysis-overlay">
+                                <span><i class="fas fa-eye-slash mr-2"></i>Click "Reveal for Study" to view</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-orange-300 mb-6">Phishing Techniques</h3>
+                    <div class="space-y-6">
+                        <div class="attack-vector-card bg-gray-900 rounded-lg p-6 border border-gray-700">
+                            <h4 class="text-lg font-semibold text-white mb-4">Common Phishing Types</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-yellow-900/30 rounded-lg">
+                                    <span class="text-yellow-300">Spear Phishing</span>
+                                    <span class="text-gray-400">Targeted attacks</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-orange-900/30 rounded-lg">
+                                    <span class="text-orange-300">Whaling</span>
+                                    <span class="text-gray-400">Executive targeting</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-amber-900/30 rounded-lg">
+                                    <span class="text-amber-300">Clone Phishing</span>
+                                    <span class="text-gray-400">Legitimate email copies</span>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-red-900/30 rounded-lg">
+                                    <span class="text-red-300">Pharming</span>
+                                    <span class="text-gray-400">DNS manipulation</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-6 border border-yellow-500/30">
+                            <h4 class="text-lg font-semibold text-white mb-4">
+                                <i class="fas fa-bullseye mr-2"></i>
+                                Targeting Strategies
+                            </h4>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-yellow-300 font-medium">Research Phase:</span>
+                                    <div class="text-gray-400">Social media reconnaissance, employee directories</div>
+                                </div>
+                                <div>
+                                    <span class="text-orange-300 font-medium">Personalization:</span>
+                                    <div class="text-gray-400">Custom content, familiar branding</div>
+                                </div>
+                                <div>
+                                    <span class="text-amber-300 font-medium">Timing:</span>
+                                    <div class="text-gray-400">Business hours, specific events</div>
+                                </div>
+                                <div>
+                                    <span class="text-red-300 font-medium">Urgency:</span>
+                                    <div class="text-gray-400">Time pressure, fear tactics</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Web-Based Attack Vectors -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">Web-Based Attack Vectors</h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Drive-by Downloads -->
+                <div class="attack-vector-card bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-2xl p-8 border border-purple-500/30">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-download text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Drive-by Downloads</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                            Malicious web advertisements
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                            Compromised legitimate sites
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                            Browser exploit kits
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-purple-400 mr-3"></i>
+                            Plugin vulnerabilities
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Watering Hole Attacks -->
+                <div class="attack-vector-card bg-gradient-to-br from-blue-900/30 to-cyan-900/30 rounded-2xl p-8 border border-blue-500/30">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-water text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Watering Hole</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-blue-400 mr-3"></i>
+                            Target specific communities
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-blue-400 mr-3"></i>
+                            Compromise trusted sites
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-blue-400 mr-3"></i>
+                            Patient reconnaissance
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-blue-400 mr-3"></i>
+                            Selective targeting
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Malicious Redirects -->
+                <div class="attack-vector-card bg-gradient-to-br from-green-900/30 to-teal-900/30 rounded-2xl p-8 border border-green-500/30">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-teal-500 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-route text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Malicious Redirects</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            URL shortener abuse
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            Typosquatting domains
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            SEO poisoning
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            Search result manipulation
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Engineering -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">Social Engineering Techniques</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-amber-300 mb-6">Psychological Manipulation</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-amber-500/30">
+                            <h4 class="font-semibold text-white mb-3">Authority Exploitation</h4>
+                            <p class="text-gray-300 text-sm mb-3">
+                                Attackers impersonate authority figures to pressure victims into compliance.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-amber-500/20 text-amber-300 rounded text-xs">CEO Fraud</span>
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs">IT Support</span>
+                                <span class="px-2 py-1 bg-orange-500/20 text-orange-300 rounded text-xs">Government</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-yellow-500/30">
+                            <h4 class="font-semibold text-white mb-3">Urgency & Fear</h4>
+                            <p class="text-gray-300 text-sm mb-3">
+                                Creating time pressure to bypass rational decision-making processes.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-red-500/20 text-red-300 rounded text-xs">Account Suspension</span>
+                                <span class="px-2 py-1 bg-orange-500/20 text-orange-300 rounded text-xs">Security Breach</span>
+                                <span class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs">Legal Action</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-orange-500/30">
+                            <h4 class="font-semibold text-white mb-3">Trust Building</h4>
+                            <p class="text-gray-300 text-sm">
+                                Establishing rapport and credibility before making malicious requests.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-orange-300 mb-6">Attack Scenarios</h3>
+                    <div class="bg-gradient-to-br from-amber-900/30 to-orange-900/30 rounded-xl p-8 border border-amber-500/30">
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-yellow-500 pl-4">
+                                <h4 class="font-semibold text-yellow-300 mb-2">Business Email Compromise (BEC)</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Impersonating executives to authorize fraudulent wire transfers or sensitive data access.
+                                </p>
+                            </div>
+                            
+                            <div class="border-l-4 border-orange-500 pl-4">
+                                <h4 class="font-semibold text-orange-300 mb-2">Tech Support Scams</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Unsolicited calls claiming computer issues, requesting remote access for "repairs."
+                                </p>
+                            </div>
+                            
+                            <div class="border-l-4 border-amber-500 pl-4">
+                                <h4 class="font-semibold text-amber-300 mb-2">Pretexting</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Creating fabricated scenarios to obtain information or access from unsuspecting victims.
+                                </p>
+                            </div>
+                            
+                            <div class="border-l-4 border-red-500 pl-4">
+                                <h4 class="font-semibold text-red-300 mb-2">Quid Pro Quo</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Offering services or benefits in exchange for information or system access.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prevention Strategies -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">Prevention & Mitigation</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-green-300 mb-6">Technical Controls</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-green-900/50 to-blue-900/50 rounded-lg p-6 border border-green-500/30">
+                            <h4 class="font-semibold text-white mb-4">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                Email Security
+                            </h4>
+                            <ul class="space-y-2 text-gray-300 text-sm">
+                                <li>• SPF, DKIM, and DMARC implementation</li>
+                                <li>• Advanced threat protection (ATP)</li>
+                                <li>• Sandboxing and link protection</li>
+                                <li>• User reported phishing analysis</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-blue-900/50 to-purple-900/50 rounded-lg p-6 border border-blue-500/30">
+                            <h4 class="font-semibold text-white mb-4">
+                                <i class="fas fa-globe mr-2"></i>
+                                Web Security
+                            </h4>
+                            <ul class="space-y-2 text-gray-300 text-sm">
+                                <li>• Web application firewalls (WAF)</li>
+                                <li>• DNS filtering and reputation services</li>
+                                <li>• Browser security policies</li>
+                                <li>• Content Security Policy (CSP)</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-purple-900/50 to-pink-900/50 rounded-lg p-6 border border-purple-500/30">
+                            <h4 class="font-semibold text-white mb-4">
+                                <i class="fas fa-eye mr-2"></i>
+                                Monitoring & Detection
+                            </h4>
+                            <ul class="space-y-2 text-gray-300 text-sm">
+                                <li>• Behavioral analytics</li>
+                                <li>• Anomaly detection systems</li>
+                                <li>• Real-time threat intelligence</li>
+                                <li>• User and entity behavior analytics (UEBA)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-yellow-300 mb-6">Human Controls</h3>
+                    <div class="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 rounded-xl p-8 border border-yellow-500/30">
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <i class="fas fa-graduation-cap text-yellow-400 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Security Awareness Training</h4>
+                                    <p class="text-gray-300 text-sm mb-3">
+                                        Regular training programs to educate users about current threats and safe practices.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 bg-yellow-500/20 text-yellow-300 rounded text-xs">Phishing Simulations</span>
+                                        <span class="px-2 py-1 bg-orange-500/20 text-orange-300 rounded text-xs">Interactive Modules</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-clipboard-check text-orange-400 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Verification Procedures</h4>
+                                    <p class="text-gray-300 text-sm mb-3">
+                                        Establish clear procedures for verifying requests for sensitive information or actions.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-1 bg-green-500/20 text-green-300 rounded text-xs">Multi-Channel Verification</span>
+                                        <span class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs">Approval Workflows</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-exclamation-triangle text-amber-400 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Incident Response</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        Clear reporting procedures and rapid response protocols for suspected attacks.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Findings -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">Research Conclusions</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-gradient-to-r from-yellow-900/50 to-orange-900/50 rounded-xl p-8 border border-yellow-500/30">
+                        <h3 class="text-2xl font-bold text-yellow-300 mb-6">
+                            <i class="fas fa-chart-line mr-3"></i>
+                            Threat Trends
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-yellow-500 pl-4">
+                                <h4 class="font-semibold text-white mb-2">Increased Sophistication</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Attack vectors are becoming more targeted and personalized, using extensive reconnaissance.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-orange-500 pl-4">
+                                <h4 class="font-semibold text-white mb-2">AI-Enhanced Attacks</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Artificial intelligence is being used to create more convincing phishing content and deepfakes.
+                                </p>
+                            </div>
+                            <div class="border-l-4 border-amber-500 pl-4">
+                                <h4 class="font-semibold text-white mb-2">Multi-Vector Campaigns</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Attackers combine multiple delivery methods for higher success rates.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gradient-to-r from-green-900/50 to-blue-900/50 rounded-xl p-8 border border-green-500/30">
+                        <h3 class="text-2xl font-bold text-green-300 mb-6">
+                            <i class="fas fa-lightbulb mr-3"></i>
+                            Defense Recommendations
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-layers text-green-400 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Layered Defense</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        Implement multiple security layers to catch attacks at different stages.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-users text-blue-400 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Human-Centric Security</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        Focus on user education and creating security-aware culture.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-robot text-purple-400 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">AI-Powered Defense</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        Leverage AI for real-time threat detection and response automation.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-sync-alt text-cyan-400 mr-3 mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold text-white mb-2">Continuous Improvement</h4>
+                                    <p class="text-gray-300 text-sm">
+                                        Regular assessment and adaptation of security measures.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-6">
+                    <i class="fas fa-paper-plane text-yellow-400 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-bold text-white">Delivery Vector Research Complete</h3>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    This research provides insights into attack delivery methods to enhance organizational security posture.
+                </p>
+                <p class="text-sm text-gray-500">
+                    © 2025 Nexus Project. All delivery method research conducted for educational and defensive purposes only.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <script>
+        function revealCode(elementId) {
+            // Show confirmation dialog
+            const confirmed = confirm(
+                "This code is for educational analysis only. " +
+                "Do you agree to use this information responsibly for defensive cybersecurity purposes?"
+            );
+            
+            if (confirmed) {
+                const element = document.getElementById(elementId);
+                const overlay = document.getElementById(elementId + '-overlay');
+                
+                element.classList.add('revealed');
+                if (overlay) {
+                    overlay.style.display = 'none';
+                }
+                
+                // Show educational reminder
+                setTimeout(() => {
+                    alert("Remember: This information is for educational and defensive purposes only. Use it to improve security awareness and defense systems.");
+                }, 1000);
+            }
+        }
+        
+        // Add hover effects to attack vector cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.attack-vector-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.03)';
+                    this.style.boxShadow = '0 20px 40px rgba(0,0,0,0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

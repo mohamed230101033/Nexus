@@ -398,6 +398,14 @@
                             Cyber Time Travel
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('nexus.second-semester') }}" class="nav-link bounce-animation">
+                            <span class="nav-icon">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor"><use href="#icon-research"></use></svg>
+                            </span>
+                            Second Semester
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <div class="md:hidden">
@@ -445,6 +453,14 @@
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor"><use href="#icon-time-travel"></use></svg>
                             </span>
                             Cyber Time Travel
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ route('nexus.second-semester') }}" class="nav-link">
+                            <span class="nav-icon">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor"><use href="#icon-research"></use></svg>
+                            </span>
+                            Second Semester
                         </a>
                     </li>
                 </ul>

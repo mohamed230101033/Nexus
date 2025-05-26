@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Core Ransomware Research | Nexus Project</title>
+    <meta name="description" content="Educational research on ransomware mechanics and defense strategies">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .blur-sensitive {
+            filter: blur(8px);
+            transition: filter 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .blur-sensitive:hover {
+            filter: blur(4px);
+        }
+        
+        .blur-sensitive.revealed {
+            filter: none;
+        }
+        
+        .warning-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(220, 38, 38, 0.1);
+            border: 2px dashed #dc2626;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #dc2626;
+            backdrop-filter: blur(2px);
+        }
+        
+        .code-container {
+            position: relative;
+        }
+        
+        .educational-note {
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .danger-note {
+            background: linear-gradient(135deg, #dc2626 0%, #ea580c 100%);
+            border-left: 4px solid #ef4444;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            NEXUS
+                        </h1>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Home</a>
+                        <a href="first-semester.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">First Semester</a>
+                        <a href="second-semester-phase1.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">← Back to Phase 1</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-br from-red-900 via-orange-900 to-yellow-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 bg-red-500/20 rounded-full text-red-300 text-sm font-medium mb-6">
+                    <i class="fas fa-shield-alt mr-2"></i>
+                    Educational Research Only
+                </div>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
+                    Core Ransomware
+                </h1>
+                <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-white">
+                    Cryptographic Analysis & Defense
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
+                    Understanding ransomware mechanics through controlled research for developing better defenses
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Banner -->
+    <section class="py-8 bg-red-900/30 border-y border-red-500/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="danger-note rounded-lg p-6">
+                <div class="flex items-center mb-4">
+                    <i class="fas fa-exclamation-triangle text-yellow-400 text-2xl mr-4"></i>
+                    <h3 class="text-xl font-bold text-white">Important Disclaimer</h3>
+                </div>
+                <p class="text-gray-200 mb-3">
+                    This research is conducted exclusively for educational purposes and cybersecurity defense development. 
+                    All code examples have been sanitized and modified to prevent malicious use.
+                </p>
+                <ul class="text-gray-200 space-y-1">
+                    <li><i class="fas fa-check text-green-400 mr-2"></i>Sensitive functions are blurred or replaced</li>
+                    <li><i class="fas fa-check text-green-400 mr-2"></i>No functional malicious code is provided</li>
+                    <li><i class="fas fa-check text-green-400 mr-2"></i>Focus on understanding and prevention</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Overview -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Left Column: Overview -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-8">Research Objectives</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-800/50 rounded-lg p-6 border border-blue-500/30">
+                            <h3 class="text-xl font-semibold text-blue-400 mb-3">
+                                <i class="fas fa-eye mr-2"></i>
+                                Understanding Mechanisms
+                            </h3>
+                            <p class="text-gray-300">
+                                Analyze how ransomware operates, including encryption algorithms, 
+                                key management, and persistence techniques.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 rounded-lg p-6 border border-green-500/30">
+                            <h3 class="text-xl font-semibold text-green-400 mb-3">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                Defensive Strategies
+                            </h3>
+                            <p class="text-gray-300">
+                                Develop detection methods, prevention techniques, and recovery 
+                                procedures for ransomware incidents.
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gray-800/50 rounded-lg p-6 border border-purple-500/30">
+                            <h3 class="text-xl font-semibold text-purple-400 mb-3">
+                                <i class="fas fa-microscope mr-2"></i>
+                                Behavioral Analysis
+                            </h3>
+                            <p class="text-gray-300">
+                                Study attack patterns, indicators of compromise, and 
+                                forensic artifacts left by ransomware.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column: Key Components -->
+                <div>
+                    <h2 class="text-3xl font-bold text-white mb-8">Key Components Studied</h2>
+                    
+                    <div class="bg-gray-800/30 rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">Encryption Analysis</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 bg-red-900/20 rounded">
+                                <i class="fas fa-lock text-red-400 mr-3"></i>
+                                <div>
+                                    <div class="text-white font-medium">AES-256 Implementation</div>
+                                    <div class="text-gray-400 text-sm">Symmetric encryption with PBKDF2 key derivation</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-orange-900/20 rounded">
+                                <i class="fas fa-key text-orange-400 mr-3"></i>
+                                <div>
+                                    <div class="text-white font-medium">Key Management</div>
+                                    <div class="text-gray-400 text-sm">Secure key generation and storage mechanisms</div>
+                                </div>
+                            </div>
+                            <div class="flex items-center p-3 bg-yellow-900/20 rounded">
+                                <i class="fas fa-database text-yellow-400 mr-3"></i>
+                                <div>
+                                    <div class="text-white font-medium">File Processing</div>
+                                    <div class="text-gray-400 text-sm">Target file identification and encryption loops</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-800/30 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">Persistence Techniques</h3>
+                        <div class="space-y-2">
+                            <div class="flex items-center text-gray-300">
+                                <i class="fas fa-cog text-purple-400 mr-3"></i>
+                                Registry modification for auto-start
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i class="fas fa-clock text-blue-400 mr-3"></i>
+                                Scheduled task creation
+                            </div>
+                            <div class="flex items-center text-gray-300">
+                                <i class="fas fa-folder text-green-400 mr-3"></i>
+                                Startup folder placement
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Code Analysis Section -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Code Analysis</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Sanitized code examples for educational understanding (sensitive parts blurred for safety)
+                </p>
+            </div>
+            
+            <!-- Encryption Implementation -->
+            <div class="mb-12">
+                <div class="educational-note rounded-lg p-6 mb-6">
+                    <div class="flex items-center mb-3">
+                        <i class="fas fa-graduation-cap text-blue-300 text-xl mr-3"></i>
+                        <h3 class="text-lg font-bold text-white">Educational Code Example</h3>
+                    </div>
+                    <p class="text-blue-100">
+                        The following code demonstrates encryption mechanisms used in ransomware for educational analysis. 
+                        Sensitive functions are intentionally obscured to prevent misuse.
+                    </p>
+                </div>
+                
+                <div class="code-container bg-gray-900 rounded-lg overflow-hidden border border-gray-700">
+                    <div class="bg-gray-800 px-6 py-3 border-b border-gray-700">
+                        <div class="flex items-center justify-between">
+                            <h4 class="text-white font-semibold">Encryption Module Analysis</h4>
+                            <div class="flex space-x-2">
+                                <button onclick="toggleBlur('encryption-code')" class="px-3 py-1 bg-yellow-600 hover:bg-yellow-700 text-white text-xs rounded">
+                                    Reveal for Study
+                                </button>
+                                <span class="px-3 py-1 bg-red-600 text-white text-xs rounded">Sanitized</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <pre class="blur-sensitive" id="encryption-code"><code class="language-python"># === Educational Encryption Analysis ===
+# WARNING: This is for educational purposes only
+import os
+from Crypto.Cipher import AES
+from Crypto.Random import get_random_bytes
+from Crypto.Protocol.KDF import PBKDF2
+
+# Encryption parameters (educational example)
+SALT = b'[REDACTED_FOR_SAFETY]'
+PASSWORD = b'[REDACTED_FOR_SAFETY]'
+KEY = PBKDF2(PASSWORD, SALT, dkLen=32, count=1000000)
+
+def educational_encrypt_analysis(file_path):
+    """
+    Educational function to understand encryption mechanics
+    THIS IS FOR ANALYSIS ONLY - NOT FUNCTIONAL
+    """
+    # [SENSITIVE_OPERATION_BLURRED]
+    cipher = AES.new(KEY, AES.MODE_CBC, get_random_bytes(16))
+    
+    # File reading simulation
+    with open(file_path, 'rb') as f:
+        data = f.read()
+    
+    # Padding mechanism (standard PKCS7)
+    pad_length = 16 - (len(data) % 16)
+    data += bytes([pad_length] * pad_length)
+    
+    # [ENCRYPTION_PROCESS_BLURRED]
+    encrypted_data = cipher.encrypt(data)
+    
+    # Note: In real analysis, file modification would be studied
+    # but not implemented for safety
+    print(f"Analysis: File {file_path} encryption process understood")
+
+# Educational persistence analysis
+def analyze_persistence_methods():
+    """
+    Understanding how malware maintains persistence
+    FOR DEFENSIVE PURPOSES ONLY
+    """
+    persistence_techniques = [
+        "Registry Run Keys Analysis",
+        "Scheduled Tasks Study", 
+        "Startup Folder Research"
+    ]
+    
+    for technique in persistence_techniques:
+        print(f"Studying: {technique}")
+        # [IMPLEMENTATION_DETAILS_REDACTED]
+
+# Defense mechanism development
+def develop_detection_signatures():
+    """
+    Creating detection patterns based on analysis
+    """
+    signatures = {
+        'file_extensions': ['.locked', '.encrypted', '.crypto'],
+        'registry_keys': ['HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run'],
+        'behavioral_patterns': ['rapid_file_access', 'encryption_api_calls']
+    }
+    return signatures</code></pre>
+                        <div class="warning-overlay" id="encryption-warning">
+                            <div class="text-center">
+                                <i class="fas fa-eye-slash text-2xl mb-2"></i>
+                                <div>Code Blurred for Safety</div>
+                                <div class="text-sm">Click "Reveal for Study" above</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Defense Strategies -->
+            <div class="grid lg:grid-cols-2 gap-8">
+                <div class="bg-gray-900 rounded-lg p-6 border border-green-500/30">
+                    <h3 class="text-xl font-bold text-green-400 mb-4">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        Defense Mechanisms
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-800/50 p-4 rounded">
+                            <h4 class="font-semibold text-white mb-2">File System Monitoring</h4>
+                            <p class="text-gray-300 text-sm">Real-time detection of suspicious file operations and encryption patterns.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded">
+                            <h4 class="font-semibold text-white mb-2">Behavioral Analysis</h4>
+                            <p class="text-gray-300 text-sm">Monitoring for rapid file access patterns and crypto API usage.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded">
+                            <h4 class="font-semibold text-white mb-2">Backup Systems</h4>
+                            <p class="text-gray-300 text-sm">Automated, isolated backup solutions for recovery capabilities.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg p-6 border border-blue-500/30">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-search mr-2"></i>
+                        Detection Indicators
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="bg-gray-800/50 p-4 rounded">
+                            <h4 class="font-semibold text-white mb-2">File Signatures</h4>
+                            <p class="text-gray-300 text-sm">Specific file extensions and encryption headers used by ransomware.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded">
+                            <h4 class="font-semibold text-white mb-2">Network Patterns</h4>
+                            <p class="text-gray-300 text-sm">Command & control communication and key exchange protocols.</p>
+                        </div>
+                        <div class="bg-gray-800/50 p-4 rounded">
+                            <h4 class="font-semibold text-white mb-2">Registry Changes</h4>
+                            <p class="text-gray-300 text-sm">Persistence mechanisms and configuration storage patterns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Findings -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white mb-6">Key Research Findings</h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Important insights from our controlled analysis for improving cybersecurity defenses
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-lock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Encryption Strength</h3>
+                    <p class="text-gray-300">
+                        Modern ransomware uses military-grade AES-256 encryption, making decryption without keys practically impossible.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-clock text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Speed of Infection</h3>
+                    <p class="text-gray-300">
+                        Rapid file enumeration and parallel processing allow complete system encryption in minutes.
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Defense Opportunities</h3>
+                    <p class="text-gray-300">
+                        Early detection through behavioral monitoring provides the best opportunity for prevention.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Phase 1 -->
+    <section class="py-12 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <a href="second-semester-phase1.html" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-arrow-left mr-3"></i>
+                Back to Phase 1 Research
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 mb-4">
+                <strong>Ethical Research Notice:</strong> This content is provided solely for educational and defensive cybersecurity purposes.
+            </p>
+            <p class="text-gray-500">
+                © 2025 Nexus Project. Core Ransomware Research - Educational Analysis.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+    
+    <script>
+        function toggleBlur(elementId) {
+            const element = document.getElementById(elementId);
+            const warning = document.getElementById(elementId.replace('-code', '-warning'));
+            
+            if (element && warning) {
+                if (element.classList.contains('revealed')) {
+                    element.classList.remove('revealed');
+                    warning.style.display = 'flex';
+                } else {
+                    // Show confirmation dialog
+                    const confirmed = confirm(
+                        "This will reveal sanitized code for educational purposes only.\n\n" +
+                        "By proceeding, you confirm that you are:\n" +
+                        "• Using this for legitimate educational/research purposes\n" +
+                        "• Not intending to cause harm\n" +
+                        "• Understanding that this is for defense development\n\n" +
+                        "Do you wish to continue?"
+                    );
+                    
+                    if (confirmed) {
+                        element.classList.add('revealed');
+                        warning.style.display = 'none';
+                    }
+                }
+            }
+        }
+        
+        // Add warning on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const blurredElements = document.querySelectorAll('.blur-sensitive');
+            blurredElements.forEach(element => {
+                element.addEventListener('click', function() {
+                    const id = this.id;
+                    if (id) {
+                        toggleBlur(id);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

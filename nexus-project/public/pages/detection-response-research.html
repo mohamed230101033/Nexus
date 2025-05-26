@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detection & Response Research | Nexus Project</title>
+    <meta name="description" content="Educational research on threat detection methodologies and incident response procedures">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for code highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        .blur-sensitive {
+            filter: blur(8px);
+            transition: filter 0.3s ease;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .blur-sensitive:hover {
+            filter: blur(4px);
+        }
+        
+        .blur-sensitive.revealed {
+            filter: none;
+        }
+        
+        .warning-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(6, 182, 212, 0.1);
+            border: 2px dashed #06b6d4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #06b6d4;
+            backdrop-filter: blur(2px);
+        }
+        
+        .code-container {
+            position: relative;
+        }
+        
+        .educational-note {
+            background: linear-gradient(135deg, #0891b2 0%, #3b82f6 100%);
+            border-left: 4px solid #06b6d4;
+        }
+        
+        .detection-note {
+            background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            border-left: 4px solid #0ea5e9;
+        }
+        
+        .radar-animation {
+            animation: radar-sweep 4s linear infinite;
+        }
+        
+        @keyframes radar-sweep {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        
+        .siem-dashboard {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid #334155;
+        }
+        
+        .metric-card {
+            transition: all 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="../index.html" class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            NEXUS
+                        </h1>
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="../index.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">Home</a>
+                        <a href="first-semester.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">First Semester</a>
+                        <a href="second-semester-phase1.html" class="nav-link px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 transition-all duration-300">← Back to Phase 1</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-20 pb-16 bg-gradient-to-br from-cyan-900 via-blue-900 to-indigo-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 bg-cyan-500/20 rounded-full text-cyan-300 text-sm font-medium mb-6">
+                    <i class="fas fa-search mr-2"></i>
+                    Advanced Detection Research
+                </div>
+                
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                    Detection & Response Research
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-white">
+                    Incident Response & SIEM Analysis
+                </h2>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
+                    Comprehensive study of threat detection methodologies, incident response procedures, and security orchestration technologies
+                </p>
+                
+                <div class="flex justify-center mt-8 relative">
+                    <div class="pulse-ring absolute w-32 h-32 bg-cyan-500/20 rounded-full"></div>
+                    <div class="radar-animation w-24 h-24 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full flex items-center justify-center shadow-2xl">
+                        <i class="fas fa-radar text-white text-3xl"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Warning Banner -->
+    <section class="py-8 bg-cyan-900/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="detection-note rounded-xl p-6 text-center">
+                <div class="flex items-center justify-center mb-4">
+                    <i class="fas fa-shield-alt text-3xl text-cyan-300 mr-3"></i>
+                    <h3 class="text-2xl font-bold text-white">Detection Research Notice</h3>
+                </div>
+                <p class="text-cyan-100 text-lg mb-4">
+                    This research focuses on improving threat detection capabilities and incident response procedures. All analysis conducted for educational and defensive enhancement purposes.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <span class="px-3 py-1 bg-cyan-500/30 rounded-full">🛡️ SIEM Enhancement</span>
+                    <span class="px-3 py-1 bg-blue-500/30 rounded-full">🚨 Incident Response</span>
+                    <span class="px-3 py-1 bg-indigo-500/30 rounded-full">🤖 AI/ML Detection</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Overview -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold text-white mb-6">Research Overview</h2>
+                    <p class="text-gray-300 text-lg mb-6">
+                        Modern cybersecurity operations require sophisticated detection and response capabilities. This research examines cutting-edge 
+                        technologies and methodologies for identifying, analyzing, and responding to security threats in real-time.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-chart-line text-cyan-400 mr-3"></i>
+                            <span class="text-gray-300">SIEM & Log Analysis</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-robot text-blue-400 mr-3"></i>
+                            <span class="text-gray-300">AI/ML Threat Detection</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-cogs text-indigo-400 mr-3"></i>
+                            <span class="text-gray-300">Security Orchestration (SOAR)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-users text-purple-400 mr-3"></i>
+                            <span class="text-gray-300">Incident Response Teams</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="siem-dashboard rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold text-white mb-6">SIEM Dashboard Metrics</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="metric-card bg-cyan-900/30 rounded-lg p-4 border border-cyan-500/30">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-cyan-300 text-sm">Events/Hour</p>
+                                    <p class="text-2xl font-bold text-white">15.2K</p>
+                                </div>
+                                <i class="fas fa-chart-line text-cyan-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="metric-card bg-blue-900/30 rounded-lg p-4 border border-blue-500/30">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-blue-300 text-sm">Alerts</p>
+                                    <p class="text-2xl font-bold text-white">342</p>
+                                </div>
+                                <i class="fas fa-exclamation-triangle text-blue-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="metric-card bg-indigo-900/30 rounded-lg p-4 border border-indigo-500/30">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-indigo-300 text-sm">Incidents</p>
+                                    <p class="text-2xl font-bold text-white">12</p>
+                                </div>
+                                <i class="fas fa-fire text-indigo-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="metric-card bg-purple-900/30 rounded-lg p-4 border border-purple-500/30">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="text-purple-300 text-sm">MTTR</p>
+                                    <p class="text-2xl font-bold text-white">24m</p>
+                                </div>
+                                <i class="fas fa-clock text-purple-400 text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIEM Analysis -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">SIEM & Log Analysis</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-cyan-300 mb-6">Advanced Log Correlation</h3>
+                    <div class="educational-note rounded-xl p-6 mb-6">
+                        <h4 class="font-semibold text-white mb-3">
+                            <i class="fas fa-info-circle mr-2"></i>
+                            Educational Analysis
+                        </h4>
+                        <p class="text-cyan-100">
+                            Understanding log correlation techniques helps security analysts identify complex attack patterns and improve detection accuracy.
+                        </p>
+                    </div>
+                    
+                    <div class="code-container">
+                        <div class="bg-gray-900 rounded-lg p-6 border border-gray-700">
+                            <div class="flex justify-between items-center mb-4">
+                                <h4 class="text-lg font-semibold text-white">Threat Detection Engine</h4>
+                                <button onclick="revealCode('siem-correlation')" class="px-3 py-1 bg-cyan-600 hover:bg-cyan-500 text-white text-xs rounded transition-colors">
+                                    Reveal for Study
+                                </button>
+                            </div>
+                            <pre class="blur-sensitive" id="siem-correlation"><code class="language-python"># Advanced SIEM Correlation Engine (Educational)
+import json
+import datetime
+from collections import defaultdict, deque
+import hashlib
+
+class ThreatDetectionEngine:
+    def __init__(self):
+        self.event_buffer = deque(maxlen=10000)
+        self.correlation_rules = []
+        self.threat_indicators = defaultdict(int)
+        self.suspicious_patterns = {}
+        
+    def add_correlation_rule(self, rule):
+        """Add a new correlation rule for threat detection"""
+        self.correlation_rules.append(rule)
+    
+    def process_event(self, event):
+        """Process incoming security event"""
+        # Normalize event timestamp
+        event['processed_time'] = datetime.datetime.now().isoformat()
+        
+        # Add to buffer
+        self.event_buffer.append(event)
+        
+        # Enrich event with additional context
+        enriched_event = self.enrich_event(event)
+        
+        # Apply correlation rules
+        threats = self.correlate_event(enriched_event)
+        
+        # Update threat indicators
+        self.update_threat_indicators(enriched_event, threats)
+        
+        return threats
+    
+    def enrich_event(self, event):
+        """Enrich event with additional context"""
+        enriched = event.copy()
+        
+        # Add geolocation info (mock)
+        if 'src_ip' in event:
+            enriched['src_geo'] = self.get_geolocation(event['src_ip'])
+        
+        # Add reputation data
+        if 'domain' in event:
+            enriched['domain_reputation'] = self.check_domain_reputation(event['domain'])
+        
+        # Calculate event hash for deduplication
+        event_str = json.dumps(event, sort_keys=True)
+        enriched['event_hash'] = hashlib.md5(event_str.encode()).hexdigest()
+        
+        return enriched
+    
+    def correlate_event(self, event):
+        """Apply correlation rules to detect threats"""
+        detected_threats = []
+        
+        for rule in self.correlation_rules:
+            if self.evaluate_rule(rule, event):
+                threat = {
+                    'rule_id': rule['id'],
+                    'severity': rule['severity'],
+                    'description': rule['description'],
+                    'event': event,
+                    'timestamp': datetime.datetime.now().isoformat()
+                }
+                detected_threats.append(threat)
+        
+        return detected_threats
+    
+    def evaluate_rule(self, rule, event):
+        """Evaluate if an event matches a correlation rule"""
+        try:
+            # Simple rule evaluation (educational example)
+            conditions = rule.get('conditions', [])
+            
+            for condition in conditions:
+                field = condition['field']
+                operator = condition['operator']
+                value = condition['value']
+                
+                if field not in event:
+                    return False
+                
+                event_value = event[field]
+                
+                if operator == 'equals' and event_value != value:
+                    return False
+                elif operator == 'contains' and value not in str(event_value):
+                    return False
+                elif operator == 'greater_than' and float(event_value) <= float(value):
+                    return False
+                elif operator == 'regex' and not re.match(value, str(event_value)):
+                    return False
+            
+            return True
+            
+        except Exception as e:
+            print(f"Rule evaluation error: {e}")
+            return False
+    
+    def get_geolocation(self, ip):
+        """Mock geolocation lookup"""
+        # In real implementation, use GeoIP database
+        if ip.startswith('10.') or ip.startswith('192.168.'):
+            return {'country': 'Internal', 'risk': 'low'}
+        else:
+            return {'country': 'External', 'risk': 'medium'}
+    
+    def check_domain_reputation(self, domain):
+        """Mock domain reputation check"""
+        suspicious_domains = ['malware.example', 'phish.test', 'bad.domain']
+        if domain in suspicious_domains:
+            return {'score': 0, 'category': 'malicious'}
+        return {'score': 80, 'category': 'clean'}
+    
+    def update_threat_indicators(self, event, threats):
+        """Update threat indicators based on detected threats"""
+        for threat in threats:
+            indicator_key = f"{threat['rule_id']}_{event.get('src_ip', 'unknown')}"
+            self.threat_indicators[indicator_key] += 1
+    
+    def get_threat_summary(self):
+        """Get summary of current threat landscape"""
+        recent_events = list(self.event_buffer)[-100:]  # Last 100 events
+        
+        return {
+            'total_events': len(self.event_buffer),
+            'recent_events': len(recent_events),
+            'threat_indicators': dict(self.threat_indicators),
+            'top_threats': self.get_top_threats()
+        }
+    
+    def get_top_threats(self):
+        """Get top threats by frequency"""
+        sorted_threats = sorted(
+            self.threat_indicators.items(), 
+            key=lambda x: x[1], 
+            reverse=True
+        )
+        return sorted_threats[:10]
+
+# Example correlation rules
+brute_force_rule = {
+    'id': 'BRUTE_FORCE_001',
+    'description': 'Multiple failed login attempts',
+    'severity': 'high',
+    'conditions': [
+        {'field': 'event_type', 'operator': 'equals', 'value': 'auth_failure'},
+        {'field': 'failure_count', 'operator': 'greater_than', 'value': 5}
+    ]
+}
+
+malware_rule = {
+    'id': 'MALWARE_001',
+    'description': 'Communication with known malicious domain',
+    'severity': 'critical',
+    'conditions': [
+        {'field': 'domain_reputation', 'operator': 'equals', 'value': 'malicious'}
+    ]
+}
+
+# Initialize detection engine for educational analysis
+detection_engine = ThreatDetectionEngine()
+detection_engine.add_correlation_rule(brute_force_rule)
+detection_engine.add_correlation_rule(malware_rule)
+
+print("Advanced threat detection engine initialized for educational research")</code></pre>
+                            <div class="warning-overlay" id="siem-correlation-overlay">
+                                <span><i class="fas fa-eye-slash mr-2"></i>Click "Reveal for Study" to view</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-blue-300 mb-6">Detection Capabilities</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-900 rounded-lg p-6 border border-gray-700">
+                            <h4 class="text-lg font-semibold text-white mb-4">Core Detection Features</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between p-3 bg-cyan-900/30 rounded-lg">
+                                    <span class="text-cyan-300">Real-time Correlation</span>
+                                    <i class="fas fa-check text-green-400"></i>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-blue-900/30 rounded-lg">
+                                    <span class="text-blue-300">Behavioral Analysis</span>
+                                    <i class="fas fa-check text-green-400"></i>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-indigo-900/30 rounded-lg">
+                                    <span class="text-indigo-300">Threat Intelligence</span>
+                                    <i class="fas fa-check text-green-400"></i>
+                                </div>
+                                <div class="flex items-center justify-between p-3 bg-purple-900/30 rounded-lg">
+                                    <span class="text-purple-300">Machine Learning</span>
+                                    <i class="fas fa-check text-green-400"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-cyan-900/30 to-blue-900/30 rounded-lg p-6 border border-cyan-500/30">
+                            <h4 class="text-lg font-semibold text-white mb-4">
+                                <i class="fas fa-brain mr-2"></i>
+                                AI-Enhanced Detection
+                            </h4>
+                            <p class="text-gray-300 text-sm mb-4">
+                                Machine learning algorithms analyze patterns and anomalies to identify previously unknown threats.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <span class="text-cyan-300 font-medium">Anomaly Detection:</span>
+                                    <div class="text-gray-400">Statistical analysis, clustering</div>
+                                </div>
+                                <div>
+                                    <span class="text-blue-300 font-medium">Pattern Recognition:</span>
+                                    <div class="text-gray-400">Neural networks, deep learning</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Incident Response -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">Incident Response Framework</h2>
+            
+            <div class="grid lg:grid-cols-4 gap-8 mb-12">
+                <!-- Phase 1: Preparation -->
+                <div class="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-2xl p-6 border border-green-500/30">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">1</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Preparation</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li>• IR team formation</li>
+                        <li>• Playbook development</li>
+                        <li>• Tool deployment</li>
+                        <li>• Training programs</li>
+                    </ul>
+                </div>
+                
+                <!-- Phase 2: Identification -->
+                <div class="bg-gradient-to-br from-yellow-900/30 to-orange-900/30 rounded-2xl p-6 border border-yellow-500/30">
+                    <div class="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">2</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Identification</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li>• Threat detection</li>
+                        <li>• Alert triage</li>
+                        <li>• Impact assessment</li>
+                        <li>• Classification</li>
+                    </ul>
+                </div>
+                
+                <!-- Phase 3: Containment -->
+                <div class="bg-gradient-to-br from-red-900/30 to-pink-900/30 rounded-2xl p-6 border border-red-500/30">
+                    <div class="w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">3</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Containment</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li>• Threat isolation</li>
+                        <li>• Network segmentation</li>
+                        <li>• Asset quarantine</li>
+                        <li>• Evidence preservation</li>
+                    </ul>
+                </div>
+                
+                <!-- Phase 4: Recovery -->
+                <div class="bg-gradient-to-br from-blue-900/30 to-indigo-900/30 rounded-2xl p-6 border border-blue-500/30">
+                    <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-white font-bold">4</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Recovery</h3>
+                    <ul class="space-y-2 text-gray-300 text-sm">
+                        <li>• System restoration</li>
+                        <li>• Security validation</li>
+                        <li>• Monitoring enhancement</li>
+                        <li>• Business continuity</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- SOAR Integration -->
+            <div class="bg-gradient-to-br from-purple-900/20 to-indigo-900/20 rounded-2xl p-8 border border-purple-500/30">
+                <h3 class="text-3xl font-bold text-white mb-6 text-center">
+                    <i class="fas fa-cogs mr-3"></i>
+                    Security Orchestration (SOAR)
+                </h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-robot text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Automation</h4>
+                        <p class="text-gray-300 text-sm">
+                            Automated response workflows reduce response time and human error in incident handling.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-sitemap text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Orchestration</h4>
+                        <p class="text-gray-300 text-sm">
+                            Coordinate multiple security tools and teams for unified incident response efforts.
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-white mb-3">Analytics</h4>
+                        <p class="text-gray-300 text-sm">
+                            Data-driven insights improve response strategies and prevent future incidents.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI/ML Detection -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">AI/ML-Powered Detection</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold text-purple-300 mb-6">Machine Learning Models</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-purple-500/30">
+                            <h4 class="font-semibold text-white mb-3">Supervised Learning</h4>
+                            <p class="text-gray-300 text-sm mb-3">
+                                Trained on labeled datasets to identify known attack patterns and malicious behaviors.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-purple-500/20 text-purple-300 rounded text-xs">Random Forest</span>
+                                <span class="px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded text-xs">SVM</span>
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs">Neural Networks</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-blue-500/30">
+                            <h4 class="font-semibold text-white mb-3">Unsupervised Learning</h4>
+                            <p class="text-gray-300 text-sm mb-3">
+                                Detects anomalies and unknown threats by identifying deviations from normal behavior patterns.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-2 py-1 bg-blue-500/20 text-blue-300 rounded text-xs">Clustering</span>
+                                <span class="px-2 py-1 bg-cyan-500/20 text-cyan-300 rounded text-xs">Autoencoders</span>
+                                <span class="px-2 py-1 bg-teal-500/20 text-teal-300 rounded text-xs">Isolation Forest</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-900/50 rounded-lg p-6 border border-cyan-500/30">
+                            <h4 class="font-semibold text-white mb-3">Deep Learning</h4>
+                            <p class="text-gray-300 text-sm">
+                                Advanced neural networks for complex pattern recognition and threat prediction.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold text-cyan-300 mb-6">Detection Metrics</h3>
+                    <div class="bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl p-8 border border-cyan-500/30">
+                        <div class="space-y-6">
+                            <div class="flex items-center justify-between">
+                                <span class="text-cyan-300 font-medium">True Positive Rate</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-700 rounded-full h-3 mr-3">
+                                        <div class="bg-gradient-to-r from-cyan-500 to-blue-500 h-3 rounded-full" style="width: 94%"></div>
+                                    </div>
+                                    <span class="text-white font-bold">94%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-300 font-medium">False Positive Rate</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-700 rounded-full h-3 mr-3">
+                                        <div class="bg-gradient-to-r from-yellow-500 to-red-500 h-3 rounded-full" style="width: 3%"></div>
+                                    </div>
+                                    <span class="text-white font-bold">3%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <span class="text-indigo-300 font-medium">Detection Accuracy</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-700 rounded-full h-3 mr-3">
+                                        <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-3 rounded-full" style="width: 96%"></div>
+                                    </div>
+                                    <span class="text-white font-bold">96%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-center justify-between">
+                                <span class="text-purple-300 font-medium">Mean Time to Detect</span>
+                                <div class="flex items-center">
+                                    <div class="w-32 bg-gray-700 rounded-full h-3 mr-3">
+                                        <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-3 rounded-full" style="width: 85%"></div>
+                                    </div>
+                                    <span class="text-white font-bold">2.3m</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 p-4 bg-gray-800/50 rounded-lg">
+                            <h4 class="font-semibold text-white mb-3">
+                                <i class="fas fa-trophy mr-2"></i>
+                                Performance Highlights
+                            </h4>
+                            <ul class="text-gray-300 text-sm space-y-1">
+                                <li>• 98% reduction in false positives with ML tuning</li>
+                                <li>• 75% faster threat detection than traditional methods</li>
+                                <li>• 24/7 automated monitoring and response</li>
+                                <li>• Adaptive learning from new threat patterns</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Findings -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center">Research Conclusions</h2>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Key Findings -->
+                <div class="bg-gradient-to-br from-cyan-900/30 to-blue-900/30 rounded-xl p-8 border border-cyan-500/30">
+                    <h3 class="text-2xl font-bold text-cyan-300 mb-6">
+                        <i class="fas fa-lightbulb mr-3"></i>
+                        Key Findings
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-cyan-500 pl-4">
+                            <h4 class="font-semibold text-white mb-2">AI Enhancement</h4>
+                            <p class="text-gray-300 text-sm">
+                                Machine learning significantly improves detection accuracy and reduces response times.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold text-white mb-2">Automation Benefits</h4>
+                            <p class="text-gray-300 text-sm">
+                                SOAR platforms reduce manual effort by 80% and improve consistency.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-indigo-500 pl-4">
+                            <h4 class="font-semibold text-white mb-2">Human-AI Collaboration</h4>
+                            <p class="text-gray-300 text-sm">
+                                Best results achieved when AI augments human expertise rather than replacing it.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Future Directions -->
+                <div class="bg-gradient-to-br from-purple-900/30 to-indigo-900/30 rounded-xl p-8 border border-purple-500/30">
+                    <h3 class="text-2xl font-bold text-purple-300 mb-6">
+                        <i class="fas fa-rocket mr-3"></i>
+                        Future Directions
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-purple-500 pl-4">
+                            <h4 class="font-semibold text-white mb-2">Quantum-Safe Detection</h4>
+                            <p class="text-gray-300 text-sm">
+                                Preparing detection systems for quantum computing threats.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-indigo-500 pl-4">
+                            <h4 class="font-semibold text-white mb-2">Federated Learning</h4>
+                            <p class="text-gray-300 text-sm">
+                                Collaborative ML models without sharing sensitive data.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-blue-500 pl-4">
+                            <h4 class="font-semibold text-white mb-2">XAI Integration</h4>
+                            <p class="text-gray-300 text-sm">
+                                Explainable AI for better decision-making transparency.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Best Practices -->
+                <div class="bg-gradient-to-br from-green-900/30 to-emerald-900/30 rounded-xl p-8 border border-green-500/30">
+                    <h3 class="text-2xl font-bold text-green-300 mb-6">
+                        <i class="fas fa-check-circle mr-3"></i>
+                        Best Practices
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-cog text-green-400 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2">Continuous Tuning</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Regularly update ML models with new threat data.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-users text-emerald-400 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2">Team Training</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Invest in analyst training for new technologies.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-bar text-teal-400 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2">Metrics-Driven</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Use KPIs to measure and improve detection effectiveness.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-cyan-400 mr-3 mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white mb-2">Defense in Depth</h4>
+                                <p class="text-gray-300 text-sm">
+                                    Layer multiple detection mechanisms for comprehensive coverage.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex justify-center items-center mb-6">
+                    <i class="fas fa-radar text-cyan-400 text-2xl mr-3"></i>
+                    <h3 class="text-xl font-bold text-white">Detection & Response Research Complete</h3>
+                </div>
+                <p class="text-gray-400 mb-4">
+                    This research advances the understanding of modern threat detection and incident response capabilities.
+                </p>
+                <p class="text-sm text-gray-500">
+                    © 2025 Nexus Project. All detection research conducted to enhance cybersecurity defensive capabilities.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Prism.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+
+    <script>
+        function revealCode(elementId) {
+            // Show confirmation dialog
+            const confirmed = confirm(
+                "This code is for educational analysis only. " +
+                "Do you agree to use this information responsibly for defensive cybersecurity purposes?"
+            );
+            
+            if (confirmed) {
+                const element = document.getElementById(elementId);
+                const overlay = document.getElementById(elementId + '-overlay');
+                
+                element.classList.add('revealed');
+                if (overlay) {
+                    overlay.style.display = 'none';
+                }
+                
+                // Show educational reminder
+                setTimeout(() => {
+                    alert("Remember: This information is for educational and defensive purposes only. Use it to enhance detection and response capabilities.");
+                }, 1000);
+            }
+        }
+        
+        // Add dynamic effects to metrics
+        document.addEventListener('DOMContentLoaded', function() {
+            const metricCards = document.querySelectorAll('.metric-card');
+            
+            metricCards.forEach((card, index) => {
+                // Add staggered animation
+                card.style.animationDelay = `${index * 0.2}s`;
+                
+                // Add hover effect
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-8px) scale(1.05)';
+                    this.style.boxShadow = '0 15px 35px rgba(0,0,0,0.3)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+            
+            // Simulate real-time data updates
+            setInterval(updateMetrics, 5000);
+        });
+        
+        function updateMetrics() {
+            const eventsElement = document.querySelector('.metric-card:first-child .text-2xl');
+            if (eventsElement) {
+                const currentValue = parseFloat(eventsElement.textContent);
+                const newValue = (currentValue + Math.random() * 0.5).toFixed(1);
+                eventsElement.textContent = newValue + 'K';
+            }
+        }
+    </script>
+</body>
+</html>

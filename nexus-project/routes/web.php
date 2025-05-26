@@ -22,6 +22,13 @@ Route::get('/second-semester', [NexusController::class, 'secondSemester'])->name
 Route::get('/encryption', [NexusController::class, 'encryption'])->name('nexus.encryption');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 
+// Second Semester Research Areas
+Route::get('/core-ransomware', [NexusController::class, 'coreRansomware'])->name('nexus.core-ransomware');
+Route::get('/rat-prototype', [NexusController::class, 'ratPrototype'])->name('nexus.rat-prototype');
+Route::get('/evasion-stealth', [NexusController::class, 'evasionStealth'])->name('nexus.evasion-stealth');
+Route::get('/delivery-methods', [NexusController::class, 'deliveryMethods'])->name('nexus.delivery-methods');
+Route::get('/detection-response', [NexusController::class, 'detectionResponse'])->name('nexus.detection-response');
+
 // NEXUS x MYC Routes (the actual game functionality)
 Route::prefix('game')->name('game.')->group(function () {
     Route::get('/', [GameController::class, 'welcome'])->name('welcome');
