@@ -165,6 +165,59 @@
         <button onclick="switchTab('technical')" class="tab-btn" id="technical-btn">Technical Details</button>
         <button onclick="switchTab('implementation')" class="tab-btn" id="implementation-btn">Implementation</button>
         <button onclick="switchTab('screenshots')" class="tab-btn" id="screenshots-btn">Screenshots</button>
+        </div>
+
+        <!-- Tab Content -->
+        <div id="overview" class="tab-content">
+        <div class="grid md:grid-cols-2 gap-8">
+            <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Description</h3>
+            <p class="text-gray-300 mb-6 leading-relaxed">
+                RAT & Net Nuker combines remote access capabilities with aggressive network disruption techniques. 
+                This hybrid malware demonstrates advanced persistence, lateral movement, and destructive 
+                capabilities for comprehensive cybersecurity education and defense strategy development.
+            </p>
+            <h4 class="text-xl font-semibold text-purple-400 mb-4">Hybrid Features:</h4>
+            <ul class="feature-list text-gray-300 space-y-3">
+                <li><i class="fas fa-network-wired text-purple-500 mr-3"></i>Network scanning and mapping</li>
+                <li><i class="fas fa-bomb text-purple-500 mr-3"></i>Service disruption attacks</li>
+                <li><i class="fas fa-virus text-purple-500 mr-3"></i>Self-replication mechanisms</li>
+                <li><i class="fas fa-route text-purple-500 mr-3"></i>Lateral movement capabilities</li>
+                <li><i class="fas fa-trash text-purple-500 mr-3"></i>Data destruction routines</li>
+                <li><i class="fas fa-skull-crossbones text-purple-500 mr-3"></i>System sabotage modules</li>
+            </ul>
+            </div>
+            <div>
+            <h3 class="text-2xl font-bold text-white mb-6">Attack Vectors</h3>
+            <div class="space-y-4">
+                <div class="metric-item">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-300 font-medium">Network Impact</span>
+                    <span class="text-red-400 font-bold text-lg">Severe</span>
+                </div>
+                </div>
+                <div class="metric-item">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-300 font-medium">Propagation Speed</span>
+                    <span class="text-red-400 font-bold text-lg">Rapid</span>
+                </div>
+                </div>
+                <div class="metric-item">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-300 font-medium">Recovery Difficulty</span>
+                    <span class="text-red-400 font-bold text-lg">Extreme</span>
+                </div>
+                </div>
+                <div class="metric-item">
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-300 font-medium">Educational Value</span>
+                    <span class="text-green-400 font-bold text-lg">Maximum</span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
 
     <!-- Tab Content -->

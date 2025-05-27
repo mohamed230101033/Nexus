@@ -34,6 +34,9 @@ Route::get('/edr-detection-defence', [NexusController::class, 'edrDetectionDefen
 // Sub-Module 3: Analysis & Detection Statistics
 Route::get('/analysis-detection-statistics', [NexusController::class, 'analysisDetectionStatistics'])->name('nexus.analysis-detection-statistics');
 
+// Sub-Module 3: APK Analysis
+Route::get('/analysis-detection-apk', [NexusController::class, 'analysisDetectionApk'])->name('nexus.analysis-detection-apk');
+
 Route::get('/encryption', [NexusController::class, 'encryption'])->name('nexus.encryption');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 

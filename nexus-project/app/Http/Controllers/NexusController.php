@@ -80,14 +80,20 @@ class NexusController extends Controller
     public function edrDetectionDefence()
     {
         return view('nexus.edr-detection-defence');
-    }
-
-    /**
+    }    /**
      * Display Analysis & Detection Statistics page
      */
     public function analysisDetectionStatistics()
     {
         return view('nexus.analysis-detection-statistics');
+    }
+
+    /**
+     * Display APK Analysis page
+     */
+    public function analysisDetectionApk()
+    {
+        return view('nexus.analysis-detection-apk');
     }
 
     /**

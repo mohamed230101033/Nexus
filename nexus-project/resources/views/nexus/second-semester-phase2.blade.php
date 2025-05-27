@@ -638,151 +638,70 @@
                 </div>
                 
                 <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- APK Analysis Section -->
-                    <div class="apk-analysis">
-                        <h4 class="text-2xl font-bold text-white mb-6">APK Analysis Framework</h4>
-                        <div class="space-y-4">
-                            <!-- High Risk APKs -->
-                            <div class="risk-category bg-red-900/20 border border-red-500/50 rounded-lg p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-exclamation-triangle text-white text-sm"></i>
-                                    </div>
-                                    <h5 class="text-lg font-bold text-red-400">High Risk APKs</h5>
-                                    <span class="ml-auto bg-red-600 text-white text-xs px-2 py-1 rounded">Critical</span>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="file-item flex items-center justify-between bg-gray-900/50 rounded p-3">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-mobile-alt text-red-400 mr-3"></i>
-                                            <div>
-                                                <span class="text-white font-medium">banking_trojan_v2.apk</span>
-                                                <p class="text-gray-400 text-xs">Credential harvesting malware</p>
+                    
+                        </div>
+                        
+                        <!-- APK Analysis Navigation Card -->
+                        <div class="mt-8">
+                            <a href="{{ route('nexus.analysis-detection-apk') }}" 
+                               class="block bg-gradient-to-r from-red-900/30 to-pink-900/30 rounded-lg p-8 border border-red-500/50 hover:border-red-400 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center">
+                                        <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-pink-500 rounded-full flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
+                                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                                        </div>
+                                        <div>
+                                            <h5 class="text-2xl font-bold text-red-400 mb-2">Comprehensive APK Analysis Framework</h5>
+                                            <p class="text-red-100 text-sm mb-3">
+                                                Detailed security analysis of 6 high-risk APK files with comprehensive vulnerability assessments
+                                            </p>
+                                            <div class="flex items-center space-x-6 text-sm">
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-mobile-alt text-red-400 mr-2"></i>
+                                                    <span class="text-red-200">6 High-Risk APKs</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-bug text-red-400 mr-2"></i>
+                                                    <span class="text-red-200">StrandHogg 2.0 Analysis</span>
+                                                </div>
+                                                <div class="flex items-center">
+                                                    <i class="fas fa-folder text-red-400 mr-2"></i>
+                                                    <span class="text-red-200">Risk Categories</span>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="flex space-x-2">
-                                            <button class="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-download mr-1"></i>Download
-                                            </button>
-                                            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-file-pdf mr-1"></i>Report
-                                            </button>
-                                        </div>
                                     </div>
-                                    <div class="file-item flex items-center justify-between bg-gray-900/50 rounded p-3">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-mobile-alt text-red-400 mr-3"></i>
-                                            <div>
-                                                <span class="text-white font-medium">ransomware_android.apk</span>
-                                                <p class="text-gray-400 text-xs">File encryption malware</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex space-x-2">
-                                            <button class="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-download mr-1"></i>Download
-                                            </button>
-                                            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-file-word mr-1"></i>Analysis
-                                            </button>
-                                        </div>
+                                    <div class="text-red-400 group-hover:text-red-300 transition-colors duration-300">
+                                        <i class="fas fa-arrow-right text-2xl group-hover:translate-x-2 transition-transform duration-300"></i>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Medium Risk APKs -->
-                            <div class="risk-category bg-orange-900/20 border border-orange-500/50 rounded-lg p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-exclamation-circle text-white text-sm"></i>
-                                    </div>
-                                    <h5 class="text-lg font-bold text-orange-400">Medium Risk APKs</h5>
-                                    <span class="ml-auto bg-orange-600 text-white text-xs px-2 py-1 rounded">Moderate</span>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="file-item flex items-center justify-between bg-gray-900/50 rounded p-3">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-mobile-alt text-orange-400 mr-3"></i>
-                                            <div>
-                                                <span class="text-white font-medium">adware_installer.apk</span>
-                                                <p class="text-gray-400 text-xs">Aggressive advertising software</p>
-                                            </div>
+                                
+                                <div class="mt-6 pt-6 border-t border-red-500/30">
+                                    <div class="grid md:grid-cols-3 gap-4">
+                                        <div class="bg-red-900/30 rounded-lg p-4 border border-red-500/40">
+                                            <div class="text-red-400 font-semibold text-sm">Gmail2, GmsCore</div>
+                                            <div class="text-red-200 text-xs">Critical security vulnerabilities</div>
                                         </div>
-                                        <div class="flex space-x-2">
-                                            <button class="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-download mr-1"></i>Download
-                                            </button>
-                                            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-file-pdf mr-1"></i>Report
-                                            </button>
+                                        <div class="bg-orange-900/30 rounded-lg p-4 border border-orange-500/40">
+                                            <div class="text-orange-400 font-semibold text-sm">Photos, Velvet</div>
+                                            <div class="text-orange-200 text-xs">Component exposure risks</div>
                                         </div>
-                                    </div>
-                                    <div class="file-item flex items-center justify-between bg-gray-900/50 rounded p-3">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-mobile-alt text-orange-400 mr-3"></i>
-                                            <div>
-                                                <span class="text-white font-medium">privacy_violator.apk</span>
-                                                <p class="text-gray-400 text-xs">Excessive permission requests</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex space-x-2">
-                                            <button class="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-download mr-1"></i>Download
-                                            </button>
-                                            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-file-word mr-1"></i>Analysis
-                                            </button>
+                                        <div class="bg-yellow-900/30 rounded-lg p-4 border border-yellow-500/40">
+                                            <div class="text-yellow-400 font-semibold text-sm">Videos, YouTube</div>
+                                            <div class="text-yellow-200 text-xs">Permission & cryptography issues</div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Low Risk APKs -->
-                            <div class="risk-category bg-green-900/20 border border-green-500/50 rounded-lg p-6">
-                                <div class="flex items-center mb-4">
-                                    <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-3">
-                                        <i class="fas fa-info-circle text-white text-sm"></i>
-                                    </div>
-                                    <h5 class="text-lg font-bold text-green-400">Low Risk APKs</h5>
-                                    <span class="ml-auto bg-green-600 text-white text-xs px-2 py-1 rounded">Safe</span>
+                                
+                                <div class="mt-4 text-center">
+                                    <span class="inline-flex items-center bg-red-600/20 text-red-300 text-sm font-medium px-4 py-2 rounded-full border border-red-500/40">
+                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                        View Detailed APK Analysis Framework
+                                    </span>
                                 </div>
-                                <div class="space-y-3">
-                                    <div class="file-item flex items-center justify-between bg-gray-900/50 rounded p-3">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-mobile-alt text-green-400 mr-3"></i>
-                                            <div>
-                                                <span class="text-white font-medium">sample_clean_app.apk</span>
-                                                <p class="text-gray-400 text-xs">Legitimate application sample</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex space-x-2">
-                                            <button class="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-download mr-1"></i>Download
-                                            </button>
-                                            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-file-pdf mr-1"></i>Report
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div class="file-item flex items-center justify-between bg-gray-900/50 rounded p-3">
-                                        <div class="flex items-center">
-                                            <i class="fas fa-mobile-alt text-green-400 mr-3"></i>
-                                            <div>
-                                                <span class="text-white font-medium">educational_tool.apk</span>
-                                                <p class="text-gray-400 text-xs">Learning application</p>
-                                            </div>
-                                        </div>
-                                        <div class="flex space-x-2">
-                                            <button class="bg-gray-700 hover:bg-gray-600 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-download mr-1"></i>Download
-                                            </button>
-                                            <button class="bg-blue-600 hover:bg-blue-500 text-white text-xs px-3 py-1 rounded transition-colors">
-                                                <i class="fas fa-file-word mr-1"></i>Analysis
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                    </div>
+                            </a>
+                        </div>
+                    </div>
 
                     <!-- Statistics Navigation Card -->
                     <div class="statistics-navigation">
