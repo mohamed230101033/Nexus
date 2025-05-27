@@ -423,10 +423,10 @@
                         <h3 class="text-3xl font-bold text-white">Sub-Module 1: Malware and Injections</h3>
                         <p class="text-red-400 font-semibold">Interactive Educational Malware Components</p>
                     </div>
-                </div>                <!-- Interactive Cards Grid -->
-                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <!-- Card 1: Ransomware Core -->
-                    <div class="malware-card bg-gradient-to-br from-red-900/40 to-orange-900/40 border border-red-500/50 rounded-lg p-6 hover:border-red-400 hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.ransomware-core') }}'">
+                </div>
+                  <!-- Interactive Cards Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">                    <!-- Card 1: Ransomware Core -->
+                    <div class="malware-card bg-gradient-to-br from-red-900/40 to-orange-900/40 border border-red-500/50 rounded-lg p-6 hover:border-red-400 hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.ransomware-core') }}'"
                         <div class="text-center">
                             <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500 transition-colors">
                                 <i class="fas fa-lock text-white text-2xl"></i>
@@ -449,10 +449,8 @@
                                 Explore Implementation
                             </button>
                         </div>
-                    </div>
-
-                    <!-- Card 2: Remote Access Trojans -->
-                    <div class="malware-card bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/50 rounded-lg p-6 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.remote-access-trojans') }}'">
+                    </div>                    <!-- Card 2: Remote Access Trojans -->
+                    <div class="malware-card bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500/50 rounded-lg p-6 hover:border-purple-400 hover:shadow-lg hover:shadow-purple-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.remote-access-trojans') }}'"
                         <div class="text-center">
                             <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-purple-500 transition-colors">
                                 <i class="fas fa-desktop text-white text-2xl"></i>
@@ -475,10 +473,8 @@
                                 Explore Implementation
                             </button>
                         </div>
-                    </div>
-
-                    <!-- Card 3: RAT & Net Nuker -->
-                    <div class="malware-card bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/50 rounded-lg p-6 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.rat-net-nuker') }}'">
+                    </div>                    <!-- Card 3: RAT & Net Nuker -->
+                    <div class="malware-card bg-gradient-to-br from-blue-900/40 to-cyan-900/40 border border-blue-500/50 rounded-lg p-6 hover:border-blue-400 hover:shadow-lg hover:shadow-blue-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.rat-net-nuker') }}'"
                         <div class="text-center">
                             <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-500 transition-colors">
                                 <i class="fas fa-network-wired text-white text-2xl"></i>
@@ -501,10 +497,8 @@
                                 Explore Implementation
                             </button>
                         </div>
-                    </div>
-
-                    <!-- Card 4: ZPhishing -->
-                    <div class="malware-card bg-gradient-to-br from-green-900/40 to-emerald-900/40 border border-green-500/50 rounded-lg p-6 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.zphishing') }}'">
+                    </div>                    <!-- Card 4: ZPhishing -->
+                    <div class="malware-card bg-gradient-to-br from-green-900/40 to-emerald-900/40 border border-green-500/50 rounded-lg p-6 hover:border-green-400 hover:shadow-lg hover:shadow-green-500/20 transition-all duration-300 cursor-pointer group" onclick="window.location.href='{{ route('nexus.zphishing') }}'"
                         <div class="text-center">
                             <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-green-500 transition-colors">
                                 <i class="fas fa-fish text-white text-2xl"></i>
@@ -1033,8 +1027,7 @@
                 <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-6">
                     <i class="fas fa-chart-line text-white text-xl"></i>
                 </div>
-                <h3 class="text-xl font-semibold text-white mb-4">Enhanced Analysis</h3>
-                <p class="text-gray-300">
+                <h3 class="text-xl font-semibold text-white mb-4">Enhanced Analysis</h3>                <p class="text-gray-300">
                     Phase 2's expanded analysis capabilities build upon Phase 1 data, 
                     providing deeper insights and more comprehensive statistical understanding.
                 </p>
@@ -1055,6 +1048,802 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             bar.style.width = width;
         }, 500);
+    });
+});
+</script>
+@endpush
+@endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Complexity Score</span>
+                                    <span class="text-red-400 font-bold">9.2/10</span>
+                                </div>
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Detection Difficulty</span>
+                                    <span class="text-orange-400 font-bold">High</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ransomware-technical" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Technical Implementation</h3>
+                <div class="code-section bg-gray-800 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold text-red-400 mb-3">Encryption Algorithm</h4>
+                    <pre class="code-block bg-black rounded p-4 text-green-400 text-sm overflow-x-auto"><code>// AES-256 Encryption Implementation
+def encrypt_file(file_path, key):
+    cipher = AES.new(key, AES.MODE_CBC)
+    iv = cipher.iv
+    
+    with open(file_path, 'rb') as file:
+        plaintext = file.read()
+    
+    # Pad the plaintext to make it a multiple of 16 bytes
+    padded_text = pad(plaintext, AES.block_size)
+    ciphertext = cipher.encrypt(padded_text)
+    
+    with open(file_path + '.encrypted', 'wb') as encrypted_file:
+        encrypted_file.write(iv + ciphertext)
+    
+    os.remove(file_path)  # Delete original file</code></pre>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-red-400 mb-3">Attack Vector Analysis</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Initial Access:</strong> Phishing emails, RDP exploitation</li>
+                            <li><strong>Execution:</strong> PowerShell scripts, malicious macros</li>
+                            <li><strong>Persistence:</strong> Registry keys, scheduled tasks</li>
+                            <li><strong>Discovery:</strong> System enumeration, network scanning</li>
+                            <li><strong>Impact:</strong> File encryption, data exfiltration</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-red-400 mb-3">Defensive Measures</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Prevention:</strong> Email filtering, endpoint protection</li>
+                            <li><strong>Detection:</strong> Behavioral analysis, file monitoring</li>
+                            <li><strong>Response:</strong> Isolation, backup restoration</li>
+                            <li><strong>Recovery:</strong> Decryption tools, system rebuilding</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ransomware-implementation" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Educational Implementation</h3>
+                <div class="implementation-steps space-y-6">
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Environment Setup</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Configure isolated virtual environment with Windows 10 target systems and monitoring tools. 
+                            Install process monitors, network analyzers, and file system watchers.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Controlled Execution</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Execute ransomware simulation in controlled environment. Monitor file system changes, 
+                            network communications, and registry modifications in real-time.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Analysis & Documentation</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Document behavioral patterns, create detection signatures, and develop mitigation strategies 
+                            based on observed attack techniques and indicators of compromise.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="ransomware-screenshots" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Simulation Screenshots</h3>
+                <div class="screenshot-gallery grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/s1/1.png') }}" alt="Ransomware Execution" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Initial Execution</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/s1/2.png') }}" alt="File Encryption Process" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">File Encryption</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/s1/3.png') }}" alt="Ransom Note Display" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Ransom Note</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Remote Access Trojans Modal -->
+    <div id="rat-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="modal-content bg-gray-900 rounded-xl p-8 max-w-6xl max-h-[90vh] overflow-y-auto border border-blue-500">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-blue-400">Remote Access Trojans Analysis</h2>
+                <button onclick="closeModal('rat-modal')" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-navigation flex space-x-4 mb-6 border-b border-gray-700">
+                <button onclick="switchTab('rat', 'overview')" class="tab-btn active px-4 py-2 text-blue-400 border-b-2 border-blue-500">Overview</button>
+                <button onclick="switchTab('rat', 'technical')" class="tab-btn px-4 py-2 text-gray-400 hover:text-blue-400">Technical Details</button>
+                <button onclick="switchTab('rat', 'implementation')" class="tab-btn px-4 py-2 text-gray-400 hover:text-blue-400">Implementation</button>
+                <button onclick="switchTab('rat', 'screenshots')" class="tab-btn px-4 py-2 text-gray-400 hover:text-blue-400">Screenshots</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="rat-overview" class="tab-content">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-4">Description</h3>
+                        <p class="text-gray-300 mb-4">
+                            Remote Access Trojans (RATs) provide unauthorized remote control capabilities over infected systems. 
+                            This educational simulation demonstrates various RAT techniques including remote desktop access, 
+                            keylogging, file manipulation, and covert communication channels.
+                        </p>
+                        <h4 class="text-lg font-semibold text-blue-400 mb-2">Key Capabilities:</h4>
+                        <ul class="feature-list text-gray-300 space-y-2">
+                            <li><i class="fas fa-desktop text-blue-500 mr-2"></i>Remote desktop control</li>
+                            <li><i class="fas fa-keyboard text-blue-500 mr-2"></i>Keystroke logging</li>
+                            <li><i class="fas fa-camera text-blue-500 mr-2"></i>Webcam access</li>
+                            <li><i class="fas fa-microphone text-blue-500 mr-2"></i>Audio recording</li>
+                            <li><i class="fas fa-download text-blue-500 mr-2"></i>File transfer capabilities</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-4">Command & Control</h3>
+                        <div class="space-y-4">
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Connection Type</span>
+                                    <span class="text-blue-400 font-bold">TCP/HTTP</span>
+                                </div>
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Encryption</span>
+                                    <span class="text-blue-400 font-bold">AES-128</span>
+                                </div>
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Stealth Level</span>
+                                    <span class="text-orange-400 font-bold">Medium</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="rat-technical" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Technical Architecture</h3>
+                <div class="code-section bg-gray-800 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold text-blue-400 mb-3">C2 Communication Protocol</h4>
+                    <pre class="code-block bg-black rounded p-4 text-green-400 text-sm overflow-x-auto"><code>// RAT Communication Handler
+class RATClient:
+    def __init__(self, server_ip, port):
+        self.server_ip = server_ip
+        self.port = port
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        
+    def connect_to_server(self):
+        try:
+            self.socket.connect((self.server_ip, self.port))
+            self.send_system_info()
+            self.command_loop()
+        except Exception as e:
+            self.handle_error(e)
+            
+    def command_loop(self):
+        while True:
+            command = self.receive_command()
+            response = self.execute_command(command)
+            self.send_response(response)</code></pre>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-blue-400 mb-3">Core Modules</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Screen Capture:</strong> Real-time desktop streaming</li>
+                            <li><strong>File Manager:</strong> Remote file operations</li>
+                            <li><strong>Process Manager:</strong> System process control</li>
+                            <li><strong>Registry Editor:</strong> Windows registry manipulation</li>
+                            <li><strong>Shell Access:</strong> Command line interface</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-blue-400 mb-3">Detection Evasion</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Process Injection:</strong> Hide in legitimate processes</li>
+                            <li><strong>Rootkit Techniques:</strong> Kernel-level hiding</li>
+                            <li><strong>Anti-VM:</strong> Virtual machine detection</li>
+                            <li><strong>Polymorphism:</strong> Code mutation capabilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="rat-implementation" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Controlled RAT Simulation</h3>
+                <div class="implementation-steps space-y-6">
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Infrastructure Setup</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Deploy isolated network with C2 server and target systems. Configure monitoring tools 
+                            to capture network traffic, system calls, and behavioral patterns.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">RAT Deployment</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Execute RAT client on target systems and establish C2 communication. 
+                            Test various remote access capabilities while monitoring defensive responses.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Capability Assessment</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Document RAT capabilities, communication protocols, and persistence mechanisms. 
+                            Analyze detection challenges and develop signature-based identification methods.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="rat-screenshots" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">RAT Control Interface</h3>
+                <div class="screenshot-gallery grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/remoteaccess/s1.png') }}" alt="RAT Control Panel" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Control Panel</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/remoteaccess/s2.png') }}" alt="Remote Desktop View" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Remote Desktop</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/remoteaccess/s3.png') }}" alt="File Manager" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">File Manager</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RAT & Net Nuker Modal -->
+    <div id="netnuker-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="modal-content bg-gray-900 rounded-xl p-8 max-w-6xl max-h-[90vh] overflow-y-auto border border-purple-500">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-purple-400">RAT & Net Nuker Analysis</h2>
+                <button onclick="closeModal('netnuker-modal')" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-navigation flex space-x-4 mb-6 border-b border-gray-700">
+                <button onclick="switchTab('netnuker', 'overview')" class="tab-btn active px-4 py-2 text-purple-400 border-b-2 border-purple-500">Overview</button>
+                <button onclick="switchTab('netnuker', 'technical')" class="tab-btn px-4 py-2 text-gray-400 hover:text-purple-400">Technical Details</button>
+                <button onclick="switchTab('netnuker', 'implementation')" class="tab-btn px-4 py-2 text-gray-400 hover:text-purple-400">Implementation</button>
+                <button onclick="switchTab('netnuker', 'screenshots')" class="tab-btn px-4 py-2 text-gray-400 hover:text-purple-400">Screenshots</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="netnuker-overview" class="tab-content">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-4">Description</h3>
+                        <p class="text-gray-300 mb-4">
+                            RAT & Net Nuker combines remote access capabilities with network disruption techniques. 
+                            This hybrid malware demonstrates advanced persistence, lateral movement, and destructive 
+                            capabilities for comprehensive cybersecurity education.
+                        </p>
+                        <h4 class="text-lg font-semibold text-purple-400 mb-2">Hybrid Features:</h4>
+                        <ul class="feature-list text-gray-300 space-y-2">
+                            <li><i class="fas fa-network-wired text-purple-500 mr-2"></i>Network scanning & mapping</li>
+                            <li><i class="fas fa-bomb text-purple-500 mr-2"></i>Service disruption attacks</li>
+                            <li><i class="fas fa-virus text-purple-500 mr-2"></i>Self-replication mechanisms</li>
+                            <li><i class="fas fa-route text-purple-500 mr-2"></i>Lateral movement capabilities</li>
+                            <li><i class="fas fa-trash text-purple-500 mr-2"></i>Data destruction routines</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-4">Attack Vectors</h3>
+                        <div class="space-y-4">
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Network Impact</span>
+                                    <span class="text-purple-400 font-bold">Severe</span>
+                                </div>
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Propagation Speed</span>
+                                    <span class="text-purple-400 font-bold">Rapid</span>
+                                </div>
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Recovery Difficulty</span>
+                                    <span class="text-red-400 font-bold">Extreme</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="netnuker-technical" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Network Exploitation Techniques</h3>
+                <div class="code-section bg-gray-800 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold text-purple-400 mb-3">Network Discovery Algorithm</h4>
+                    <pre class="code-block bg-black rounded p-4 text-green-400 text-sm overflow-x-auto"><code>// Network Discovery and Targeting
+class NetworkNuker:
+    def __init__(self):
+        self.target_networks = []
+        self.vulnerable_hosts = []
+        
+    def discover_networks(self):
+        # Scan local network segments
+        for network in self.get_network_ranges():
+            hosts = self.ping_sweep(network)
+            self.target_networks.extend(hosts)
+            
+    def exploit_vulnerabilities(self):
+        for host in self.target_networks:
+            vulns = self.scan_vulnerabilities(host)
+            if vulns:
+                self.deploy_payload(host, vulns)
+                self.establish_persistence(host)</code></pre>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-purple-400 mb-3">Destructive Capabilities</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Service Termination:</strong> Critical service shutdown</li>
+                            <li><strong>File Corruption:</strong> System file modification</li>
+                            <li><strong>Registry Bombing:</strong> Critical key deletion</li>
+                            <li><strong>Network Flooding:</strong> Bandwidth consumption</li>
+                            <li><strong>Boot Sector Damage:</strong> System startup disruption</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-purple-400 mb-3">Persistence Methods</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Service Installation:</strong> Windows service creation</li>
+                            <li><strong>Startup Folders:</strong> Auto-start placement</li>
+                            <li><strong>WMI Events:</strong> Event-based triggering</li>
+                            <li><strong>DLL Hijacking:</strong> Library replacement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="netnuker-implementation" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Controlled Network Attack Simulation</h3>
+                <div class="implementation-steps space-y-6">
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Network Isolation</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Create completely isolated network environment with multiple target systems and 
+                            comprehensive monitoring infrastructure to capture all attack behaviors safely.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Attack Execution</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Deploy hybrid malware and observe propagation patterns, network impact, and 
+                            system degradation while maintaining detailed logs of all activities.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Impact Analysis</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Analyze network disruption patterns, system damage assessment, and recovery requirements. 
+                            Document defensive strategies and incident response procedures.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="netnuker-screenshots" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Network Attack Visualization</h3>
+                <div class="screenshot-gallery grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/rat/s1.png') }}" alt="Network Scanning" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Network Discovery</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/rat/s2.png') }}" alt="Attack Propagation" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Attack Propagation</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/rat/s3.png') }}" alt="System Damage" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">System Impact</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ZPhishing Modal -->
+    <div id="zphishing-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="modal-content bg-gray-900 rounded-xl p-8 max-w-6xl max-h-[90vh] overflow-y-auto border border-green-500">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-3xl font-bold text-green-400">ZPhishing Framework Analysis</h2>
+                <button onclick="closeModal('zphishing-modal')" class="text-gray-400 hover:text-white text-2xl">&times;</button>
+            </div>
+            
+            <!-- Tab Navigation -->
+            <div class="tab-navigation flex space-x-4 mb-6 border-b border-gray-700">
+                <button onclick="switchTab('zphishing', 'overview')" class="tab-btn active px-4 py-2 text-green-400 border-b-2 border-green-500">Overview</button>
+                <button onclick="switchTab('zphishing', 'technical')" class="tab-btn px-4 py-2 text-gray-400 hover:text-green-400">Technical Details</button>
+                <button onclick="switchTab('zphishing', 'implementation')" class="tab-btn px-4 py-2 text-gray-400 hover:text-green-400">Implementation</button>
+                <button onclick="switchTab('zphishing', 'screenshots')" class="tab-btn px-4 py-2 text-gray-400 hover:text-green-400">Screenshots</button>
+            </div>
+            
+            <!-- Tab Content -->
+            <div id="zphishing-overview" class="tab-content">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-4">Description</h3>
+                        <p class="text-gray-300 mb-4">
+                            ZPhishing represents an advanced social engineering framework designed for educational 
+                            cybersecurity awareness. This comprehensive toolkit demonstrates modern phishing techniques, 
+                            credential harvesting, and social manipulation strategies.
+                        </p>
+                        <h4 class="text-lg font-semibold text-green-400 mb-2">Framework Components:</h4>
+                        <ul class="feature-list text-gray-300 space-y-2">
+                            <li><i class="fas fa-envelope text-green-500 mr-2"></i>Email campaign management</li>
+                            <li><i class="fas fa-globe text-green-500 mr-2"></i>Cloned website generation</li>
+                            <li><i class="fas fa-key text-green-500 mr-2"></i>Credential harvesting</li>
+                            <li><i class="fas fa-chart-line text-green-500 mr-2"></i>Campaign analytics</li>
+                            <li><i class="fas fa-mobile-alt text-green-500 mr-2"></i>SMS phishing capabilities</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white mb-4">Educational Purpose</h3>
+                        <div class="space-y-4">
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Success Rate</span>
+                                    <span class="text-green-400 font-bold">15-30%</span>
+                                </div>
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Awareness Impact</span>
+                                    <span class="text-green-400 font-bold">High</span>
+                                </div>
+                            </div>
+                            <div class="metric-item bg-gray-800 rounded p-4">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-gray-300">Training Value</span>
+                                    <span class="text-green-400 font-bold">Critical</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="zphishing-technical" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Phishing Framework Architecture</h3>
+                <div class="code-section bg-gray-800 rounded-lg p-6 mb-6">
+                    <h4 class="text-lg font-semibold text-green-400 mb-3">Email Template Engine</h4>
+                    <pre class="code-block bg-black rounded p-4 text-green-400 text-sm overflow-x-auto"><code>// Phishing Email Generator
+class PhishingCampaign:
+    def __init__(self, template_type, target_list):
+        self.template = self.load_template(template_type)
+        self.targets = target_list
+        self.tracking_pixels = {}
+        
+    def generate_email(self, target):
+        personalized_email = self.template.format(
+            name=target.name,
+            company=target.company,
+            tracking_id=self.generate_tracking_id(target)
+        )
+        return personalized_email
+        
+    def send_campaign(self):
+        for target in self.targets:
+            email = self.generate_email(target)
+            self.send_email(target.email, email)
+            self.log_activity(target, 'email_sent')</code></pre>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="text-lg font-semibold text-green-400 mb-3">Attack Vectors</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Spear Phishing:</strong> Targeted individual attacks</li>
+                            <li><strong>Whaling:</strong> Executive-focused campaigns</li>
+                            <li><strong>Clone Phishing:</strong> Legitimate email replication</li>
+                            <li><strong>Pharming:</strong> DNS redirection attacks</li>
+                            <li><strong>Vishing:</strong> Voice-based social engineering</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-green-400 mb-3">Defense Mechanisms</h4>
+                        <ul class="text-gray-300 space-y-2">
+                            <li><strong>Email Filtering:</strong> SPAM detection systems</li>
+                            <li><strong>User Training:</strong> Security awareness programs</li>
+                            <li><strong>MFA Implementation:</strong> Multi-factor authentication</li>
+                            <li><strong>Domain Protection:</strong> Brand monitoring services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="zphishing-implementation" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Educational Phishing Simulation</h3>
+                <div class="implementation-steps space-y-6">
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">1</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Campaign Planning</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Design realistic phishing scenarios targeting specific user groups within controlled 
+                            educational environment. Ensure proper consent and ethical guidelines are followed.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">2</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Simulation Execution</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Deploy phishing emails and landing pages while monitoring user interactions, 
+                            click rates, and credential submission attempts in real-time.
+                        </p>
+                    </div>
+                    
+                    <div class="step bg-gray-800 rounded-lg p-6">
+                        <div class="flex items-center mb-3">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-3">
+                                <span class="text-white font-bold">3</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-white">Awareness Training</h4>
+                        </div>
+                        <p class="text-gray-300 ml-11">
+                            Conduct immediate follow-up training sessions with participants who fell for 
+                            the simulation, providing education on identification and prevention techniques.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="zphishing-screenshots" class="tab-content hidden">
+                <h3 class="text-xl font-bold text-white mb-4">Phishing Campaign Interface</h3>
+                <div class="screenshot-gallery grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/ZPhishing/s1.png') }}" alt="Campaign Dashboard" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Campaign Dashboard</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/ZPhishing/s2.png') }}" alt="Email Templates" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Email Templates</p>
+                    </div>
+                    <div class="screenshot-item cursor-pointer hover:opacity-80 transition-opacity">
+                        <img src="{{ asset('images/phase 2/ZPhishing/s3.png') }}" alt="Landing Page" class="w-full h-32 object-cover rounded-lg">
+                        <p class="text-gray-400 text-sm mt-2">Phishing Landing Page</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate progress bars
+    const progressBars = document.querySelectorAll('.progress-bar');
+    progressBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0%';
+        setTimeout(() => {
+            bar.style.width = width;
+        }, 500);
+    });
+
+    // Add hover effects to cards
+    const cards = document.querySelectorAll('.malware-card, .defense-tool, .metric-card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+        });
+    });
+});
+
+// Modal Management Functions
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Tab Switching Functions
+function switchTab(component, tabName) {
+    // Hide all tab contents for this component
+    const tabContents = document.querySelectorAll(`#${component}-overview, #${component}-technical, #${component}-implementation, #${component}-screenshots`);
+    tabContents.forEach(content => {
+        content.classList.add('hidden');
+    });
+    
+    // Remove active class from all tab buttons in this modal
+    const modal = document.getElementById(`${component}-modal`);
+    const tabButtons = modal.querySelectorAll('.tab-btn');
+    tabButtons.forEach(btn => {
+        btn.classList.remove('active', 'border-red-500', 'border-blue-500', 'border-purple-500', 'border-green-500', 'text-red-400', 'text-blue-400', 'text-purple-400', 'text-green-400');
+        btn.classList.add('text-gray-400');
+    });
+    
+    // Show selected tab content
+    const selectedContent = document.getElementById(`${component}-${tabName}`);
+    if (selectedContent) {
+        selectedContent.classList.remove('hidden');
+    }
+    
+    // Add active class to clicked button
+    const clickedButton = event.target;
+    clickedButton.classList.add('active');
+    clickedButton.classList.remove('text-gray-400');
+    
+    // Set appropriate color based on component
+    const colorMap = {
+        'ransomware': ['text-red-400', 'border-red-500'],
+        'rat': ['text-blue-400', 'border-blue-500'],
+        'netnuker': ['text-purple-400', 'border-purple-500'],
+        'zphishing': ['text-green-400', 'border-green-500']
+    };
+    
+    if (colorMap[component]) {
+        clickedButton.classList.add(...colorMap[component]);
+    }
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', function(event) {
+    if (event.target.classList.contains('modal')) {
+        const modalId = event.target.id;
+        closeModal(modalId);
+    }
+});
+
+// Escape key to close modals
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const openModals = document.querySelectorAll('.modal:not(.hidden)');
+        openModals.forEach(modal => {
+            closeModal(modal.id);
+        });
+    }
+});
+
+// Screenshot gallery functionality
+document.addEventListener('click', function(event) {
+    if (event.target.closest('.screenshot-item')) {
+        const img = event.target.closest('.screenshot-item').querySelector('img');
+        if (img) {
+            // Create fullscreen overlay
+            const overlay = document.createElement('div');
+            overlay.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-[60]';
+            overlay.innerHTML = `
+                <div class="relative max-w-4xl max-h-[90vh] p-4">
+                    <img src="${img.src}" alt="${img.alt}" class="max-w-full max-h-full object-contain">
+                    <button class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300" onclick="this.parentElement.parentElement.remove()">&times;</button>
+                </div>
+            `;
+            document.body.appendChild(overlay);
+            
+            // Close on click outside image
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) {
+                    overlay.remove();
+                }
+            });
+        }
+    }
+});
+
+// Add smooth scrolling to navigation
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
     });
 });
 </script>

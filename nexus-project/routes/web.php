@@ -21,6 +21,13 @@ Route::get('/first-semester', [NexusController::class, 'firstSemester'])->name('
 Route::get('/second-semester', [NexusController::class, 'secondSemester'])->name('nexus.second-semester');
 Route::get('/second-semester-phase1', [NexusController::class, 'secondSemesterPhase1'])->name('nexus.second-semester-phase1');
 Route::get('/second-semester-phase2', [NexusController::class, 'secondSemesterPhase2'])->name('nexus.second-semester-phase2');
+
+// Phase 2 Malware Component Pages
+Route::get('/ransomware-core', [NexusController::class, 'ransomwareCore'])->name('nexus.ransomware-core');
+Route::get('/remote-access-trojans', [NexusController::class, 'remoteAccessTrojans'])->name('nexus.remote-access-trojans');
+Route::get('/rat-net-nuker', [NexusController::class, 'ratNetNuker'])->name('nexus.rat-net-nuker');
+Route::get('/zphishing', [NexusController::class, 'zphishing'])->name('nexus.zphishing');
+
 Route::get('/encryption', [NexusController::class, 'encryption'])->name('nexus.encryption');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 

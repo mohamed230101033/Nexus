@@ -17,8 +17,9 @@
         backdrop-filter: blur(20px);
         transition: all 0.4s ease;
         position: relative;
-        overflow: hidden;
+        overflow: visible;
         border-radius: 20px;
+        z-index: 1;
     }
 
     .encryption-card::before {
@@ -28,6 +29,8 @@
         background: linear-gradient(45deg, transparent, rgba(6, 182, 212, 0.1), transparent);
         opacity: 0;
         transition: all 0.4s ease;
+        pointer-events: none;
+        z-index: -1;
     }
 
     .encryption-card:hover::before {
@@ -38,6 +41,43 @@
         border-color: #06b6d4;
         box-shadow: 0 25px 60px rgba(6, 182, 212, 0.4);
         transform: translateY(-8px);
+    }
+
+    /* Form elements need higher z-index */
+    .nexus-input,
+    textarea,
+    input[type="file"],
+    button,
+    select {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Ensure input containers are also properly layered */
+    .card-section {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* File upload area specific fixes */
+    .file-upload-area {
+        position: relative;
+        z-index: 2;
+        border: 3px dashed rgba(6, 182, 212, 0.5);
+        background: rgba(15, 23, 42, 0.8);
+        transition: all 0.3s ease;
+        min-height: 120px;
+    }
+
+    .file-upload-area:hover {
+        border-color: #06b6d4;
+        background: rgba(6, 182, 212, 0.1);
+    }
+
+    .file-upload-area.dragover {
+        border-color: #0ea5e9;
+        background: rgba(14, 165, 233, 0.2);
+        transform: scale(1.02);
     }
 
     /* Specialized Card Types */
@@ -79,25 +119,6 @@
     .algorithms-card:hover {
         border-color: #22c55e;
         box-shadow: 0 25px 60px rgba(34, 197, 94, 0.3);
-    }
-
-    /* File encryption styles */
-    .file-upload-area {
-        border: 3px dashed rgba(6, 182, 212, 0.5);
-        background: rgba(15, 23, 42, 0.8);
-        transition: all 0.3s ease;
-        min-height: 120px;
-    }
-
-    .file-upload-area:hover {
-        border-color: #06b6d4;
-        background: rgba(6, 182, 212, 0.1);
-    }
-
-    .file-upload-area.dragover {
-        border-color: #0ea5e9;
-        background: rgba(14, 165, 233, 0.2);
-        transform: scale(1.02);
     }
 
     /* Enhanced video player */
@@ -906,12 +927,17 @@
         a.click();
         document.body.removeChild(a);
         URL.revokeObjectURL(url);
-    }    function simulateVideoEncryption() {
+    }
+    
+    function simulateVideoEncryption() {
         const status = document.getElementById('videoEncryptionStatus');
         const video = document.getElementById('demoVideo');
         const container = video.closest('.video-container');
         
-        // ==== SECURITY MEASURES: DISABLE VIDEO PLAYBACK ====
+        // Clear any existing intervals to prevent multiple animations
+        if (window.scrambleInterval) {
+            clearInterval(window.scrambleInterval);
+        }
         
         // 1. Pause video immediately if playing
         if (!video.paused) {
@@ -931,7 +957,7 @@
             video.load(); // Force reload to clear buffer
         }
         
-        // 4. Add blocking overlay to prevent any interaction
+        // 4. Add blocking overlay
         let blockingOverlay = document.querySelector('.video-blocking-overlay');
         if (!blockingOverlay) {
             blockingOverlay = document.createElement('div');
@@ -980,134 +1006,83 @@
         
         // Add encryption overlay effect
         const overlay = document.createElement('div');
-        overlay.className = 'absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 animate-pulse';
+        overlay.className = 'encryption-overlay absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 animate-pulse';
         container.appendChild(overlay);
         
-        setTimeout(() => {
-            // Phase 2: Scrambling video
-            status.innerHTML = `
-                <div class="flex items-center">
-                    <i class="fas fa-shield-alt fa-spin text-yellow-400 mr-2"></i>
-                    <span class="text-white">Scrambling video data...</span>
-                </div>
-                <div class="mt-2 text-gray-400 text-sm">Applying cryptographic transformations</div>
+        // Store scramble interval globally so it can be cleared during decryption
+        window.scrambleInterval = setInterval(() => {
+            const scrambleLevel = parseFloat(video.getAttribute('data-scramble-level') || '0');
+            const newLevel = scrambleLevel + 0.2;
+            video.setAttribute('data-scramble-level', newLevel);
+            
+            video.style.filter = `
+                hue-rotate(${newLevel * 180}deg) 
+                contrast(${1 + newLevel * 0.5}) 
+                saturate(${1 + newLevel}) 
+                blur(${newLevel * 2}px)
             `;
             
-            // Start visual scrambling effect
-            let scrambleLevel = 0;
-            const scrambleInterval = setInterval(() => {
-                scrambleLevel += 0.2;
-                video.style.filter = `
-                    hue-rotate(${scrambleLevel * 180}deg) 
-                    contrast(${1 + scrambleLevel * 0.5}) 
-                    saturate(${1 + scrambleLevel}) 
-                    blur(${scrambleLevel * 2}px)
-                `;
+            if (newLevel >= 1) {
+                clearInterval(window.scrambleInterval);
+                video.style.filter = 'brightness(0.1) contrast(10) blur(5px)';
+                overlay.className = 'encryption-overlay absolute inset-0 bg-red-900/50 animate-pulse';
                 
-                if (scrambleLevel >= 1) {
-                    clearInterval(scrambleInterval);
-                    
-                    // Phase 3: Full encryption
-                    setTimeout(() => {
-                        video.style.filter = 'brightness(0.1) contrast(10) blur(5px)';
-                        overlay.className = 'absolute inset-0 bg-red-900/50 animate-pulse';
-                          status.innerHTML = `
-                            <div class="flex items-center">
-                                <i class="fas fa-lock text-green-400 mr-2"></i>
-                                <span class="text-white">Video successfully encrypted</span>
-                            </div>
-                            <div class="mt-2 grid grid-cols-2 gap-4 text-xs">
-                                <div class="text-green-400">✓ AES-256 encryption applied</div>
-                                <div class="text-green-400">✓ Video stream secured</div>
-                                <div class="text-green-400">✓ 2048-bit key generated</div>
-                                <div class="text-green-400">✓ Playback disabled</div>
-                            </div>
-                            <div class="mt-3 p-3 bg-red-900/30 rounded-lg border border-red-500/50">
-                                <div class="text-red-400 font-semibold flex items-center">
-                                    <i class="fas fa-exclamation-triangle mr-2"></i>
-                                    Encrypted Content - Access Denied
-                                </div>
-                                <div class="text-gray-300 text-xs mt-1">
-                                    Video controls disabled. Source protected. Unauthorized playback prevented.
-                                </div>
-                            </div>
-                        `;
-                          // Enhanced scrambled text overlay with security warnings
-                        const scrambledText = document.createElement('div');
-                        scrambledText.className = 'absolute inset-0 flex items-center justify-center text-red-400 font-mono text-lg font-bold z-30';
-                        scrambledText.innerHTML = `
-                            <div class="text-center bg-black/80 p-6 border-2 border-red-500 rounded-lg">
-                                <div class="animate-pulse text-xl mb-3">🔒 ENCRYPTED 🔒</div>
-                                <div class="text-sm mb-2">PLAYBACK DISABLED</div>
-                                <div class="text-xs mb-2">█████████████</div>
-                                <div class="text-xs mb-2">█ CLASSIFIED █</div>
-                                <div class="text-xs mb-2">█████████████</div>
-                                <div class="text-xs text-yellow-400">SECURITY PROTOCOL ACTIVE</div>
-                            </div>
-                        `;
-                        container.appendChild(scrambledText);
-                        
-                        // Auto-reset after 5 seconds
-                        setTimeout(() => {
-                            resetVideoDemo();
-                        }, 5000);
-                        
-                    }, 1000);
-                }
-            }, 100);
-            
-        }, 1500);
+                // Final encryption state
+                status.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-lock text-green-400 mr-2"></i>
+                        <span class="text-white">Video successfully encrypted</span>
+                    </div>
+                    <div class="mt-2 grid grid-cols-2 gap-4 text-xs">
+                        <div class="text-green-400">✓ AES-256 encryption applied</div>
+                        <div class="text-green-400">✓ Video stream secured</div>
+                        <div class="text-green-400">✓ 2048-bit key generated</div>
+                        <div class="text-green-400">✓ Playback disabled</div>
+                    </div>
+                `;
+            }
+        }, 100);
     }
-      function resetVideoDemo() {
+    
+    function resetVideoDemo() {
         const status = document.getElementById('videoEncryptionStatus');
         const video = document.getElementById('demoVideo');
         const container = video.closest('.video-container');
         
-        // ==== SECURITY RESTORATION: RE-ENABLE VIDEO PLAYBACK ====
-        
-        // 1. Remove all overlay elements (encryption and blocking)
-        const overlays = container.querySelectorAll('.absolute');
-        overlays.forEach(overlay => {
-            if (overlay !== video && !overlay.classList.contains('video-container')) {
-                overlay.remove();
-            }
-        });
-        
-        // 2. Restore video source
-        const videoSource = video.querySelector('source');
-        if (!videoSource || !videoSource.src) {
-            // Restore the original video source
-            video.src = "/videos/Nexus Demo (online-video-cutter.com).mp4";
-            if (videoSource) {
-                videoSource.src = "/videos/Nexus Demo (online-video-cutter.com).mp4";
-            }
-            video.load(); // Reload video with restored source
+        // Clear any ongoing encryption animations
+        if (window.scrambleInterval) {
+            clearInterval(window.scrambleInterval);
         }
         
-        // 3. Re-enable video controls and interaction
+        // Remove all encryption-related overlays
+        container.querySelectorAll('.video-blocking-overlay, .encryption-overlay').forEach(el => el.remove());
+        
+        // Reset video attributes and styling
+        video.removeAttribute('data-scramble-level');
+        video.style.filter = 'none';
+        video.style.transition = 'filter 0.5s ease';
         video.controls = true;
         video.style.pointerEvents = 'auto';
         
-        // 4. Reset video styling
-        video.style.filter = 'none';
-        video.style.transition = 'filter 1s ease';
+        // Restore video source if needed
+        if (!video.src) {
+            video.src = "/videos/Nexus Demo (online-video-cutter.com).mp4";
+            video.load();
+        }
         
-        // 5. Reset status with security cleared message
+        // Update status
         status.innerHTML = `
             <div class="flex items-center">
                 <i class="fas fa-shield-check text-green-400 mr-2"></i>
-                <span class="text-white">Security protocol cleared - Video decrypted successfully</span>
+                <span class="text-white">Video security ready</span>
             </div>
-            <div class="mt-2 text-green-400 text-sm">
-                ✅ Playback controls restored • ✅ Video source reloaded • ✅ Access granted
-            </div>
-            <div class="mt-2 text-blue-400 text-sm">
-                Ready to demonstrate video encryption concepts again
+            <div class="mt-2 text-gray-400 text-sm">
+                Click "Encrypt Video" to see real-time security protection
             </div>
         `;
         
-        // 6. Add success notification
-        showNotification('🔓 Video decrypted! Playback controls restored and access granted.', 'success');
+        // Show success notification
+        showNotification('🔓 Video decrypted successfully!', 'success');
     }
     
     // Notification system for better UX

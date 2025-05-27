@@ -87,20 +87,15 @@
     /* Section Content Areas */
     .section-content {
         display: none;
-        animation: slideInUp 0.8s ease-out;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .section-content.active {
         display: block;
-    }    @keyframes slideInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        opacity: 1;
+        transform: translateY(0);
     }
 
     /* Encryption Section Enhancements */
@@ -283,8 +278,17 @@
 
     /* Make sure overview section is visible */
     #overview {
-        display: block !important;
-    }    /* Enhanced Responsive Design */
+        opacity: 1;
+        transform: none;
+        transition: opacity 0.5s ease;
+    }
+
+    #overview.hidden {
+        display: none;
+        opacity: 0;
+    }
+
+    /* Enhanced Responsive Design */
     @media (max-width: 1024px) {
         .encryption-grid {
             grid-template-columns: 1fr;
@@ -2315,8 +2319,9 @@ new ActiveXObject("WScript.Shell").Run(targetPath);</code></pre>
     
     // Section management functions
     function showSection(sectionName) {
-        // Hide overview
-        document.getElementById('overview').style.display = 'none';
+        // Hide overview with transition
+        const overview = document.getElementById('overview');
+        overview.classList.add('hidden');
         
         // Hide all section content
         document.querySelectorAll('.section-content').forEach(section => {
@@ -2324,36 +2329,59 @@ new ActiveXObject("WScript.Shell").Run(targetPath);</code></pre>
             section.style.display = 'none';
         });
         
-        // Show selected section
-        const targetSection = document.getElementById(sectionName);
+        // Try different possible section IDs
+        let targetSection = document.getElementById(sectionName) || 
+                          document.getElementById(sectionName + '-content');
+        
         if (targetSection) {
+            // First set display to block
             targetSection.style.display = 'block';
+            
+            // Force a reflow to ensure the transition works
+            targetSection.offsetHeight;
+            
+            // Then add active class for transition
             targetSection.classList.add('active');
+            
+            // Update active card
+            document.querySelectorAll('.section-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            const activeCard = document.querySelector(`[data-section="${sectionName}"]`);
+            if (activeCard) {
+                activeCard.classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        
-        // Update active card
-        document.querySelectorAll('.section-card').forEach(card => {
-            card.classList.remove('active');
-        });
-        document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-      function showOverview() {
-        // Hide all section content
+
+    function showOverview() {
+        // Hide all section content with transition
         document.querySelectorAll('.section-content').forEach(section => {
             section.classList.remove('active');
-            section.style.display = 'none';
+            // Wait for transition to complete before hiding
+            setTimeout(() => {
+                section.style.display = 'none';
+            }, 500);
         });
         
-        // Show overview
-        document.getElementById('overview').style.display = 'block';
+        // Show overview with transition
+        const overview = document.getElementById('overview');
+        overview.style.display = 'block';
+        
+        // Force a reflow
+        overview.offsetHeight;
+        
+        // Remove hidden class to trigger transition
+        overview.classList.remove('hidden');
         
         // Remove active state from cards
         document.querySelectorAll('.section-card').forEach(card => {
             card.classList.remove('active');
         });
+        
         // Scroll to top
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }

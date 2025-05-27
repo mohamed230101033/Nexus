@@ -45,6 +45,38 @@ class NexusController extends Controller
     }
 
     /**
+     * Display Ransomware Core Analysis page
+     */
+    public function ransomwareCore()
+    {
+        return view('nexus.ransomware-core');
+    }
+
+    /**
+     * Display Remote Access Trojans Analysis page
+     */
+    public function remoteAccessTrojans()
+    {
+        return view('nexus.remote-access-trojans');
+    }
+
+    /**
+     * Display RAT & Net Nuker Analysis page
+     */
+    public function ratNetNuker()
+    {
+        return view('nexus.rat-net-nuker');
+    }
+
+    /**
+     * Display ZPhishing Framework Analysis page
+     */
+    public function zphishing()
+    {
+        return view('nexus.zphishing');
+    }
+
+    /**
      * Display NEXUS x MYC section
      */
     public function mycGame()
