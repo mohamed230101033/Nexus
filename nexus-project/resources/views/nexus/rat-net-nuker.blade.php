@@ -448,33 +448,68 @@ class NetworkNuker:
         <div class="screenshot-gallery">
             <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/rat/s1.png') }}" alt="Network Discovery" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">Network Discovery Phase</p>
-                <p class="text-gray-500 text-xs">Initial network scanning and host enumeration</p>
+                <p class="text-gray-400 text-sm font-medium">Audio Player Directory Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for managing audio player directory paths</p>            
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/rat/s2.png') }}" alt="Attack Propagation" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">Attack Propagation</p>
-                <p class="text-gray-500 text-xs">Lateral movement and system compromise</p>
+                <p class="text-gray-400 text-sm font-medium">Chrome Browser Paths Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for defining Chrome browser paths and extensions</p>            
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/rat/s3.png') }}" alt="System Impact" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">System Impact Assessment</p>
-                <p class="text-gray-500 text-xs">Network infrastructure damage analysis</p>
+                <p class="text-gray-400 text-sm font-medium">Process Termination Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for terminating processes using taskkill</p>           
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/rat/s4.png') }}" alt="Service Disruption" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">Service Disruption</p>
-                <p class="text-gray-500 text-xs">Critical service termination and DoS attacks</p>
+                <p class="text-gray-400 text-sm font-medium">Data Decryption Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for decrypting data using AES-GCM</p>        
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/rat/s5.png') }}" alt="Data Destruction" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">Data Destruction</p>
-                <p class="text-gray-500 text-xs">File corruption and data wiping operations</p>
+                <p class="text-gray-400 text-sm font-medium">File Zipping Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for zipping files and directories to storage</p>      
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/rat/s6.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">Recovery Analysis</p>
-                <p class="text-gray-500 text-xs">Post-attack forensics and recovery assessment</p>
+                <p class="text-gray-400 text-sm font-medium">Task Kill Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for terminating executable processes</p>     
+            </div>
+            <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s7.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Chromium Cookies Extraction Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for extracting and decrypting Chromium cookies</p>            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s8.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Chrome Cookies Retrieval Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for retrieving cookies from Chrome via WebSocket</p>            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s9.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Telegram Data Backup Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for backing up Telegram data and terminating the process</p>     
+            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s10.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Log Creation and Upload Script</p>
+                <p class="text-gray-500 text-xs">Python script interface for creating and uploading logs to a web server</p>     
+            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s11.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">File Deletion Command</p>
+                <p class="text-gray-500 text-xs">Attempts to remove directory tree from storage path silently</p>     
+            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s12.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Privilege Escalation Script</p>
+                <p class="text-gray-500 text-xs">Batch script to request administrative privileges via UAC</p>     
+            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s13.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Antivirus Exclusion and Payload Setup</p>
+                <p class="text-gray-500 text-xs">Adds exclusion path to bypass Defender and sets Python payload</p>     
+            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s14.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Temporary Batch File Execution</p>
+                <p class="text-gray-500 text-xs">Creates and runs a temporary batch script from the system’s TEMP folder</p>     
+            </div> <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/rat/s15.png') }}" alt="Recovery Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Explorer Process Control Loop</p>
+                <p class="text-gray-500 text-xs">Monitors folder and restarts explorer after executing batch scripts</p>     
             </div>
         </div>
     </div>

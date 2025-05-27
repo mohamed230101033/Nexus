@@ -361,6 +361,20 @@ class RATClient:
         <h3 class="text-2xl font-bold text-white mb-6">RAT Control Interface</h3>
         <div class="screenshot-gallery">
             <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/remoteaccess/s1.png') }}" alt="RAT Control Panel" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">TheFatRat GitHub Repository</p>
+                <p class="text-gray-500 text-xs">GitHub repository interface for TheFatRat malware exploitation tool</p>
+            </div>
+            <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/remoteaccess/s2.png') }}" alt="RAT Control Panel" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">TheFatRat Installation Script</p>
+                <p class="text-gray-500 text-xs">text-gray-500 text-xs">Script execution interface for installing TheFatRat on Kali Linux</p>
+            </div>
+            <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/remoteaccess/s3.png') }}" alt="RAT Control Panel" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">TheFatRat Directory Structure</p>
+                <p class="text-gray-500 text-xs">File system layout for TheFatRat installation on Kali Linux</p>            </div>
+            <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/remoteaccess/s4.png') }}" alt="RAT Control Panel" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">RAT Control Panel</p>
                 <p class="text-gray-500 text-xs">Main interface for remote system management</p>
@@ -371,10 +385,18 @@ class RATClient:
                 <p class="text-gray-500 text-xs">Real-time desktop control and monitoring</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/remoteaccess/s6.png') }}" alt="Remote Desktop View" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Nexus Directory Overview</p>
+                <p class="text-gray-500 text-xs">File explorer interface showing the Nexus directory structure</p>            </div>
+            <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/remoteaccess/s7.png') }}" alt="File Manager Interface" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Remote File Manager</p>
                 <p class="text-gray-500 text-xs">File system navigation and manipulation</p>
             </div>
+            <div class="screenshot-item" onclick="openFullscreen(this)">
+                <img src="{{ asset('images/phase 2/remoteaccess/s8.png') }}" alt="File Manager Interface" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">System Information Display</p>
+                <p class="text-gray-500 text-xs">Terminal interface showing system details using the sysinfo command</p>            </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/remoteaccess/s9.png') }}" alt="Process Manager" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Process Manager</p>
