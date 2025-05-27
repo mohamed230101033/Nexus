@@ -782,138 +782,102 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+                        </div>                    </div>
 
-                    <!-- Statistics Section -->
-                    <div class="statistics-analysis">
+                    <!-- Statistics Navigation Card -->
+                    <div class="statistics-navigation">
                         <h4 class="text-2xl font-bold text-white mb-6">Statistical Analysis & Survey Results</h4>
                         
-                        <!-- Survey Results Placeholder -->
-                        <div class="bg-gray-900/50 rounded-lg p-6 mb-6">
-                            <h5 class="text-lg font-bold text-yellow-400 mb-4">Cybersecurity Survey Results 2025</h5>
-                            <div class="space-y-4">
-                                <div class="stat-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-300">Malware Detection Rate</span>
-                                        <span class="text-white font-bold">87.3%</span>
+                        <a href="{{ route('nexus.analysis-detection-statistics') }}" 
+                           class="block bg-gradient-to-r from-yellow-900/30 to-orange-900/30 rounded-lg p-8 border border-yellow-500/50 hover:border-yellow-400 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl group">
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center">
+                                    <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mr-6 group-hover:scale-110 transition-transform duration-300">
+                                        <i class="fas fa-chart-bar text-white text-2xl"></i>
                                     </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-green-600 h-2 rounded-full progress-bar" style="width: 87.3%"></div>
+                                    <div>
+                                        <h5 class="text-2xl font-bold text-yellow-400 mb-2">Comprehensive Survey Statistics</h5>
+                                        <p class="text-yellow-100 text-sm mb-3">
+                                            Detailed analysis from 40 cybersecurity professionals including majors, doctors, and engineers
+                                        </p>
+                                        <div class="flex items-center space-x-6 text-sm">
+                                            <div class="flex items-center">
+                                                <i class="fas fa-users text-yellow-400 mr-2"></i>
+                                                <span class="text-yellow-200">40 Participants</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <i class="fas fa-question-circle text-yellow-400 mr-2"></i>
+                                                <span class="text-yellow-200">3 Key Questions</span>
+                                            </div>
+                                            <div class="flex items-center">
+                                                <i class="fas fa-check-circle text-yellow-400 mr-2"></i>
+                                                <span class="text-yellow-200">100% Response Rate</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                <div class="stat-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-300">Incident Response Time</span>
-                                        <span class="text-white font-bold">4.2 min</span>
-                                    </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-blue-600 h-2 rounded-full progress-bar" style="width: 65%"></div>
-                                    </div>
+                                <div class="text-yellow-400 group-hover:text-yellow-300 transition-colors duration-300">
+                                    <i class="fas fa-arrow-right text-2xl group-hover:translate-x-2 transition-transform duration-300"></i>
                                 </div>
-                                
-                                <div class="stat-item">
-                                    <div class="flex justify-between items-center mb-2">
-                                        <span class="text-gray-300">False Positive Rate</span>
-                                        <span class="text-white font-bold">12.7%</span>
+                            </div>
+                            
+                            <div class="mt-6 pt-6 border-t border-yellow-500/30">
+                                <div class="grid md:grid-cols-3 gap-4">
+                                    <div class="bg-red-900/30 rounded-lg p-4 border border-red-500/40">
+                                        <div class="text-red-400 font-semibold text-sm">Survey Question 1</div>
+                                        <div class="text-red-200 text-xs">How did most people get hacked?</div>
                                     </div>
-                                    <div class="w-full bg-gray-700 rounded-full h-2">
-                                        <div class="bg-orange-600 h-2 rounded-full progress-bar" style="width: 12.7%"></div>
+                                    <div class="bg-blue-900/30 rounded-lg p-4 border border-blue-500/40">
+                                        <div class="text-blue-400 font-semibold text-sm">Survey Question 2</div>
+                                        <div class="text-blue-200 text-xs">What actions did they take?</div>
+                                    </div>
+                                    <div class="bg-green-900/30 rounded-lg p-4 border border-green-500/40">
+                                        <div class="text-green-400 font-semibold text-sm">Survey Question 3</div>
+                                        <div class="text-green-200 text-xs">Steps to protect themselves</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- Analysis Metrics -->
-                        <div class="grid grid-cols-2 gap-4 mb-6">
-                            <div class="metric-card bg-blue-900/20 border border-blue-500/50 rounded-lg p-4 text-center hover:bg-blue-900/30 transition-all duration-300 cursor-pointer">
-                                <div class="text-2xl font-bold text-blue-400">1247</div>
-                                <div class="text-gray-400 text-sm">APKs Analyzed</div>
-                                <div class="mt-2">
-                                    <i class="fas fa-chart-bar text-blue-400"></i>
-                                </div>
+                            
+                            <div class="mt-4 text-center">
+                                <span class="inline-flex items-center bg-yellow-600/20 text-yellow-300 text-sm font-medium px-4 py-2 rounded-full border border-yellow-500/40">
+                                    <i class="fas fa-external-link-alt mr-2"></i>
+                                    View Detailed Statistics & Analysis
+                                </span>
                             </div>
-                            <div class="metric-card bg-red-900/20 border border-red-500/50 rounded-lg p-4 text-center hover:bg-red-900/30 transition-all duration-300 cursor-pointer">
-                                <div class="text-2xl font-bold text-red-400">342</div>
-                                <div class="text-gray-400 text-sm">Threats Detected</div>
-                                <div class="mt-2">
-                                    <i class="fas fa-shield-alt text-red-400"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card bg-green-900/20 border border-green-500/50 rounded-lg p-4 text-center hover:bg-green-900/30 transition-all duration-300 cursor-pointer">
-                                <div class="text-2xl font-bold text-green-400">95.2%</div>
-                                <div class="text-gray-400 text-sm">Accuracy Rate</div>
-                                <div class="mt-2">
-                                    <i class="fas fa-check-circle text-green-400"></i>
-                                </div>
-                            </div>
-                            <div class="metric-card bg-purple-900/20 border border-purple-500/50 rounded-lg p-4 text-center hover:bg-purple-900/30 transition-all duration-300 cursor-pointer"></div>
-                                <div class="text-2xl font-bold text-purple-400">24h</div>
-                                <div class="text-gray-400 text-sm">Avg Analysis Time</div>
-                                <div class="mt-2">
-                                    <i class="fas fa-clock text-purple-400"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Trend Analysis -->
-                        <div class="bg-gray-900/50 rounded-lg p-6"></div>
-                            <h5 class="text-lg font-bold text-yellow-400 mb-4">Threat Landscape Trends</h5>
-                            <div class="space-y-3 text-sm text-gray-300">
-                                <div class="flex items-center justify-between"></div></div>
-                                    <span>Banking Trojans</span>
-                                    <span class="text-red-400">↑ 23%</span>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span>Ransomware</span>
-                                    <span class="text-red-400">↑ 15%</span>
-                                </div>
-                                <div class="flex items-center justify-between">
-                                    <span>Adware</span>
-                                    <span class="text-green-400">↓ 8%</span>
-                                </div>
-                                <div class="flex items-center justify-between"></div>
-                                    <span>Spyware</span>
-                                    <span class="text-orange-400">↑ 5%</span>
-                                </div>
-                            </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Research Deliverables -->
+    </section>    <!-- Research Deliverables -->
     <section class="py-20 bg-gray-800/50 rounded-xl">
-        <div class="text-center mb-16"></div>
+        <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-white mb-6">Phase 2 Deliverables</h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto"></p>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                 Expected outcomes and deliverables from Phase 2 implementation work
             </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-red-500 transition-all duration-300"></div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-red-500 transition-all duration-300">
                 <i class="fas fa-laptop-code text-red-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Simulation Platform</h3>
                 <p class="text-gray-400 text-sm">Complete educational malware simulation environment</p>
             </div>
             
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-green-500 transition-all duration-300"></div>
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-green-500 transition-all duration-300">
                 <i class="fas fa-shield text-green-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Defense System</h3>
                 <p class="text-gray-400 text-sm">Comprehensive detection and response framework</p>
             </div>
             
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-yellow-500 transition-all duration-300"></div>
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-yellow-500 transition-all duration-300">
                 <i class="fas fa-chart-pie text-yellow-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Analytics Dashboard</h3>
                 <p class="text-gray-400 text-sm">Interactive statistical analysis and visualization tools</p>
             </div>
             
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-purple-500 transition-all duration-300"></div>
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-purple-500 transition-all duration-300">
                 <i class="fas fa-file-alt text-purple-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Research Report</h3>
                 <p class="text-gray-400 text-sm">Comprehensive documentation of findings and methodologies</p>
@@ -923,16 +887,16 @@
 
     <!-- Integration with Phase 1 -->
     <section class="py-20">
-        <div class="text-center mb-16"></div>
+        <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-white mb-6">Integration with Phase 1</h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto"></p>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                 How Phase 2 builds upon and extends Phase 1 foundation research
             </p>
         </div>
         
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700"></div>
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6"></div>
+            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
                     <i class="fas fa-link text-white text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-4">Foundation Application</h3>
@@ -942,13 +906,29 @@
                 </p>
             </div>
             
-            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700"></div>
-                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6"></div>
+            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6">
                     <i class="fas fa-arrows-alt text-white text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-4">Cross-Reference</h3>
-                <p class="text-gray-300"></p>
+                <p class="text-gray-300">
                     Continuous cross-referencing between Phase 1 findings and Phase 2 
+                    implementations ensures theoretical accuracy and practical relevance.
+                </p>
+            </div>
+            
+            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-6">
+                    <i class="fas fa-chart-line text-white text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-white mb-4">Enhanced Analysis</h3>
+                <p class="text-gray-300">
+                    Phase 2's expanded analysis capabilities build upon Phase 1 data, 
+                    providing deeper insights and more comprehensive statistical understanding.
+                </p>
+            </div>
+        </div>
+    </section>
                     implementations ensures theoretical accuracy and practical relevance.
                 </p>
             </div>
@@ -981,5 +961,38 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 500);
     });
 });
+
+// Image modal functionality for survey statistics
+function openImageModal(img) {
+    const modal = document.createElement('div');
+    modal.className = 'fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 cursor-pointer';
+    modal.onclick = () => modal.remove();
+    
+    const modalImg = document.createElement('img');
+    modalImg.src = img.src;
+    modalImg.alt = img.alt;
+    modalImg.className = 'max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl';
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.innerHTML = '<i class="fas fa-times"></i>';
+    closeBtn.className = 'absolute top-4 right-4 text-white text-2xl bg-gray-800 hover:bg-gray-700 rounded-full w-10 h-10 flex items-center justify-center transition-colors';
+    closeBtn.onclick = (e) => {
+        e.stopPropagation();
+        modal.remove();
+    };
+    
+    modal.appendChild(modalImg);
+    modal.appendChild(closeBtn);
+    document.body.appendChild(modal);
+    
+    // Add escape key handler
+    const escHandler = (e) => {
+        if (e.key === 'Escape') {
+            modal.remove();
+            document.removeEventListener('keydown', escHandler);
+        }
+    };
+    document.addEventListener('keydown', escHandler);
+}
 </script>
 @endpush

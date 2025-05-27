@@ -1206,52 +1206,6 @@
     </div>
 </div>
 
-<div class="container mx-auto px-4 py-8">
-    <!-- Testing Section -->
-    <div class="testing-section">
-        <h3 class="text-2xl font-bold text-white mb-6">Detection Testing Interface</h3>
-        
-        <!-- Text Analysis -->
-        <div class="input-group">
-            <label for="textInput">Text Analysis</label>
-            <input 
-                type="text" 
-                id="textInput" 
-                class="nexus-input" 
-                placeholder="Enter text to analyze..."
-            >
-        </div>
-
-        <!-- Pattern Testing -->
-        <div class="input-group">
-            <label for="patternInput">Pattern Testing</label>
-            <textarea 
-                id="patternInput" 
-                class="nexus-input" 
-                rows="4" 
-                placeholder="Enter patterns to test..."
-            ></textarea>
-        </div>
-
-        <!-- Control Buttons -->
-        <div class="flex gap-4">
-            <button onclick="analyzeInput()" class="nexus-button">
-                <i class="fas fa-search mr-2"></i>
-                Analyze
-            </button>
-            <button onclick="clearInput()" class="nexus-button danger">
-                <i class="fas fa-trash mr-2"></i>
-                Clear
-            </button>
-        </div>
-
-        <!-- Results Display -->
-        <div id="analysisResults" class="mt-4 p-4 bg-gray-800/50 rounded-lg hidden">
-            <h4 class="text-lg font-semibold text-white mb-2">Analysis Results</h4>
-            <pre id="resultsContent" class="text-gray-300 font-mono text-sm"></pre>
-        </div>
-    </div>
-
     <!-- Video Analysis Section -->
     <div class="testing-section">
         <h3 class="text-2xl font-bold text-white mb-6">Video Analysis Controls</h3>
@@ -1259,7 +1213,7 @@
         <!-- Video Player -->
         <div class="video-container mb-4">
             <video id="analysisVideo" class="w-full rounded-lg" controls>
-                <source src="{{ asset('videos/sample-analysis.mp4') }}" type="video/mp4">
+                <source src="{{ asset('videos/yara.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>

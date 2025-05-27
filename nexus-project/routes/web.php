@@ -31,6 +31,9 @@ Route::get('/zphishing', [NexusController::class, 'zphishing'])->name('nexus.zph
 // Sub-Module 2: Detection and Defence
 Route::get('/edr-detection-defence', [NexusController::class, 'edrDetectionDefence'])->name('nexus.edr-detection-defence');
 
+// Sub-Module 3: Analysis & Detection Statistics
+Route::get('/analysis-detection-statistics', [NexusController::class, 'analysisDetectionStatistics'])->name('nexus.analysis-detection-statistics');
+
 Route::get('/encryption', [NexusController::class, 'encryption'])->name('nexus.encryption');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 
