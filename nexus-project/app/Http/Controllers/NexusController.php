@@ -74,14 +74,20 @@ class NexusController extends Controller
     public function zphishing()
     {
         return view('nexus.zphishing');
-    }
-
-    /**
+    }    /**
      * Display EDR Detection and Defence page
      */
     public function edrDetectionDefence()
     {
         return view('nexus.edr-detection-defence');
+    }
+
+    /**
+     * Display Analysis & Detection Statistics page
+     */
+    public function analysisDetectionStatistics()
+    {
+        return view('nexus.analysis-detection-statistics');
     }
 
     /**
