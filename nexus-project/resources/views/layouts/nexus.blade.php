@@ -11,10 +11,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
     <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -293,158 +293,162 @@
 </head>
 <body class="bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 min-h-screen font-['Inter'] relative overflow-x-hidden">
     <!-- Enhanced Matrix Background -->
-    <div class="matrix-bg" id="matrix-background"></div>
+    <div class="matrix-bg fixed inset-0 z-0" id="matrix-background"></div>
     
     <!-- Floating Particles -->
-    <div class="particle" style="top: 20%; left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
-    <div class="particle" style="top: 60%; left: 80%; width: 6px; height: 6px; animation-delay: 2s;"></div>
-    <div class="particle" style="top: 80%; left: 20%; width: 3px; height: 3px; animation-delay: 4s;"></div>
-    <div class="particle" style="top: 30%; left: 70%; width: 5px; height: 5px; animation-delay: 1s;"></div>
-    <div class="particle" style="top: 70%; left: 40%; width: 4px; height: 4px; animation-delay: 3s;"></div>
+    <div class="fixed inset-0 z-0 pointer-events-none">
+        <div class="particle" style="top: 20%; left: 10%; width: 4px; height: 4px; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 60%; left: 80%; width: 6px; height: 6px; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 80%; left: 20%; width: 3px; height: 3px; animation-delay: 4s;"></div>
+        <div class="particle" style="top: 30%; left: 70%; width: 5px; height: 5px; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 70%; left: 40%; width: 4px; height: 4px; animation-delay: 3s;"></div>
+    </div>
     
     <!-- Enhanced Background Pattern -->
-    <div class="fixed inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2314b8a6" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30"></div>
+    <div class="fixed inset-0 bg-[url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%2314b8a6" fill-opacity="0.05"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-30 z-0"></div>
 
-    <!-- Enhanced Header -->
-    <header class="relative z-50 bg-black/30 backdrop-blur-xl border-b border-white/10 sticky top-0">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-4">
-                    <div class="relative group">
-                        <div class="w-12 h-12 bg-gradient-to-r from-nexus-400 to-cyber-600 rounded-xl flex items-center justify-center nexus-glow">
-                            <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-8 h-8 rounded-lg">
+    <div class="flex flex-col min-h-screen relative z-10">
+        <!-- Enhanced Header -->
+        <header class="fixed top-0 left-0 right-0 w-full bg-black/30 backdrop-blur-xl border-b border-white/10 z-[100]">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-center justify-between py-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="relative group">
+                            <div class="w-12 h-12 bg-gradient-to-r from-nexus-400 to-cyber-600 rounded-xl flex items-center justify-center nexus-glow">
+                                <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-8 h-8 rounded-lg">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-r from-nexus-400 to-cyber-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
                         </div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-nexus-400 to-cyber-600 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+                        <div>
+                            <h1 class="text-2xl font-bold bg-gradient-to-r from-nexus-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent animate-gradient-x">
+                                NEXUS
+                            </h1>
+                            <p class="text-blue-200 text-sm font-medium">Cybersecurity Research Platform</p>
+                        </div>
                     </div>
-                    <div>
-                        <h1 class="text-2xl font-bold bg-gradient-to-r from-nexus-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent animate-gradient-x">
-                            NEXUS
-                        </h1>
-                        <p class="text-blue-200 text-sm font-medium">Cybersecurity Research Platform</p>
-                    </div>
-                </div
-                
-                <!-- Enhanced Desktop Navigation -->
-                <nav class="hidden lg:flex space-x-2">
+                    
+                    <!-- Enhanced Desktop Navigation -->
+                    <nav class="hidden lg:flex space-x-2">
+                        <a href="{{ route('nexus.index') }}" 
+                           class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.index') ? 'active text-nexus-400' : 'text-gray-300 hover:text-white' }}">
+                            <i class="fas fa-home mr-2"></i>Overview
+                        </a>
+                        <a href="{{ route('nexus.first-semester') }}" 
+                           class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.first-semester') ? 'active text-nexus-400' : 'text-gray-300 hover:text-white' }}">
+                            <i class="fas fa-shield-alt mr-2"></i>First Semester
+                        </a>
+                        <a href="{{ route('nexus.second-semester') }}" 
+                           class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.second-semester') ? 'active text-nexus-400' : 'text-gray-300 hover:text-white' }}">
+                            <i class="fas fa-code mr-2"></i>Second Semester
+                        </a>
+                        <a href="{{ route('nexus.myc-game') }}" 
+                           class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.myc-game') ? 'active' : 'text-gray-300 hover:text-white' }}">
+                            <i class="fas fa-gamepad mr-2"></i>
+                            <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent font-bold">
+                                NEXUS x MYC
+                            </span>
+                        </a>
+                    </nav>
+
+                    <!-- Enhanced Mobile Menu Button -->
+                    <button class="lg:hidden p-2 rounded-xl nexus-glow" id="mobile-menu-button">
+                        <i class="fas fa-bars text-white text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Enhanced Mobile Menu -->
+            <div class="lg:hidden mobile-menu border-t border-white/10 hidden" id="mobile-menu">
+                <div class="max-w-7xl mx-auto px-4 py-4 space-y-2">
                     <a href="{{ route('nexus.index') }}" 
-                       class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.index') ? 'active text-nexus-400' : 'text-gray-300 hover:text-white' }}">
-                        <i class="fas fa-home mr-2"></i>Overview
+                       class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.index') ? 'active text-nexus-400' : 'text-gray-300' }}">
+                        <i class="fas fa-home mr-3"></i>Overview
                     </a>
                     <a href="{{ route('nexus.first-semester') }}" 
-                       class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.first-semester') ? 'active text-nexus-400' : 'text-gray-300 hover:text-white' }}">
-                        <i class="fas fa-shield-alt mr-2"></i>First Semester
+                       class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.first-semester') ? 'active text-nexus-400' : 'text-gray-300' }}">
+                        <i class="fas fa-shield-alt mr-3"></i>First Semester
                     </a>
                     <a href="{{ route('nexus.second-semester') }}" 
-                       class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.second-semester') ? 'active text-nexus-400' : 'text-gray-300 hover:text-white' }}">
-                        <i class="fas fa-code mr-2"></i>Second Semester
+                       class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.second-semester') ? 'active text-nexus-400' : 'text-gray-300' }}">
+                        <i class="fas fa-code mr-3"></i>Second Semester
                     </a>
                     <a href="{{ route('nexus.myc-game') }}" 
-                       class="nexus-tab px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 {{ Request::routeIs('nexus.myc-game') ? 'active' : 'text-gray-300 hover:text-white' }}">
-                        <i class="fas fa-gamepad mr-2"></i>
+                       class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.myc-game') ? 'active' : 'text-gray-300' }}">
+                        <i class="fas fa-gamepad mr-3"></i>
                         <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent font-bold">
                             NEXUS x MYC
                         </span>
                     </a>
-                </nav>
-
-                <!-- Enhanced Mobile Menu Button -->
-                <button class="lg:hidden p-2 rounded-xl nexus-glow" id="mobile-menu-button">
-                    <i class="fas fa-bars text-white text-xl"></i>
-                </button>
+                </div>
             </div>
-        </div>
+        </header>
 
-        <!-- Enhanced Mobile Menu -->
-        <div class="lg:hidden mobile-menu border-t border-white/10 hidden" id="mobile-menu">
-            <div class="container mx-auto px-6 py-4 space-y-2">
-                <a href="{{ route('nexus.index') }}" 
-                   class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.index') ? 'active text-nexus-400' : 'text-gray-300' }}">
-                    <i class="fas fa-home mr-3"></i>Overview
-                </a>
-                <a href="{{ route('nexus.first-semester') }}" 
-                   class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.first-semester') ? 'active text-nexus-400' : 'text-gray-300' }}">
-                    <i class="fas fa-shield-alt mr-3"></i>First Semester
-                </a>
-                <a href="{{ route('nexus.second-semester') }}" 
-                   class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.second-semester') ? 'active text-nexus-400' : 'text-gray-300' }}">
-                    <i class="fas fa-code mr-3"></i>Second Semester
-                </a>
-                <a href="{{ route('nexus.myc-game') }}" 
-                   class="block nexus-tab px-4 py-3 rounded-lg text-sm font-semibold {{ Request::routeIs('nexus.myc-game') ? 'active' : 'text-gray-300' }}">
-                    <i class="fas fa-gamepad mr-3"></i>
-                    <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent font-bold">
-                        NEXUS x MYC
-                    </span>
-                </a>
-            </div>
-        </div>
-    </header>
+        <!-- Enhanced Main Content -->
+        <main class="flex-grow relative z-20 pt-[88px]">
+            @yield('content')
+        </main>
 
-    <!-- Enhanced Main Content -->
-    <main class="relative z-10 min-h-screen">
-        @yield('content')
-    </main>
-
-    <!-- Enhanced Footer -->
-    <footer class="relative z-10 bg-black/30 backdrop-blur-xl border-t border-white/10 mt-20">
-        <div class="container mx-auto px-6 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-gradient-to-r from-nexus-400 to-cyber-600 rounded-lg flex items-center justify-center">
-                            <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-6 h-6 rounded">
+        <!-- Enhanced Footer -->
+        <footer class="relative z-20 bg-black/30 backdrop-blur-xl border-t border-white/10">
+            <div class="container mx-auto px-6 py-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <div class="w-10 h-10 bg-gradient-to-r from-nexus-400 to-cyber-600 rounded-lg flex items-center justify-center">
+                                <img src="{{ asset('images/logo.png') }}" alt="Nexus Logo" class="w-6 h-6 rounded">
+                            </div>
+                            <h3 class="text-xl font-bold bg-gradient-to-r from-nexus-400 to-cyan-400 bg-clip-text text-transparent">
+                                NEXUS
+                            </h3>
                         </div>
-                        <h3 class="text-xl font-bold bg-gradient-to-r from-nexus-400 to-cyan-400 bg-clip-text text-transparent">
-                            NEXUS
-                        </h3>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Advancing cybersecurity education through innovative research, practical learning, and cutting-edge technology.
+                        </p>
                     </div>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Advancing cybersecurity education through innovative research, practical learning, and cutting-edge technology.
+                    
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Platform</h4>
+                        <div class="space-y-2">
+                            <a href="{{ route('nexus.index') }}" class="block text-gray-400 hover:text-nexus-400 transition-colors text-sm">
+                                <i class="fas fa-home mr-2"></i>Overview
+                            </a>
+                            <a href="{{ route('nexus.first-semester') }}" class="block text-gray-400 hover:text-nexus-400 transition-colors text-sm">
+                                <i class="fas fa-shield-alt mr-2"></i>Research Phase I
+                            </a>
+                            <a href="{{ route('nexus.second-semester') }}" class="block text-gray-400 hover:text-nexus-400 transition-colors text-sm">
+                                <i class="fas fa-code mr-2"></i>Implementation Phase II
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Interactive Learning</h4>
+                        <div class="space-y-2">
+                            <a href="{{ route('nexus.myc-game') }}" class="block text-gray-400 hover:text-cyan-400 transition-colors text-sm">
+                                <i class="fas fa-gamepad mr-2"></i>
+                                <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent font-medium">
+                                    NEXUS x MYC Game
+                                </span>
+                            </a>
+                            <span class="block text-gray-500 text-xs">Cybersecurity Education Through Gaming</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                    <p class="text-gray-400 text-sm">
+                        © {{ date('Y') }} NEXUS Platform. Empowering the next generation of cybersecurity professionals.
                     </p>
                 </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Platform</h4>
-                    <div class="space-y-2">
-                        <a href="{{ route('nexus.index') }}" class="block text-gray-400 hover:text-nexus-400 transition-colors text-sm">
-                            <i class="fas fa-home mr-2"></i>Overview
-                        </a>
-                        <a href="{{ route('nexus.first-semester') }}" class="block text-gray-400 hover:text-nexus-400 transition-colors text-sm">
-                            <i class="fas fa-shield-alt mr-2"></i>Research Phase I
-                        </a>
-                        <a href="{{ route('nexus.second-semester') }}" class="block text-gray-400 hover:text-nexus-400 transition-colors text-sm">
-                            <i class="fas fa-code mr-2"></i>Implementation Phase II
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Interactive Learning</h4>
-                    <div class="space-y-2">
-                        <a href="{{ route('nexus.myc-game') }}" class="block text-gray-400 hover:text-cyan-400 transition-colors text-sm">
-                            <i class="fas fa-gamepad mr-2"></i>
-                            <span class="bg-gradient-to-r from-cyan-400 to-pink-500 bg-clip-text text-transparent font-medium">
-                                NEXUS x MYC Game
-                            </span>
-                        </a>
-                        <span class="block text-gray-500 text-xs">Cybersecurity Education Through Gaming</span>
-                    </div>
-                </div>
             </div>
-            
-            <div class="border-t border-white/10 mt-8 pt-6 text-center">
-                <p class="text-gray-400 text-sm">
-                    © {{ date('Y') }} NEXUS Platform. Empowering the next generation of cybersecurity professionals.
-                </p>
-            </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 
     <!-- Enhanced JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Enhanced Mobile Menu Toggle
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenuButton      = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             
             if (mobileMenuButton && mobileMenu) {

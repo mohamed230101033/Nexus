@@ -1,321 +1,789 @@
 @extends('layouts.nexus')
 
-@section('title', 'Detection & Response Systems - Nexus Project')
+@section('title', 'Detection & Response - Nexus Project')
 
 @push('styles')
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-    .detection-card {
-        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(59, 130, 246, 0.1));
-        border: 1px solid rgba(99, 102, 241, 0.3);
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-    
-    .system-badge {
-        background: rgba(99, 102, 241, 0.2);
-        color: #6366f1;
+
+    body {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        color: #ffffff;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        overflow-x: hidden;
+        position: relative;
+        z-index: 1;
     }
-    
-    .metric-card {
-        background: linear-gradient(135deg, rgba(15, 23, 42, 0.9), rgba(30, 41, 59, 0.8));
-        border: 1px solid rgba(99, 102, 241, 0.2);
+
+    /* Ensure header stays on top */
+    header {
+        position: sticky !important;
+        top: 0 !important;
+        z-index: 1000 !important;
+    }    /* Main content wrapper */
+    .main-content {
+        position: relative;
+        z-index: 10;
+        min-height: 100vh;
+        padding-top: 2rem;
+    }
+
+    /* Ensure proper z-index layering */
+    .relative.z-10.min-h-screen {
+        position: relative;
+        z-index: 10;
+        min-height: 100vh;
+    }
+
+    .page-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        position: relative;
+        z-index: 10;
+    }
+
+    /* Warning Banner */
+    .warning-banner {
+        background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        border: 1px solid #ef4444;
+        border-radius: 12px;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        text-align: center;
+        box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+        position: relative;
+        z-index: 10;
+    }
+
+    .warning-banner h3 {
+        color: #ffffff;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .warning-banner p {
+        color: #fecaca;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+
+    /* Hero Section */
+    .hero-section {
+        padding: 4rem 0;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.85));
+        border-radius: 16px;
+        margin: 2rem 0;
+        backdrop-filter: blur(10px);
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        color: #94a3b8;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        font-weight: 400;
+    }
+
+    /* Section Titles */
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #60a5fa, #3b82f6, #93c5fd);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .section-description {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        text-align: center;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Research Grid */
+    .research-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    .research-card {
+        background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.92));
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        z-index: 10;
+    }
+
+    .research-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3b82f6, #60a5fa, #93c5fd);
+        border-radius: 16px 16px 0 0;
+    }
+
+    .research-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(59, 130, 246, 0.3);
+        box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+    }
+
+    .research-card-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .research-icon {
+        width: 2.5rem;
+        height: 2.5rem;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        color: white;
+    }
+
+    .research-description {
+        color: #cbd5e1;
+        line-height: 1.7;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .research-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .research-tag {
+        background: rgba(59, 130, 246, 0.1);
+        color: #93c5fd;
+        padding: 0.25rem 0.75rem;
+        border-radius: 1rem;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+    }
+
+    .research-features {
+        color: #cbd5e1;
+        margin: 1.5rem 0;
+        padding-left: 1.25rem;
+    }
+
+    .research-features li {
+        margin-bottom: 0.5rem;
+        position: relative;
+    }
+
+    .research-features li::before {
+        content: '→';
+        color: #3b82f6;
+        font-weight: bold;
+        position: absolute;
+        left: -1.25rem;
+    }
+
+    /* Educational Disclaimer */
+    .disclaimer-section {
+        background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(239, 68, 68, 0.05));
+        border: 1px solid rgba(220, 38, 38, 0.3);
+        border-radius: 16px;
+        padding: 2rem;
+        margin: 3rem 0;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+    }
+
+    .disclaimer-title {
+        color: #ef4444;
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .disclaimer-description {
+        color: #cbd5e1;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .disclaimer-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+
+    .disclaimer-feature {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        color: #e2e8f0;
+        font-weight: 500;
+    }
+
+    .disclaimer-feature i {
+        color: #10b981;
+        font-size: 1.1rem;
+    }
+
+    /* YARA Screenshots */
+    .detection-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .detection-description {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        text-align: center;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .yara-screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+        position: relative;
+        z-index: 10;
+    }
+
+    .yara-screenshot-card {
+        background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.92));
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        z-index: 10;
+    }
+
+    .yara-screenshot-container {
+        position: relative;
+        width: 100%;
+        padding-top: 75%;
+        overflow: hidden;
+    }
+
+    .yara-screenshot-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .yara-screenshot-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.6);
+        color: #ffffff;
+        font-size: 1.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .yara-screenshot-card:hover .yara-screenshot-image {
+        transform: scale(1.05);
+    }
+
+    .yara-screenshot-card:hover .yara-screenshot-overlay {
+        opacity: 1;
+    }
+
+    .yara-screenshot-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #f1f5f9;
+        margin: 1rem 0 0.5rem;
+        text-align: center;
+    }
+
+    .yara-screenshot-description {
+        color: #cbd5e1;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin: 0;
+        text-align: center;
+    }
+
+    .yara-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-top: 0.5rem;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .research-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .research-card {
+            padding: 1.5rem;
+        }
+
+        .page-container {
+            padding: 0 1rem;
+        }
+
+        .disclaimer-features {
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+
+        .yara-screenshots-grid {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in {
+        animation: fadeInUp 0.6s ease forwards;
     }
 </style>
 @endpush
 
 @section('content')
-<div class="max-w-7xl mx-auto">
-    <!-- Hero Section -->
-    <section class="pt-20 pb-16 bg-gradient-to-br from-indigo-900 via-blue-900 to-purple-900 rounded-2xl mb-12">
-        <div class="px-8">
-            <div class="text-center mb-16">
-                <div class="inline-flex items-center px-4 py-2 bg-indigo-500/20 rounded-full text-indigo-300 text-sm font-medium mb-6">
-                    <i class="fas fa-radar mr-2"></i>
-                    Advanced Security Operations
-                </div>
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-indigo-400 to-blue-400 bg-clip-text text-transparent">
-                    Detection & Response
-                </h1>
-                <h2 class="text-3xl md:text-4xl font-semibold mb-6 text-white">
-                    Comprehensive Security Monitoring
-                </h2>
-                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
-                    Advanced threat detection systems, incident response protocols, and automated security monitoring solutions for comprehensive cybersecurity defense strategies
-                </p>
-            </div>
+<div class="relative z-10 min-h-screen">
+    <div class="main-content">
+        <div class="page-container">
+        <!-- Warning Banner -->
+        <div class="warning-banner">
+            <h3>
+                <i class="fas fa-exclamation-triangle"></i>
+                Educational Research Only
+            </h3>
+            <p>This content demonstrates detection and response techniques for cybersecurity education and defensive research purposes only. All methodologies are studied to improve threat detection capabilities.</p>
         </div>
-    </section>
 
-    <!-- Detection Systems -->
-    <section class="py-12 mb-12">
-        <div class="grid lg:grid-cols-2 gap-12">
-            <div>
-                <h2 class="text-3xl font-bold text-white mb-8">Detection Technologies</h2>
-                <div class="space-y-6">
-                    <div class="detection-card rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-indigo-400 mb-3">
-                            <i class="fas fa-chart-line mr-2"></i>
-                            SIEM Systems
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            Security Information and Event Management platforms for centralized 
-                            log analysis, correlation, and real-time threat detection across enterprise environments.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">Log Correlation</span>
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">Real-time Analysis</span>
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">Threat Intelligence</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detection-card rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-3">
-                            <i class="fas fa-search mr-2"></i>
-                            Behavioral Analytics
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            Advanced behavioral analysis systems using machine learning to detect 
-                            anomalous activities and zero-day threats through pattern recognition.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">ML Detection</span>
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">Anomaly Detection</span>
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">User Analytics</span>
-                        </div>
-                    </div>
-                    
-                    <div class="detection-card rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-purple-400 mb-3">
-                            <i class="fas fa-network-wired mr-2"></i>
-                            Network Detection
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            Network-based detection systems for monitoring traffic patterns, 
-                            identifying malicious communications, and detecting lateral movement.
-                        </p>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">Traffic Analysis</span>
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">DPI</span>
-                            <span class="system-badge px-3 py-1 rounded-full text-xs font-medium">Flow Monitoring</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div>
-                <h2 class="text-3xl font-bold text-white mb-8">Response Capabilities</h2>
-                <div class="space-y-6">
-                    <div class="detection-card rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-indigo-400 mb-3">
-                            <i class="fas fa-robot mr-2"></i>
-                            Automated Response
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            SOAR (Security Orchestration, Automation & Response) platforms enabling 
-                            rapid automated response to security incidents and threat containment.
-                        </p>
-                        <div class="space-y-3">
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-ban text-indigo-400 mr-3"></i>
-                                Automatic threat isolation
-                            </div>
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-shield-alt text-blue-400 mr-3"></i>
-                                Firewall rule deployment
-                            </div>
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-user-lock text-purple-400 mr-3"></i>
-                                Account lockdown procedures
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="detection-card rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-blue-400 mb-3">
-                            <i class="fas fa-users mr-2"></i>
-                            Incident Response
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            Structured incident response processes with defined roles, escalation 
-                            procedures, and communication protocols for effective threat management.
-                        </p>
-                        <div class="space-y-3">
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-clipboard-list text-indigo-400 mr-3"></i>
-                                Incident classification
-                            </div>
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-phone text-blue-400 mr-3"></i>
-                                Escalation procedures
-                            </div>
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-file-alt text-purple-400 mr-3"></i>
-                                Documentation standards
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="detection-card rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-purple-400 mb-3">
-                            <i class="fas fa-search-plus mr-2"></i>
-                            Threat Hunting
-                        </h3>
-                        <p class="text-gray-300 mb-4">
-                            Proactive threat hunting methodologies for discovering advanced persistent 
-                            threats and sophisticated attacks that evade automated detection.
-                        </p>
-                        <div class="space-y-3">
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-bullseye text-indigo-400 mr-3"></i>
-                                Hypothesis-driven hunting
-                            </div>
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-chart-bar text-blue-400 mr-3"></i>
-                                Statistical analysis
-                            </div>
-                            <div class="flex items-center text-gray-300">
-                                <i class="fas fa-crosshairs text-purple-400 mr-3"></i>
-                                IOC development
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <h1 class="hero-title">Detection & Response Research</h1>
+            <p class="hero-subtitle">Advanced Threat Detection & Automated Response Systems for Cybersecurity Defense</p>
+        </section>
 
-    <!-- System Metrics -->
-    <section class="py-12 bg-gray-800/30 rounded-2xl mb-12">
-        <div class="px-8">
+        <!-- Research Section -->
+        <section class="py-16">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-4">System Performance Metrics</h2>
-                <p class="text-gray-300">
-                    Real-time monitoring and response effectiveness measurements
+                <h2 class="section-title">Detection Technologies</h2>
+                <p class="section-description">
+                    Comprehensive research into modern threat detection and automated response systems for enterprise cybersecurity
                 </p>
             </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="metric-card rounded-lg p-6 text-center">
-                    <div class="text-3xl font-bold text-indigo-400 mb-2">99.7%</div>
-                    <div class="text-gray-300 text-sm mb-3">Detection Rate</div>
-                    <div class="w-full bg-gray-700 rounded-full h-2">
-                        <div class="bg-indigo-400 h-2 rounded-full" style="width: 99.7%"></div>
-                    </div>
-                </div>
-                
-                <div class="metric-card rounded-lg p-6 text-center">
-                    <div class="text-3xl font-bold text-blue-400 mb-2">2.3s</div>
-                    <div class="text-gray-300 text-sm mb-3">Avg Response Time</div>
-                    <div class="w-full bg-gray-700 rounded-full h-2">
-                        <div class="bg-blue-400 h-2 rounded-full" style="width: 85%"></div>
-                    </div>
-                </div>
-                
-                <div class="metric-card rounded-lg p-6 text-center">
-                    <div class="text-3xl font-bold text-purple-400 mb-2">0.02%</div>
-                    <div class="text-gray-300 text-sm mb-3">False Positive Rate</div>
-                    <div class="w-full bg-gray-700 rounded-full h-2">
-                        <div class="bg-purple-400 h-2 rounded-full" style="width: 2%"></div>
-                    </div>
-                </div>
-                
-                <div class="metric-card rounded-lg p-6 text-center">
-                    <div class="text-3xl font-bold text-cyan-400 mb-2">24/7</div>
-                    <div class="text-gray-300 text-sm mb-3">Monitoring Coverage</div>
-                    <div class="w-full bg-gray-700 rounded-full h-2">
-                        <div class="bg-cyan-400 h-2 rounded-full" style="width: 100%"></div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Detection Timeline -->
-            <div class="bg-gray-900/50 rounded-lg p-6">
-                <h3 class="text-xl font-bold text-white mb-6 text-center">Incident Detection & Response Timeline</h3>
-                <div class="flex items-center justify-between relative">
-                    <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-600 -z-10"></div>
-                    
-                    <div class="flex flex-col items-center bg-gray-800 rounded-lg p-4 z-10">
-                        <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center mb-2">
-                            <i class="fas fa-exclamation-triangle text-white"></i>
-                        </div>
-                        <div class="text-white font-semibold text-sm">Threat Detected</div>
-                        <div class="text-indigo-400 text-xs">T+0s</div>
-                    </div>
-                    
-                    <div class="flex flex-col items-center bg-gray-800 rounded-lg p-4 z-10">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mb-2">
-                            <i class="fas fa-bell text-white"></i>
-                        </div>
-                        <div class="text-white font-semibold text-sm">Alert Generated</div>
-                        <div class="text-blue-400 text-xs">T+0.5s</div>
-                    </div>
-                    
-                    <div class="flex flex-col items-center bg-gray-800 rounded-lg p-4 z-10">
-                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mb-2">
-                            <i class="fas fa-cogs text-white"></i>
-                        </div>
-                        <div class="text-white font-semibold text-sm">Analysis Started</div>
-                        <div class="text-purple-400 text-xs">T+1.2s</div>
-                    </div>
-                    
-                    <div class="flex flex-col items-center bg-gray-800 rounded-lg p-4 z-10">
-                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-2">
-                            <i class="fas fa-shield-alt text-white"></i>
-                        </div>
-                        <div class="text-white font-semibold text-sm">Response Initiated</div>
-                        <div class="text-green-400 text-xs">T+2.3s</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Research Impact -->
-    <section class="py-12 mb-12">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-white mb-4">Research Contributions</h2>
-            <p class="text-gray-300">
-                How advanced detection and response systems enhance cybersecurity posture
+            <!-- Research Grid -->
+            <div class="research-grid">
+                <!-- YARA Rules Research -->
+                <div class="research-card fade-in">
+                    <h3 class="research-card-title">
+                        <div class="research-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        YARA Rules Development
+                    </h3>
+                    <p class="research-description">
+                        Research into signature-based detection systems using YARA rule engine for malware identification, pattern matching, and threat classification in cybersecurity defense.
+                    </p>
+                    <div class="research-tags">
+                        <span class="research-tag">Signature Detection</span>
+                        <span class="research-tag">Pattern Matching</span>
+                        <span class="research-tag">Malware Analysis</span>
+                        <span class="research-tag">Rule Engine</span>
+                    </div>
+                    <ul class="research-features">
+                        <li>Custom YARA rule creation for ransomware detection</li>
+                        <li>String and hex pattern identification</li>
+                        <li>Behavioral signature development</li>
+                        <li>Performance optimization techniques</li>
+                    </ul>
+                </div>
+
+                <!-- Behavioral Analysis Research -->
+                <div class="research-card fade-in">
+                    <h3 class="research-card-title">
+                        <div class="research-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        Behavioral Analysis Systems
+                    </h3>
+                    <p class="research-description">
+                        Advanced behavioral analysis methodologies for detecting zero-day threats and sophisticated attack patterns through machine learning and statistical analysis.
+                    </p>
+                    <div class="research-tags">
+                        <span class="research-tag">Behavioral Detection</span>
+                        <span class="research-tag">Machine Learning</span>
+                        <span class="research-tag">Anomaly Detection</span>
+                        <span class="research-tag">Zero-Day Defense</span>
+                    </div>
+                    <ul class="research-features">
+                        <li>Process behavior monitoring and analysis</li>
+                        <li>Network traffic pattern recognition</li>
+                        <li>File system activity monitoring</li>
+                        <li>Registry modification detection</li>
+                    </ul>
+                </div>
+
+                <!-- Automated Response Research -->
+                <div class="research-card fade-in">
+                    <h3 class="research-card-title">
+                        <div class="research-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        Automated Response Systems
+                    </h3>
+                    <p class="research-description">
+                        Development of automated incident response frameworks for rapid threat containment, quarantine procedures, and recovery operations in enterprise environments.
+                    </p>
+                    <div class="research-tags">
+                        <span class="research-tag">Incident Response</span>
+                        <span class="research-tag">Automation</span>
+                        <span class="research-tag">Threat Containment</span>
+                        <span class="research-tag">Recovery Systems</span>
+                    </div>
+                    <ul class="research-features">
+                        <li>Automatic threat isolation protocols</li>
+                        <li>Rapid quarantine implementation</li>
+                        <li>Forensic data preservation</li>
+                        <li>System restoration procedures</li>
+                    </ul>
+                </div>
+
+                <!-- SIEM Integration Research -->
+                <div class="research-card fade-in">
+                    <h3 class="research-card-title">
+                        <div class="research-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        SIEM Integration Analysis
+                    </h3>
+                    <p class="research-description">
+                        Security Information and Event Management system integration research for centralized threat detection, log analysis, and comprehensive security monitoring.
+                    </p>
+                    <div class="research-tags">
+                        <span class="research-tag">SIEM Systems</span>
+                        <span class="research-tag">Log Analysis</span>
+                        <span class="research-tag">Event Correlation</span>
+                        <span class="research-tag">Security Monitoring</span>
+                    </div>
+                    <ul class="research-features">
+                        <li>Multi-source log aggregation</li>
+                        <li>Real-time event correlation</li>
+                        <li>Alert prioritization algorithms</li>
+                        <li>Dashboard and reporting systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Disclaimer -->
+        <section class="disclaimer-section">
+            <h3 class="disclaimer-title">
+                <i class="fas fa-graduation-cap"></i>
+                Educational Research Disclaimer
+            </h3>
+            <p class="disclaimer-description">
+                This detection and response research is conducted exclusively for educational cybersecurity purposes and defensive security analysis. All techniques are studied to improve threat detection capabilities and develop better protection mechanisms.
             </p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-radar text-white text-xl"></i>
+            <div class="disclaimer-features">
+                <div class="disclaimer-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Defensive Security Focus</span>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-3">Proactive Detection</h3>
-                <p class="text-gray-300 text-sm">
-                    Advanced detection systems identify threats before they can cause significant damage to organizational assets.
-                </p>
-            </div>
-            
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-bolt text-white text-xl"></i>
+                <div class="disclaimer-feature">
+                    <i class="fas fa-book"></i>
+                    <span>Academic Learning Purposes</span>
                 </div>
-                <h3 class="text-lg font-bold text-white mb-3">Rapid Response</h3>
-                <p class="text-gray-300 text-sm">
-                    Automated response capabilities significantly reduce incident response times and minimize attack impact.
-                </p>
-            </div>
-            
-            <div class="text-center">
-                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <i class="fas fa-chart-line text-white text-xl"></i>
-                </div>
-                <h3 class="text-lg font-bold text-white mb-3">Continuous Improvement</h3>
-                <p class="text-gray-300 text-sm">
-                    Machine learning and threat intelligence integration enable constantly evolving defense capabilities.
-                </p>
-            </div>
-        </div>
-    </section>
+                <div class="disclaimer-feature">
+                    <i class="fas fa-lock"></i>
+                    <span>Threat Detection Enhancement</span>
+                </div>            </div>
+        </section>
 
-    <!-- Back to Second Semester -->
-    <section class="py-12 bg-gray-800/30 rounded-lg text-center">
-        <a href="{{ route('nexus.second-semester') }}" class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-700 hover:to-blue-700 text-white font-semibold rounded-lg transition-all duration-300 transform hover:scale-105">
-            <i class="fas fa-arrow-left mr-3"></i>
-            Back to Second Semester
-        </a>
-    </section>
+        <!-- YARA Detection Screenshots -->
+        <section class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="detection-title">YARA Rule Development & Testing</h2>
+                <p class="detection-description">
+                    Real-world examples of YARA rule creation, testing, and malware detection capabilities
+                </p>
+            </div>
+            
+            <div class="yara-screenshots-grid">
+                <div class="yara-screenshot-card">
+                    <div class="yara-screenshot-container">
+                        <img src="{{ asset('images/yara/s1.png') }}" alt="YARA Rule Creation" class="yara-screenshot-image">
+                        <div class="yara-screenshot-overlay">
+                            <i class="fas fa-code"></i>
+                        </div>
+                    </div>
+                    <div class="yara-screenshot-content">
+                        <h3 class="yara-screenshot-title">YARA Rule Creation</h3>
+                        <p class="yara-screenshot-description">
+                            Development of custom YARA rules for malware family identification and threat hunting operations.
+                        </p>
+                        <div class="yara-tags">
+                            <span class="research-tag">Rule Development</span>
+                            <span class="research-tag">Pattern Matching</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="yara-screenshot-card">
+                    <div class="yara-screenshot-container">
+                        <img src="{{ asset('images/yara/s2.png') }}" alt="YARA Testing Interface" class="yara-screenshot-image">
+                        <div class="yara-screenshot-overlay">
+                            <i class="fas fa-bug"></i>
+                        </div>
+                    </div>
+                    <div class="yara-screenshot-content">
+                        <h3 class="yara-screenshot-title">Rule Testing Environment</h3>
+                        <p class="yara-screenshot-description">
+                            Testing and validation of YARA rules against known malware samples in controlled environments.
+                        </p>
+                        <div class="yara-tags">
+                            <span class="research-tag">Testing</span>
+                            <span class="research-tag">Validation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="yara-screenshot-card">
+                    <div class="yara-screenshot-container">
+                        <img src="{{ asset('images/yara/s3.png') }}" alt="Detection Results" class="yara-screenshot-image">
+                        <div class="yara-screenshot-overlay">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="yara-screenshot-content">
+                        <h3 class="yara-screenshot-title">Detection Analysis</h3>
+                        <p class="yara-screenshot-description">
+                            Analysis of YARA rule performance and detection accuracy in identifying malicious patterns.
+                        </p>
+                        <div class="yara-tags">
+                            <span class="research-tag">Detection</span>
+                            <span class="research-tag">Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="yara-screenshot-card">
+                    <div class="yara-screenshot-container">
+                        <img src="{{ asset('images/yara/s4.png') }}" alt="Advanced YARA Features" class="yara-screenshot-image">
+                        <div class="yara-screenshot-overlay">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                    </div>
+                    <div class="yara-screenshot-content">
+                        <h3 class="yara-screenshot-title">Advanced Rule Features</h3>
+                        <p class="yara-screenshot-description">
+                            Implementation of advanced YARA features including string modifiers and condition logic.
+                        </p>
+                        <div class="yara-tags">
+                            <span class="research-tag">Advanced Rules</span>
+                            <span class="research-tag">Logic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="yara-screenshot-card">
+                    <div class="yara-screenshot-container">
+                        <img src="{{ asset('images/yara/s5.png') }}" alt="YARA Performance" class="yara-screenshot-image">
+                        <div class="yara-screenshot-overlay">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="yara-screenshot-content">
+                        <h3 class="yara-screenshot-title">Performance Metrics</h3>
+                        <p class="yara-screenshot-description">
+                            Performance analysis and optimization of YARA rules for large-scale threat hunting operations.
+                        </p>
+                        <div class="yara-tags">
+                            <span class="research-tag">Performance</span>
+                            <span class="research-tag">Optimization</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="yara-screenshot-card">
+                    <div class="yara-screenshot-container">
+                        <img src="{{ asset('images/yara/s6.png') }}" alt="YARA Integration" class="yara-screenshot-image">
+                        <div class="yara-screenshot-overlay"></div></div>
+                            <i class="fas fa-puzzle-piece"></i>
+                        </div>
+                    </div>
+                    <div class="yara-screenshot-content">
+                        <h3 class="yara-screenshot-title">System Integration</h3>
+                        <p class="yara-screenshot-description">
+                            Integration of YARA rules with security platforms and automated detection systems.
+                        </p>
+                        <div class="yara-tags">
+                            <span class="research-tag">Integration</span>
+                            <span class="research-tag">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="yara-screenshot-card">
+                    <div class="yara-screenshot-container">
+                        <img src="{{ asset('images/yara/s7.png') }}" alt="YARA Command Line" class="yara-screenshot-image">
+                        <div class="yara-screenshot-overlay">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                    </div>
+                    <div class="yara-screenshot-content">
+                        <h3 class="yara-screenshot-title">Command Line Usage</h3>
+                        <p class="yara-screenshot-description">
+                            Practical usage of YARA through command line interfaces for manual analysis and scripting.
+                        </p>
+                        <div class="yara-tags">
+                            <span class="research-tag">CLI</span>
+                            <span class="research-tag">Scripting</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
+</div>
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Detection & Response Research Interface Loaded');
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all research cards
+        document.querySelectorAll('.research-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Enhanced hover effects for research cards
+        const cards = document.querySelectorAll('.research-card');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+                this.style.borderColor = 'rgba(59, 130, 246, 0.4)';
+                this.style.boxShadow = '0 25px 50px rgba(59, 130, 246, 0.15)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-5px)';
+                this.style.borderColor = 'rgba(148, 163, 184, 0.1)';
+                this.style.boxShadow = '0 20px 40px rgba(59, 130, 246, 0.1)';
+            });
+        });
+    });
+</script>
+@endpush
 @endsection
