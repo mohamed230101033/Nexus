@@ -20,14 +20,28 @@ class NexusController extends Controller
     public function firstSemester()
     {
         return view('nexus.first-semester');
-    }
-
-    /**
+    }    /**
      * Display Second Semester - Research and Implementation
      */
     public function secondSemester()
     {
         return view('nexus.second-semester');
+    }
+
+    /**
+     * Display Second Semester Phase 1 - Foundation Research
+     */
+    public function secondSemesterPhase1()
+    {
+        return view('nexus.second-semester-phase1');
+    }
+
+    /**
+     * Display Second Semester Phase 2 - Advanced Implementation
+     */
+    public function secondSemesterPhase2()
+    {
+        return view('nexus.second-semester-phase2');
     }
 
     /**

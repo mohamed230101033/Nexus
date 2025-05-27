@@ -392,6 +392,83 @@
         transform: translateY(-1px);
     }
 
+    /* Phase Navigation Styles */
+    .phase-navigation {
+        background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.92));
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 2rem 0 4rem;
+        border: 1px solid rgba(148, 163, 184, 0.1);
+        text-align: center;
+    }
+
+    .phase-nav-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #f1f5f9;
+        margin-bottom: 1rem;
+    }
+
+    .phase-nav-description {
+        color: #94a3b8;
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .phase-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .phase-btn {
+        padding: 0.75rem 2rem;
+        border-radius: 12px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        min-width: 140px;
+    }
+
+    .phase-btn.active {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    }
+
+    .phase-btn.inactive {
+        background: rgba(107, 114, 128, 0.2);
+        color: #9ca3af;
+        border: 1px solid rgba(107, 114, 128, 0.3);
+    }
+
+    .phase-btn.inactive:hover {
+        background: rgba(59, 130, 246, 0.1);
+        color: #60a5fa;
+        border-color: rgba(59, 130, 246, 0.4);
+        transform: translateY(-2px);
+    }
+
+    .phase-btn.active::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.6s ease;
+    }
+
+    .phase-btn.active:hover::before {
+        left: 100%;
+    }
+
     @media (max-width: 768px) {
         .hero-title {
             font-size: 2.5rem;
@@ -442,6 +519,25 @@
             <div class="hero-section">
                 <h1 class="hero-title">Advanced Cybersecurity Research</h1>
                 <p class="hero-subtitle">Second Semester - Professional Security Analysis & Implementation</p>
+            </div>
+
+            <!-- Phase Navigation -->
+            <div class="phase-navigation">
+                <h3 class="phase-nav-title">Choose Your Phase</h3>
+                <p class="phase-nav-description">
+                    Select between foundational research (Phase 1) or advanced implementation (Phase 2) to explore 
+                    different aspects of cybersecurity education and research.
+                </p>
+                <div class="phase-buttons">
+                    <a href="{{ route('nexus.second-semester-phase1') }}" class="phase-btn inactive">
+                        <i class="fas fa-search mr-2"></i>
+                        Phase 1: Foundation Research
+                    </a>
+                    <a href="{{ route('nexus.second-semester-phase2') }}" class="phase-btn inactive">
+                        <i class="fas fa-rocket mr-2"></i>
+                        Phase 2: Advanced Implementation
+                    </a>
+                </div>
             </div>
 
             <!-- Research Domains -->

@@ -801,14 +801,14 @@
 @endpush
 
 @section('content')
-<!-- Hero Section -->
+    <!-- Hero Section -->
 <section class="delivery-hero">
     <div class="particles-container" id="particles-js"></div>
     <div class="floating-orbs">
         <div class="orb"></div>
         <div class="orb"></div>
         <div class="orb"></div>
-    </div>
+            </div>
     <div class="hero-content container mx-auto px-4">
         <h1 class="hero-title fade-in">DELIVERY METHODS</h1>
         <p class="hero-subtitle fade-in">Advanced analysis of malware delivery vectors and attack mechanisms</p>
@@ -986,8 +986,8 @@
                     <img src="{{ asset('images/delivery/s1.png') }}" alt="Email Delivery Analysis" class="screenshot-image">
                     <div class="screenshot-overlay">
                         <i class="fas fa-search-plus"></i>
-                    </div>
-                </div>
+        </div>
+            </div>
                 <div class="screenshot-content">
                     <h3 class="screenshot-title">Email Delivery Vector</h3>
                     <p class="screenshot-description">
@@ -997,16 +997,16 @@
                     <div class="screenshot-tags">
                         <span class="research-tag">Phishing Analysis</span>
                         <span class="research-tag">Attachment Scanning</span>
-                    </div>
+                </div>
                 </div>
             </div>
-
+            
             <div class="screenshot-card" data-image="{{ asset('images/delivery/s2.png') }}" data-title="Web-based Exploit Analysis">
                 <div class="screenshot-container">
                     <img src="{{ asset('images/delivery/s2.png') }}" alt="Web-based Exploit Analysis" class="screenshot-image">
                     <div class="screenshot-overlay">
                         <i class="fas fa-search-plus"></i>
-                    </div>
+                </div>
                 </div>
                 <div class="screenshot-content">
                     <h3 class="screenshot-title">Web-based Exploits</h3>
@@ -1020,13 +1020,13 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="screenshot-card" data-image="{{ asset('images/delivery/s3.png') }}" data-title="Network Propagation Analysis">
                 <div class="screenshot-container">
                     <img src="{{ asset('images/delivery/s3.png') }}" alt="Network Propagation Analysis" class="screenshot-image">
                     <div class="screenshot-overlay">
                         <i class="fas fa-search-plus"></i>
-                    </div>
+                </div>
                 </div>
                 <div class="screenshot-content">
                     <h3 class="screenshot-title">Network Propagation</h3>
@@ -1049,8 +1049,8 @@
                 <i class="fas fa-times"></i>
             </button>
             <img id="modal-image" class="modal-image" src="" alt="">
+            </div>
         </div>
-    </div>
     </section>
 
     <!-- Educational Warning -->

@@ -286,6 +286,30 @@
             </div>
         </div>
     </div>    <!-- Interactive Encryption Demos -->
+
+    <style>
+    /* Override grid layout for the first two cards */
+    @media (min-width: 768px) {
+        .encryption-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .encryption-grid > .text-encryption-card,
+        .encryption-grid > .file-encryption-card {
+            flex: 0 0 calc(50% - 1rem);
+            width: calc(50% - 1rem);
+        }
+        
+        .encryption-grid > .video-encryption-card,
+        .encryption-grid > .algorithms-section {
+            flex: 0 0 100%;
+            width: 100%;
+        }
+    }
+    </style>
+    
     <div class="encryption-grid">
         <!-- Text Encryption Card -->
         <div class="encryption-card text-encryption-card p-6">

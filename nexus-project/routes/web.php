@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [NexusController::class, 'index'])->name('nexus.index');
 Route::get('/first-semester', [NexusController::class, 'firstSemester'])->name('nexus.first-semester');
 Route::get('/second-semester', [NexusController::class, 'secondSemester'])->name('nexus.second-semester');
+Route::get('/second-semester-phase1', [NexusController::class, 'secondSemesterPhase1'])->name('nexus.second-semester-phase1');
+Route::get('/second-semester-phase2', [NexusController::class, 'secondSemesterPhase2'])->name('nexus.second-semester-phase2');
 Route::get('/encryption', [NexusController::class, 'encryption'])->name('nexus.encryption');
 Route::get('/myc-game', [NexusController::class, 'mycGame'])->name('nexus.myc-game');
 

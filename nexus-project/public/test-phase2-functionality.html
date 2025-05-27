@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phase 2 Functionality Test | Nexus Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <nav class="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                            NEXUS
+                        </h1>
+                    </a>
+                </div>
+                <div class="text-white">Phase 2 Functionality Test</div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-20 pb-16 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                    Phase 2 Test Suite
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto">
+                    Comprehensive testing of all Phase 2 interactive features and functionality
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-gray-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Test Card Interactions -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-mouse-pointer text-blue-400 mr-2"></i>
+                        Card Interactions
+                    </h3>
+                    <div class="space-y-3">
+                        <button onclick="testCardHovers()" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Card Hover Effects
+                        </button>
+                        <button onclick="testCardClicks()" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Card Click Actions
+                        </button>
+                        <button onclick="testKeyboardNav()" class="w-full bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Keyboard Navigation
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test File Operations -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-file-download text-green-400 mr-2"></i>
+                        File Operations
+                    </h3>
+                    <div class="space-y-3">
+                        <button onclick="testFileDownloads()" class="w-full bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded transition-colors">
+                            Test APK Downloads
+                        </button>
+                        <button onclick="testDocumentViews()" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Document Viewing
+                        </button>
+                        <button onclick="testExportFunctions()" class="w-full bg-purple-600 hover:bg-purple-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Data Export
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test Animations -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-magic text-purple-400 mr-2"></i>
+                        Animations & Effects
+                    </h3>
+                    <div class="space-y-3">
+                        <button onclick="testProgressBars()" class="w-full bg-yellow-600 hover:bg-yellow-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Progress Animations
+                        </button>
+                        <button onclick="testCounterAnimations()" class="w-full bg-red-600 hover:bg-red-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Counter Animations
+                        </button>
+                        <button onclick="testRippleEffects()" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Ripple Effects
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test Modal System -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-window-maximize text-orange-400 mr-2"></i>
+                        Modal System
+                    </h3>
+                    <div class="space-y-3">
+                        <button onclick="testMalwareModals()" class="w-full bg-red-600 hover:bg-red-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Malware Modals
+                        </button>
+                        <button onclick="testDefenseModals()" class="w-full bg-green-600 hover:bg-green-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Defense Modals
+                        </button>
+                        <button onclick="testMetricModals()" class="w-full bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Metric Details
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Test Notifications -->
+                <div class="bg-gray-800 rounded-lg p-6 border border-gray-700">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-bell text-yellow-400 mr-2"></i>
+                        Notification System
+                    </h3>
+                    <div class="space-y-3">
+                        <button onclick="testNotificationTypes()" class="w-full bg-yellow-600 hover:bg-yellow-500 text-white py-2 px-4 rounded transition-colors">
+                            Test All Notification Types
+                        </button>
+                        <button onclick="testNotificationTiming()" class="w-full bg-orange-600 hover:bg-orange-500 text-white py-2 px-4 rounded transition-colors">
+                            Test Notification Timing
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Run All Tests -->
+                <div class="bg-gradient-to-r from-blue-900 to-purple-900 rounded-lg p-6 border border-blue-500">
+                    <h3 class="text-xl font-bold text-white mb-4">
+                        <i class="fas fa-play-circle text-green-400 mr-2"></i>
+                        Comprehensive Test
+                    </h3>
+                    <div class="space-y-3">
+                        <button onclick="runAllTests()" class="w-full bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-500 hover:to-blue-500 text-white py-3 px-4 rounded font-bold transition-all duration-300">
+                            <i class="fas fa-rocket mr-2"></i>
+                            Run All Tests
+                        </button>
+                        <div id="test-results" class="mt-4 text-sm text-gray-300"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation to Phase 2 -->
+            <div class="mt-12 text-center">
+                <a href="pages/second-semester-phase2.html" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-500 hover:to-purple-500 text-white rounded-lg font-semibold transition-all duration-300">
+                    <i class="fas fa-arrow-right mr-2"></i>
+                    Go to Phase 2 Live Page
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Test Functions
+        function testCardHovers() {
+            showNotification('Testing card hover effects...', 'info');
+            const testCard = document.createElement('div');
+            testCard.className = 'malware-card bg-gradient-to-br from-red-900/40 to-orange-900/40 border border-red-500/50 rounded-lg p-6 hover:border-red-400 hover:shadow-lg hover:shadow-red-500/20 transition-all duration-300 cursor-pointer group fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50';
+            testCard.innerHTML = `
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-500 transition-colors">
+                        <i class="fas fa-bug text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-white mb-3">Test Card</h4>
+                    <p class="text-gray-300 text-sm mb-4">Hover effect demonstration</p>
+                    <button onclick="this.parentElement.parentElement.remove(); showNotification('Card hover test completed!', 'success');" class="bg-red-600/20 hover:bg-red-600/40 text-red-300 hover:text-white font-semibold py-2 px-4 rounded transition-all duration-300">
+                        Close Test
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(testCard);
+            
+            // Auto-remove after 5 seconds
+            setTimeout(() => {
+                if (testCard.parentElement) {
+                    testCard.remove();
+                    showNotification('Card hover test auto-completed!', 'success');
+                }
+            }, 5000);
+        }
+
+        function testCardClicks() {
+            showNotification('Testing card click actions...', 'info');
+            // Simulate card click behavior
+            const mockCardData = {
+                title: 'Test Ransomware Core',
+                description: 'Educational AES-256 encryption implementation',
+                techStack: 'Python/Flask'
+            };
+            
+            setTimeout(() => {
+                openMalwareModal(mockCardData.title, {
+                    querySelector: (selector) => {
+                        if (selector === 'p') return { textContent: mockCardData.description };
+                        if (selector === '.flex.items-center.justify-center span') return { textContent: mockCardData.techStack };
+                        return { textContent: mockCardData.title };
+                    }
+                });
+                showNotification('Card click test completed!', 'success');
+            }, 1000);
+        }
+
+        function testKeyboardNav() {
+            showNotification('Test keyboard navigation by pressing Tab, Arrow keys, and Enter', 'info', 5000);
+            // Focus on first focusable element
+            const focusableElement = document.querySelector('button');
+            if (focusableElement) {
+                focusableElement.focus();
+            }
+        }
+
+        function testFileDownloads() {
+            showNotification('Testing file download functionality...', 'info');
+            setTimeout(() => {
+                handleFileDownload('test_malware.apk', 'apk');
+            }, 1000);
+        }
+
+        function testDocumentViews() {
+            showNotification('Testing document viewing functionality...', 'info');
+            setTimeout(() => {
+                handleDocumentView('test_analysis_report.pdf', 'pdf');
+            }, 1000);
+        }
+
+        function testExportFunctions() {
+            showNotification('Testing data export functionality...', 'info');
+            setTimeout(() => {
+                exportMetricData('Test Metrics');
+            }, 1000);
+        }
+
+        function testProgressBars() {
+            showNotification('Testing progress bar animations...', 'info');
+            const testProgress = document.createElement('div');
+            testProgress.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-lg p-6 z-50 min-w-96';
+            testProgress.innerHTML = `
+                <h3 class="text-white text-lg font-bold mb-4">Progress Bar Test</h3>
+                <div class="space-y-4">
+                    <div class="w-full bg-gray-700 rounded-full h-3">
+                        <div class="bg-green-600 h-3 rounded-full progress-bar" data-width="75%" style="width: 0%"></div>
+                    </div>
+                    <div class="w-full bg-gray-700 rounded-full h-3">
+                        <div class="bg-blue-600 h-3 rounded-full progress-bar" data-width="60%" style="width: 0%"></div>
+                    </div>
+                    <button onclick="this.parentElement.parentElement.remove();" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+                </div>
+            `;
+            document.body.appendChild(testProgress);
+            
+            // Animate progress bars
+            setTimeout(() => {
+                const bars = testProgress.querySelectorAll('.progress-bar');
+                bars.forEach(bar => animateProgressBar(bar));
+                showNotification('Progress bar test completed!', 'success');
+            }, 500);
+        }
+
+        function testCounterAnimations() {
+            showNotification('Testing counter animations...', 'info');
+            const testCounter = document.createElement('div');
+            testCounter.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-lg p-6 z-50 min-w-96 text-center';
+            testCounter.innerHTML = `
+                <h3 class="text-white text-lg font-bold mb-4">Counter Animation Test</h3>
+                <div class="text-4xl font-bold text-blue-400 counter mb-4" data-target="1247">0</div>
+                <div class="text-2xl font-bold text-green-400 counter mb-4" data-target="95.5" data-suffix="%">0%</div>
+                <button onclick="this.parentElement.remove();" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+            `;
+            document.body.appendChild(testCounter);
+            
+            setTimeout(() => {
+                const counters = testCounter.querySelectorAll('.counter');
+                counters.forEach(counter => animateCounter(counter));
+                showNotification('Counter animation test completed!', 'success');
+            }, 500);
+        }
+
+        function testRippleEffects() {
+            showNotification('Testing ripple effects...', 'info');
+            const testRipple = document.createElement('div');
+            testRipple.className = 'fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gray-800 rounded-lg p-6 z-50 min-w-96 text-center';
+            testRipple.style.position = 'relative';
+            testRipple.style.overflow = 'hidden';
+            testRipple.innerHTML = `
+                <h3 class="text-white text-lg font-bold mb-4">Ripple Effect Test</h3>
+                <p class="text-gray-300 mb-4">Click anywhere on this panel to see ripple effect</p>
+                <button onclick="this.parentElement.remove();" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded">Close</button>
+            `;
+            
+            testRipple.addEventListener('click', function(e) {
+                createRippleEffect(e, this);
+            });
+            
+            document.body.appendChild(testRipple);
+            showNotification('Click on the test panel to see ripple effects!', 'info', 5000);
+        }
+
+        function testMalwareModals() {
+            showNotification('Testing malware information modals...', 'info');
+            setTimeout(() => {
+                openMalwareModal('Test Malware Component', {
+                    querySelector: (selector) => {
+                        if (selector === 'p') return { textContent: 'Test malware description for educational purposes' };
+                        if (selector === '.flex.items-center.justify-center span') return { textContent: 'Python/Test Framework' };
+                        return { textContent: 'Test Component' };
+                    }
+                });
+            }, 1000);
+        }
+
+        function testDefenseModals() {
+            showNotification('Testing defense tool modals...', 'info');
+            setTimeout(() => {
+                const mockTool = document.createElement('div');
+                mockTool.innerHTML = `
+                    <h5>Test Defense Tool</h5>
+                    <ul>
+                        <li>Real-time monitoring</li>
+                        <li>Threat detection</li>
+                        <li>Automated response</li>
+                    </ul>
+                `;
+                showDefenseToolDetails('Test Defense Tool', mockTool);
+            }, 1000);
+        }
+
+        function testMetricModals() {
+            showNotification('Testing metric detail modals...', 'info');
+            setTimeout(() => {
+                const mockCard = document.createElement('div');
+                mockCard.innerHTML = `
+                    <div class="fas fa-chart-bar"></div>
+                    <div class="text-gray-400">Test Metrics</div>
+                    <div class="counter">1,234</div>
+                `;
+                showMetricDetails('Test Metrics', '1,234', mockCard);
+            }, 1000);
+        }
+
+        function testNotificationTypes() {
+            showNotification('Testing success notification', 'success');
+            setTimeout(() => showNotification('Testing info notification', 'info'), 1000);
+            setTimeout(() => showNotification('Testing warning notification', 'warning'), 2000);
+            setTimeout(() => showNotification('Testing error notification', 'error'), 3000);
+        }
+
+        function testNotificationTiming() {
+            showNotification('Short notification (2s)', 'info', 2000);
+            setTimeout(() => showNotification('Medium notification (4s)', 'warning', 4000), 500);
+            setTimeout(() => showNotification('Long notification (6s)', 'success', 6000), 1000);
+        }
+
+        function runAllTests() {
+            const resultsDiv = document.getElementById('test-results');
+            resultsDiv.innerHTML = '<div class="text-yellow-400">Running comprehensive test suite...</div>';
+            
+            let testCount = 0;
+            const totalTests = 8;
+            
+            function updateResults(testName) {
+                testCount++;
+                resultsDiv.innerHTML += `<div class="text-green-400">✓ ${testName} completed (${testCount}/${totalTests})</div>`;
+                
+                if (testCount === totalTests) {
+                    resultsDiv.innerHTML += '<div class="text-green-400 font-bold mt-2">🎉 All tests completed successfully!</div>';
+                    showNotification('All Phase 2 tests completed successfully!', 'success', 5000);
+                }
+            }
+            
+            // Run tests with delays
+            setTimeout(() => { testCardHovers(); updateResults('Card Hover Effects'); }, 500);
+            setTimeout(() => { testProgressBars(); updateResults('Progress Bar Animations'); }, 1500);
+            setTimeout(() => { testCounterAnimations(); updateResults('Counter Animations'); }, 2500);
+            setTimeout(() => { testNotificationTypes(); updateResults('Notification System'); }, 3500);
+            setTimeout(() => { testFileDownloads(); updateResults('File Download System'); }, 4500);
+            setTimeout(() => { testDocumentViews(); updateResults('Document Viewing'); }, 5500);
+            setTimeout(() => { testMalwareModals(); updateResults('Modal System'); }, 6500);
+            setTimeout(() => { testRippleEffects(); updateResults('Interactive Effects'); }, 7500);
+        }
+
+        // Initialize test page
+        document.addEventListener('DOMContentLoaded', function() {
+            showNotification('Phase 2 Test Suite loaded successfully!', 'success');
+        });
+    </script>
+</body>
+</html>

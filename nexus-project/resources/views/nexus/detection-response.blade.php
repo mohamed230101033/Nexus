@@ -481,6 +481,8 @@
         border: 1px solid var(--glass-border);
         border-radius: 16px;
         transition: all 0.3s ease;
+        position: relative;
+        z-index: 20 !important;
     }
 
     .glass-card:hover {
@@ -620,6 +622,144 @@
 
     .fade-in {
         animation: fadeInUp 0.6s ease forwards;
+    }
+
+    /* Input Field Styles */
+    .nexus-input {
+        position: relative;
+        z-index: 30 !important;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        background: rgba(15, 23, 42, 0.6);
+        border: 2px solid rgba(59, 130, 246, 0.3);
+        border-radius: 8px;
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        transition: all 0.3s ease;
+        pointer-events: auto !important;
+    }
+
+    .nexus-input:focus {
+        outline: none;
+        border-color: #3b82f6;
+        box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+    }
+
+    .nexus-input::placeholder {
+        color: rgba(148, 163, 184, 0.7);
+    }
+
+    /* Button Styles */
+    .nexus-button {
+        position: relative;
+        z-index: 40 !important;
+        pointer-events: auto !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .nexus-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+    }
+
+    .nexus-button:active {
+        transform: translateY(0);
+    }
+
+    .nexus-button.danger {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+    }
+
+    .nexus-button.success {
+        background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    /* Video Controls */
+    .video-controls {
+        position: relative;
+        z-index: 35;
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+
+    .video-status {
+        padding: 1rem;
+        border-radius: 8px;
+        background: rgba(15, 23, 42, 0.6);
+        border: 1px solid rgba(59, 130, 246, 0.3);
+        margin-top: 1rem;
+    }
+
+    .video-status.encrypted {
+        border-color: rgba(239, 68, 68, 0.5);
+        background: rgba(239, 68, 68, 0.1);
+    }
+
+    .video-status.decrypted {
+        border-color: rgba(16, 185, 129, 0.5);
+        background: rgba(16, 185, 129, 0.1);
+    }
+
+    /* Testing Section Styles */
+    .testing-section {
+        position: relative;
+        z-index: 30;
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+        border-radius: 16px;
+        border: 1px solid rgba(59, 130, 246, 0.2);
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .input-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .input-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #e2e8f0;
+        font-weight: 500;
+    }
+
+    /* Fix video controls */
+    .video-container {
+        position: relative;
+        z-index: 25;
+    }
+
+    /* Ensure background elements don't block interaction */
+    .particles-container {
+        pointer-events: none !important;
+    }
+
+    .floating-orbs {
+        pointer-events: none !important;
+    }
+
+    /* Make sure form elements are interactive */
+    input, textarea, button {
+        pointer-events: auto !important;
+        position: relative;
+        z-index: 50 !important;
+    }
+
+    /* Ensure container doesn't block interactions */
+    .container {
+        position: relative;
+        z-index: 20;
     }
 </style>
 @endpush
@@ -843,6 +983,88 @@
     </div>
 </div>
 
+<div class="container mx-auto px-4 py-8">
+    <!-- Testing Section -->
+    <div class="testing-section">
+        <h3 class="text-2xl font-bold text-white mb-6">Detection Testing Interface</h3>
+        
+        <!-- Text Analysis -->
+        <div class="input-group">
+            <label for="textInput">Text Analysis</label>
+            <input 
+                type="text" 
+                id="textInput" 
+                class="nexus-input" 
+                placeholder="Enter text to analyze..."
+            >
+        </div>
+
+        <!-- Pattern Testing -->
+        <div class="input-group">
+            <label for="patternInput">Pattern Testing</label>
+            <textarea 
+                id="patternInput" 
+                class="nexus-input" 
+                rows="4" 
+                placeholder="Enter patterns to test..."
+            ></textarea>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="flex gap-4">
+            <button onclick="analyzeInput()" class="nexus-button">
+                <i class="fas fa-search mr-2"></i>
+                Analyze
+            </button>
+            <button onclick="clearInput()" class="nexus-button danger">
+                <i class="fas fa-trash mr-2"></i>
+                Clear
+            </button>
+        </div>
+
+        <!-- Results Display -->
+        <div id="analysisResults" class="mt-4 p-4 bg-gray-800/50 rounded-lg hidden">
+            <h4 class="text-lg font-semibold text-white mb-2">Analysis Results</h4>
+            <pre id="resultsContent" class="text-gray-300 font-mono text-sm"></pre>
+        </div>
+    </div>
+
+    <!-- Video Analysis Section -->
+    <div class="testing-section">
+        <h3 class="text-2xl font-bold text-white mb-6">Video Analysis Controls</h3>
+        
+        <!-- Video Player -->
+        <div class="video-container mb-4">
+            <video id="analysisVideo" class="w-full rounded-lg" controls>
+                <source src="/path/to/your/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Video Controls -->
+        <div class="video-controls">
+            <button onclick="encryptVideo()" class="nexus-button danger">
+                <i class="fas fa-lock mr-2"></i>
+                Encrypt Video
+            </button>
+            <button onclick="decryptVideo()" class="nexus-button success">
+                <i class="fas fa-unlock mr-2"></i>
+                Decrypt Video
+            </button>
+        </div>
+
+        <!-- Video Status -->
+        <div id="videoStatus" class="video-status mt-4">
+            <p class="text-gray-300">
+                <i class="fas fa-info-circle mr-2"></i>
+                Video ready for analysis
+            </p>
+        </div>
+    </div>
+</div>
+
+@endsection
+
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
@@ -969,6 +1191,98 @@
             }
         });
     });
+
+    // Make all inputs functional
+    document.addEventListener('DOMContentLoaded', function() {
+        // Enable all inputs
+        const inputs = document.querySelectorAll('.nexus-input');
+        inputs.forEach(input => {
+            input.disabled = false;
+            
+            // Add interaction feedback
+            input.addEventListener('focus', function() {
+                this.style.borderColor = '#3b82f6';
+                this.style.boxShadow = '0 0 0 2px rgba(59, 130, 246, 0.2)';
+            });
+
+            input.addEventListener('blur', function() {
+                if (!this.value) {
+                    this.style.borderColor = 'rgba(59, 130, 246, 0.3)';
+                    this.style.boxShadow = 'none';
+                }
+            });
+
+            input.addEventListener('input', function() {
+                // Add visual feedback when typing
+                this.style.borderColor = '#3b82f6';
+            });
+        });
+    });
+
+    // Analysis Functions
+    function analyzeInput() {
+        const textInput = document.getElementById('textInput').value;
+        const patternInput = document.getElementById('patternInput').value;
+        const resultsDiv = document.getElementById('analysisResults');
+        const resultsContent = document.getElementById('resultsContent');
+
+        if (!textInput && !patternInput) {
+            alert('Please enter some text or patterns to analyze');
+            return;
+        }
+
+        // Show results
+        resultsDiv.classList.remove('hidden');
+        resultsContent.textContent = `Analyzing:
+Text: ${textInput}
+Patterns: ${patternInput}
+        `;
+    }
+
+    function clearInput() {
+        document.getElementById('textInput').value = '';
+        document.getElementById('patternInput').value = '';
+        document.getElementById('analysisResults').classList.add('hidden');
+    }
+
+    // Video Functions
+    let isVideoEncrypted = false;
+    const video = document.getElementById('analysisVideo');
+    const statusDiv = document.getElementById('videoStatus');
+
+    function encryptVideo() {
+        if (!isVideoEncrypted) {
+            video.pause();
+            video.controls = false;
+            video.style.filter = 'blur(10px) brightness(0.5)';
+            
+            statusDiv.className = 'video-status mt-4 encrypted';
+            statusDiv.innerHTML = `
+                <p class="text-red-400">
+                    <i class="fas fa-lock mr-2"></i>
+                    Video encrypted and playback disabled
+                </p>
+            `;
+            
+            isVideoEncrypted = true;
+        }
+    }
+
+    function decryptVideo() {
+        if (isVideoEncrypted) {
+            video.controls = true;
+            video.style.filter = 'none';
+            
+            statusDiv.className = 'video-status mt-4 decrypted';
+            statusDiv.innerHTML = `
+                <p class="text-green-400">
+                    <i class="fas fa-unlock mr-2"></i>
+                    Video decrypted and playback restored
+                </p>
+            `;
+            
+            isVideoEncrypted = false;
+        }
+    }
 </script>
 @endpush
-@endsection
