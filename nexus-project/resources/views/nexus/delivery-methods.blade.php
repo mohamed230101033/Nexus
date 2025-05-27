@@ -3,55 +3,142 @@
 @section('title', 'Delivery Methods Research - Nexus Project')
 
 @push('styles')
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+        --neon-blue: #00d4ff;
+        --neon-purple: #b300ff;
+        --neon-green: #39ff14;
+        --neon-cyan: #00ffff;
+        --neon-pink: #ff1493;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     * {
-        box-sizing: border-box;
-    }    body {
         font-family: 'Inter', sans-serif;
-        background: transparent !important;
-        color: #e2e8f0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    code, pre {
+        font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+    }    body {
+        background: var(--dark-gradient);
+        color: #ffffff;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    /* Hero Section */
+    .delivery-hero {
         position: relative;
-        z-index: 1;
-    }
-
-    /* Ensure navbar stays on top */
-    header {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-    }
-
-    /* Main content positioning */
-    .main-content {
-        background: transparent !important;
         min-height: 100vh;
-        position: relative;
-        z-index: 1;
-    }
-
-    /* Hero section specific positioning */
-    .hero-section {
-        position: relative;
-        z-index: 10;
-        padding-top: 2rem;
-        min-height: 60vh;
         display: flex;
         align-items: center;
         justify-content: center;
+        overflow: hidden;
+        background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+    }
+
+    .particles-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .floating-orbs {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .orb {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.6;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .orb:nth-child(1) {
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle, var(--neon-cyan), transparent);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .orb:nth-child(2) {
+        width: 80px;
+        height: 80px;
+        background: radial-gradient(circle, var(--neon-pink), transparent);
+        top: 60%;
+        right: 20%;
+        animation-delay: 2s;
+    }
+
+    .orb:nth-child(3) {
+        width: 100px;
+        height: 100px;
+        background: radial-gradient(circle, var(--neon-blue), transparent);
+        bottom: 30%;
+        left: 70%;
+        animation-delay: 4s;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        25% { transform: translateY(-20px) rotate(90deg); }
+        50% { transform: translateY(-40px) rotate(180deg); }
+        75% { transform: translateY(-20px) rotate(270deg); }
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 3;
         text-align: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
     }
 
     .hero-title {
-        font-size: 3.5rem;
-        font-weight: 700;
-        background: linear-gradient(90deg, #60a5fa, #3b82f6, #93c5fd);
-        background-clip: text;
+        font-size: 4rem;
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink), var(--neon-blue));
+        background-size: 200% 200%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 1.5rem;
+        background-clip: text;
+        animation: gradientShift 3s ease-in-out infinite;
+        text-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    }
+
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
     }
 
     .hero-subtitle {
@@ -60,6 +147,68 @@
         max-width: 600px;
         margin: 0 auto 2rem;
         line-height: 1.6;
+    }    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    /* Glass Morphism Cards */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        margin: 1rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 255, 255, 0.2);
+        border-color: var(--neon-cyan);
+    }
+
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .tech-card {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
+        transition: left 0.5s ease;
+    }
+
+    .tech-card:hover::before {
+        left: 100%;
+    }
+
+    .tech-card:hover {
+        transform: translateY(-5px);
+        border-color: var(--neon-cyan);
+        box-shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
     }
 
     .research-cards {
@@ -229,13 +378,49 @@
         max-width: 800px;
         margin: 0 auto;
         line-height: 1.7;
+    }    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 3rem;
+        background: linear-gradient(45deg, var(--neon-cyan), var(--neon-pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
 
-    .section-title {
-        font-size: 2.25rem;
-        font-weight: 700;
-        color: #e2e8f0;
-        margin-bottom: 1rem;
+    .nav-pills {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .nav-pill {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 25px;
+        padding: 10px 20px;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+        font-weight: 500;
+    }
+
+    .nav-pill:hover,
+    .nav-pill.active {
+        background: var(--neon-cyan);
+        color: black;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards;
     }
 
     .section-description {
@@ -376,16 +561,51 @@
     .back-link:hover {
         transform: translateY(-2px);
         box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-    }
-
-    @media (max-width: 768px) {
+    }    @media (max-width: 768px) {
         .hero-title {
             font-size: 2.5rem;
         }
-          .research-grid {
+        
+        .tech-grid {
             grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        .glass-card {
+            margin: 0.5rem;
+            padding: 1.5rem;
+        }
+        
+        .hero-content {
             padding: 0 1rem;
         }
+        
+        .floating-orbs .orb {
+            display: none;
+        }
+        
+        .nav-pills {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    /* Smooth scrollbar */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--neon-cyan);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--neon-pink);
     }
 
     .payload-hero::before {
@@ -480,11 +700,67 @@
 
     .screenshot-card:hover .screenshot-overlay {
         opacity: 1;
-    }
-
-    .screenshot-overlay i {
+    }    .screenshot-overlay i {
         font-size: 2rem;
         color: #60a5fa;
+    }
+
+    /* Modal Styles for Screenshot Viewer */
+    .screenshot-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .screenshot-modal.active {
+        display: flex;
+    }
+
+    .modal-content {
+        position: relative;
+        max-width: 90vw;
+        max-height: 90vh;
+        background: #0f172a;
+        border-radius: 16px;
+        border: 2px solid rgba(59, 130, 246, 0.3);
+        overflow: hidden;
+    }
+
+    .modal-image {
+        width: 100%;
+        height: auto;
+        max-height: 85vh;
+        object-fit: contain;
+    }
+
+    .modal-close {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        background: rgba(239, 68, 68, 0.8);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-close:hover {
+        background: rgba(239, 68, 68, 1);
+        transform: scale(1.1);
     }
 
     .screenshot-content {
@@ -525,28 +801,29 @@
 @endpush
 
 @section('content')
-<div class="main-content">
-<div class="max-w-7xl mx-auto px-4">
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="text-center mb-16">
-            <div class="hero-badge">
-                <i class="fas fa-shield-alt mr-3"></i>
-                Malware Delivery Vector Analysis
-            </div>
-            <h1 class="hero-title">
-                Delivery Methods
-            </h1>
-            <h2 class="hero-subtitle">
-                Understanding Attack Vectors for Better Defense
-            </h2>
-            <p class="hero-description">
-                Comprehensive analysis of malware delivery mechanisms, infection vectors, and propagation techniques 
-                used in modern cyber attacks for educational defense purposes.
-            </p>
+<!-- Hero Section -->
+<section class="delivery-hero">
+    <div class="particles-container" id="particles-js"></div>
+    <div class="floating-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+    <div class="hero-content container mx-auto px-4">
+        <h1 class="hero-title fade-in">DELIVERY METHODS</h1>
+        <p class="hero-subtitle fade-in">Advanced analysis of malware delivery vectors and attack mechanisms</p>
+        <div class="nav-pills fade-in">
+            <a href="#email-vectors" class="nav-pill active">Email Vectors</a>
+            <a href="#web-exploits" class="nav-pill">Web Exploits</a>
+            <a href="#network-propagation" class="nav-pill">Network Propagation</a>
+            <a href="#physical-media" class="nav-pill">Physical Media</a>
         </div>
-    </section>    <!-- Primary Delivery Vectors -->
-    <section class="py-16 mb-12">
+    </div>
+</section>
+
+<div class="container">
+    <!-- Primary Delivery Vectors -->
+    <section class="py-16 mb-12" id="email-vectors">
         <div class="text-center mb-12">
             <h2 class="section-title">Primary Attack Vectors</h2>
             <p class="section-description">
@@ -554,9 +831,9 @@
             </p>
         </div>
         
-        <div class="research-grid">
+        <div class="tech-grid">
             <!-- Email-Based Attacks -->
-            <div class="research-card">
+            <div class="tech-card">
                 <div class="research-icon">
                     <i class="fas fa-envelope"></i>
                 </div>
@@ -577,7 +854,7 @@
             </div>
             
             <!-- Web-Based Exploits -->
-            <div class="research-card">
+            <div class="tech-card" id="web-exploits">
                 <div class="research-icon">
                     <i class="fas fa-globe"></i>
                 </div>
@@ -598,16 +875,15 @@
             </div>
             
             <!-- Physical Media -->
-            <div class="research-card">
+            <div class="tech-card" id="physical-media">
                 <div class="research-icon">
-                    <i class="fas fa-usb-drive"></i>
+                    <i class="fas fa-usb"></i>
                 </div>
                 <h3 class="research-title">Physical Media</h3>
                 <p class="research-description">
                     Research into USB-based attacks and removable media propagation for developing 
                     endpoint protection and device control policies.
-                </p>
-                <div class="research-tags">
+                </p>                <div class="research-tags">
                     <span class="research-tag">USB Autorun</span>
                     <span class="research-tag">BadUSB</span>
                     <span class="research-tag">CD/DVD</span>
@@ -619,7 +895,7 @@
             </div>
             
             <!-- Network Propagation -->
-            <div class="research-card">
+            <div class="tech-card" id="network-propagation">
                 <div class="research-icon">
                     <i class="fas fa-network-wired"></i>
                 </div>
@@ -648,20 +924,19 @@
             </p>
         </div>
         
-        <div class="research-grid">
-            <div class="research-card">
+        <div class="tech-grid">
+            <div class="tech-card">
                 <div class="research-icon">
                     <i class="fas fa-envelope-open-text"></i>
                 </div>
                 <h3 class="research-title">Email Security</h3>
                 <ul class="research-list">
                     <li>Advanced threat protection</li>
-                    <li>Attachment sandboxing</li>
-                    <li>User awareness training</li>
+                    <li>Attachment sandboxing</li>                    <li>User awareness training</li>
                 </ul>
             </div>
             
-            <div class="research-card">
+            <div class="tech-card">
                 <div class="research-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
@@ -673,7 +948,7 @@
                 </ul>
             </div>
             
-            <div class="research-card">
+            <div class="tech-card">
                 <div class="research-icon">
                     <i class="fas fa-network-wired"></i>
                 </div>
@@ -685,7 +960,7 @@
                 </ul>
             </div>
             
-            <div class="research-card">
+            <div class="tech-card">
                 <div class="research-icon">
                     <i class="fas fa-graduation-cap"></i>
                 </div>
@@ -696,137 +971,7 @@
                     <li>Best practices education</li>
                 </ul>
             </div>
-        </div>
-    </section>
-                        User awareness training
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="impact-card p-8 text-center group">
-                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                    <i class="fas fa-shield-alt text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Web Protection</h3>
-                <ul class="text-gray-300 space-y-2">
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
-                        Web application firewalls
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
-                        Content filtering
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                        Browser security policies
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="impact-card p-8 text-center group">
-                <div class="w-16 h-16 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                    <i class="fas fa-laptop text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Endpoint Control</h3>
-                <ul class="text-gray-300 space-y-2">
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                        Device control policies
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
-                        USB port management
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-yellow-300 rounded-full mr-2"></span>
-                        Application whitelisting
-                    </li>
-                </ul>
-            </div>
-            
-            <div class="impact-card p-8 text-center group">
-                <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                    <i class="fas fa-network-wired text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Network Security</h3>
-                <ul class="text-gray-300 space-y-2">
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-orange-400 rounded-full mr-2"></span>
-                        Network segmentation
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-red-400 rounded-full mr-2"></span>
-                        Intrusion detection
-                    </li>
-                    <li class="flex items-center">
-                        <span class="w-2 h-2 bg-yellow-400 rounded-full mr-2"></span>
-                        Traffic monitoring
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Research Impact -->
-    <section class="py-16 mb-12">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-black text-white mb-6 flex items-center justify-center">
-                <span class="text-yellow-400 mr-4">🚀</span>
-                <span class="gradient-text">RESEARCH IMPACT</span>
-            </h2>
-            <p class="text-xl text-gray-300">
-                How delivery method analysis improves cybersecurity defenses
-            </p>
-        </div>
-        
-        <div class="research-grid">
-            <!-- Impact Card 1 -->
-            <div class="impact-card p-8 text-center group">
-                <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                    <i class="fas fa-chart-line text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Enhanced Detection</h3>
-                <p class="text-gray-300 mb-4">
-                    Improved malware detection rates through advanced behavioral analysis and threat intelligence.
-                </p>
-                <div class="flex items-center justify-center gap-2">
-                    <span class="text-xs bg-blue-500 text-white rounded-full px-3 py-1">Before: 70%</span>
-                    <span class="text-xs bg-teal-500 text-white rounded-full px-3 py-1">After: 90%</span>
-                </div>
-            </div>
-            
-            <!-- Impact Card 2 -->
-            <div class="impact-card p-8 text-center group">
-                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                    <i class="fas fa-lock-open text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Improved Response</h3>
-                <p class="text-gray-300 mb-4">
-                    Faster incident response and remediation times reducing potential damage from attacks.
-                </p>
-                <div class="flex items-center justify-center gap-2">
-                    <span class="text-xs bg-purple-500 text-white rounded-full px-3 py-1">Before: 60 mins</span>
-                    <span class="text-xs bg-pink-500 text-white rounded-full px-3 py-1">After: 15 mins</span>
-                </div>
-            </div>
-            
-            <!-- Impact Card 3 -->
-            <div class="impact-card p-8 text-center group">
-                <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-all duration-300">
-                    <i class="fas fa-user-shield text-white text-2xl"></i>
-                </div>
-                <h3 class="text-xl font-bold text-white mb-4">Stronger Prevention</h3>
-                <p class="text-gray-300 mb-4">
-                    Enhanced prevention measures blocking malware delivery and exploitation attempts.
-                </p>
-                <div class="flex items-center justify-center gap-2">
-                    <span class="text-xs bg-red-500 text-white rounded-full px-3 py-1">Before: 75%</span>
-                    <span class="text-xs bg-orange-500 text-white rounded-full px-3 py-1">After: 95%</span>
-                </div>
-            </div>
-        </div>
-    </section>
+        </div>    </section>
 
     <!-- Delivery Method Screenshots -->
     <section class="py-16 mb-12">
@@ -835,10 +980,8 @@
             <p class="section-description">
                 Real-world examples and analysis of malware delivery techniques
             </p>
-        </div>
-        
-        <div class="screenshots-grid">
-            <div class="screenshot-card">
+        </div>          <div class="screenshots-grid">
+            <div class="screenshot-card" data-image="{{ asset('images/delivery/s1.png') }}" data-title="Email Delivery Vector Analysis">
                 <div class="screenshot-container">
                     <img src="{{ asset('images/delivery/s1.png') }}" alt="Email Delivery Analysis" class="screenshot-image">
                     <div class="screenshot-overlay">
@@ -858,7 +1001,7 @@
                 </div>
             </div>
 
-            <div class="screenshot-card">
+            <div class="screenshot-card" data-image="{{ asset('images/delivery/s2.png') }}" data-title="Web-based Exploit Analysis">
                 <div class="screenshot-container">
                     <img src="{{ asset('images/delivery/s2.png') }}" alt="Web-based Exploit Analysis" class="screenshot-image">
                     <div class="screenshot-overlay">
@@ -878,7 +1021,7 @@
                 </div>
             </div>
 
-            <div class="screenshot-card">
+            <div class="screenshot-card" data-image="{{ asset('images/delivery/s3.png') }}" data-title="Network Propagation Analysis">
                 <div class="screenshot-container">
                     <img src="{{ asset('images/delivery/s3.png') }}" alt="Network Propagation Analysis" class="screenshot-image">
                     <div class="screenshot-overlay">
@@ -898,6 +1041,16 @@
                 </div>
             </div>
         </div>
+
+    <!-- Screenshot Modal -->
+    <div id="screenshot-modal" class="screenshot-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeScreenshotModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <img id="modal-image" class="modal-image" src="" alt="">
+        </div>
+    </div>
     </section>
 
     <!-- Educational Warning -->
@@ -923,40 +1076,305 @@
             <li>Information is used to improve security awareness and training programs</li>
             <li>No malicious activities are conducted or encouraged</li>
         </ul>
-    </section>
-
-    <!-- Back to Course -->
+    </section>    <!-- Back to Course -->
     <section class="text-center py-16">
         <a href="{{ route('nexus.second-semester') }}" class="back-link">
             <i class="fas fa-arrow-left mr-2"></i>
-            Back to Second Semester        </a>
+            Back to Second Semester
+        </a>
     </section>
 </div>
-</div>
+@endsection
 
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Simple fade-in animation for research cards
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+    // Initialize particles.js with cyan/pink theme
+    if (window.particlesJS) {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ['#00ffff', '#ff1493', '#00d4ff']
+                },
+                shape: {
+                    type: 'circle',
+                    stroke: {
+                        width: 0,
+                        color: '#000000'
+                    }
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false,
+                    anim: {
+                        enable: false,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 3,
+                    random: true,
+                    anim: {
+                        enable: false,
+                        speed: 40,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#00ffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 6,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'repulse'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 400,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 40,
+                        duration: 2,
+                        opacity: 8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+    }
+
+    // GSAP Animations
+    if (window.gsap) {
+        // Fade in hero elements
+        gsap.from('.hero-title', {
+            duration: 1.5,
+            y: 50,
+            opacity: 0,
+            ease: 'power2.out'
+        });
+
+        gsap.from('.hero-subtitle', {
+            duration: 1.5,
+            y: 30,
+            opacity: 0,
+            delay: 0.3,
+            ease: 'power2.out'
+        });
+
+        gsap.from('.nav-pills', {
+            duration: 1.5,
+            y: 30,
+            opacity: 0,
+            delay: 0.6,
+            ease: 'power2.out'
+        });
+
+        // Animate tech cards on scroll
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.utils.toArray('.tech-card').forEach((card, index) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                },
+                duration: 0.8,
+                y: 50,
+                opacity: 0,
+                delay: index * 0.1,
+                ease: 'power2.out'
+            });
+        });
+
+        // Hover effects for tech cards
+        document.querySelectorAll('.tech-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, {
+                    duration: 0.3,
+                    scale: 1.05,
+                    rotationY: 5,
+                    ease: 'power2.out'
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    duration: 0.3,
+                    scale: 1,
+                    rotationY: 0,
+                    ease: 'power2.out'
+                });
+            });
+        });
+    }
+
+    // Screenshot Modal Functions with GSAP
+    window.openScreenshotModal = function(imageSrc, title) {
+        const modal = document.getElementById('screenshot-modal');
+        const modalImage = document.getElementById('modal-image');
+        
+        modalImage.src = imageSrc;
+        modalImage.alt = title;
+        modal.style.display = 'flex';
+        
+        // GSAP animation for modal opening
+        if (window.gsap) {
+            gsap.fromTo(modal, 
+                { opacity: 0 },
+                { duration: 0.3, opacity: 1, ease: 'power2.out' }
+            );
+            gsap.fromTo(modalImage, 
+                { scale: 0.8, opacity: 0 },
+                { duration: 0.4, scale: 1, opacity: 1, delay: 0.1, ease: 'back.out(1.7)' }
+            );
+        } else {
+            modal.classList.add('active');
+        }
+        
+        // Prevent body scroll when modal is open
+        document.body.style.overflow = 'hidden';
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-            }
-        });
-    }, observerOptions);
+    window.closeScreenshotModal = function() {
+        const modal = document.getElementById('screenshot-modal');
+        
+        // GSAP animation for modal closing
+        if (window.gsap) {
+            gsap.to(modal, {
+                duration: 0.3,
+                opacity: 0,
+                ease: 'power2.out',
+                onComplete: () => {
+                    modal.style.display = 'none';
+                }
+            });
+        } else {
+            modal.classList.remove('active');
+        }
+        
+        // Restore body scroll
+        document.body.style.overflow = 'auto';
+    };
 
-    // Observe all research cards
-    document.querySelectorAll('.research-card').forEach(card => {
-        observer.observe(card);
+    // Close modal when clicking outside the image
+    document.getElementById('screenshot-modal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeScreenshotModal();
+        }
     });
 
-    console.log('Nexus Delivery Methods: Professional Design Loaded');
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeScreenshotModal();
+        }
+    });    // Add cursor pointer to screenshot cards and handle click events
+    document.querySelectorAll('.screenshot-card').forEach(card => {
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function() {
+            const imageSrc = this.getAttribute('data-image');
+            const title = this.getAttribute('data-title');
+            openScreenshotModal(imageSrc, title);
+        });
+    });
+
+    // Navigation pills smooth scrolling
+    document.querySelectorAll('.nav-pill').forEach(pill => {
+        pill.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            
+            // Update active pill
+            document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+            this.classList.add('active');
+        });
+    });
+
+    // Floating orbs animation enhancement
+    if (window.gsap) {
+        gsap.utils.toArray('.orb').forEach((orb, index) => {
+            gsap.to(orb, {
+                duration: 4 + index,
+                rotation: 360,
+                transformOrigin: 'center center',
+                repeat: -1,
+                ease: 'none'
+            });
+            
+            gsap.to(orb, {
+                duration: 6 + index * 2,
+                y: 'random(-50, 50)',
+                x: 'random(-30, 30)',
+                repeat: -1,
+                yoyo: true,
+                ease: 'sine.inOut'
+            });
+        });
+    }
+
+    console.log('Nexus Delivery Methods: Modern Design Framework Loaded');
 });
 </script>
 @endpush

@@ -514,6 +514,52 @@
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
+
+                <!-- RAT Prototype Domain -->
+                <div class="research-card blue">
+                    <div class="card-icon blue">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3 class="card-title">RAT Prototype Development</h3>
+                    <p class="card-description">
+                        Advanced remote access tool development using Python, featuring secure command & control, 
+                        file transfer protocols, system reconnaissance, and multi-platform compatibility.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag blue">Python Socket Programming</span>
+                        <span class="tech-tag blue">Command & Control</span>
+                        <span class="tech-tag blue">File Transfer Protocol</span>
+                        <span class="tech-tag blue">System Reconnaissance</span>
+                        <span class="tech-tag blue">Multi-threading</span>
+                    </div>
+                    <a href="{{ route('nexus.rat-prototype') }}" class="explore-btn blue">
+                        Explore Research
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Evasion & Stealth Domain -->
+                <div class="research-card purple">
+                    <div class="card-icon purple">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <h3 class="card-title">Evasion & Stealth Techniques</h3>
+                    <p class="card-description">
+                        Comprehensive study of advanced evasion techniques including anti-debugging, sandbox detection, 
+                        code obfuscation, polymorphic behavior, and stealth persistence mechanisms.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tech-tag purple">Anti-Debugging</span>
+                        <span class="tech-tag purple">Sandbox Evasion</span>
+                        <span class="tech-tag purple">Code Obfuscation</span>
+                        <span class="tech-tag purple">Polymorphic Code</span>
+                        <span class="tech-tag purple">Stealth Persistence</span>
+                    </div>
+                    <a href="{{ route('nexus.evasion-stealth') }}" class="explore-btn purple">
+                        Explore Research
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
 
             <!-- Professional Libraries Section -->

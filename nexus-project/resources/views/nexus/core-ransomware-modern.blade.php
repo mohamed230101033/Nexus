@@ -36,17 +36,13 @@
     
     code, pre {
         font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
-    }    body {
+    }
+
+    body {
         background: var(--dark-gradient);
         color: #ffffff;
         overflow-x: hidden;
         scroll-behavior: smooth;
-    }
-
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 2rem;
     }
 
     .ransomware-hero {

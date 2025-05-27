@@ -3,28 +3,167 @@
 @section('title', 'RAT Prototype - Nexus Project')
 
 @push('styles')
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+        --neon-blue: #00d4ff;
+        --neon-purple: #b300ff;
+        --neon-green: #39ff14;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     * {
+        font-family: 'Inter', sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-
-    body {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        color: #ffffff;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
-        overflow-x: hidden;
+    
+    code, pre {
+        font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
     }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
+    body {
+        background: var(--dark-gradient);
+        color: #ffffff;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+
+    .rat-hero {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #334155 60%, #0f172a 100%);
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .particles-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+    }
+    
+    .floating-orbs {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .orb {
+        position: absolute;
+        background: radial-gradient(circle, var(--neon-purple), transparent);
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .orb:nth-child(1) {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+    
+    .orb:nth-child(2) {
+        width: 150px;
+        height: 150px;
+        top: 60%;
+        right: 15%;
+        animation-delay: 2s;
+    }
+    
+    .orb:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        bottom: 30%;
+        left: 20%;
+        animation-delay: 4s;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        33% { transform: translateY(-20px) rotate(120deg); }
+        66% { transform: translateY(10px) rotate(240deg); }
+    }
+
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .glass-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.05) 100%);
+        pointer-events: none;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        font-weight: 900;
+        background: linear-gradient(135deg, var(--neon-purple), var(--neon-blue), var(--neon-green));
+        background-size: 300% 300%;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: gradientShift 3s ease-in-out infinite;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 0 30px rgba(179, 0, 255, 0.3);
+    }
+
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-align: center;
+        margin-bottom: 2rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     /* Warning Banner */
@@ -75,6 +214,31 @@
         max-width: 600px;
         margin: 0 auto 40px;
         font-weight: 400;
+    }
+
+    /* Tech Grid from evasion template */
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .tech-card {
+        background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .tech-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+        border-color: var(--neon-blue);
     }
 
     /* Research Cards */
@@ -398,25 +562,34 @@
 @push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 @endpush
 
 @section('content')
-<div class="container">
-    <!-- Warning Banner -->
-    <div class="warning-banner">
-        <h3><i class="fas fa-exclamation-triangle"></i> Educational Research Only</h3>
-        <p>This content demonstrates RAT development concepts for cybersecurity education and defensive research purposes only. All implementations are theoretical and designed for academic understanding.</p>
+<!-- Hero Section with Particles -->
+<div class="evasion-hero">
+    <div class="particles-container" id="particles-js"></div>
+    <div class="floating-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
     </div>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>RAT Prototype Research</h1>
-        <p class="subtitle">Remote Access Tool Development & Analysis for Cybersecurity Education</p>
+    <div class="container hero-content">
+        <!-- Warning Banner -->
+        <div class="warning-banner">
+            <h3><i class="fas fa-exclamation-triangle"></i> Educational Research Only</h3>
+            <p>This content demonstrates RAT development concepts for cybersecurity education and defensive research purposes only. All implementations are theoretical and designed for academic understanding.</p>
+        </div>
+        
+        <h1 class="hero-title" data-aos="fade-up">RAT Prototype Research</h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Remote Access Tool Development & Analysis for Cybersecurity Education</p>
     </div>
+</div>
 
-    <!-- Research Grid -->
-    <div class="research-grid">        <!-- UAC Bypass Research -->
-        <div class="research-card">
+<div class="container">    <!-- Research Grid -->
+    <div class="tech-grid" data-aos="fade-up" data-aos-delay="400">        <!-- UAC Bypass Research -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="500">
             <h3><div class="icon">🛡️</div>UAC Bypass Research</h3>
             <p>Educational analysis of Windows User Account Control bypass techniques through social engineering and registry manipulation for defensive cybersecurity research.</p>
             <div class="tags">
@@ -431,10 +604,8 @@
                 <li>Administrative privilege acquisition</li>
                 <li>Detection and prevention strategies</li>
             </ul>
-        </div>
-
-        <!-- Credential Extraction Analysis -->
-        <div class="research-card">
+        </div>        <!-- Credential Extraction Analysis -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="600">
             <h3><div class="icon">🔐</div>Credential Extraction Analysis</h3>
             <p>Research into browser credential storage mechanisms and extraction methodologies for understanding data protection vulnerabilities in web browsers.</p>
             <div class="tags">
@@ -449,10 +620,8 @@
                 <li>Cookie and session extraction</li>
                 <li>Secure data transmission protocols</li>
             </ul>
-        </div>
-
-        <!-- WebSocket Exploit Research -->
-        <div class="research-card">
+        </div>        <!-- WebSocket Exploit Research -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="700">
             <h3><div class="icon">🌐</div>WebSocket Exploit Research</h3>
             <p>Analysis of Chromium DevTools WebSocket protocol vulnerabilities and exploitation techniques for understanding browser security architecture.</p>
             <div class="tags">
@@ -467,10 +636,8 @@
                 <li>Remote debugging interfaces</li>
                 <li>Communication channel establishment</li>
             </ul>
-        </div>
-
-        <!-- Browser Data Research -->
-        <div class="research-card">
+        </div>        <!-- Browser Data Research -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="800">
             <h3><div class="icon">📊</div>Browser Data Research</h3>
             <p>Comprehensive study of browser data storage, session management, and security mechanisms to understand modern web application vulnerabilities.</p>
             <div class="tags">
@@ -518,18 +685,100 @@
     document.addEventListener('DOMContentLoaded', function() {
         console.log('RAT Prototype Research Interface Loaded');
         
-        // Add hover effects to research cards
-        const cards = document.querySelectorAll('.research-card');
+        // Initialize AOS animations
+        AOS.init({
+            duration: 1000,
+            offset: 100,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        // Initialize particles.js
+        if (window.particlesJS) {
+            particlesJS('particles-js', {
+                particles: {
+                    number: { value: 80, density: { enable: true, value_area: 800 } },
+                    color: { value: '#00d4ff' },
+                    shape: { type: 'circle' },
+                    opacity: { value: 0.5, random: false },
+                    size: { value: 3, random: true },
+                    line_linked: {
+                        enable: true,
+                        distance: 150,
+                        color: '#00d4ff',
+                        opacity: 0.4,
+                        width: 1
+                    },
+                    move: {
+                        enable: true,
+                        speed: 2,
+                        direction: 'none',
+                        random: false,
+                        straight: false,
+                        out_mode: 'out',
+                        attract: { enable: false }
+                    }
+                },
+                interactivity: {
+                    detect_on: 'canvas',
+                    events: {
+                        onhover: { enable: true, mode: 'repulse' },
+                        onclick: { enable: true, mode: 'push' },
+                        resize: true
+                    },
+                    modes: {
+                        grab: { distance: 400, line_linked: { opacity: 1 } },
+                        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+                        repulse: { distance: 200 },
+                        push: { particles_nb: 4 },
+                        remove: { particles_nb: 2 }
+                    }
+                },
+                retina_detect: true
+            });
+        }
+        
+        // Add hover effects to tech cards
+        const cards = document.querySelectorAll('.tech-card');
         cards.forEach(card => {
             card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px)';
-                this.style.borderColor = 'rgba(59, 130, 246, 0.4)';
+                this.style.transform = 'translateY(-15px)';
+                this.style.borderColor = 'rgba(0, 212, 255, 0.4)';
             });
             
             card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(-5px)';
-                this.style.borderColor = 'rgba(148, 163, 184, 0.1)';
+                this.style.transform = 'translateY(-10px)';
+                this.style.borderColor = 'rgba(255, 255, 255, 0.1)';
             });
         });
+
+        // GSAP animations for floating orbs
+        if (window.gsap) {
+            gsap.to('.orb:nth-child(1)', {
+                y: -30,
+                duration: 2,
+                ease: 'power2.inOut',
+                yoyo: true,
+                repeat: -1
+            });
+            
+            gsap.to('.orb:nth-child(2)', {
+                y: -20,
+                duration: 2.5,
+                ease: 'power2.inOut',
+                yoyo: true,
+                repeat: -1,
+                delay: 0.5
+            });
+            
+            gsap.to('.orb:nth-child(3)', {
+                y: -25,
+                duration: 3,
+                ease: 'power2.inOut',
+                yoyo: true,
+                repeat: -1,
+                delay: 1
+            });
+        }
     });
 </script>@endsection

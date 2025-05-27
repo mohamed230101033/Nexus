@@ -3,23 +3,46 @@
 @section('title', 'Detection & Response - Nexus Project')
 
 @push('styles')
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --dark-gradient: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
+        --neon-blue: #00d4ff;
+        --neon-purple: #b300ff;
+        --neon-green: #39ff14;
+        --neon-yellow: #ffdd00;
+        --neon-orange: #ff6600;
+        --glass-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
     * {
+        font-family: 'Inter', sans-serif;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
+    
+    code, pre {
+        font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+    }
 
     body {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+        background: var(--dark-gradient);
         color: #ffffff;
-        font-family: 'Inter', sans-serif;
-        line-height: 1.6;
         overflow-x: hidden;
-        position: relative;
-        z-index: 1;
+        scroll-behavior: smooth;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
     }
 
     /* Ensure header stays on top */
@@ -93,23 +116,104 @@
         backdrop-filter: blur(10px);
     }
 
+    .detection-hero {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #334155 60%, #0f172a 100%);
+        position: relative;
+        overflow: hidden;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+    
+    .particles-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .hero-content {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+    }
+    
+    .floating-orbs {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        pointer-events: none;
+    }
+    
+    .orb {
+        position: absolute;
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: float 6s ease-in-out infinite;
+    }
+    
+    .orb:nth-child(1) {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+        background: radial-gradient(circle, var(--neon-yellow), transparent);
+    }
+    
+    .orb:nth-child(2) {
+        width: 150px;
+        height: 150px;
+        top: 60%;
+        right: 15%;
+        animation-delay: 2s;
+        background: radial-gradient(circle, var(--neon-orange), transparent);
+    }
+    
+    .orb:nth-child(3) {
+        width: 80px;
+        height: 80px;
+        bottom: 30%;
+        left: 20%;
+        animation-delay: 4s;
+        background: radial-gradient(circle, var(--neon-blue), transparent);
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0px) scale(1); }
+        50% { transform: translateY(-20px) scale(1.05); }
+    }
+
     .hero-title {
-        font-size: 3.5rem;
-        font-weight: 800;
-        background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
-        background-clip: text;
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 900;
+        background: linear-gradient(45deg, var(--neon-yellow), var(--neon-orange), var(--neon-blue));
+        background-size: 200% 200%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        margin-bottom: 1.5rem;
-        line-height: 1.1;
+        background-clip: text;
+        animation: gradient-shift 3s ease-in-out infinite;
+        text-align: center;
+        margin-bottom: 1rem;
+        text-shadow: 0 0 30px rgba(255, 221, 0, 0.5);
+    }
+
+    @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
     }
 
     .hero-subtitle {
-        font-size: 1.3rem;
-        color: #94a3b8;
-        max-width: 600px;
-        margin: 0 auto 2rem;
-        font-weight: 400;
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        text-align: center;
+        margin-bottom: 3rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-weight: 300;
     }
 
     /* Section Titles */
@@ -289,55 +393,111 @@
         font-size: 1.1rem;
     }
 
-    /* YARA Screenshots */
-    .detection-title {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: #f1f5f9;
-        margin-bottom: 1rem;
-        text-align: center;
-    }
-
-    .detection-description {
-        font-size: 1.1rem;
-        color: #94a3b8;
-        text-align: center;
-        margin-bottom: 3rem;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .yara-screenshots-grid {
+    /* Modern Tech Grid */
+    .tech-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         gap: 2rem;
         margin: 3rem 0;
-        position: relative;
-        z-index: 10;
+        padding: 0 2rem;
     }
 
-    .yara-screenshot-card {
+    .tech-card {
         background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.92));
         backdrop-filter: blur(20px);
-        border: 1px solid rgba(148, 163, 184, 0.1);
+        border: 1px solid rgba(255, 221, 0, 0.2);
         border-radius: 16px;
-        overflow: hidden;
+        padding: 2rem;
+        transition: all 0.3s ease;
         position: relative;
-        z-index: 10;
-    }
-
-    .yara-screenshot-container {
-        position: relative;
-        width: 100%;
-        padding-top: 75%;
         overflow: hidden;
     }
 
-    .yara-screenshot-image {
+    .tech-card::before {
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--neon-yellow), var(--neon-orange), var(--neon-blue));
+        border-radius: 16px 16px 0 0;
+    }
+
+    .tech-card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(255, 221, 0, 0.4);
+        box-shadow: 0 20px 40px rgba(255, 221, 0, 0.15);
+    }
+
+    .tech-card h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--neon-yellow);
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    .tech-card .icon {
+        font-size: 1.8rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        background: linear-gradient(135deg, var(--neon-yellow), var(--neon-orange));
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tech-card p {
+        color: #cbd5e1;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+
+    .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .tag {
+        background: rgba(255, 221, 0, 0.1);
+        color: var(--neon-yellow);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 221, 0, 0.3);
+    }
+
+    /* Glass Card Effect */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--glass-border);
+        border-radius: 16px;
+        transition: all 0.3s ease;
+    }
+
+    .glass-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* YARA Screenshot Styles */
+    .yara-screenshot-container {
+        position: relative;
+        overflow: hidden;
+        border-radius: 12px;
+        aspect-ratio: 16/10;
+    }
+
+    .yara-screenshot-image {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -350,76 +510,100 @@
         left: 0;
         right: 0;
         bottom: 0;
+        background: rgba(0, 0, 0, 0.7);
         display: flex;
         align-items: center;
         justify-content: center;
-        background: rgba(0, 0, 0, 0.6);
-        color: #ffffff;
-        font-size: 1.5rem;
         opacity: 0;
         transition: opacity 0.3s ease;
+        color: var(--neon-yellow);
+        font-size: 2rem;
     }
 
-    .yara-screenshot-card:hover .yara-screenshot-image {
+    .glass-card:hover .yara-screenshot-overlay {
+        opacity: 1;
+    }
+
+    .glass-card:hover .yara-screenshot-image {
         transform: scale(1.05);
     }
 
-    .yara-screenshot-card:hover .yara-screenshot-overlay {
-        opacity: 1;
+    /* YARA Screenshots Grid */
+    .yara-screenshots-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .yara-screenshot-card {
+        background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.92));
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 221, 0, 0.2);
+        border-radius: 16px;
+        padding: 1.5rem;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .yara-screenshot-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 221, 0, 0.4);
+        box-shadow: 0 15px 30px rgba(255, 221, 0, 0.1);
+    }
+
+    .yara-screenshot-content {
+        padding-top: 1rem;
     }
 
     .yara-screenshot-title {
         font-size: 1.2rem;
         font-weight: 600;
-        color: #f1f5f9;
-        margin: 1rem 0 0.5rem;
-        text-align: center;
+        color: var(--neon-yellow);
+        margin-bottom: 0.5rem;
     }
 
     .yara-screenshot-description {
         color: #cbd5e1;
         font-size: 0.9rem;
         line-height: 1.5;
-        margin: 0;
-        text-align: center;
+        margin-bottom: 1rem;
     }
 
     .yara-tags {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-        justify-content: center;
-        margin-top: 0.5rem;
     }
 
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        .hero-title {
-            font-size: 2.5rem;
-        }
-        
-        .research-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-        
-        .research-card {
-            padding: 1.5rem;
-        }
+    .yara-tags .research-tag {
+        background: rgba(255, 221, 0, 0.1);
+        color: var(--neon-yellow);
+        padding: 0.25rem 0.5rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        border: 1px solid rgba(255, 221, 0, 0.3);
+    }
 
-        .page-container {
-            padding: 0 1rem;
-        }
+    /* Detection Title Styles */
+    .detection-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        background: linear-gradient(45deg, var(--neon-yellow), var(--neon-orange));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
 
-        .disclaimer-features {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-
-        .yara-screenshots-grid {
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
+    .detection-description {
+        color: #94a3b8;
+        text-align: center;
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto;
     }
 
     /* Animation */
@@ -441,347 +625,348 @@
 @endpush
 
 @section('content')
-<div class="relative z-10 min-h-screen">
-    <div class="main-content">
-        <div class="page-container">
-        <!-- Warning Banner -->
-        <div class="warning-banner">
-            <h3>
-                <i class="fas fa-exclamation-triangle"></i>
-                Educational Research Only
-            </h3>
+<!-- Detection Hero Section -->
+<div class="detection-hero">
+    <div class="particles-container" id="particles-js"></div>
+    
+    <div class="floating-orbs">
+        <div class="orb"></div>
+        <div class="orb"></div>
+        <div class="orb"></div>
+    </div>
+
+    <div class="hero-content container mx-auto px-4">
+        <div class="warning-banner" data-aos="fade-down">
+            <h3><i class="fas fa-exclamation-triangle"></i> Educational Research Only</h3>
             <p>This content demonstrates detection and response techniques for cybersecurity education and defensive research purposes only. All methodologies are studied to improve threat detection capabilities.</p>
         </div>
-
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <h1 class="hero-title">Detection & Response Research</h1>
-            <p class="hero-subtitle">Advanced Threat Detection & Automated Response Systems for Cybersecurity Defense</p>
-        </section>
-
-        <!-- Research Section -->
-        <section class="py-16">
-            <div class="text-center mb-12">
-                <h2 class="section-title">Detection Technologies</h2>
-                <p class="section-description">
-                    Comprehensive research into modern threat detection and automated response systems for enterprise cybersecurity
-                </p>
-            </div>
-
-            <!-- Research Grid -->
-            <div class="research-grid">
-                <!-- YARA Rules Research -->
-                <div class="research-card fade-in">
-                    <h3 class="research-card-title">
-                        <div class="research-icon">
-                            <i class="fas fa-search"></i>
-                        </div>
-                        YARA Rules Development
-                    </h3>
-                    <p class="research-description">
-                        Research into signature-based detection systems using YARA rule engine for malware identification, pattern matching, and threat classification in cybersecurity defense.
-                    </p>
-                    <div class="research-tags">
-                        <span class="research-tag">Signature Detection</span>
-                        <span class="research-tag">Pattern Matching</span>
-                        <span class="research-tag">Malware Analysis</span>
-                        <span class="research-tag">Rule Engine</span>
-                    </div>
-                    <ul class="research-features">
-                        <li>Custom YARA rule creation for ransomware detection</li>
-                        <li>String and hex pattern identification</li>
-                        <li>Behavioral signature development</li>
-                        <li>Performance optimization techniques</li>
-                    </ul>
-                </div>
-
-                <!-- Behavioral Analysis Research -->
-                <div class="research-card fade-in">
-                    <h3 class="research-card-title">
-                        <div class="research-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        Behavioral Analysis Systems
-                    </h3>
-                    <p class="research-description">
-                        Advanced behavioral analysis methodologies for detecting zero-day threats and sophisticated attack patterns through machine learning and statistical analysis.
-                    </p>
-                    <div class="research-tags">
-                        <span class="research-tag">Behavioral Detection</span>
-                        <span class="research-tag">Machine Learning</span>
-                        <span class="research-tag">Anomaly Detection</span>
-                        <span class="research-tag">Zero-Day Defense</span>
-                    </div>
-                    <ul class="research-features">
-                        <li>Process behavior monitoring and analysis</li>
-                        <li>Network traffic pattern recognition</li>
-                        <li>File system activity monitoring</li>
-                        <li>Registry modification detection</li>
-                    </ul>
-                </div>
-
-                <!-- Automated Response Research -->
-                <div class="research-card fade-in">
-                    <h3 class="research-card-title">
-                        <div class="research-icon">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        Automated Response Systems
-                    </h3>
-                    <p class="research-description">
-                        Development of automated incident response frameworks for rapid threat containment, quarantine procedures, and recovery operations in enterprise environments.
-                    </p>
-                    <div class="research-tags">
-                        <span class="research-tag">Incident Response</span>
-                        <span class="research-tag">Automation</span>
-                        <span class="research-tag">Threat Containment</span>
-                        <span class="research-tag">Recovery Systems</span>
-                    </div>
-                    <ul class="research-features">
-                        <li>Automatic threat isolation protocols</li>
-                        <li>Rapid quarantine implementation</li>
-                        <li>Forensic data preservation</li>
-                        <li>System restoration procedures</li>
-                    </ul>
-                </div>
-
-                <!-- SIEM Integration Research -->
-                <div class="research-card fade-in">
-                    <h3 class="research-card-title">
-                        <div class="research-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        SIEM Integration Analysis
-                    </h3>
-                    <p class="research-description">
-                        Security Information and Event Management system integration research for centralized threat detection, log analysis, and comprehensive security monitoring.
-                    </p>
-                    <div class="research-tags">
-                        <span class="research-tag">SIEM Systems</span>
-                        <span class="research-tag">Log Analysis</span>
-                        <span class="research-tag">Event Correlation</span>
-                        <span class="research-tag">Security Monitoring</span>
-                    </div>
-                    <ul class="research-features">
-                        <li>Multi-source log aggregation</li>
-                        <li>Real-time event correlation</li>
-                        <li>Alert prioritization algorithms</li>
-                        <li>Dashboard and reporting systems</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Educational Disclaimer -->
-        <section class="disclaimer-section">
-            <h3 class="disclaimer-title">
-                <i class="fas fa-graduation-cap"></i>
-                Educational Research Disclaimer
-            </h3>
-            <p class="disclaimer-description">
-                This detection and response research is conducted exclusively for educational cybersecurity purposes and defensive security analysis. All techniques are studied to improve threat detection capabilities and develop better protection mechanisms.
-            </p>
-            <div class="disclaimer-features">
-                <div class="disclaimer-feature">
-                    <i class="fas fa-shield-alt"></i>
-                    <span>Defensive Security Focus</span>
-                </div>
-                <div class="disclaimer-feature">
-                    <i class="fas fa-book"></i>
-                    <span>Academic Learning Purposes</span>
-                </div>
-                <div class="disclaimer-feature">
-                    <i class="fas fa-lock"></i>
-                    <span>Threat Detection Enhancement</span>
-                </div>            </div>
-        </section>
-
-        <!-- YARA Detection Screenshots -->
-        <section class="py-16">
-            <div class="text-center mb-12">
-                <h2 class="detection-title">YARA Rule Development & Testing</h2>
-                <p class="detection-description">
-                    Real-world examples of YARA rule creation, testing, and malware detection capabilities
-                </p>
-            </div>
-            
-            <div class="yara-screenshots-grid">
-                <div class="yara-screenshot-card">
-                    <div class="yara-screenshot-container">
-                        <img src="{{ asset('images/yara/s1.png') }}" alt="YARA Rule Creation" class="yara-screenshot-image">
-                        <div class="yara-screenshot-overlay">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                    <div class="yara-screenshot-content">
-                        <h3 class="yara-screenshot-title">YARA Rule Creation</h3>
-                        <p class="yara-screenshot-description">
-                            Development of custom YARA rules for malware family identification and threat hunting operations.
-                        </p>
-                        <div class="yara-tags">
-                            <span class="research-tag">Rule Development</span>
-                            <span class="research-tag">Pattern Matching</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="yara-screenshot-card">
-                    <div class="yara-screenshot-container">
-                        <img src="{{ asset('images/yara/s2.png') }}" alt="YARA Testing Interface" class="yara-screenshot-image">
-                        <div class="yara-screenshot-overlay">
-                            <i class="fas fa-bug"></i>
-                        </div>
-                    </div>
-                    <div class="yara-screenshot-content">
-                        <h3 class="yara-screenshot-title">Rule Testing Environment</h3>
-                        <p class="yara-screenshot-description">
-                            Testing and validation of YARA rules against known malware samples in controlled environments.
-                        </p>
-                        <div class="yara-tags">
-                            <span class="research-tag">Testing</span>
-                            <span class="research-tag">Validation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="yara-screenshot-card">
-                    <div class="yara-screenshot-container">
-                        <img src="{{ asset('images/yara/s3.png') }}" alt="Detection Results" class="yara-screenshot-image">
-                        <div class="yara-screenshot-overlay">
-                            <i class="fas fa-search"></i>
-                        </div>
-                    </div>
-                    <div class="yara-screenshot-content">
-                        <h3 class="yara-screenshot-title">Detection Analysis</h3>
-                        <p class="yara-screenshot-description">
-                            Analysis of YARA rule performance and detection accuracy in identifying malicious patterns.
-                        </p>
-                        <div class="yara-tags">
-                            <span class="research-tag">Detection</span>
-                            <span class="research-tag">Analysis</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="yara-screenshot-card">
-                    <div class="yara-screenshot-container">
-                        <img src="{{ asset('images/yara/s4.png') }}" alt="Advanced YARA Features" class="yara-screenshot-image">
-                        <div class="yara-screenshot-overlay">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                    </div>
-                    <div class="yara-screenshot-content">
-                        <h3 class="yara-screenshot-title">Advanced Rule Features</h3>
-                        <p class="yara-screenshot-description">
-                            Implementation of advanced YARA features including string modifiers and condition logic.
-                        </p>
-                        <div class="yara-tags">
-                            <span class="research-tag">Advanced Rules</span>
-                            <span class="research-tag">Logic</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="yara-screenshot-card">
-                    <div class="yara-screenshot-container">
-                        <img src="{{ asset('images/yara/s5.png') }}" alt="YARA Performance" class="yara-screenshot-image">
-                        <div class="yara-screenshot-overlay">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                    </div>
-                    <div class="yara-screenshot-content">
-                        <h3 class="yara-screenshot-title">Performance Metrics</h3>
-                        <p class="yara-screenshot-description">
-                            Performance analysis and optimization of YARA rules for large-scale threat hunting operations.
-                        </p>
-                        <div class="yara-tags">
-                            <span class="research-tag">Performance</span>
-                            <span class="research-tag">Optimization</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="yara-screenshot-card">
-                    <div class="yara-screenshot-container">
-                        <img src="{{ asset('images/yara/s6.png') }}" alt="YARA Integration" class="yara-screenshot-image">
-                        <div class="yara-screenshot-overlay"></div></div>
-                            <i class="fas fa-puzzle-piece"></i>
-                        </div>
-                    </div>
-                    <div class="yara-screenshot-content">
-                        <h3 class="yara-screenshot-title">System Integration</h3>
-                        <p class="yara-screenshot-description">
-                            Integration of YARA rules with security platforms and automated detection systems.
-                        </p>
-                        <div class="yara-tags">
-                            <span class="research-tag">Integration</span>
-                            <span class="research-tag">Automation</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="yara-screenshot-card">
-                    <div class="yara-screenshot-container">
-                        <img src="{{ asset('images/yara/s7.png') }}" alt="YARA Command Line" class="yara-screenshot-image">
-                        <div class="yara-screenshot-overlay">
-                            <i class="fas fa-terminal"></i>
-                        </div>
-                    </div>
-                    <div class="yara-screenshot-content">
-                        <h3 class="yara-screenshot-title">Command Line Usage</h3>
-                        <p class="yara-screenshot-description">
-                            Practical usage of YARA through command line interfaces for manual analysis and scripting.
-                        </p>
-                        <div class="yara-tags">
-                            <span class="research-tag">CLI</span>
-                            <span class="research-tag">Scripting</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        
+        <h1 class="hero-title" data-aos="fade-up">Detection & Response Research</h1>
+        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Advanced Threat Detection & Automated Response Systems for Cybersecurity Defense</p>
     </div>
 </div>
+
+<div class="container">
+    <!-- Research Grid -->
+    <div class="tech-grid" data-aos="fade-up" data-aos-delay="400">
+        <!-- YARA Rules Research -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="500">
+            <h3><div class="icon">🔍</div>YARA Rules Development</h3>
+            <p>Research into signature-based detection systems using YARA rule engine for malware identification, pattern matching, and threat classification in cybersecurity defense.</p>
+            <div class="tags">
+                <span class="tag">Signature Detection</span>
+                <span class="tag">Pattern Matching</span>
+                <span class="tag">Malware Analysis</span>
+                <span class="tag">Rule Engine</span>
+            </div>
+            <ul style="color: #cbd5e1; margin: 20px 0; padding-left: 20px;">
+                <li>Custom YARA rule creation for ransomware detection</li>
+                <li>String and hex pattern identification</li>
+                <li>Behavioral signature development</li>
+                <li>Performance optimization techniques</li>
+            </ul>
+        </div>
+
+        <!-- Automated Response Research -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="600">
+            <h3><div class="icon">⚡</div>Automated Response Systems</h3>
+            <p>Development and analysis of automated incident response frameworks for rapid threat containment, isolation protocols, and coordinated defensive actions.</p>
+            <div class="tags">
+                <span class="tag">Incident Response</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Threat Containment</span>
+                <span class="tag">SOAR Integration</span>
+            </div>
+            <ul style="color: #cbd5e1; margin: 20px 0; padding-left: 20px;">
+                <li>Playbook development for common threat scenarios</li>
+                <li>API integration with security tools</li>
+                <li>Automated quarantine and isolation procedures</li>
+                <li>Real-time alerting and notification systems</li>
+            </ul>
+        </div>
+
+        <!-- Behavioral Analysis Research -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="700">
+            <h3><div class="icon">🧠</div>Behavioral Analysis Engine</h3>
+            <p>Machine learning-powered behavioral analysis for detecting anomalous activities, zero-day threats, and advanced persistent threats through pattern recognition.</p>
+            <div class="tags">
+                <span class="tag">Machine Learning</span>
+                <span class="tag">Anomaly Detection</span>
+                <span class="tag">Zero-Day Protection</span>
+                <span class="tag">APT Detection</span>
+            </div>
+            <ul style="color: #cbd5e1; margin: 20px 0; padding-left: 20px;">
+                <li>Neural network-based anomaly detection</li>
+                <li>Process behavior monitoring and analysis</li>
+                <li>Network traffic pattern recognition</li>
+                <li>User behavior analytics implementation</li>
+            </ul>
+        </div>
+
+        <!-- Threat Intelligence Research -->
+        <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="800">
+            <h3><div class="icon">🌐</div>Threat Intelligence Integration</h3>
+            <p>Integration of threat intelligence feeds, IOC management, and contextual threat data to enhance detection accuracy and reduce false positives.</p>
+            <div class="tags">
+                <span class="tag">Threat Intel</span>
+                <span class="tag">IOC Management</span>
+                <span class="tag">Context Analysis</span>
+                <span class="tag">False Positive Reduction</span>
+            </div>
+            <ul style="color: #cbd5e1; margin: 20px 0; padding-left: 20px;">
+                <li>Multi-source threat intelligence aggregation</li>
+                <li>IOC correlation and enrichment</li>
+                <li>Attribution analysis and threat actor profiling</li>
+                <li>Predictive threat modeling</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- YARA Screenshots Section -->
+<section class="py-20 container mx-auto px-4" data-aos="fade-up">
+    <div class="text-center mb-16">
+        <h2 class="text-4xl font-bold mb-6 bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">
+            YARA Rule Analysis
+        </h2>
+        <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            Comprehensive screenshots demonstrating YARA rule development, testing, and implementation for malware detection
+        </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- YARA Screenshot 1 -->
+        <div class="glass-card cursor-pointer" data-image="{{ asset('images/yara/s1.png') }}" data-title="YARA Rule Structure" data-aos="fade-up" data-aos-delay="100">
+            <div class="yara-screenshot-container">
+                <img src="{{ asset('images/yara/s1.png') }}" alt="YARA Rule Structure" class="yara-screenshot-image">
+                <div class="yara-screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Rule Structure Analysis</h3>
+                <p class="text-gray-300 text-sm">Basic YARA rule syntax and structure for malware detection</p>
+            </div>
+        </div>
+
+        <!-- YARA Screenshot 2 -->
+        <div class="glass-card cursor-pointer" data-image="{{ asset('images/yara/s2.png') }}" data-title="Pattern Matching Implementation" data-aos="fade-up" data-aos-delay="200">
+            <div class="yara-screenshot-container">
+                <img src="{{ asset('images/yara/s2.png') }}" alt="Pattern Matching" class="yara-screenshot-image">
+                <div class="yara-screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Pattern Matching</h3>
+                <p class="text-gray-300 text-sm">Advanced pattern matching techniques and string identification</p>
+            </div>
+        </div>
+
+        <!-- YARA Screenshot 3 -->
+        <div class="glass-card cursor-pointer" data-image="{{ asset('images/yara/s3.png') }}" data-title="Condition Logic Development" data-aos="fade-up" data-aos-delay="300">
+            <div class="yara-screenshot-container">
+                <img src="{{ asset('images/yara/s3.png') }}" alt="Condition Logic" class="yara-screenshot-image">
+                <div class="yara-screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Condition Logic</h3>
+                <p class="text-gray-300 text-sm">Complex condition logic for accurate threat detection</p>
+            </div>
+        </div>
+
+        <!-- YARA Screenshot 4 -->
+        <div class="glass-card cursor-pointer" data-image="{{ asset('images/yara/s4.png') }}" data-title="Rule Testing Process" data-aos="fade-up" data-aos-delay="400">
+            <div class="yara-screenshot-container">
+                <img src="{{ asset('images/yara/s4.png') }}" alt="Rule Testing" class="yara-screenshot-image">
+                <div class="yara-screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Rule Testing</h3>
+                <p class="text-gray-300 text-sm">Comprehensive testing methodology for YARA rules</p>
+            </div>
+        </div>
+
+        <!-- YARA Screenshot 5 -->
+        <div class="glass-card cursor-pointer" data-image="{{ asset('images/yara/s5.png') }}" data-title="Performance Optimization" data-aos="fade-up" data-aos-delay="500">
+            <div class="yara-screenshot-container">
+                <img src="{{ asset('images/yara/s5.png') }}" alt="Performance Optimization" class="yara-screenshot-image">
+                <div class="yara-screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Performance Optimization</h3>
+                <p class="text-gray-300 text-sm">Optimization techniques for efficient rule execution</p>
+            </div>
+        </div>
+
+        <!-- YARA Screenshot 6 -->
+        <div class="glass-card cursor-pointer" data-image="{{ asset('images/yara/s6.png') }}" data-title="Integration Framework" data-aos="fade-up" data-aos-delay="600">
+            <div class="yara-screenshot-container">
+                <img src="{{ asset('images/yara/s6.png') }}" alt="Integration Framework" class="yara-screenshot-image">
+                <div class="yara-screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Integration Framework</h3>
+                <p class="text-gray-300 text-sm">Framework integration for enterprise deployment</p>
+            </div>
+        </div>
+
+        <!-- YARA Screenshot 7 -->
+        <div class="glass-card cursor-pointer" data-image="{{ asset('images/yara/s7.png') }}" data-title="Advanced Detection" data-aos="fade-up" data-aos-delay="700">
+            <div class="yara-screenshot-container">
+                <img src="{{ asset('images/yara/s7.png') }}" alt="Advanced Detection" class="yara-screenshot-image">
+                <div class="yara-screenshot-overlay">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            </div>
+            <div class="mt-4">
+                <h3 class="text-lg font-semibold text-yellow-400 mb-2">Advanced Detection</h3>
+                <p class="text-gray-300 text-sm">Advanced techniques for sophisticated threat detection</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- YARA Modal -->
+<div id="yara-modal" class="yara-modal">
+    <div class="yara-modal-content">
+        <button class="yara-modal-close" onclick="closeYaraModal()">×</button>
+        <img id="yara-modal-image" class="yara-modal-image" src="" alt="">
+    </div>
 </div>
 
 @push('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        console.log('Detection & Response Research Interface Loaded');
+    // Particles.js configuration
+    particlesJS('particles-js', {
+        particles: {
+            number: { value: 100, density: { enable: true, value_area: 800 } },
+            color: { value: ["#ffdd00", "#ff6600", "#00d4ff"] },
+            shape: { type: "circle" },
+            opacity: { value: 0.6, random: true },
+            size: { value: 3, random: true },
+            line_linked: {
+                enable: true,
+                distance: 150,
+                color: "#ffffff",
+                opacity: 0.2,
+                width: 1
+            },
+            move: {
+                enable: true,
+                speed: 2,
+                direction: "none",
+                random: true,
+                straight: false,
+                out_mode: "out",
+                bounce: false
+            }
+        },
+        interactivity: {
+            detect_on: "canvas",
+            events: {
+                onhover: { enable: true, mode: "repulse" },
+                onclick: { enable: true, mode: "push" }
+            },
+            modes: {
+                repulse: { distance: 100, duration: 0.4 },
+                push: { particles_nb: 4 }
+            }
+        },
+        retina_detect: true
+    });
+
+    // Initialize AOS (Animate On Scroll)
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-out-cubic',
+        once: true,
+        offset: 100
+    });
+
+    // GSAP Animations
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Hero title animation
+    gsap.from(".hero-title", {
+        duration: 2,
+        y: 100,
+        opacity: 0,
+        ease: "power4.out"
+    });
+
+    // Tech cards animation
+    gsap.from(".tech-card", {
+        scrollTrigger: {
+            trigger: ".tech-grid",
+            start: "top 80%"
+        },
+        duration: 1,
+        y: 50,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "power3.out"
+    });
+
+    // YARA Modal functionality
+    function openYaraModal(imageSrc, title) {
+        const modal = document.getElementById('yara-modal');
+        const modalImage = document.getElementById('yara-modal-image');
         
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        modalImage.src = imageSrc;
+        modalImage.alt = title;
+        modal.style.display = 'flex';
+        
+        // Prevent body scroll
+        document.body.style.overflow = 'hidden';
+    }
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-                }
+    function closeYaraModal() {
+        const modal = document.getElementById('yara-modal');
+        modal.style.display = 'none';
+        
+        // Restore body scroll
+        document.body.style.overflow = 'auto';
+    }
+
+    // Add click event listeners to YARA screenshots
+    document.addEventListener('DOMContentLoaded', function() {
+        const yaraCards = document.querySelectorAll('.glass-card[data-image]');
+        yaraCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const imageSrc = this.getAttribute('data-image');
+                const title = this.getAttribute('data-title');
+                openYaraModal(imageSrc, title);
             });
-        }, observerOptions);
-
-        // Observe all research cards
-        document.querySelectorAll('.research-card').forEach(card => {
-            observer.observe(card);
         });
 
-        // Enhanced hover effects for research cards
-        const cards = document.querySelectorAll('.research-card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px)';
-                this.style.borderColor = 'rgba(59, 130, 246, 0.4)';
-                this.style.boxShadow = '0 25px 50px rgba(59, 130, 246, 0.15)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(-5px)';
-                this.style.borderColor = 'rgba(148, 163, 184, 0.1)';
-                this.style.boxShadow = '0 20px 40px rgba(59, 130, 246, 0.1)';
-            });
+        // Close modal when clicking outside the image
+        document.getElementById('yara-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeYaraModal();
+            }
+        });
+
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeYaraModal();
+            }
         });
     });
 </script>
