@@ -1,10 +1,24 @@
-@extends('layouts.nexus')
-
-@section('title', 'ZPhishing Framework Analysis | Nexus')
-
-@push('styles')
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>ZPhishing Framework Analysis | Nexus</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Prism.js for syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
 <style>
     * {
         margin: 0;
@@ -407,12 +421,9 @@
         
         .info-grid {
             grid-template-columns: 1fr;
-        }
-    }
+        }    }
 </style>
-@endpush
 
-@section('content')
 <div class="container">
     <a href="{{ route('nexus.second-semester-phase2') }}" class="back-button">
         ← Back to Phase 2
@@ -1028,9 +1039,7 @@ if __name__ == "__main__":
     <div class="modal-close" onclick="closeFullscreen()">&times;</div>
     <img id="fullscreen-image" src="" alt="Fullscreen Image">
 </div>
-@endsection
 
-@push('scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 <script>
@@ -1079,8 +1088,9 @@ document.addEventListener('keydown', function(event) {
 // Close fullscreen modal on click outside image
 document.getElementById('fullscreen-modal').addEventListener('click', function(event) {
     if (event.target === this) {
-        closeFullscreen();
+                closeFullscreen();
     }
 });
 </script>
-@endpush
+</body>
+</html>

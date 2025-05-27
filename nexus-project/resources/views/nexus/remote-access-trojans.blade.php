@@ -1,8 +1,23 @@
-@extends('layouts.app')
-
-@section('title', 'Remote Access Trojans Analysis - Nexus Educational Platform')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Remote Access Trojans Analysis - Nexus Educational Platform</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
 <style>
     body {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -346,32 +361,32 @@ class RATClient:
         <h3 class="text-2xl font-bold text-white mb-6">RAT Control Interface</h3>
         <div class="screenshot-gallery">
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/remoteaccess/s1.png') }}" alt="RAT Control Panel" class="w-full h-48 object-cover rounded-lg mb-3">
+                <img src="{{ asset('images/phase 2/remoteaccess/s4.png') }}" alt="RAT Control Panel" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">RAT Control Panel</p>
                 <p class="text-gray-500 text-xs">Main interface for remote system management</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/remoteaccess/s2.png') }}" alt="Remote Desktop View" class="w-full h-48 object-cover rounded-lg mb-3">
+                <img src="{{ asset('images/phase 2/remoteaccess/s5.png') }}" alt="Remote Desktop View" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Remote Desktop Access</p>
                 <p class="text-gray-500 text-xs">Real-time desktop control and monitoring</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/remoteaccess/s3.png') }}" alt="File Manager Interface" class="w-full h-48 object-cover rounded-lg mb-3">
+                <img src="{{ asset('images/phase 2/remoteaccess/s7.png') }}" alt="File Manager Interface" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Remote File Manager</p>
                 <p class="text-gray-500 text-xs">File system navigation and manipulation</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/remoteaccess/s4.png') }}" alt="Process Manager" class="w-full h-48 object-cover rounded-lg mb-3">
+                <img src="{{ asset('images/phase 2/remoteaccess/s9.png') }}" alt="Process Manager" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Process Manager</p>
                 <p class="text-gray-500 text-xs">System process monitoring and control</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/remoteaccess/s5.png') }}" alt="Keylogger Data" class="w-full h-48 object-cover rounded-lg mb-3">
+                <img src="{{ asset('images/phase 2/remoteaccess/s10.png') }}" alt="Keylogger Data" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Keystroke Logging</p>
                 <p class="text-gray-500 text-xs">Captured keyboard input and credentials</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/remoteaccess/s6.png') }}" alt="Network Monitoring" class="w-full h-48 object-cover rounded-lg mb-3">
+                <img src="{{ asset('images/phase 2/remoteaccess/s11.png') }}" alt="Network Monitoring" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Network Monitoring</p>
                 <p class="text-gray-500 text-xs">C2 communication and traffic analysis</p>
             </div>
@@ -419,4 +434,5 @@ function openFullscreen(element) {
     });
 }
 </script>
-@endsection
+</body>
+</html>

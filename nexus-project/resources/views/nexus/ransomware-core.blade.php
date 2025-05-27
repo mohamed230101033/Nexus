@@ -1,8 +1,23 @@
-@extends('layouts.app')
-
-@section('title', 'Ransomware Core Analysis - Nexus Educational Platform')
-
-@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Ransomware Core Analysis - Nexus Educational Platform</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
 <style>
     body {
         background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -325,29 +340,28 @@ class RansomwareCore:
             </p>
         </div>
     </div>
-
-    <div id="screenshots" class="tab-content hidden">
+    <div id="screenshots" class="tab-content hidden"></div>
         <h3 class="text-2xl font-bold text-white mb-6">Simulation Screenshots</h3>
         <div class="screenshot-gallery">
-            <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/s1/1.png') }}" alt="Ransomware Initial Execution" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">Initial Execution Phase</p>
-                <p class="text-gray-500 text-xs">Ransomware deployment and initialization</p>
+            <div class="screenshot-item" onclick="openFullscreen(this)"></div>
+                <img src="{{ asset('images/phase 2/Ransom/skip_large_file.png') }}" alt="Skipping Large Files" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Large File Management</p>
+                <p class="text-gray-500 text-xs">Size threshold filtering during encryption process</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/s1/2.png') }}" alt="File Encryption Process" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">File Encryption Process</p>
-                <p class="text-gray-500 text-xs">AES-256 encryption in progress</p>
+                <img src="{{ asset('images/phase 2/Ransom/ransomware_file_listing.png') }}" alt="Ransomware File Listing" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Target File Enumeration</p>
+                <p class="text-gray-500 text-xs">Listing of files selected for encryption</p>
             </div>
             <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/s1/3.png') }}" alt="Ransom Note Display" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">Ransom Note Display</p>
-                <p class="text-gray-500 text-xs">Victim notification and payment instructions</p>
+                <img src="{{ asset('images/phase 2/Ransom/verify_file_isEncrypted.png') }}" alt="Encryption Verification" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Encryption Verification</p>
+                <p class="text-gray-500 text-xs">Confirmation of successfully encrypted files</p>
             </div>
-            <div class="screenshot-item" onclick="openFullscreen(this)">
-                <img src="{{ asset('images/phase 2/s1/4.png') }}" alt="System Impact Analysis" class="w-full h-48 object-cover rounded-lg mb-3">
-                <p class="text-gray-400 text-sm font-medium">System Impact Analysis</p>
-                <p class="text-gray-500 text-xs">File system modifications and damage assessment</p>
+            <div class="screenshot-item" onclick="openFullscreen(this)"></div>
+                <img src="{{ asset('images/phase 2/Ransom/infos.png') }}" alt="Ransomware Information" class="w-full h-48 object-cover rounded-lg mb-3">
+                <p class="text-gray-400 text-sm font-medium">Operation Statistics</p>
+                <p class="text-gray-500 text-xs">Details and metrics of encryption operation</p>
             </div>
         </div>
     </div>
@@ -393,4 +407,5 @@ function openFullscreen(element) {
     });
 }
 </script>
-@endsection
+</body>
+</html>

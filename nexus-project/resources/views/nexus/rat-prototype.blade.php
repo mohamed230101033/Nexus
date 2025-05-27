@@ -556,6 +556,58 @@
             background-size: 30px 30px;
         }
     }
+
+    .container {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .evasion-hero {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 30%, #334155 60%, #0f172a 100%);
+        position: relative;
+        overflow: hidden;
+        padding: 6rem 0;
+    }
+
+    .warning-banner {
+        margin-bottom: 2rem;
+    }
+
+    .hero-title {
+        font-size: 4rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .hero-subtitle {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .tech-grid {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 2rem 0;
+    }
+
+    @media (max-width: 768px) {
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+        
+        .warning-banner {
+            margin: 1rem;
+        }
+    }
 </style>
 @endpush
 
@@ -568,27 +620,29 @@
 
 @section('content')
 <!-- Hero Section with Particles -->
-<div class="evasion-hero">
+<div class="evasion-hero min-h-screen flex items-center justify-center">
     <div class="particles-container" id="particles-js"></div>
     <div class="floating-orbs">
         <div class="orb"></div>
         <div class="orb"></div>
         <div class="orb"></div>
     </div>
-    <div class="container hero-content">
+    <div class="container mx-auto px-4 max-w-6xl text-center">
         <!-- Warning Banner -->
-        <div class="warning-banner">
+        <div class="warning-banner mx-auto max-w-4xl">
             <h3><i class="fas fa-exclamation-triangle"></i> Educational Research Only</h3>
             <p>This content demonstrates RAT development concepts for cybersecurity education and defensive research purposes only. All implementations are theoretical and designed for academic understanding.</p>
         </div>
         
-        <h1 class="hero-title" data-aos="fade-up">RAT Prototype Research</h1>
-        <p class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">Remote Access Tool Development & Analysis for Cybersecurity Education</p>
+        <h1 class="hero-title mt-8" data-aos="fade-up">RAT Prototype Research</h1>
+        <p class="hero-subtitle mx-auto" data-aos="fade-up" data-aos-delay="200">Remote Access Tool Development & Analysis for Cybersecurity Education</p>
     </div>
 </div>
 
-<div class="container">    <!-- Research Grid -->
-    <div class="tech-grid" data-aos="fade-up" data-aos-delay="400">        <!-- UAC Bypass Research -->
+<div class="container mx-auto px-4 max-w-6xl">
+    <!-- Research Grid -->
+    <div class="tech-grid" data-aos="fade-up" data-aos-delay="400">
+        <!-- UAC Bypass Research -->
         <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="500">
             <h3><div class="icon">🛡️</div>UAC Bypass Research</h3>
             <p>Educational analysis of Windows User Account Control bypass techniques through social engineering and registry manipulation for defensive cybersecurity research.</p>
@@ -604,7 +658,8 @@
                 <li>Administrative privilege acquisition</li>
                 <li>Detection and prevention strategies</li>
             </ul>
-        </div>        <!-- Credential Extraction Analysis -->
+        </div>
+        <!-- Credential Extraction Analysis -->
         <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="600">
             <h3><div class="icon">🔐</div>Credential Extraction Analysis</h3>
             <p>Research into browser credential storage mechanisms and extraction methodologies for understanding data protection vulnerabilities in web browsers.</p>
@@ -620,7 +675,8 @@
                 <li>Cookie and session extraction</li>
                 <li>Secure data transmission protocols</li>
             </ul>
-        </div>        <!-- WebSocket Exploit Research -->
+        </div>
+        <!-- WebSocket Exploit Research -->
         <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="700">
             <h3><div class="icon">🌐</div>WebSocket Exploit Research</h3>
             <p>Analysis of Chromium DevTools WebSocket protocol vulnerabilities and exploitation techniques for understanding browser security architecture.</p>
@@ -636,7 +692,8 @@
                 <li>Remote debugging interfaces</li>
                 <li>Communication channel establishment</li>
             </ul>
-        </div>        <!-- Browser Data Research -->
+        </div>
+        <!-- Browser Data Research -->
         <div class="tech-card glass-card" data-aos="fade-up" data-aos-delay="800">
             <h3><div class="icon">📊</div>Browser Data Research</h3>
             <p>Comprehensive study of browser data storage, session management, and security mechanisms to understand modern web application vulnerabilities.</p>
@@ -680,6 +737,159 @@
         </div>
     </div>
 </div>
+
+<!-- Code Analysis Cards -->
+<section class="py-16 bg-gray-900/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-bold text-center text-white mb-12">Key Components Analysis</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- System Reconnaissance Card -->
+            <div class="bg-gray-800/50 rounded-xl p-6 border border-purple-500/30 hover:border-purple-400/50 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-search text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-400">System Reconnaissance</h3>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Gathers system information using environment variables and paths:
+                    </p>
+                    <div class="bg-gray-900/50 rounded-lg p-4">
+                        <pre class="text-sm text-blue-300"><code>USER_PROFILE = os.getenv('USERPROFILE')
+APPDATA = os.getenv('APPDATA')
+LOCALAPPDATA = os.getenv('LOCALAPPDATA')</code></pre>
+                    </div>
+                    <p class="text-gray-400 text-xs">
+                        Maps critical system directories for analysis and monitoring.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Browser Data Collection Card -->
+            <div class="bg-gray-800/50 rounded-xl p-6 border border-blue-500/30 hover:border-blue-400/50 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-globe text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-blue-400">Browser Analysis</h3>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Analyzes browser data paths and security mechanisms:
+                    </p>
+                    <div class="bg-gray-900/50 rounded-lg p-4">
+                        <pre class="text-sm text-blue-300"><code>CHROME_PATHS = [
+    {"name": "Chrome", "path": "..."},
+    {"name": "Edge", "path": "..."},
+    {"name": "Brave", "path": "..."}
+]</code></pre>
+                    </div>
+                    <p class="text-gray-400 text-xs">
+                        Maps browser profiles and data storage locations.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Encryption Analysis Card -->
+            <div class="bg-gray-800/50 rounded-xl p-6 border border-green-500/30 hover:border-green-400/50 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-lock text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-green-400">Encryption Analysis</h3>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Studies encryption and decryption mechanisms:
+                    </p>
+                    <div class="bg-gray-900/50 rounded-lg p-4">
+                        <pre class="text-sm text-green-300"><code>def decrypt_data(data, key):
+    iv = data[3:15]
+    cipher = AES.new(key, AES.MODE_GCM, iv)
+    return cipher.decrypt(data)[:-16]</code></pre>
+                    </div>
+                    <p class="text-gray-400 text-xs">
+                        Implements AES-GCM decryption for secure data handling.
+                    </p>
+                </div>
+            </div>
+
+            <!-- File System Analysis Card -->
+            <div class="bg-gray-800/50 rounded-xl p-6 border border-red-500/30 hover:border-red-400/50 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-folder-open text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-red-400">File System Analysis</h3>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Studies file system operations and data handling:
+                    </p>
+                    <div class="bg-gray-900/50 rounded-lg p-4">
+                        <pre class="text-sm text-red-300"><code>PATHS_TO_SEARCH = [
+    USER_PROFILE + "\\Desktop",
+    USER_PROFILE + "\\Documents",
+    USER_PROFILE + "\\Downloads"
+]</code></pre>
+                    </div>
+                    <p class="text-gray-400 text-xs">
+                        Maps critical file system locations and access patterns.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Process Management Card -->
+            <div class="bg-gray-800/50 rounded-xl p-6 border border-yellow-500/30 hover:border-yellow-400/50 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-microchip text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-yellow-400">Process Management</h3>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Analyzes process control and management:
+                    </p>
+                    <div class="bg-gray-900/50 rounded-lg p-4">
+                        <pre class="text-sm text-yellow-300"><code>def kill_process(process_name):
+    result = subprocess.Popen(
+        f"taskkill /im {process_name} /t /f"
+    )</code></pre>
+                    </div>
+                    <p class="text-gray-400 text-xs">
+                        Studies process termination and control mechanisms.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Network Communication Card -->
+            <div class="bg-gray-800/50 rounded-xl p-6 border border-cyan-500/30 hover:border-cyan-400/50 transition-all duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center mr-4">
+                        <i class="fas fa-network-wired text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-cyan-400">Network Analysis</h3>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Studies network communication patterns:
+                    </p>
+                    <div class="bg-gray-900/50 rounded-lg p-4">
+                        <pre class="text-sm text-cyan-300"><code>import socket, threading, json
+import requests
+import websocket</code></pre>
+                    </div>
+                    <p class="text-gray-400 text-xs">
+                        Analyzes network protocols and data transmission methods.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

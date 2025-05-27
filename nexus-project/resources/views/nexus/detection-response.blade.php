@@ -1036,7 +1036,7 @@
         <!-- Video Player -->
         <div class="video-container mb-4">
             <video id="analysisVideo" class="w-full rounded-lg" controls>
-                <source src="/path/to/your/video.mp4" type="video/mp4">
+                <source src="{{ asset('videos/sample-analysis.mp4') }}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -1219,30 +1219,82 @@
         });
     });
 
-    // Analysis Functions
+    // Pattern Testing Functions
     function analyzeInput() {
-        const textInput = document.getElementById('textInput').value;
-        const patternInput = document.getElementById('patternInput').value;
+        const input = document.getElementById('patternInput').value;
         const resultsDiv = document.getElementById('analysisResults');
         const resultsContent = document.getElementById('resultsContent');
-
-        if (!textInput && !patternInput) {
-            alert('Please enter some text or patterns to analyze');
+        
+        if (!input.trim()) {
+            alert('Please enter a pattern to analyze');
             return;
         }
 
-        // Show results
+        // Simple pattern analysis (for educational purposes)
+        const analysis = {
+            length: input.length,
+            hasSpecialChars: /[!@#$%^&*(),.?":{}|<>]/.test(input),
+            hasNumbers: /\d/.test(input),
+            hasUpperCase: /[A-Z]/.test(input),
+            hasLowerCase: /[a-z]/.test(input),
+            repeatingPatterns: findRepeatingPatterns(input),
+            entropy: calculateEntropy(input)
+        };
+
+        // Format results
+        const results = `Pattern Analysis Results:
+• Length: ${analysis.length} characters
+• Contains Special Characters: ${analysis.hasSpecialChars ? 'Yes' : 'No'}
+• Contains Numbers: ${analysis.hasNumbers ? 'Yes' : 'No'}
+• Contains Uppercase: ${analysis.hasUpperCase ? 'Yes' : 'No'}
+• Contains Lowercase: ${analysis.hasLowerCase ? 'Yes' : 'No'}
+• Entropy Score: ${analysis.entropy.toFixed(2)}
+${analysis.repeatingPatterns.length > 0 ? '\nRepeating Patterns Found:\n' + analysis.repeatingPatterns.join('\n') : '\nNo significant repeating patterns found'}`;
+
+        // Display results
+        resultsContent.textContent = results;
         resultsDiv.classList.remove('hidden');
-        resultsContent.textContent = `Analyzing:
-Text: ${textInput}
-Patterns: ${patternInput}
-        `;
     }
 
     function clearInput() {
-        document.getElementById('textInput').value = '';
         document.getElementById('patternInput').value = '';
         document.getElementById('analysisResults').classList.add('hidden');
+        document.getElementById('resultsContent').textContent = '';
+    }
+
+    function findRepeatingPatterns(input) {
+        const patterns = [];
+        const minLength = 3;
+        
+        // Look for repeating sequences
+        for (let len = minLength; len <= Math.floor(input.length / 2); len++) {
+            for (let i = 0; i <= input.length - len; i++) {
+                const pattern = input.substr(i, len);
+                const remaining = input.substr(i + len);
+                if (remaining.includes(pattern)) {
+                    patterns.push(`"${pattern}" (length: ${len})`);
+                }
+            }
+        }
+        
+        // Return unique patterns
+        return [...new Set(patterns)];
+    }
+
+    function calculateEntropy(input) {
+        const len = input.length;
+        const frequencies = {};
+        
+        // Calculate character frequencies
+        for (let i = 0; i < len; i++) {
+            frequencies[input[i]] = (frequencies[input[i]] || 0) + 1;
+        }
+        
+        // Calculate entropy
+        return Object.values(frequencies).reduce((entropy, freq) => {
+            const p = freq / len;
+            return entropy - (p * Math.log2(p));
+        }, 0);
     }
 
     // Video Functions
