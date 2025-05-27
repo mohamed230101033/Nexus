@@ -77,6 +77,14 @@ class NexusController extends Controller
     }
 
     /**
+     * Display EDR Detection and Defence page
+     */
+    public function edrDetectionDefence()
+    {
+        return view('nexus.edr-detection-defence');
+    }
+
+    /**
      * Display NEXUS x MYC section
      */
     public function mycGame()

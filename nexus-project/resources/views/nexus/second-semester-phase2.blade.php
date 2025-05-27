@@ -557,150 +557,74 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Sub-Module 2: Detection and Defence -->
+          <!-- Sub-Module 2: Detection and Defence -->
         <div id="detection-defence" class="mb-20">
             <div class="bg-gray-800 rounded-xl p-8 border border-green-500 mb-8">
-                <div class="flex items-center mb-6">
-                    <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mr-6">
-                        <i class="fas fa-shield-alt text-white text-2xl"></i>
-                    </div>
-                    <div>
-                        <h3 class="text-3xl font-bold text-white">Sub-Module 2: Detection and Defence</h3>
-                        <p class="text-green-400 font-semibold">Unified Security Operations Platform</p>
-                    </div>
-                </div>
-                
-                <!-- Combined Defense Tools -->
-                <div class="bg-gradient-to-r from-green-900/20 to-blue-900/20 rounded-lg p-6 mb-8">
-                    <h4 class="text-2xl font-bold text-white mb-6 text-center">Integrated Security Stack</h4>
-                    <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Wazuh -->
-                        <div class="defense-tool bg-gray-900/50 rounded-lg p-6 border border-green-500/30 hover:border-green-400 transition-all duration-300">
-                            <div class="text-center mb-4">
-                                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-eye text-white text-2xl"></i>
-                                </div>
-                                <h5 class="text-xl font-bold text-green-400">Wazuh SIEM</h5>
-                                <p class="text-gray-400 text-sm">Security Information & Event Management</p>
-                            </div>
-                            <ul class="space-y-2 text-gray-300 text-sm">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                    Real-time log analysis
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                    Threat detection rules
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                    Compliance monitoring
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
-                                    Incident response
-                                </li>
-                            </ul>
+                <div class="flex items-center justify-between mb-6">
+                    <div class="flex items-center">
+                        <div class="w-16 h-16 bg-green-600 rounded-lg flex items-center justify-center mr-6">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
                         </div>
-
-                        <!-- Suricata -->
-                        <div class="defense-tool bg-gray-900/50 rounded-lg p-6 border border-blue-500/30 hover:border-blue-400 transition-all duration-300">
-                            <div class="text-center mb-4">
-                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-network-wired text-white text-2xl"></i>
-                                </div>
-                                <h5 class="text-xl font-bold text-blue-400">Suricata IDS/IPS</h5>
-                                <p class="text-gray-400 text-sm">Network Intrusion Detection/Prevention</p>
-                            </div>
-                            <ul class="space-y-2 text-gray-300 text-sm">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                                    Network traffic analysis
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                                    Signature-based detection
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                                    Protocol anomaly detection
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-blue-500 mr-2"></i>
-                                    NSM capabilities
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- YARA -->
-                        <div class="defense-tool bg-gray-900/50 rounded-lg p-6 border border-purple-500/30 hover:border-purple-400 transition-all duration-300">
-                            <div class="text-center mb-4">
-                                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-search text-white text-2xl"></i>
-                                </div>
-                                <h5 class="text-xl font-bold text-purple-400">YARA Rules</h5>
-                                <p class="text-gray-400 text-sm">Malware Pattern Matching</p>
-                            </div>
-                            <ul class="space-y-2 text-gray-300 text-sm">
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-purple-500 mr-2"></i>
-                                    Custom rule creation
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-purple-500 mr-2"></i>
-                                    Malware identification
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-purple-500 mr-2"></i>
-                                    File scanning engine
-                                </li>
-                                <li class="flex items-center">
-                                    <i class="fas fa-check-circle text-purple-500 mr-2"></i>
-                                    Threat hunting
-                                </li>
-                            </ul>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white">Sub-Module 2: Detection and Defence</h3>
+                            <p class="text-green-400 font-semibold">Advanced Security Monitoring and Threat Detection Systems</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Integration Workflow -->
-                <div class="bg-gray-900/50 rounded-lg p-6">
-                    <h4 class="text-xl font-bold text-white mb-6 text-center">Unified Detection Workflow</h4>
-                    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 md:space-x-4">
-                        <div class="workflow-step flex-1 text-center">
-                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span class="text-white font-bold">1</span>
+                <!-- Navigation Card -->
+                <div class="bg-gradient-to-br from-green-900/50 to-emerald-800/50 rounded-lg p-8 border border-green-500/30 hover:border-green-400 transition-all duration-300 transform hover:scale-105">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                            <i class="fas fa-external-link-alt text-white text-2xl"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-4">Explore Detection & Defence</h4>
+                        <p class="text-green-200 mb-6 leading-relaxed max-w-2xl mx-auto">
+                            Dive into comprehensive endpoint detection and response systems featuring Wazuh SIEM, 
+                            Suricata IDS, and YARA rules. Experience real-time security dashboards, threat analytics, 
+                            and unified detection workflows in an immersive learning environment.
+                        </p>
+                        
+                        <div class="grid md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-green-900/30 rounded-lg p-4 border border-green-500/20">
+                                <i class="fas fa-server text-green-400 text-2xl mb-2"></i>
+                                <h5 class="text-green-300 font-semibold">Wazuh SIEM</h5>
+                                <p class="text-green-200 text-sm">Centralized security monitoring</p>
                             </div>
-                            <h5 class="text-blue-400 font-semibold mb-2">Network Monitoring</h5>
-                            <p class="text-gray-400 text-sm">Suricata captures and analyzes network traffic for suspicious patterns</p>
-                        </div>
-                        <div class="hidden md:block text-gray-500">
-                            <i class="fas fa-arrow-right text-2xl"></i>
-                        </div>
-                        <div class="workflow-step flex-1 text-center">
-                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span class="text-white font-bold">2</span>
+                            <div class="bg-green-900/30 rounded-lg p-4 border border-green-500/20">
+                                <i class="fas fa-network-wired text-green-400 text-2xl mb-2"></i>
+                                <h5 class="text-green-300 font-semibold">Suricata IDS</h5>
+                                <p class="text-green-200 text-sm">Network intrusion detection</p>
                             </div>
-                            <h5 class="text-purple-400 font-semibold mb-2">Pattern Matching</h5>
-                            <p class="text-gray-400 text-sm">YARA rules identify known malware signatures and behavioral patterns</p>
-                        </div>
-                        <div class="hidden md:block text-gray-500">
-                            <i class="fas fa-arrow-right text-2xl"></i>
-                        </div>
-                        <div class="workflow-step flex-1 text-center">
-                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-3">
-                                <span class="text-white font-bold">3</span>
+                            <div class="bg-green-900/30 rounded-lg p-4 border border-green-500/20">
+                                <i class="fas fa-search text-green-400 text-2xl mb-2"></i>
+                                <h5 class="text-green-300 font-semibold">YARA Rules</h5>
+                                <p class="text-green-200 text-sm">Malware pattern matching</p>
                             </div>
-                            <h5 class="text-green-400 font-semibold mb-2">Centralized Analysis</h5>
-                            <p class="text-gray-400 text-sm">Wazuh correlates events and triggers automated response procedures</p>
+                        </div>
+
+                        <a href="{{ route('nexus.edr-detection-defence') }}" 
+                           class="inline-flex items-center bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+                            <i class="fas fa-shield-alt mr-3"></i>
+                            Launch Detection & Defence Module
+                            <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Educational Notice -->
+                <div class="bg-green-900 bg-opacity-30 border border-green-500/50 rounded-lg p-4 mt-6">
+                    <div class="flex items-center">
+                        <i class="fas fa-graduation-cap text-green-400 text-xl mr-3"></i>
+                        <div>
+                            <h5 class="text-green-300 font-semibold">Educational Framework</h5>
+                            <p class="text-green-200 text-sm">This module demonstrates defensive security tools within an ethical learning environment. All tools and techniques are presented for educational purposes only.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Sub-Module 3: Analysis & Detection -->
+<!-- Sub-Module 3: Analysis & Detection -->
         <div id="analysis-detection" class="mb-20">
             <div class="bg-gray-800 rounded-xl p-8 border border-yellow-500 mb-8">
                 <div class="flex items-center mb-6">
@@ -924,7 +848,7 @@
                                     <i class="fas fa-check-circle text-green-400"></i>
                                 </div>
                             </div>
-                            <div class="metric-card bg-purple-900/20 border border-purple-500/50 rounded-lg p-4 text-center hover:bg-purple-900/30 transition-all duration-300 cursor-pointer">
+                            <div class="metric-card bg-purple-900/20 border border-purple-500/50 rounded-lg p-4 text-center hover:bg-purple-900/30 transition-all duration-300 cursor-pointer"></div>
                                 <div class="text-2xl font-bold text-purple-400">24h</div>
                                 <div class="text-gray-400 text-sm">Avg Analysis Time</div>
                                 <div class="mt-2">
@@ -934,10 +858,10 @@
                         </div>
 
                         <!-- Trend Analysis -->
-                        <div class="bg-gray-900/50 rounded-lg p-6">
+                        <div class="bg-gray-900/50 rounded-lg p-6"></div>
                             <h5 class="text-lg font-bold text-yellow-400 mb-4">Threat Landscape Trends</h5>
                             <div class="space-y-3 text-sm text-gray-300">
-                                <div class="flex items-center justify-between">
+                                <div class="flex items-center justify-between"></div></div>
                                     <span>Banking Trojans</span>
                                     <span class="text-red-400">↑ 23%</span>
                                 </div>
@@ -949,7 +873,7 @@
                                     <span>Adware</span>
                                     <span class="text-green-400">↓ 8%</span>
                                 </div>
-                                <div class="flex items-center justify-between">
+                                <div class="flex items-center justify-between"></div>
                                     <span>Spyware</span>
                                     <span class="text-orange-400">↑ 5%</span>
                                 </div>
@@ -963,33 +887,33 @@
 
     <!-- Research Deliverables -->
     <section class="py-20 bg-gray-800/50 rounded-xl">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16"></div>
             <h2 class="text-4xl font-bold text-white mb-6">Phase 2 Deliverables</h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto"></p>
                 Expected outcomes and deliverables from Phase 2 implementation work
             </p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-red-500 transition-all duration-300">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-red-500 transition-all duration-300"></div>
                 <i class="fas fa-laptop-code text-red-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Simulation Platform</h3>
                 <p class="text-gray-400 text-sm">Complete educational malware simulation environment</p>
             </div>
             
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-green-500 transition-all duration-300">
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-green-500 transition-all duration-300"></div>
                 <i class="fas fa-shield text-green-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Defense System</h3>
                 <p class="text-gray-400 text-sm">Comprehensive detection and response framework</p>
             </div>
             
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-yellow-500 transition-all duration-300">
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-yellow-500 transition-all duration-300"></div>
                 <i class="fas fa-chart-pie text-yellow-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Analytics Dashboard</h3>
                 <p class="text-gray-400 text-sm">Interactive statistical analysis and visualization tools</p>
             </div>
             
-            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-purple-500 transition-all duration-300">
+            <div class="bg-gray-900 rounded-xl p-6 border border-gray-700 text-center hover:border-purple-500 transition-all duration-300"></div>
                 <i class="fas fa-file-alt text-purple-400 text-3xl mb-4"></i>
                 <h3 class="text-lg font-semibold text-white mb-2">Research Report</h3>
                 <p class="text-gray-400 text-sm">Comprehensive documentation of findings and methodologies</p>
@@ -999,16 +923,16 @@
 
     <!-- Integration with Phase 1 -->
     <section class="py-20">
-        <div class="text-center mb-16">
+        <div class="text-center mb-16"></div>
             <h2 class="text-4xl font-bold text-white mb-6">Integration with Phase 1</h2>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto"></p>
                 How Phase 2 builds upon and extends Phase 1 foundation research
             </p>
         </div>
         
         <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6">
+            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700"></div>
+                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-6"></div>
                     <i class="fas fa-link text-white text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-4">Foundation Application</h3>
@@ -1018,18 +942,18 @@
                 </p>
             </div>
             
-            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
-                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6">
+            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700"></div>
+                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-6"></div>
                     <i class="fas fa-arrows-alt text-white text-xl"></i>
                 </div>
                 <h3 class="text-xl font-semibold text-white mb-4">Cross-Reference</h3>
-                <p class="text-gray-300">
+                <p class="text-gray-300"></p>
                     Continuous cross-referencing between Phase 1 findings and Phase 2 
                     implementations ensures theoretical accuracy and practical relevance.
                 </p>
             </div>
             
-            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+            <div class="bg-gray-800 rounded-xl p-8 border border-gray-700"></div>
                 <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-6">
                     <i class="fas fa-chart-line text-white text-xl"></i>
                 </div>

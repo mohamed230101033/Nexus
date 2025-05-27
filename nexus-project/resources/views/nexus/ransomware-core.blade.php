@@ -338,12 +338,12 @@ class RansomwareCore:
                 based on observed attack techniques and indicators of compromise. Generate comprehensive 
                 reports for cybersecurity education and training purposes.
             </p>
-        </div>
-    </div>
-    <div id="screenshots" class="tab-content hidden"></div>
+        </div>    </div>
+    
+    <div id="screenshots" class="tab-content hidden">
         <h3 class="text-2xl font-bold text-white mb-6">Simulation Screenshots</h3>
         <div class="screenshot-gallery">
-            <div class="screenshot-item" onclick="openFullscreen(this)"></div>
+            <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/Ransom/skip_large_file.png') }}" alt="Skipping Large Files" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Large File Management</p>
                 <p class="text-gray-500 text-xs">Size threshold filtering during encryption process</p>
@@ -357,8 +357,7 @@ class RansomwareCore:
                 <img src="{{ asset('images/phase 2/Ransom/verify_file_isEncrypted.png') }}" alt="Encryption Verification" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Encryption Verification</p>
                 <p class="text-gray-500 text-xs">Confirmation of successfully encrypted files</p>
-            </div>
-            <div class="screenshot-item" onclick="openFullscreen(this)"></div>
+            </div>            <div class="screenshot-item" onclick="openFullscreen(this)">
                 <img src="{{ asset('images/phase 2/Ransom/infos.png') }}" alt="Ransomware Information" class="w-full h-48 object-cover rounded-lg mb-3">
                 <p class="text-gray-400 text-sm font-medium">Operation Statistics</p>
                 <p class="text-gray-500 text-xs">Details and metrics of encryption operation</p>
